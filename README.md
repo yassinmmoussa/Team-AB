@@ -1,3 +1,14 @@
+# INITIAL SETUP
+First you need `npm` and `node`. These can be found [here](https://nodejs.org/en/). 
+
+Once installed, run 
+`npm install -g @angular/cli`
+
+Navigate to the project folder and run
+`npm install`
+
+To see the web-page, see Development server below.
+
 # TimetableApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
