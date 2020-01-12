@@ -1,13 +1,34 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const compression = require("compression");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
-var app = express();
+const app = express();
+app.use(compression());
+
+/**
+ * https://itnext.io/express-server-for-an-angular-application-part-1-getting-started-2cd27de691bd
+ * 
+ * Above link is where the ideas bedind this routing code came from
+ */
+const app_folder = '../Frontend/dist/timetable-app';
+
+//-- Serve Static Files --//
+app.get('*.*', express.static(app_folder, {maxAge: '1y'}));
+
+//-- Serve Application Paths --//
+app.all('*', function(req, res) {
+  res.status(200).sendFile('/', {root: app_folder});
+});
+
+/**
+ * END OF ROUTING from the link above
+ */
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
