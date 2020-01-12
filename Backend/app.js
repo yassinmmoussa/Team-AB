@@ -23,7 +23,9 @@ app.get('*.*', express.static(app_folder, {maxAge: '1y'}));
 //-- Serve Application Paths --//
 app.get('*', function(req, res) {
   
+  // Can only be seen when running the application locally
   console.log("Someone has requested our URL!");
+
   res.status(200).sendFile('/', {root: app_folder});
 
 });
@@ -40,7 +42,9 @@ app.get('*', function(req, res) {
 // This isn't working
 app.post('/', function(req, res) {
 
+  // Can only be seen when running the application locally
   console.log("Someone pressed the button!");
+  
   res.status(200).sendFile('/', {root: app_folder});
   
 });
