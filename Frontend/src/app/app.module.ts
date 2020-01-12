@@ -15,7 +15,8 @@ import { TagListComponent } from './semester/filter/tag-list/tag-list.component'
 import { CourseListComponent } from './semester/filter/course-list/course-list.component';
 import { ConfigBarComponent } from './semester/scheduler/config-bar/config-bar.component';
 import { CalendarComponent } from './semester/scheduler/calendar/calendar.component';
-import { DayComponent } from './semester/scheduler/day/day.component';
+import { DayComponent } from './semester/scheduler/calendar/day/day.component';
+
 
 @NgModule({
   declarations: [
