@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTreeModule } from '@angular/material/tree';
 
 import { SemesterComponent } from './semester/semester.component';
 import { FilterComponent } from './semester/filter/filter.component';
@@ -35,7 +36,8 @@ import { DayComponent } from './semester/scheduler/calendar/day/day.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTreeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
