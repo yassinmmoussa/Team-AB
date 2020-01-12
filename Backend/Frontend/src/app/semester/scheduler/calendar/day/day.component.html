@@ -1,0 +1,14 @@
+<div class="day-body">
+  <span class="day-title">{{day.name}}</span>
+  <div class="block-wrapper">
+    
+    <div
+      *ngFor="let item of arrayOne(numBlocks); let i = index"
+      class="block"
+      [ngStyle]="{
+        'height':100/numBlocks+'%';
+
+      }">
+    </div>
+  </div>
+</div>
