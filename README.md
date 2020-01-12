@@ -1,4 +1,4 @@
-# INITIAL SETUP
+# INITIAL SETUP (Only updated for frontend)
 First you need `npm` and `node`. These can be found [here](https://nodejs.org/en/). 
 
 Once installed, run 
