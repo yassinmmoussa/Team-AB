@@ -44,7 +44,6 @@ app.post('/', function(req, res) {
 
   // Can only be seen when running the application locally
   console.log("Someone pressed the button!");
-  
   res.status(200).sendFile('/', {root: app_folder});
   
 });
