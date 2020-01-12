@@ -1,5 +1,10 @@
 .calendar-body {
-    height: 650px;
-    width: 1390px;
+    width: 800px;
+    height: 500px;
+    display: flex;
     background-color: chartreuse;
+}
+
+.box {
+    width: 100%;
 }

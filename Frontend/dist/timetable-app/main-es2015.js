@@ -84,7 +84,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"calendar-body\">\n    \n</div>\n    \n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"calendar-body\">\n    <app-day></app-day>\n</div>\n    \n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/semester/scheduler/calendar/day/day.component.html":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/semester/scheduler/calendar/day/day.component.html ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"day-body\">\n\n</div>");
 
 /***/ }),
 
@@ -98,19 +111,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"config-body\">\n    Button 1, button 2\n</div>\n");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/semester/scheduler/day/day.component.html":
-/*!*************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/semester/scheduler/day/day.component.html ***!
-  \*************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"day-cont\">\n  <h2>{day.name}</h2>\n</div>\n");
 
 /***/ }),
 
@@ -468,7 +468,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _semester_filter_course_list_course_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./semester/filter/course-list/course-list.component */ "./src/app/semester/filter/course-list/course-list.component.ts");
 /* harmony import */ var _semester_scheduler_config_bar_config_bar_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./semester/scheduler/config-bar/config-bar.component */ "./src/app/semester/scheduler/config-bar/config-bar.component.ts");
 /* harmony import */ var _semester_scheduler_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./semester/scheduler/calendar/calendar.component */ "./src/app/semester/scheduler/calendar/calendar.component.ts");
-/* harmony import */ var _semester_scheduler_day_day_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./semester/scheduler/day/day.component */ "./src/app/semester/scheduler/day/day.component.ts");
+/* harmony import */ var _semester_scheduler_calendar_day_day_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./semester/scheduler/calendar/day/day.component */ "./src/app/semester/scheduler/calendar/day/day.component.ts");
 
 
 
@@ -498,7 +498,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _semester_filter_course_list_course_list_component__WEBPACK_IMPORTED_MODULE_12__["CourseListComponent"],
             _semester_scheduler_config_bar_config_bar_component__WEBPACK_IMPORTED_MODULE_13__["ConfigBarComponent"],
             _semester_scheduler_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_14__["CalendarComponent"],
-            _semester_scheduler_day_day_component__WEBPACK_IMPORTED_MODULE_15__["DayComponent"]
+            _semester_scheduler_calendar_day_day_component__WEBPACK_IMPORTED_MODULE_15__["DayComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -657,7 +657,7 @@ TagListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".calendar-body {\n    height: 650px;\n    width: 1390px;\n    background-color: chartreuse;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2VtZXN0ZXIvc2NoZWR1bGVyL2NhbGVuZGFyL2NhbGVuZGFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0lBQ2IsYUFBYTtJQUNiLDRCQUE0QjtBQUNoQyIsImZpbGUiOiJzcmMvYXBwL3NlbWVzdGVyL3NjaGVkdWxlci9jYWxlbmRhci9jYWxlbmRhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNhbGVuZGFyLWJvZHkge1xuICAgIGhlaWdodDogNjUwcHg7XG4gICAgd2lkdGg6IDEzOTBweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBjaGFydHJldXNlO1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".calendar-body {\n    height: 100%;\n    width: 100%;\n    background-color: chartreuse;\n    display: -webkit-box;\n    display: flex;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2VtZXN0ZXIvc2NoZWR1bGVyL2NhbGVuZGFyL2NhbGVuZGFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0lBQ1osV0FBVztJQUNYLDRCQUE0QjtJQUM1QixvQkFBYTtJQUFiLGFBQWE7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9zZW1lc3Rlci9zY2hlZHVsZXIvY2FsZW5kYXIvY2FsZW5kYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jYWxlbmRhci1ib2R5IHtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogY2hhcnRyZXVzZTtcbiAgICBkaXNwbGF5OiBmbGV4O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -676,7 +676,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CalendarComponent = class CalendarComponent {
-    constructor() { }
+    constructor() {
+        this.days = [
+            { name: "Monday" },
+            { name: "Tuesday" },
+            { name: "Wednesday" },
+            { name: "Thursday" },
+            { name: "Friday" }
+        ];
+    }
     ngOnInit() {
     }
 };
@@ -687,6 +695,50 @@ CalendarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./calendar.component.css */ "./src/app/semester/scheduler/calendar/calendar.component.css")).default]
     })
 ], CalendarComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/semester/scheduler/calendar/day/day.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/semester/scheduler/calendar/day/day.component.css ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".day-body {\n  min-width: 100px;\n  -webkit-box-flex: 1;\n          flex: 1;\n  height: 100vh;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2VtZXN0ZXIvc2NoZWR1bGVyL2NhbGVuZGFyL2RheS9kYXkuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQjtFQUNoQixtQkFBTztVQUFQLE9BQU87RUFDUCxhQUFhO0FBQ2YiLCJmaWxlIjoic3JjL2FwcC9zZW1lc3Rlci9zY2hlZHVsZXIvY2FsZW5kYXIvZGF5L2RheS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmRheS1ib2R5IHtcbiAgbWluLXdpZHRoOiAxMDBweDtcbiAgZmxleDogMTtcbiAgaGVpZ2h0OiAxMDB2aDtcbn0iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/semester/scheduler/calendar/day/day.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/semester/scheduler/calendar/day/day.component.ts ***!
+  \******************************************************************/
+/*! exports provided: DayComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DayComponent", function() { return DayComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let DayComponent = class DayComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+DayComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-day',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./day.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/semester/scheduler/calendar/day/day.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./day.component.css */ "./src/app/semester/scheduler/calendar/day/day.component.css")).default]
+    })
+], DayComponent);
 
 
 
@@ -731,55 +783,6 @@ ConfigBarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./config-bar.component.css */ "./src/app/semester/scheduler/config-bar/config-bar.component.css")).default]
     })
 ], ConfigBarComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/semester/scheduler/day/day.component.css":
-/*!**********************************************************!*\
-  !*** ./src/app/semester/scheduler/day/day.component.css ***!
-  \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".day-cont {\n  min-width: 100px;\n  height: 100vh;\n  width: 100vw;\n  margin: 2px;\n  colour: blue;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2VtZXN0ZXIvc2NoZWR1bGVyL2RheS9kYXkuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQjtFQUNoQixhQUFhO0VBQ2IsWUFBWTtFQUNaLFdBQVc7RUFDWCxZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9zZW1lc3Rlci9zY2hlZHVsZXIvZGF5L2RheS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmRheS1jb250IHtcbiAgbWluLXdpZHRoOiAxMDBweDtcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBtYXJnaW46IDJweDtcbiAgY29sb3VyOiBibHVlO1xufSJdfQ== */");
-
-/***/ }),
-
-/***/ "./src/app/semester/scheduler/day/day.component.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/semester/scheduler/day/day.component.ts ***!
-  \*********************************************************/
-/*! exports provided: DayComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DayComponent", function() { return DayComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let DayComponent = class DayComponent {
-    constructor(d) {
-        this.day = d;
-    }
-    ngOnInit() {
-    }
-};
-DayComponent.ctorParameters = () => [
-    { type: Day }
-];
-DayComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-day',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./day.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/semester/scheduler/day/day.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./day.component.css */ "./src/app/semester/scheduler/day/day.component.css")).default]
-    })
-], DayComponent);
 
 
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { dayConfig } from './dayConfig';
 
 @Component({
   selector: 'app-day',
@@ -6,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./day.component.css']
 })
 export class DayComponent implements OnInit {
+
+  @Input() day: {name: string};
+
+  numBlocks = dayConfig.numPeriodsPerDay;
+
+  arrayOne(n: number): any[] {
+    return Array(n);
+  }
 
   constructor() { }
 
