@@ -15,7 +15,7 @@ const app = express();
 const compression = require("compression");
 app.use(compression());
 
-const app_folder = '../Frontend/dist/timetable-app';
+const app_folder = './Frontend/dist/timetable-app';
 
 //-- Serve Static Files --//
 app.get('*.*', express.static(app_folder, {maxAge: '1y'}));
