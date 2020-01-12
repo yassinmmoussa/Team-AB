@@ -1,3 +1,4 @@
+// Auto generated imports
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -71,14 +72,22 @@ const db = database;
 /**
  * Example database storing
  */
-let docRef = db.collection('users').doc('superSecret');
+let docRef = db.collection('users').doc('new_example');
 
-let setAda = docRef.set({
+// .set() creates or overwrites data
+docRef.set({
   first: 'Ada',
   last: 'Lovelace',
   born: 1815
 });
-// End of example
+
+// Server boot counter
+let serverBoots = db.collection('Internal Data').doc('Server');
+
+serverBoots.update({
+  Boots: Firestore.FieldValue.increment(1)
+});
+// End of example database calls
 
 
 /**
