@@ -64,18 +64,19 @@ const session = require('express-session');
 
 const {FirestoreStore} = require('@google-cloud/connect-firestore');
 
-app.use(
-  session({
-    store: new FirestoreStore({
-      dataset: new Firestore({
-        kind: 'express-sessions',
-      }),
-    }),
-    secret: 'my-secret',
-    resave: false,
-    saveUninitialized: true,
-  })
-);
+const db = new Firestore({
+  projectId: 'spare-ab',
+  keyFilename: './top_secret/spare-ab-557e393e8ddc.json',
+});
+
+let docRef = db.collection('users').doc('alovelace');
+
+let setAda = docRef.set({
+  first: 'Ada',
+  last: 'Lovelace',
+  born: 1815
+});
+
 // END of Google Firestore sections
 
 
