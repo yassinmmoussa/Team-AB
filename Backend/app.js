@@ -63,20 +63,22 @@ const session = require('express-session');
 
 const {FirestoreStore} = require('@google-cloud/connect-firestore');
 
-const db = new Firestore({
-  projectId: 'spare-ab',
-  keyFilename: './top_secret/spare-ab-557e393e8ddc.json',
-});
+const database = require('./top_secret/database');
 
-let docRef = db.collection('users').doc('alovelace');
+const db = database;
+// END of Google Firestore sections
+
+/**
+ * Example database storing
+ */
+let docRef = db.collection('users').doc('superSecret');
 
 let setAda = docRef.set({
   first: 'Ada',
   last: 'Lovelace',
   born: 1815
 });
-
-// END of Google Firestore sections
+// End of example
 
 
 /**
