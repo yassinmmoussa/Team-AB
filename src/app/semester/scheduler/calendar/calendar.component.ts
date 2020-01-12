@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DayComponent } from '../day/day.component';
 
 @Component({
   selector: 'app-calendar',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
+
+
 
   constructor() { }
 
