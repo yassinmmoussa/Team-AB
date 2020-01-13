@@ -23,7 +23,9 @@ app.get('*.*', express.static(app_folder, {maxAge: '1y'}));
 //-- Serve Application Paths --//
 app.get('*', function(req, res) {
   
+  // Can only be seen when running the application locally
   console.log("Someone has requested our URL!");
+
   res.status(200).sendFile('/', {root: app_folder});
 
 });
@@ -40,6 +42,7 @@ app.get('*', function(req, res) {
 // This isn't working
 app.post('/', function(req, res) {
 
+  // Can only be seen when running the application locally
   console.log("Someone pressed the button!");
   res.status(200).sendFile('/', {root: app_folder});
   
@@ -60,19 +63,22 @@ const session = require('express-session');
 
 const {FirestoreStore} = require('@google-cloud/connect-firestore');
 
-app.use(
-  session({
-    store: new FirestoreStore({
-      dataset: new Firestore({
-        kind: 'express-sessions',
-      }),
-    }),
-    secret: 'my-secret',
-    resave: false,
-    saveUninitialized: true,
-  })
-);
+const database = require('./top_secret/database');
+
+const db = database;
 // END of Google Firestore sections
+
+/**
+ * Example database storing
+ */
+let docRef = db.collection('users').doc('superSecret');
+
+let setAda = docRef.set({
+  first: 'Ada',
+  last: 'Lovelace',
+  born: 1815
+});
+// End of example
 
 
 /**
