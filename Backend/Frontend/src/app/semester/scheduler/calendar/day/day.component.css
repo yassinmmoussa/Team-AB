@@ -1,0 +1,21 @@
+.day-body {
+  height: 100%;
+  background-color: white;
+}
+.day-title {
+  font-family: Helvetica;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  height: 5%
+}
+.block-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  /* border-left: 0.25px solid #707070; */
+  border-right: 0.25px solid #707070;
+}
+.block {
+  width: 100%;
+}

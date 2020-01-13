@@ -1,14 +1,19 @@
 <div class="day-body">
   <span class="day-title">{{day.name}}</span>
-  <div class="block-wrapper">
-    
+  <div
+    class="block-wrapper"
+    [ngStyle]="{
+      'border-left':(day.name=='Monday')? '0.25px solid #707070' : 'none'
+    }"
+  >   
     <div
       *ngFor="let item of arrayOne(numBlocks); let i = index"
       class="block"
       [ngStyle]="{
-        'height':100/numBlocks+'%';
-
-      }">
+        'height':100/numBlocks+'%',
+        'border-bottom':( i%2 == 0 ) ? '0.25px solid #CCCCCC' : 'none'
+      }"
+    >
     </div>
   </div>
 </div>

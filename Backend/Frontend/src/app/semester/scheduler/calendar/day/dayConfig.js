@@ -1,3 +1,3 @@
 export const dayConfig = {
-  numPeriodsPerDay : 28
+  numPeriodsPerDay : 27
 };
