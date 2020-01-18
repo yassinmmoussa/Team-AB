@@ -12,6 +12,7 @@ export class DayComponent implements OnInit {
 
   @Input() name: string;
   @Input() courses: Course[];
+  @Input() session: string;
 
   numBlocks = dayConfig.numPeriodsPerDay;
 
@@ -27,10 +28,24 @@ export class DayComponent implements OnInit {
     console.log(this.courses);
   }
 
+  // Don't think this'll be used anymore
  coursesStartingAtBlock(n: number): Course[] {
   const res: Course[] = [];
   this.courses.forEach((course) => {
-    if (course.startingBlock === n) {
+    if (course.startingBlock === n && course.session === this.session) {
+      res.push(course);
+    }
+  });
+  return res;
+}
+
+coursesDuringBlock(n: number): Course[] {
+  const res: Course[] = [];
+  this.courses.forEach((course) => {
+    const sBlock = course.startingBlock;
+    if ((sBlock === n ||
+        (sBlock < n && sBlock + course.duration >= n)) &&
+        course.session === this.session) {
       res.push(course);
     }
   });

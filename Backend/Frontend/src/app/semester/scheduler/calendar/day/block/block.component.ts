@@ -9,11 +9,18 @@ import { blockHeight } from '../dayConfig.js';
 })
 export class BlockComponent implements OnInit {
 
-  @Input() courses: Course[];
-  constructor() { }
+  @Input() coursesDuring: Course[];
+  @Input() coursesStarting: Course[];
+  @Input() session: string;
+  @Input() blockNo: number;
+
+  constructor() {}
+
+  calcBlockWidth(): number {
+    return 100 / this.coursesDuring.length;
+  }
 
   ngOnInit() {
-    console.log('blockheight:' + this.blockHeight);
   }
 
 }

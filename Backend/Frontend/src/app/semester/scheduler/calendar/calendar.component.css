@@ -2,7 +2,10 @@
     width: 800px;
     height: 500px;
     display: flex;
-    background-color: chartreuse;
+    position: absolute;
+    top:0;
+    left:0;
+    z-axis: 100;
 }
 
 .box {
