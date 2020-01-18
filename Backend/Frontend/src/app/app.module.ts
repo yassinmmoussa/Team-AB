@@ -18,6 +18,7 @@ import { CalendarComponent } from './semester/scheduler/calendar/calendar.compon
 import { DayComponent } from './semester/scheduler/calendar/day/day.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { BlockComponent } from './semester/scheduler/calendar/day/block/block.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {MatIconModule} from '@angular/material/icon';
     CourseListComponent,
     ConfigBarComponent,
     CalendarComponent,
-    DayComponent
+    DayComponent,
+    BlockComponent
   ],
   imports: [
     BrowserModule,

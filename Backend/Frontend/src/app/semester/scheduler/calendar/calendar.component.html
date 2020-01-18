@@ -1,7 +1,10 @@
 <div class="calendar-body">
-    <div *ngFor="let day of days; let i = index" class="box">
+    <div
+    *ngFor="let name of dayNames; let i = index" class="box"
+    >
       <app-day
-        [day]="day"
+      [name]="name"
+      [(courses)]="this.courseLists[i]"
       ></app-day>
     </div>
 </div>

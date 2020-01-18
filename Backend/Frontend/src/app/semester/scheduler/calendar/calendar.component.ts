@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../../../model/Course';
-// import { currentlyShowing } from './currentlyShowing';
+import { data } from './data';
+import { DayComponent } from './day/day.component';
 
 @Component({
   selector: 'app-calendar',
@@ -9,46 +10,45 @@ import { Course } from '../../../model/Course';
 })
 export class CalendarComponent implements OnInit {
 
-  days = [
-    {name: "Monday"},
-    {name: "Tuesday"},
-    {name: "Wednesday"},
-    {name: "Thursday"},
-    {name: "Friday"}
+  dayNames: string[] = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday'
   ];
 
-  // courseLists: Course[][] = this.buildCourseLists();
+  courseLists: Course[][] = this.buildCourseLists();
 
-  // buildCourseLists(): Course[][] {
-  //   let res: Course[][] = [[], [], [], [], []];
-  //   for (const course of currentlyShowing) {
-  //     for (const aDay of course.days) {
-  //       res[aDay].push(new Course(
-  //         course.number,
-  //         course.dept,
-  //         course.instructor,
-  //         course.code,
-  //         course.starting_block,
-  //         course.colour,
-  //         course.name,
-  //         course.section,
-  //         course.days,
-  //         course.year,
-  //         course.session,
-  //         course.type,
-  //         course.labSection
-  //       ));
-  //     }
-  //     return res;
-  //   }
+  buildCourseLists(): Course[][] {
+    const res: Course[][] = [[], [], [], [], []];
+    const courses = data.courses;
+    Object.keys(courses).forEach(course => {
+      for (const aDay of courses[`${course}`].days) {
+        res[aDay].push(new Course(
+          courses[`${course}`].duration,
+          courses[`${course}`].dept,
+          courses[`${course}`].instructor,
+          courses[`${course}`].code,
+          courses[`${course}`].starting_block,
+          courses[`${course}`].colour,
+          courses[`${course}`].name,
+          courses[`${course}`].section,
+          courses[`${course}`].days,
+          courses[`${course}`].year,
+          courses[`${course}`].session,
+          courses[`${course}`].type,
+          courses[`${course}`].labSection
+        ));
+      }
+    });
+    return res;
+  }
 
-    
-
-  // }
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    console.log(this.courseLists);
   }
 
 }

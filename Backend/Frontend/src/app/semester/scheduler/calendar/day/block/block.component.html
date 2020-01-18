@@ -1,0 +1,12 @@
+<div
+  class="course"
+  *ngFor="let course of courses" 
+  [ngStyle]="{
+    'height':100*course.duration+'%',
+    'border-bottom':( i%2 == 0 ) ? '0.25px solid #CCCCCC' : 'none',
+    'background-color':course.colour
+  }"
+>
+{{course.name}}
+{{course.startingBlock}}
+</div>

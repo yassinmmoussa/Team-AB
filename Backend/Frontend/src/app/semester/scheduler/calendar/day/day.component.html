@@ -1,19 +1,21 @@
 <div class="day-body">
-  <span class="day-title">{{day.name}}</span>
+  <span class="day-title">{{name}}</span>
   <div
     class="block-wrapper"
     [ngStyle]="{
-      'border-left':(day.name=='Monday')? '0.25px solid #707070' : 'none'
+      'border-left':(name=='Monday')? '0.25px solid #707070' : 'none'
     }"
   >   
-    <div
-      *ngFor="let item of arrayOne(numBlocks); let i = index"
+    <app-block
+      *ngFor="let item of blocks; let i = index"
       class="block"
       [ngStyle]="{
         'height':100/numBlocks+'%',
         'border-bottom':( i%2 == 0 ) ? '0.25px solid #CCCCCC' : 'none'
       }"
+      [courses]=this.coursesStartingAtBlock(i)
     >
-    </div>
+    </app-block>
+
   </div>
 </div>
