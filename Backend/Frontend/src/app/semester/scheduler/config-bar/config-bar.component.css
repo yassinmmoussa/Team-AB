@@ -3,3 +3,13 @@
     width: 100%;
     background-color: blue;
 }
+
+.button-row{
+  position: absolute;
+  left: 100px;
+  top:10px;
+}
+
+.config-btn{
+  margin-left:30px;
+}
