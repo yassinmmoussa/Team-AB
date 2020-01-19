@@ -16,49 +16,24 @@ export class DayComponent implements OnInit {
 
   numBlocks = dayConfig.numPeriodsPerDay;
 
-  blocks: BlockComponent[] = [];
+  // One array of courses for each block
+  blocks: Course[][] = [];
 
   constructor() {
+    // Initialize blocks array
     for (let i = 0; i < this.numBlocks; i++) {
-      this.blocks.push(new BlockComponent());
+      this.blocks.push([]);
     }
   }
 
   ngOnInit() {
-    console.log(this.courses);
+    // populate blocks array
+    this.courses.forEach((course) => {
+      if (course.session === this.session) {
+        this.blocks[course.startingBlock].push(course);
+      }
+    });
   }
-
-  // Don't think this'll be used anymore
- coursesStartingAtBlock(n: number): Course[] {
-  const res: Course[] = [];
-  this.courses.forEach((course) => {
-    if (course.startingBlock === n && course.session === this.session) {
-      res.push(course);
-    }
-  });
-  return res;
-}
-
-blockStartingAtAGoesThroughB(A: number, B: Course): boolean {
-  const res = false;
-  this.courses.forEach((course) => {
-
-  });
-  return res;
-}
-coursesDuringBlock(block: number): Course[] {
-  const res: Course[] = [];
-  this.courses.forEach((course) => {
-    const currCourseStartBlock = course.startingBlock;
-    if ((currCourseStartBlock === block || // Curr course starts here
-        // Curr course started before and runs through here
-        (currCourseStartBlock < block && currCourseStartBlock + course.duration >= block))
-        && course.session === this.session) {
-      res.push(course);
-    }
-  });
-  return res;
-}
 
 
 

@@ -22,7 +22,7 @@ export class CalendarComponent implements OnInit {
   times = dayConfig.times;
   numBlocks = dayConfig.numBlocks;
 
-  courseLists: Course[][] = this.buildCourseLists();
+  courseLists: Course[][];
 
   buildCourseLists(): Course[][] {
     const res: Course[][] = [[], [], [], [], []];
@@ -49,10 +49,12 @@ export class CalendarComponent implements OnInit {
     return res;
   }
 
-  constructor() {}
+  constructor() {
+   this.courseLists = this.buildCourseLists();
+  }
 
   ngOnInit() {
-    console.log(this.courseLists);
+    // console.log(this.courseLists);
   }
 
 }
