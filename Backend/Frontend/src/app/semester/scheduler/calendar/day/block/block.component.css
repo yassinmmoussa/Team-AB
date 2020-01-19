@@ -9,6 +9,8 @@
   border-radius: 2px;
   /* border-top: 0.5px solid black; */
   opacity: 0.9;
+  min-width:0;
+  overflow: hidden;
 }
 .block-box {
   position: relative;

@@ -2,12 +2,39 @@
     width: 800px;
     height: 500px;
     display: flex;
-    position: absolute;
-    top:0;
-    left:0;
-    z-axis: 100;
+    position: relative;
+    left: 250px;
 }
 
 .box {
     width: 100%;
+}
+
+.time-display {
+    height: 100%;
+    min-width: 50px;
+    background-color: white;
+    text-align: right;
+    padding-right: 3px;
+}
+
+.label-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+}
+.time-label {
+    font-size:12px;
+    flex:1;
+}
+.blank {
+    color: white;
+}
+.day-label {
+    font-family: Helvetica;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    height: 5%;
+    font-size: 1em;
 }

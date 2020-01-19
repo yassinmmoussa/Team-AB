@@ -39,17 +39,27 @@ export class DayComponent implements OnInit {
   return res;
 }
 
-coursesDuringBlock(n: number): Course[] {
+blockStartingAtAGoesThroughB(A: number, B: Course): boolean {
+  const res = false;
+  this.courses.forEach((course) => {
+
+  });
+  return res;
+}
+coursesDuringBlock(block: number): Course[] {
   const res: Course[] = [];
   this.courses.forEach((course) => {
-    const sBlock = course.startingBlock;
-    if ((sBlock === n ||
-        (sBlock < n && sBlock + course.duration >= n)) &&
-        course.session === this.session) {
+    const currCourseStartBlock = course.startingBlock;
+    if ((currCourseStartBlock === block || // Curr course starts here
+        // Curr course started before and runs through here
+        (currCourseStartBlock < block && currCourseStartBlock + course.duration >= block))
+        && course.session === this.session) {
       res.push(course);
     }
   });
   return res;
 }
+
+
 
 }

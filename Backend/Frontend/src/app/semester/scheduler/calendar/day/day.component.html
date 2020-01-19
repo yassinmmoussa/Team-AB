@@ -1,4 +1,6 @@
-<div class="day-body">
+<div
+  class="day-body"
+>
   <span class="day-title">{{name}}</span>
   <div
     class="block-wrapper"
@@ -11,7 +13,7 @@
       class="block"
       [ngStyle]="{
         'height':100/numBlocks+'%',
-        'border-bottom':( i%2 == 0 ) ? '0.25px solid #CCCCCC' : 'none'
+        'border-top':( i%2 === 0 || i === 0) ? '0.25px solid #CCCCCC' : 'none'
       }"
       [coursesDuring]=this.coursesDuringBlock(i)
       [coursesStarting]=this.coursesStartingAtBlock(i)

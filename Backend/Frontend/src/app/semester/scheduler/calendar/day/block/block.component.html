@@ -4,12 +4,11 @@
     *ngFor="let course of this.coursesStarting" 
     [ngStyle]="{
       'height':100*course.duration+'%',
-      'background-color':(course.colour === 'blue') ? '#003366' : '#E1AA12',
-      'width': this.calcBlockWidth()+'%'
+      'background-color':course.colour,
+      'width':this.calcBlockWidth()+'%'
     }"
   >
   {{course.name}}
   </div>
-
 </div>
 

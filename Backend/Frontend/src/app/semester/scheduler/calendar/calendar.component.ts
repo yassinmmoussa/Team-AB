@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from '../../../model/Course';
 import { data } from './data';
 import { DayComponent } from './day/day.component';
+import { dayConfig } from './day/dayConfig';
 
 @Component({
   selector: 'app-calendar',
@@ -17,6 +18,9 @@ export class CalendarComponent implements OnInit {
     'Thursday',
     'Friday'
   ];
+
+  times = dayConfig.times;
+  numBlocks = dayConfig.numBlocks;
 
   courseLists: Course[][] = this.buildCourseLists();
 
