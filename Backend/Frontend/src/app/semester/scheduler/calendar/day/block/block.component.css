@@ -1,0 +1,28 @@
+.course {
+  background-color: red;
+  /* position: absolute; */
+  font-size: 9px;
+  color: white;
+  padding: 10px;
+  padding-bottom: 5px;
+  margin: 2px;
+  margin-top: 0;
+  margin-bottom: 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;
+  border-radius: 2px;
+  /* border-top: 0.5px solid black; */
+  opacity: 0.85;
+  min-width:0;
+  overflow: hidden;
+}
+.course:hover {
+  z-index: 10;
+  opacity:1;
+  /* box-shadow: rgba(0, 0, 0.2, 0.2) 0px 4px 8px 0px; */
+  cursor: pointer;
+}
+.block-box {
+  position: relative;
+  display: flex;
+  height: 100%;
+}

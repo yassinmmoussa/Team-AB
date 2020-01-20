@@ -1,4 +1,36 @@
-<div class="calendar-body">
-    <app-day></app-day>
+<div class='calendar-body'>
+  <div class='time-display'>
+  <span class='day-label blank'>
+    T
+  </span>
+  <div
+    class='label-wrapper'
+  >
+  <div
+    *ngFor='let time of times; let i = index'
+    class='time-label'
+    [ngStyle]="{
+      'height':100/this.numBlocks+'%',
+      'border-top':( i%2 === 0 || i === 0) ? '0.25px solid #FFF' : 'none'
+    }"
+  >
+    {{time}}
+  </div>
+  </div>
+  
+
+  </div>
+  <div
+  *ngFor='let name of dayNames; let i = index'
+  class='box'
+  [ngStyle]="{ 'max-width':100/5+'%' }"
+  >
+    <app-day
+    [name]='name'
+    [(courses)]='this.courseLists[i]'
+    session='F'
+    ></app-day>
+  </div>
 </div>
-    
+
+  

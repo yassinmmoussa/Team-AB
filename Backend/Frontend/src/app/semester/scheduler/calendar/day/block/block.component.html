@@ -1,0 +1,16 @@
+<div class="block-box">
+  <div
+    class="course"
+    *ngFor="let course of this.coursesStarting" 
+    [ngStyle]="{
+      'height':100*course.duration+'%',
+      'background-color':course.colour,
+      'width':this.calcBlockWidth()+'%'
+    }"
+  >
+  {{course.dept}} {{course.code}}
+  <br>
+  {{course.name}}
+  </div>
+</div>
+
