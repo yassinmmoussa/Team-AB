@@ -9,7 +9,7 @@ export const dayConfig = {
     '',
     '11 AM',
     '',
-    '12 AM',
+    '12 PM',
     '',
     ' 1 PM',
     '',
