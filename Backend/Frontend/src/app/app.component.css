@@ -1,4 +1,13 @@
-.test {
-    padding: 5px 10px 0 10px;
-    background-color: aqua;
+.app-body {
+    padding: 0px 0px 0 0px;
+    background-color: white;
+    height: 100vh;
+}
+
+.main-view {
+    height: 100%;
+}
+
+.tab-container {
+    height: 100%;
 }

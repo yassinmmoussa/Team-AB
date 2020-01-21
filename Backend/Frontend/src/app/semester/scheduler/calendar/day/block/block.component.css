@@ -1,28 +1,39 @@
 .course {
-  background-color: red;
   /* position: absolute; */
   font-size: 9px;
   color: white;
   padding: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 8.5px;
   margin: 2px;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 1px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;
   border-radius: 2px;
   /* border-top: 0.5px solid black; */
   opacity: 0.85;
   min-width:0;
   overflow: hidden;
+  z-index: 10;
+  transition: 0.1s;
 }
 .course:hover {
-  z-index: 10;
+  z-index: 100;
   opacity:1;
-  /* box-shadow: rgba(0, 0, 0.2, 0.2) 0px 4px 8px 0px; */
   cursor: pointer;
+  transition: 0.1s;
+  /* Maybe someday try to figure this out */
+  /* overflow: visible;
+  width: 109.5px;
+  position: fixed; */
 }
 .block-box {
   position: relative;
   display: flex;
   height: 100%;
+}
+
+.course-icon {
+  position: relative;
+  top: 1px;
+  height: 10px;
 }

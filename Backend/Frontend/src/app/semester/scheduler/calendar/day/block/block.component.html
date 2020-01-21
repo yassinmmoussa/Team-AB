@@ -8,9 +8,10 @@
       'width':this.calcBlockWidth()+'%'
     }"
   >
+  <img class="course-icon" [src]="this.courseIconPath(course)"/>
   {{course.dept}} {{course.code}}
   <br>
-  {{course.name}}
+  {{this.startTime(course)}}-{{this.endTime(course)}}
   </div>
 </div>
 

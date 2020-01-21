@@ -1,4 +1,6 @@
 export const dayConfig = {
+  lectureIconPath : "../../../../../assets/lectureIcon.png",
+  labIconPath : "../../../../../assets/labIcon.png",
   numPeriodsPerDay : 28,
   times : [
     ' 8 AM',
@@ -9,7 +11,7 @@ export const dayConfig = {
     '',
     '11 AM',
     '',
-    '12 AM',
+    '12 PM',
     '',
     ' 1 PM',
     '',
