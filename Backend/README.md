@@ -34,7 +34,24 @@ These files are all auto generated, don't touch these
 The frontend of our application
 
 ## top_secret
-This folder is where your private database key is stored. If you don't have a database key, follow the instructions in the folder. You may need to check the actual repository on Github to see the instructions.
+This folder is where your private database key is stored. If you don't have a database key, follow the instructions in the folder. Note:  `/top-secret` folder is now listed in .gitignore. Any change made in this dir will not be committed.
+
+In order to authenticate Firestore db, your js is required to pass over a service account credential bundle - in the format of `some-hashed-key.json`. You may review a working example in `database.js`.
+
+It's your responsibility to store and protect this private key as it's linked to GCP billing per requesto.
+
+#### Setting up
+1. Create a service account on GCP spare-ab and save the .json key
+* `IAM & admin > Service accounts > Create service account`
+2. Update the path in your js to the .json key path 
+```
+module.exports = new Firestore({
+    projectId: 'spare-ab',
+    keyFilename: './top_secret/1234.json', // UPDATE ME
+  });
+```
+
+To avoid duplicating same privileges, we encourage you to inform server owners before creating a new account.  
 
 ## views
 This folder relates to the template engine the server supports by default, Pug. This folder may end up being removed in the future.
