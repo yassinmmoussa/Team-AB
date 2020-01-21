@@ -34,7 +34,7 @@ These files are all auto generated, don't touch these
 The frontend of our application
 
 ## top_secret
-This folder is where your private database key is stored. If you don't have this folder, talk to the team in order to get one.
+This folder is where your private database key is stored. If you don't have a database key, follow the instructions in the folder. You may need to check the actual repository on Github to see the instructions.
 
 ## views
 This folder relates to the template engine the server supports by default, Pug. This folder may end up being removed in the future.
