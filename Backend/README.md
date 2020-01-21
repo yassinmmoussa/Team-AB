@@ -42,7 +42,7 @@ It's your responsibility to store and protect this private key as it's linked to
 
 #### Setting up
 1. Create a service account on GCP spare-ab and save the .json key
-* `IAM & admin > Service accounts > Create service account`
+ `IAM & admin > Service accounts > Create service account`
 2. Update the path in your js to the .json key path 
 ```
 module.exports = new Firestore({
