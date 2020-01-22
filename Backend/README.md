@@ -64,6 +64,13 @@ This file is the bones of the Backend. If you're looking to do some work on the 
 
 ## app.yaml
 Really small file telling GCP what kind of server its trying to run
+### Deploying to App Engine
+
+Deploy your app:
+
+    npm run deploy
+
+By default, this application deploys to App Engine.
 
 ## package.json, package-lock.json
 These files are related to node_modules, it tells whatever device our repository is on what to install or download when you run `npm install`. package.json outlines our dependencies, and -lock contains the dependencies of those dependencies.
