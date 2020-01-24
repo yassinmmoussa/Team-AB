@@ -18,6 +18,7 @@ import { CalendarComponent } from './semester/scheduler/calendar/calendar.compon
 import { DayComponent } from './semester/scheduler/calendar/day/day.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from "@angular/material";
 
 
 @NgModule({
@@ -39,9 +40,11 @@ import {MatIconModule} from '@angular/material/icon';
     MatTabsModule,
     MatGridListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfigBarComponent]
 })
 export class AppModule { }
