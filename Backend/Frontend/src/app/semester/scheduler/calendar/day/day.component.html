@@ -1,1 +1,26 @@
-<p>day works!</p>
+<div
+  class="day-body"
+>
+  <span class="day-title">{{name}}</span>
+  <div
+    class="block-wrapper"
+    [ngStyle]="{
+      'border-left':(name=='Monday')? '0.25px solid #707070' : 'none'
+    }"
+  >   
+    <app-block
+      *ngFor="let item of blocks; let i = index"
+      class="block"
+      [ngStyle]="{
+        'height':100/numBlocks+'%',
+        'border-top':( i%2 === 0 || i === 0) ? '0.25px solid #CCCCCC' : 'none',
+        'border-bottom':( i === blocks.length - 1 ) ? '0.25px solid #CCCCCC' : 'none'
+      }"
+      [coursesStarting]=this.blocks[i]
+      [session]=this.session
+      blockNo=i+1
+    >
+    </app-block>
+
+  </div>
+</div>

@@ -10,6 +10,8 @@
 # dependencies
 /node_modules
 */node_modules
+Frontend/node_modules
+Backend/Frontend/node_modules
 
 # profiling files
 chrome-profiler-events*.json
@@ -45,3 +47,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Backend Top Secret Files
+.Backend/top_secret/
+
+# Frontend Dist folder
+.Backend/Frontend/dist

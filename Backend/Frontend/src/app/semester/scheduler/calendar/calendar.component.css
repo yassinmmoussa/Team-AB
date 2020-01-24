@@ -1,5 +1,41 @@
 .calendar-body {
-    height: 650px;
-    width: 1390px;
-    background-color: chartreuse;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+
+.box {
+    width: 100%;
+}
+
+.time-display {
+    height: 100%;
+    min-width: 50px;
+    background-color: white;
+    text-align: right;
+    position: relative;
+    top: -7px;
+}
+
+.label-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+}
+.time-label {
+    font-size:12px;
+    padding-right:3px;
+    flex:1;
+}
+.blank {
+    color: white;
+}
+.day-label {
+    font-family: Helvetica;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    height: 5%;
+    font-size: 1em;
 }

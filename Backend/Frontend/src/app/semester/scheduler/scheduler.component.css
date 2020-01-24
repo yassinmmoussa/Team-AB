@@ -1,0 +1,20 @@
+.scheduler-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 600px;
+    overflow-x: scroll;
+}
+
+.config-container {
+    flex: 1;
+    padding: 5px;
+    background-color: orange;
+}
+
+.calendar-container {
+    flex: 3;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-right: 50px;
+}

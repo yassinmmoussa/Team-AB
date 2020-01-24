@@ -10,7 +10,7 @@ export class SemesterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
 }

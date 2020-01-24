@@ -1,0 +1,17 @@
+<div class="block-box">
+  <div
+    class="course"
+    *ngFor="let course of this.coursesStarting" 
+    [ngStyle]="{
+      'height':100*course.duration+'%',
+      'background-color':course.colour,
+      'width':this.calcBlockWidth()+'%'
+    }"
+  >
+  <img class="course-icon" [src]="this.courseIconPath(course)"/>
+  {{course.dept}} {{course.code}}
+  <br>
+  {{this.startTime(course)}}-{{this.endTime(course)}}
+  </div>
+</div>
+
