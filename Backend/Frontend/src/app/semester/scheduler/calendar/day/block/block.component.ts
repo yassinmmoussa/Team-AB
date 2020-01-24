@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Course } from '../../../../../model/Course';
 import { dayConfig } from '../dayConfig';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-block',
@@ -14,7 +16,14 @@ export class BlockComponent implements OnInit {
   @Input() session: string;
   @Input() blockNo: number;
 
-  constructor() {}
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+        'lecture-icon',
+        sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/people-outline.svg'));
+    iconRegistry.addSvgIcon(
+      'lab-icon',
+      sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/flask.svg'));
+  }
 
   calcBlockWidth(): number {
     return 100 / this.coursesStarting.length;
@@ -55,11 +64,11 @@ export class BlockComponent implements OnInit {
     return hour + formattedEnding;
   }
 
-  courseIconPath(c: Course): string {
+  getCourseIconName(c: Course): string {
     if (c.type === 'lecture') {
-      return dayConfig.lectureIconPath;
+      return 'lecture-icon';
     } else {
-      return dayConfig.labIconPath;
+      return 'lab-icon';
     }
   }
 
