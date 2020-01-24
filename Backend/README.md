@@ -1,38 +1,82 @@
-# INITIAL SETUP (Only updated for frontend)
-First you need `npm` and `node`. These can be found [here](https://nodejs.org/en/). 
+# Initial Setup
 
-Once installed, run 
-`npm install -g @angular/cli`
+Before working on the repository, its important to have all of the project's dependency packages on your local machine, you can install them all by following these steps.
 
-Navigate to the project folder and run
+Install all the backend's dependencies:
 `npm install`
 
-To see the web-page, see Development server below.
+Move to the frontend and install its dependencies:
+`cd Frontend`
+`npm install`
 
-# TimetableApp
+# Running the Server
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
+After setting up the repository and dependencies on your machine, you can run the server on your local machine by following these steps (starting in the frontend folder). 
 
-## Development server
+Build the frontend application (similar to compiling):
+`ng build`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Move back to the backend folder;
+`cd ..`
 
-## Code scaffolding
+Run the server:
+`npm start`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+You should now be able to see the currently pushed homepage of the front end at the following link in your web browser:
+`http://localhost:3000/`
 
-## Build
+# What's What in the Backend Folder
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## bin, node_modules
+These files are all auto generated, don't touch these
 
-## Running unit tests
+## Frontend
+The frontend of our application
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## top_secret
+This folder is where your private database key is stored. If you don't have a database key, follow the instructions in the folder. Note:  `/top-secret` folder is now listed in .gitignore. Any change made in this dir will not be committed.
 
-## Running end-to-end tests
+In order to authenticate Firestore db, your js is required to pass over a service account credential bundle - in the format of `some-hashed-key.json`. You may review a working example in `database.js`.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+It's your responsibility to store and protect this private key as it's linked to GCP billing per requesto.
 
-## Further help
+#### Setting up
+1. Create a service account on GCP spare-ab and save the .json key
+* `IAM & admin > Service accounts > Create service account`
+2. Update the path in your js to the .json key path 
+```
+module.exports = new Firestore({
+    projectId: 'spare-ab',
+    keyFilename: './top_secret/1234.json', // UPDATE ME
+  });
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To avoid duplicating same privileges, we encourage you to inform server owners before creating a new account.  
+
+## views
+This folder relates to the template engine the server supports by default, Pug. This folder may end up being removed in the future.
+
+## .gcloudignore
+The application is deployed on the Google Cloud platform, this file outlines what files shouldn't be uploaded to GCP (mostly just npm stuff that it will install on its own)
+
+## app.js
+This file is the bones of the Backend. If you're looking to do some work on the backend, you will most likely be either changing this file or one of its dependencies.
+
+## app.yaml
+Really small file telling GCP what kind of server its trying to run
+### Deploying to App Engine
+
+Deploy your app:
+
+    npm run deploy
+
+By default, this application deploys to App Engine.
+
+## package.json, package-lock.json
+These files are related to node_modules, it tells whatever device our repository is on what to install or download when you run `npm install`. package.json outlines our dependencies, and -lock contains the dependencies of those dependencies.
+
+## ../gitignore
+Files that we don't upload to git. This one has a few more files than .gcloudignore
+
+## ../dummy-data.json
+Some output from our database with course data from this calendar year for testing I/O.
