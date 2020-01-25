@@ -8,10 +8,12 @@
       'width':this.calcBlockWidth()+'%'
     }"
   >
-  <img class="course-icon" [src]="this.courseIconPath(course)"/>
+  <mat-icon class="course-icon" [svgIcon]="this.getCourseIconName(course)" aria-hidden="false" aria-label=""></mat-icon>
   {{course.dept}} {{course.code}}
   <br>
-  {{this.startTime(course)}}-{{this.endTime(course)}}
+  <div class="course-time">
+    {{this.startTime(course)}}-{{this.endTime(course)}}
+  </div>
   </div>
 </div>
 
