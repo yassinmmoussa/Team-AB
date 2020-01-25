@@ -1,24 +1,9 @@
 <div class="config-body">
-  <div class="button-row">
-
-    <button class = "config-btn" mat-flat-button (click)="openDialog()">
+  <div class="button-row" *ngFor =  "let btn of configBtns">
+    <!-- <button class = "config-btn" mat-flat-button (click)="openDialog()">
       <mat-icon>timeline</mat-icon>Constraints
+    </button> -->
+    <button class = "config-btn" mat-flat-button (click)="openDialog()">
+      <mat-icon>{{btn["iconUrl"]}} </mat-icon> {{btn["iconText"]}}
     </button>
-
-    <button class = "config-btn" mat-flat-button>
-      <mat-icon>calendar_today</mat-icon>Run Optimization
-    </button>
-
-    <button class = "config-btn" mat-flat-button>
-      <mat-icon>save</mat-icon>Export to CSV
-    </button>
-
-    <button  class = "config-btn" mat-flat-button>
-      <mat-icon>people_outline</mat-icon>Team
-    </button>
-
-    <button class = "config-btn" mat-flat-button>
-      <mat-icon>settings</mat-icon>Configuration
-    </button>
-
   </div>

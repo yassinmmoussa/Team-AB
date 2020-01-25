@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
+import {MyDialogComponent} from '../my-dialog/my-dialog.component';
 export interface DialogData {
   animal: string;
   name: string;
@@ -12,24 +12,50 @@ export interface DialogData {
 })
 export class ConfigBarComponent implements OnInit {
 
-  animal: string;
-  name: string;
+
+  configBtns = [];
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+    //Array of items to go into buttons
+    this.configBtns = [
+      {
+        "iconUrl": "timeline",
+        "iconText":"Constraints"
+      },
+      {
+        "iconUrl": "calendar_today",
+        "iconText":"Run Optimization"
+      },
+      {
+        "iconUrl": "save",
+        "iconText":"Export to CSV"
+      },
+      {
+        "iconUrl": "people_outline",
+        "iconText":"Team"
+      },
+      {
+        "iconUrl": "settings",
+        "iconText":"Configurations"
+      }
+    ]
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ConfigBarConstraintsModal, {
-      width: '250px',
-      data: {name: this.name, animal: this.animal}
+// Creating the dialog
+  openDialog(){
+    let dialogRef = this.dialog.open(MyDialogComponent,{
+      width: '800px',
+      height: '700px',
+      data: 'this text is passed into the dialog'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
-    });
+      console.log('Dialog closed: ${result}')
+    })
   }
+
+
 }
 
 @Component({
