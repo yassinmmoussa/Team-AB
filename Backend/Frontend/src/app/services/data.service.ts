@@ -10,14 +10,14 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getCourses(): Observable<any[]> {
-    // return this.http.get('/api/courses', {
-    //   params: {
-    //     year: '2020',
-    //     session: 'W'
-    //   }
-    // });
+  getCourses(): Observable<any> {
+    return this.http.get('/api/courses', {
+      params: {
+        year: '2020',
+        session: 'W'
+      }
+    });
     
-    return of(data);
+    // return of(data);
   }
 }

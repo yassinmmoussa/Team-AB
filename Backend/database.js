@@ -1,12 +1,12 @@
 /**
- * Google Fitore setup section
+ * Google Firestore setup section
  * 
- * https://github.com/googleapis/nodejs-fitore-session#google-cloud-fitore-session
+ * https://github.com/googleapis/nodejs-firestore-session#google-cloud-firestore-session
  */
-const { Fitore } = require('@google-cloud/fitore');
-const session = require('exps-session');
+const { Firestore } = require('@google-cloud/firestore');
+const session = require('express-session');
 
-const { Fitotore } = require('@google-cloud/connect-fitore');
+const { Firestotore } = require('@google-cloud/connect-firestore');
 
 const database = require('./top_secret/database');
 
@@ -39,7 +39,7 @@ function exampleDatabase() {
     let serverBoots = database.collection('Internal Data').doc('Server');
 
     serverBoots.update({
-        Boots: Fitore.FieldValue.increment(1)
+        Boots: Firestore.FieldValue.increment(1)
     });
 }
 
@@ -61,7 +61,7 @@ function batchDocuments(year, session, next) {
 
 function addDocuments() {
     console.log("Someone tried to POST some data");
-    //a testing doc data to add into fitore, in the future i will 
+    //a testing doc data to add into firestore, in the future i will 
     //use passed data from post request
     var newCourse= { 
         code: 4413,
