@@ -8,6 +8,7 @@ const app = express();
 
 // Internal APIs and Utility classes
 const database = require('./database');
+const scheduler = require('./course_scheduler');
 
 // ========================================================= //
 
@@ -35,6 +36,11 @@ const app_folder = './Frontend/dist/timetable-app';
 //-- Serve Static Files: Unsure what this actually does --//
 app.get('*.*', express.static(app_folder, {maxAge: '1y'}));
 
+// ========================================================= //
+
+/**
+ * FRONTEND => Database interaction API
+ */
 app.get('/api/courses', function(req, res) {
 
   // STEP 1: Parse the data from the query string
@@ -69,7 +75,18 @@ app.delete('/api/courses', function(req, res) {
   console.log("Someone tried to DELETE some data");
 });
 
-//-- Serve Application Paths --//
+// ========================================================= //
+
+/**
+ * FRONTEND => course scheduler interaction API
+ */
+app.get('/api/schedule', function(req, res) {
+
+});
+
+// ========================================================= //
+
+//-- DEFAULT APPLICATION PATH --//
 app.all('*', function(req, res) {
   
   res.status(200).sendFile('/', {root: app_folder});
