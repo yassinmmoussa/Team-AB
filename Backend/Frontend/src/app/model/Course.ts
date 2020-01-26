@@ -18,7 +18,7 @@ export class Course {
     public display?: boolean,
     public capacity: number = 0,
     public room: string = 'Not Set'
-  ) {
+  ) {}
 
   daysOut(): string {
     let res = '';
