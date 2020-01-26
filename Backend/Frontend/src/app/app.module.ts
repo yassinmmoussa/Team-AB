@@ -9,6 +9,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SemesterComponent } from './semester/semester.component';
 import { FilterComponent } from './semester/filter/filter.component';
 import { SchedulerComponent } from './semester/scheduler/scheduler.component';
@@ -68,11 +69,13 @@ import {MatListModule} from '@angular/material/list';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
+    MatSlideToggleModule,
     MatCardModule,
     MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ConstraintsDialogComponent, CourseDialogComponent, OptimizationDialogComponent, TeamDialogComponent, CsvDialogComponent, ConfigDialogComponent]
+  entryComponents: [ConstraintsDialogComponent, CourseDialogComponent, OptimizationDialogComponent,
+    TeamDialogComponent, CsvDialogComponent, ConfigDialogComponent]
 })
 export class AppModule { }

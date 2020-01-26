@@ -1,7 +1,78 @@
-.course-name {
-  font-size: 20px;
+.course-dialog-body {
+  margin: 10px;
+  padding-bottom: 20px;
 }
 
-.course-code {
+.course-title {
+  font-size: 40px;
+  font-weight: 800;
   margin-top: 0;
+  margin-bottom: 0px;
+}
+
+.course-name {
+  font-size: 20px;
+  font-weight: 200;
+  margin-top: 2px;
+}
+
+.course-icon {
+  position: relative;
+  height: 70px;
+  width: 70px;
+  top: 5px;
+  float: right;
+}
+
+.lock-toggle-cont {
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  margin-left: 30px;
+}
+
+.lock-toggle {
+  display: inline-block;
+}
+
+.lock-label {
+  display: inline-block;
+  font-size:12px;
+  width: 100%;
+  text-align: center;
+}
+
+.section-container {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.alternate-times {
+  min-height: 200px;
+}
+.section-title {
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.inner-container {
+  display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* margin: 10px; */
+  border-radius: 5px;
+}
+
+.inner-item {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.inner-item-data {
+  margin: 0;
 }
