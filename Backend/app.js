@@ -6,12 +6,24 @@ const logger = require('morgan');
 
 const app = express();
 
+// Internal APIs and Utility classes
 const database = require('./database');
+const scheduler = require('./course_scheduler');
+
+// ========================================================= //
+
+// AUTO GENERATED CODE
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ========================================================= //
 
 /**
- * START OF 'ANGULAR' ROUTING
+ * 'ANGULAR' ROUTING documentation
  * 
  * https://itnext.io/express-server-for-an-angular-application-part-1-getting-started-2cd27de691bd
  */
@@ -24,56 +36,65 @@ const app_folder = './Frontend/dist/timetable-app';
 //-- Serve Static Files: Unsure what this actually does --//
 app.get('*.*', express.static(app_folder, {maxAge: '1y'}));
 
+// ========================================================= //
+
+/**
+ * FRONTEND => Database interaction API
+ */
 app.get('/api/courses', function(req, res) {
 
-  console.log("Someone tried to GET some data");
+  // STEP 1: Parse the data from the query string
+  let year = parseInt(req.query.year);
+  let session = req.query.session;
 
-  res.status(200).send({data: "whaddup"});
-  database.example();
+  console.log(`The parameters are: ${year}, ${session}`);
+
+  // STEP 2: Send data through database class, receive queried data
+  database.getAllCourses(year, session, function(courses) {
+    
+    // STEP 3: Form a response for the frontend with the queried data & send
+    res.status(200).send(courses);
+    console.log(courses);
+  });
 
 });
 
 app.post('/api/courses', function(req, res) {
 
   console.log("Someone tried to POST some data");
+  database.postCourses();
 });
 
 app.put('/api/courses', function(req, res) {
 
   console.log("Someone tried to PUT some data");
+  database.putCourse();
 });
 
 app.delete('/api/courses', function(req, res) {
 
   console.log("Someone tried to DELETE some data");
+  database.deleteCourse();
 });
 
-// For Hello World Button => May be removed when button is removed
-app.post('/', function(req, res) {
+// ========================================================= //
 
-  // Can only be seen when running the application locally
-  console.log("Someone pressed the button!");
-  res.status(200).sendFile('/', {root: app_folder});
-  
-});
-
-//-- Serve Application Paths --//
-app.all('*', function(req, res) {
-  
-  // Can only be seen when running the application locally
-  console.log("Someone has requested our URL!");
-  res.status(200).sendFile('/', {root: app_folder});
+/**
+ * FRONTEND => course scheduler interaction API
+ */
+app.get('/api/schedule', function(req, res) {
 
 });
 
 // ========================================================= //
 
-// AUTO GENERATED CODE -- Purpose unknown
+//-- DEFAULT APPLICATION PATH --//
+app.all('*', function(req, res) {
+  
+  res.status(200).sendFile('/', {root: app_folder});
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+});
+
+// ========================================================= //
 
 module.exports = app;
