@@ -43,8 +43,26 @@ function exampleDatabase() {
     });
 }
 
+function batchDocuments(res) {
+    console.log("Someone tried to GET some data");
+    //res.status(200).send({data: "whaddup"});
+    let colRef = database.collection('courses');
+    colRef.get()
+    .then(function(querySnapshot) {
+        var data = querySnapshot.docs.map(function (documentSnapshot) {
+            return documentSnapshot.data();
+        });
+        res.status(200).send(data); 
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });  
+       
+}
 // ========================================================= //
 
 module.exports = {
-    example: exampleDatabase
+    example: exampleDatabase, getAll: batchDocuments
+
+
 }
