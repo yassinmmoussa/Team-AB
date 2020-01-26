@@ -6,12 +6,23 @@ const logger = require('morgan');
 
 const app = express();
 
+// Internal APIs and Utility classes
 const database = require('./database');
 
 // ========================================================= //
 
+// AUTO GENERATED CODE
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// ========================================================= //
+
 /**
- * START OF 'ANGULAR' ROUTING
+ * 'ANGULAR' ROUTING documentation
  * 
  * https://itnext.io/express-server-for-an-angular-application-part-1-getting-started-2cd27de691bd
  */
@@ -26,10 +37,20 @@ app.get('*.*', express.static(app_folder, {maxAge: '1y'}));
 
 app.get('/api/courses', function(req, res) {
 
-  console.log("Someone tried to GET some data");
+  // STEP 1: Parse the data from the query string
+  let year = req.query.year;
+  let session = req.query.session;
 
-  res.status(200).send({data: "whaddup"});
+  // STEP 2: Send data through database class, receive queried data
   database.example();
+  // TODO: Change this to actual method when said method exists
+
+  // STEP 3: Form a response for the frontend with the queried data & send
+  res.status(200).send({
+    "year": year, 
+    "session": session
+  });
+  // TODO: Replace this response with actual queried Data
 
 });
 
@@ -48,32 +69,13 @@ app.delete('/api/courses', function(req, res) {
   console.log("Someone tried to DELETE some data");
 });
 
-// For Hello World Button => May be removed when button is removed
-app.post('/', function(req, res) {
-
-  // Can only be seen when running the application locally
-  console.log("Someone pressed the button!");
-  res.status(200).sendFile('/', {root: app_folder});
-  
-});
-
 //-- Serve Application Paths --//
 app.all('*', function(req, res) {
   
-  // Can only be seen when running the application locally
-  console.log("Someone has requested our URL!");
   res.status(200).sendFile('/', {root: app_folder});
 
 });
 
 // ========================================================= //
-
-// AUTO GENERATED CODE -- Purpose unknown
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
