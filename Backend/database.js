@@ -6,7 +6,7 @@
 const { Firestore } = require('@google-cloud/firestore');
 const session = require('express-session');
 
-const { Firestotore } = require('@google-cloud/connect-firestore');
+const { Firestorestore } = require('@google-cloud/connect-firestore');
 
 const database = require('./top_secret/database');
 

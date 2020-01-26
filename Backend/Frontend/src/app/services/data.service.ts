@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { data } from '../semester/scheduler/calendar/data';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +15,5 @@ export class DataService {
         session: 'W'
       }
     });
-    // return of(data);
   }
 }
