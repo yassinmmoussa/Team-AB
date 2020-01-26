@@ -22,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { BlockComponent } from './semester/scheduler/calendar/day/block/block.component';
 import { MyDialogComponent } from './semester/scheduler/my-dialog/my-dialog.component';
+import { CourseEntryComponent } from './semester/filter/course-list/course-entry/course-entry.component';
 
 
 
@@ -37,7 +38,8 @@ import { MyDialogComponent } from './semester/scheduler/my-dialog/my-dialog.comp
     CalendarComponent,
     DayComponent,
     BlockComponent,
-    MyDialogComponent
+    MyDialogComponent,
+    CourseEntryComponent
   ],
   imports: [
     BrowserModule,
