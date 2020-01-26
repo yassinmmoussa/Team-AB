@@ -50,9 +50,8 @@ export class SemesterComponent implements OnInit {
     this.coursesToDisplay = this.courses.filter(course => course.display);
   }
 
-  buildCourseLists(data): Course[] {
+  buildCourseLists(courses): Course[] {
     const res: Course[] = [];
-    const courses = data.courses;
 
     Object.keys(courses).forEach(courseRef => {
       res.push(new Course(
