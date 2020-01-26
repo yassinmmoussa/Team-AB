@@ -26,9 +26,13 @@ export class TodoItemFlatNode {
  */
 const TREE_DATA = {
   EECS: {
-    'Software Eng': {
-
-    }
+    'Software Eng': [
+      'Y1 Lecture',
+      'Y1 Lab',
+      'Y2 Lecture',
+      'Y4 Lecture',
+      'Y4 Lab'
+    ]
   },
   MECH: {
 
@@ -38,24 +42,7 @@ const TREE_DATA = {
   },
   ESSE: {
 
-  },
-
-
-  Groceries: {
-    'Almond Meal flour': null,
-    'Organic eggs': null,
-    'Protein Powder': null,
-    Fruits: {
-      Apple: null,
-      Berries: ['Blueberry', 'Raspberry'],
-      Orange: null
-    }
-  },
-  Reminders: [
-    'Cook dinner',
-    'Read the Material Design spec',
-    'Upgrade Application to Angular'
-  ]
+  }
 };
 
 /**
@@ -127,10 +114,6 @@ export class ChecklistDatabase {
 })
 
 export class TagListComponent implements OnInit {
-
-  ngOnInit() {
-
-  }
   /** Map from flat node to nested node. This helps us finding the nested node to be modified */
   flatNodeMap = new Map<TodoItemFlatNode, TodoItemNode>();
 
@@ -161,6 +144,10 @@ export class TagListComponent implements OnInit {
     _database.dataChange.subscribe(data => {
       this.dataSource.data = data;
     });
+  }
+
+  ngOnInit() {
+
   }
 
   getLevel = (node: TodoItemFlatNode) => node.level;
@@ -224,6 +211,13 @@ export class TagListComponent implements OnInit {
   todoLeafItemSelectionToggle(node: TodoItemFlatNode): void {
     this.checklistSelection.toggle(node);
     this.checkAllParentsSelection(node);
+    this.updateData();
+  }
+
+  updateData() {
+    this.dataSource.data.forEach(node => {
+      
+    });
   }
 
   /* Checks all the parents when a leaf node is selected/unselected */

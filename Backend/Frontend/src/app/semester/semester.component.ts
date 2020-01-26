@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-semester',
@@ -6,11 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./semester.component.css']
 })
 export class SemesterComponent implements OnInit {
+  data;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.getCourses();
+  }
 
+  getCourses() {
+    console.log('Got courses');
+    this.dataService.getCourses().subscribe(data => {
+      this.data = data;
+      console.log(this.data);
+    });
   }
 
 }
