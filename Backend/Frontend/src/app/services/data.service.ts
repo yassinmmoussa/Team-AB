@@ -10,7 +10,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getCourses(): Observable<any> {
+  getCourses() {
     return this.http.get('/api/courses', {
       params: {
         year: '2020',
