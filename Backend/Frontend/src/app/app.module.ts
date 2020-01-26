@@ -22,8 +22,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { BlockComponent } from './semester/scheduler/calendar/day/block/block.component';
-import { MyDialogComponent } from './semester/scheduler/my-dialog/my-dialog.component';
 import { CourseDialogComponent } from './semester/scheduler/modals/course-dialog/course-dialog.component';
+import { ConstraintsDialogComponent } from './semester/scheduler/modals/constraints-dialog/constraints-dialog.component';
+import { OptimizationDialogComponent } from './semester/scheduler/modals/optimization-dialog/optimization-dialog.component';
+import { CsvDialogComponent } from './semester/scheduler/modals/csv-dialog/csv-dialog.component';
+import { TeamDialogComponent } from './semester/scheduler/modals/team-dialog/team-dialog.component';
+import { ConfigDialogComponent } from './semester/scheduler/modals/config-dialog/config-dialog.component';
 
 
 
@@ -39,8 +43,12 @@ import { CourseDialogComponent } from './semester/scheduler/modals/course-dialog
     CalendarComponent,
     DayComponent,
     BlockComponent,
-    MyDialogComponent,
-    CourseDialogComponent
+    CourseDialogComponent,
+    ConstraintsDialogComponent,
+    OptimizationDialogComponent,
+    CsvDialogComponent,
+    TeamDialogComponent,
+    ConfigDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +67,6 @@ import { CourseDialogComponent } from './semester/scheduler/modals/course-dialog
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [MyDialogComponent, CourseDialogComponent]
+  entryComponents: [ConstraintsDialogComponent, CourseDialogComponent, OptimizationDialogComponent, TeamDialogComponent, CsvDialogComponent, ConfigDialogComponent]
 })
 export class AppModule { }
