@@ -83,7 +83,7 @@ app.delete('/api/courses', function(req, res) {
  * FRONTEND => course scheduler interaction API
  */
 app.get('/api/schedule', function(req, res) {
-
+  scheduler();
 });
 
 // ========================================================= //
