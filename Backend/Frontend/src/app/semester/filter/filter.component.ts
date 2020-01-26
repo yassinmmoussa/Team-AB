@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-filter',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
+  @Output() updateGlobalFilters = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  updateFilters(filters) {
+    this.updateGlobalFilters.emit(filters);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import {SelectionModel} from '@angular/cdk/collections';
@@ -24,25 +24,22 @@ export class TodoItemFlatNode {
 /**
  * The Json object for to-do list data.
  */
+const lecturesAndLabs = [
+  'Y1 Lecture',
+  'Y1 Lab',
+  'Y2 Lecture',
+  'Y2 Lab',
+  'Y3 Lecture',
+  'Y3 Lab',
+  'Y4 Lecture',
+  'Y4 Lab'
+]
 const TREE_DATA = {
-  EECS: {
-    'Software Eng': [
-      'Y1 Lecture',
-      'Y1 Lab',
-      'Y2 Lecture',
-      'Y4 Lecture',
-      'Y4 Lab'
-    ]
-  },
-  MECH: {
-
-  },
-  CIVL: {
-
-  },
-  ESSE: {
-
-  }
+  EECS: lecturesAndLabs,
+  MECH: lecturesAndLabs,
+  CIVL: lecturesAndLabs,
+  ESSE: lecturesAndLabs,
+  ENG: lecturesAndLabs
 };
 
 /**
@@ -105,7 +102,6 @@ export class ChecklistDatabase {
   }
 }
 
-
 @Component({
   selector: 'app-tag-list',
   templateUrl: './tag-list.component.html',
@@ -114,6 +110,10 @@ export class ChecklistDatabase {
 })
 
 export class TagListComponent implements OnInit {
+  @Output() updateGlobalFilters = new EventEmitter();
+
+  filters = [];
+
   /** Map from flat node to nested node. This helps us finding the nested node to be modified */
   flatNodeMap = new Map<TodoItemFlatNode, TodoItemNode>();
 
@@ -200,6 +200,7 @@ export class TagListComponent implements OnInit {
       ? this.checklistSelection.select(...descendants)
       : this.checklistSelection.deselect(...descendants);
 
+    this.updateFilters(descendants);
     // Force update for the parent
     descendants.every(child =>
       this.checklistSelection.isSelected(child)
@@ -211,13 +212,33 @@ export class TagListComponent implements OnInit {
   todoLeafItemSelectionToggle(node: TodoItemFlatNode): void {
     this.checklistSelection.toggle(node);
     this.checkAllParentsSelection(node);
-    this.updateData();
+    this.updateFilters([node]);
   }
 
-  updateData() {
-    this.dataSource.data.forEach(node => {
-      
-    });
+  updateFilters(nodes) {
+    const parent: TodoItemFlatNode | null = this.getParentNode(nodes[0]);
+
+    if (parent != null) {
+      nodes.forEach(node => {
+        const filterName = parent.item + ' ' + node.item;
+        const nodeDataArray = node.item.split(' ');
+        const nodeData = {
+          filterName,
+          dept: parent.item,
+          courseYear: nodeDataArray[0].charAt(1),
+          courseType: nodeDataArray[1]
+        };
+        if (this.checklistSelection.isSelected(node)) {
+          if (!this.filters.some(filter => filter.filterName === filterName)) {
+            this.filters.push(nodeData);
+          }
+        } else {
+          this.filters = this.filters.filter(filter => filter.filterName !== filterName);
+        }
+      });
+
+      this.updateGlobalFilters.emit(this.filters);
+    }
   }
 
   /* Checks all the parents when a leaf node is selected/unselected */

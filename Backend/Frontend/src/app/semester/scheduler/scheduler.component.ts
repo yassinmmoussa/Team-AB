@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Course } from '../../model/Course';
 
 @Component({
   selector: 'app-scheduler',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scheduler.component.css']
 })
 export class SchedulerComponent implements OnInit {
+  @Input() courses: Course[];
 
   constructor() { }
 
