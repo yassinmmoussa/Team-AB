@@ -23,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { BlockComponent } from './semester/scheduler/calendar/day/block/block.component';
 import { MyDialogComponent } from './semester/scheduler/my-dialog/my-dialog.component';
 import { CourseEntryComponent } from './semester/filter/course-list/course-entry/course-entry.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -53,7 +54,8 @@ import { CourseEntryComponent } from './semester/filter/course-list/course-entry
     MatTreeModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
