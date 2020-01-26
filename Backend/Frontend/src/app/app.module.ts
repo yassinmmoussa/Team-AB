@@ -47,7 +47,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     OptimizationDialogComponent,
     CsvDialogComponent,
     TeamDialogComponent,
-    ConfigDialogComponent
+    ConfigDialogComponent,
+    CourseEntryComponent
+
   ],
   imports: [
     BrowserModule,

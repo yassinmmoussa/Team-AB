@@ -1,3 +1,9 @@
 <div class="course-list-body">
-    Course1, course2
+    <div *ngFor='let course of this.courseList'>
+
+    <app-course-entry [course]='course'></app-course-entry> 
+
+
+
+    </div>
 </div>
