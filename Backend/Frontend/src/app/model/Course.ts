@@ -1,6 +1,7 @@
 export class Course {
 
   constructor(
+    public courseRef: string,
     public duration: number,
     public dept: string,
     public instructor: string,
@@ -14,6 +15,7 @@ export class Course {
     public session: string,
     public type: string,
     public labSection?: string,
+    public display?: boolean
   ) {
 
   }

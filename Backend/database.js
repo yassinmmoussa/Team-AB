@@ -1,5 +1,5 @@
 /**
- * Google firestore setup section
+ * Google Firestore setup section
  * 
  * https://github.com/googleapis/nodejs-firestore-session#google-cloud-firestore-session
  */

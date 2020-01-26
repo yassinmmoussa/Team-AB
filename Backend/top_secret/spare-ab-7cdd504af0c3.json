@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "spare-ab",
+  "private_key_id": "7cdd504af0c344e2d92607207d9fea0a780c2dec",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCsCLt9hEr6bUBx\n2bJvugmTA9nOrYTXkp5sSe1nNzqapZasl1R6/eEIhJY4omWjmYvtQMKdvUK5UWZw\nU21UX8WUQ4JC283qynaQMVerPAgqZszw/NC4J1XHGcPPX6Pw9VAd71gg2wM8PeUV\n1cowP99eevjU5DAspk8bqEgUx0EjWmVpTgUQPZAkySOAw78xBsMIa8OxuRocztQT\nToP5md8RdwCl/ySFKTE9JhEfK0Se3wNp49znzixO2mdJ4Xyd0leiH+29kYSwnebd\nrod9+cZsteqJhe/jlNVhlvzVYY6tjOuggihRqf8qnDSfsrRN65cw1tkH10HGIRes\n6FOCyFpTAgMBAAECggEASZ2C/Xb6zqapiQ5q+LxXFH31WieOTOEEwbnwyNYtUbfB\n/iDTmb3B6e8yiRGVBKjT47ZukSlHwB1BBJfulMhWt9cbipicSPhSO+mhZjjOFbbf\nw8+rUOIkJoqz6601bgrLOcQNpiGSBNlHikxttK/gWYGtsQvkQXb5KxCbp6iMCyAS\n1wJUzVjeXXAkp6fBCOkwZj3XY1FhsF9YOnnk5lu8jJussj4J4S1zgWp1wRgsAiEw\n2WuqCZuXy46mSYeQjEmz+gwTEkoYv/t0T/xl0WgSsDG3o3XEZ29USuica8A+ztoJ\nsFXdazSfaEfyEVW+9TWPWC5ray9KWTO1LkJFKcgZAQKBgQDpv3HtaHNOPv9d715S\ndkwG/gpKPEut2WPaFHJ77LitzmvHcF7UBQnNHFoXizuihkUoCeNUtZCEFtyvt8GY\nJE6EzHVUezjrcqkxveI2w/gybBL4S2485jJeKhCOyPa0W27QiQ2TexI2CkqKtHam\nd03Cdzp+/ZPh4D4ylx2LQ8hcMwKBgQC8aUrOAnBve4vAdTQf3HwQgLPMeycye2vG\nPQ9gOrxJZP/3Gf8j7In4KpninVbP08LVw7eeT+lxYeMLg9SnkhF+5CAgjwPSXhYd\nfImNGrbxSx8YdkZdiTMJU2CIz1wdQl9QotVmkK+3CyWR4YYHYoicej4mLO1CrqiG\nDr/6tUHpYQKBgQCOvqD+UGkKAaLFZKZ/SUrIgl8aUpQMyNMXnKEFWNy3F3XuR4tB\ngwonPgculZKHf+O/vbocQvzMDYIbtOX+2T0yEAIe41kxP8ZfYAxDUY3CjQlQpA/g\nFNvxcVLHP6aZIbUcmHW3+NJ4OfSnm+lRY04TUehhIM4shFq3Xl1mbLBwzQKBgD7w\nmZmqPO8xAWWAgbInEJbet7GWbmixzDYEDc/iryWBhPSCDbZtfUWWzaNjVi3FGvAY\nGo3bOiuzPIqLNo3oAMo34PefbvJmldKx2K13gCepJbEhSa5Td+YkoTnys13e30Jr\nswg5S0nFgn5yLTjoVKSZPYu5NGUzPX7TDJTu2h7hAoGBAIMr+Ce3z3r5K5u0a30R\nValplheWAkWK+vKxeAVr5QlOzfxlWw8He+80x0rtuGh30b1J0zfdALsLX86il7QY\noVD36/pMs7pw8JcMiPmQ/HYo7myxsXBNK/kltIarnvypd8kCPzRXe5SLaoMVLVsJ\n8Re1w328noJ8+zgyHzfqbXvy\n-----END PRIVATE KEY-----\n",
+  "client_email": "blameconnora@spare-ab.iam.gserviceaccount.com",
+  "client_id": "110836784590731228271",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/blameconnora%40spare-ab.iam.gserviceaccount.com"
+}
