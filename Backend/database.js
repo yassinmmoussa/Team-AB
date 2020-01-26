@@ -21,11 +21,11 @@ function exampleDatabase() {
     console.log("The database is speaking to you...")
 
     /**
- * Example database storing
- * 
- * This code shouldn't be permanent, should just
- * serve as an example for future database calls
- */
+        * Example database storing
+        * 
+        * This code shouldn't be permanent, should just
+        * serve as an example for future database calls
+    */
     let docRef = database.collection('users').doc('new_example');
 
     // .set() creates or overwrites data
@@ -46,7 +46,7 @@ function exampleDatabase() {
 function batchDocuments(res) {
     console.log("Someone tried to GET some data");
     //res.status(200).send({data: "whaddup"});
-    let colRef = database.collection('courses');
+    let colRef = database.collection('courses').where("year", "==", 2020).where("session","==","W");
     colRef.get()
     .then(function(querySnapshot) {
         var data = querySnapshot.docs.map(function (documentSnapshot) {
@@ -56,13 +56,64 @@ function batchDocuments(res) {
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
-    });  
-       
+    });        
 }
+
+function addDocuments(res) {
+    //a testing doc data to add into firestore, in the future i will 
+    //use passed data from post request
+    var newCourse= { 
+        code: 4413,
+        colour: "blue",
+        days: {
+            0:0,
+        },
+        dept: "EECS",
+        duration: 4,
+        instructor: "Marin Litou",
+        lab_section: "1",
+        name: "Building E-Commerce Systems",
+        section: "E",
+        session: "F",
+        starting_block: 8,
+        type: "lab",
+        year: 1997
+    }
+
+    let colRef = database.collection('courses').doc("TESTING").set(newCourse).then(function() {
+        console.log("Document successfully written!");
+    });
+    res.status(200).send({data: "added"});
+}
+
+function updateDocument(res) {
+    let colRef = database.collection('courses').where("year","==",1997)
+    .get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            console.log(doc.id, " => ", doc.data());
+            database.collection("courses").doc(doc.id).update({year: 1});
+        });
+    })
+    res.status(200).send({data: "updated"});
+}
+
+function deleteDocument(res) {
+    let colRef = database.collection('courses').where("year","==",1)
+    .get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            console.log(doc.id, " => ", doc.data());
+            database.collection("courses").doc(doc.id).delete();
+        });
+    })
+    res.status(200).send({data: "deleted"});
+}
+
 // ========================================================= //
 
 module.exports = {
-    example: exampleDatabase, getAll: batchDocuments
-
-
+    example: exampleDatabase, 
+    getAllCourses: batchDocuments, 
+    postCourses: addDocuments,
+    putCourse: updateDocument,
+    deleteCourse: deleteDocument,
 }
