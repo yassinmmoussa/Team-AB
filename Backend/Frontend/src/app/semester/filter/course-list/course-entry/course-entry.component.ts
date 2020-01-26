@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import {data} from '../../../scheduler/calendar/data.js'
 import {Course} from '../../../../model/Course'
 import {MatCardModule, MatCard} from '@angular/material/card';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-course-entry',
@@ -13,33 +15,30 @@ export class CourseEntryComponent implements OnInit {
 
   @Input() course: Course;
 
-  // name: String;
-  // year: number;
-  // section: String;
-  // type: String;
-  // dept: String;
-  // colour: String;
-  // labSection?: String;
 
 
 
 
-  constructor() {
 
-    console.log(this.course)
-    
-    // this.name = "Hello"
-    // this.year = this.course.year
-    // this.section = this.course.section;
-    // this.type = this.course.type;
-    // this.dept = this.course.dept;
-    // this.colour = this.course.colour;
-    // if (this.type === 'lab'){
-    //   this.labSection = this.course.labSection;
-    // }
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
 
-  
+    iconRegistry.addSvgIcon(
+      'lecture-icon',
+      sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/people-outline.svg'));
+  iconRegistry.addSvgIcon(
+    'lab-icon',
+    sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/flask.svg'));
 
+  }
+
+  iconType(): String {
+
+    if (this.course.type === "lecture")
+    {
+      return 'lecture-icon'
+    }else{
+      return 'lab-icon'
+    }
 
   }
 

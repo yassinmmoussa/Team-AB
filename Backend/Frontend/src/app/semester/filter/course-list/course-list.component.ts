@@ -3,6 +3,7 @@ import {data} from '../../scheduler/calendar/data.js'
 import {Course} from '../../../model/Course'
 import {CourseEntryComponent} from './course-entry/course-entry.component'
 
+
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
@@ -33,13 +34,9 @@ export class CourseListComponent implements OnInit {
           courses[`${courseRef}`].labSection
         ))
 
-          
-
-
-
     })
 
-    console.log(localCourseList);
+
 
     return localCourseList;
 
@@ -49,10 +46,7 @@ export class CourseListComponent implements OnInit {
 
 
   constructor() {
-
     this.courseList = this.populateCourses();
-    console.log(this.courseList)
-
 
    }
 
