@@ -1,12 +1,12 @@
 /**
- * Google Firestore setup section
+ * Google firestore setup section
  * 
  * https://github.com/googleapis/nodejs-firestore-session#google-cloud-firestore-session
  */
 const { Firestore } = require('@google-cloud/firestore');
 const session = require('express-session');
 
-const { FirestoreStore } = require('@google-cloud/connect-firestore');
+const { Firestorestore } = require('@google-cloud/connect-firestore');
 
 const database = require('./top_secret/database');
 
@@ -43,16 +43,15 @@ function exampleDatabase() {
     });
 }
 
-function batchDocuments(year, session) {
+function batchDocuments(year, session, next) {
     console.log("Someone tried to GET some data");
-    //res.status(200).send({data: "whaddup"});
     let colRef = database.collection('courses').where("year", "==", year).where("session","==",session);
     colRef.get()
     .then(function(querySnapshot) {
         var data =  querySnapshot.docs.map(function (documentSnapshot) {
                         return documentSnapshot.data();
                     });
-        //res.status(200).send(data); 
+        next(data)
         return data;
     })
     .catch(function(error) {
@@ -60,7 +59,7 @@ function batchDocuments(year, session) {
     });        
 }
 
-function addDocuments(res) {
+function addDocuments() {
     console.log("Someone tried to POST some data");
     //a testing doc data to add into firestore, in the future i will 
     //use passed data from post request
@@ -85,10 +84,9 @@ function addDocuments(res) {
     let colRef = database.collection('courses').doc("TESTING").set(newCourse).then(function() {
         console.log("Document successfully written!");
     });
-    res.status(200).send({data: "added"});
 }
 
-function updateDocument(res) {
+function updateDocument() {
     console.log("Someone tried to PUT some data");
     let colRef = database.collection('courses').where("year","==",1997)
     .get().then(function(querySnapshot) {
@@ -97,10 +95,9 @@ function updateDocument(res) {
             database.collection("courses").doc(doc.id).update({year: 1});
         });
     })
-    res.status(200).send({data: "updated"});
 }
 
-function deleteDocument(res) {
+function deleteDocument() {
     console.log("Someone tried to DELETE some data");
     let colRef = database.collection('courses').where("year","==",1)
     .get().then(function(querySnapshot) {
@@ -109,7 +106,6 @@ function deleteDocument(res) {
             database.collection("courses").doc(doc.id).delete();
         });
     })
-    res.status(200).send({data: "deleted"});
 }
 
 // ========================================================= //

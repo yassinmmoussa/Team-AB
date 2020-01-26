@@ -1,5 +1,6 @@
 .course-dialog-body {
   margin: 10px;
+  padding-bottom: 20px;
 }
 
 .course-title {
@@ -41,22 +42,29 @@
   text-align: center;
 }
 
-.meeting-container {
+.section-container {
   width: 80%;
   margin: 0 auto;
   margin-top: 40px;
 }
 
-.meeting-title {
-
+.alternate-times {
+  min-height: 200px;
+}
+.section-title {
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .inner-container {
   display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 10px;
-  padding: 15px;
+  /* margin: 10px; */
   border-radius: 5px;
 }
 

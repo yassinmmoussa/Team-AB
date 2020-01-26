@@ -1,6 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {MyDialogComponent} from '../my-dialog/my-dialog.component';
+import {ConstraintsDialogComponent} from '../modals/constraints-dialog/constraints-dialog.component';
+import {OptimizationDialogComponent} from '../modals/optimization-dialog/optimization-dialog.component';
+import {CsvDialogComponent} from '../modals/csv-dialog/csv-dialog.component';
+import {TeamDialogComponent} from '../modals/team-dialog/team-dialog.component';
+import {ConfigDialogComponent} from '../modals/config-dialog/config-dialog.component';
+
 export interface DialogData {
   animal: string;
   name: string;
@@ -21,30 +26,35 @@ export class ConfigBarComponent implements OnInit {
     this.configBtns = [
       {
         "iconUrl": "timeline",
-        "iconText":"Constraints"
+        "iconText":"Constraints",
+        "click": () => this.openConstraintsDialog()
       },
       {
         "iconUrl": "calendar_today",
-        "iconText":"Run Optimization"
+        "iconText":"Run Optimization",
+        "click": () => this.openOptimizationDialog()
       },
       {
         "iconUrl": "save",
-        "iconText":"Export to CSV"
+        "iconText":"Export to CSV",
+        "click": () => this.openCsvDialog()
       },
       {
         "iconUrl": "people_outline",
-        "iconText":"Team"
+        "iconText":"Team",
+        "click": () => this.openTeamDialog()
       },
       {
         "iconUrl": "settings",
-        "iconText":"Configurations"
+        "iconText":"Configurations",
+        "click": () => this.openConfigDialog()
       }
     ]
   }
 
 // Creating the dialog
-  openDialog(){
-    let dialogRef = this.dialog.open(MyDialogComponent,{
+  openConstraintsDialog(){
+    let dialogRef = this.dialog.open(ConstraintsDialogComponent,{
       width: '800px',
       height: '700px',
       data: 'this text is passed into the dialog'
@@ -55,6 +65,53 @@ export class ConfigBarComponent implements OnInit {
     })
   }
 
+  openOptimizationDialog(){
+    let dialogRef = this.dialog.open(OptimizationDialogComponent,{
+      width: '800px',
+      height: '700px',
+      data: 'this text is passed into the dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog closed: ${result}')
+    })
+  }
+
+  openCsvDialog(){
+    let dialogRef = this.dialog.open(CsvDialogComponent,{
+      width: '800px',
+      height: '700px',
+      data: 'this text is passed into the dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog closed: ${result}')
+    })
+  }
+
+  openTeamDialog(){
+    let dialogRef = this.dialog.open(TeamDialogComponent,{
+      width: '800px',
+      height: '700px',
+      data: 'this text is passed into the dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog closed: ${result}')
+    })
+  }
+
+  openConfigDialog(){
+    let dialogRef = this.dialog.open(ConfigDialogComponent,{
+      width: '800px',
+      height: '700px',
+      data: 'this text is passed into the dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog closed: ${result}')
+    })
+  }
 
 }
 

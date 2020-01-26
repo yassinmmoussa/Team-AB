@@ -43,7 +43,7 @@ export class BlockComponent implements OnInit {
   openCourseDialog(c: Course) {
     const dialogRef = this.courseDialog.open(CourseDialogComponent, {
       width: '800px',
-      height: '700px',
+      height: '800px',
       data: c
     });
 

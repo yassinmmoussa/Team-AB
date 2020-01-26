@@ -8,6 +8,7 @@ const app = express();
 
 // Internal APIs and Utility classes
 const database = require('./database');
+const scheduler = require('./course_scheduler');
 
 // ========================================================= //
 
@@ -35,42 +36,59 @@ const app_folder = './Frontend/dist/timetable-app';
 //-- Serve Static Files: Unsure what this actually does --//
 app.get('*.*', express.static(app_folder, {maxAge: '1y'}));
 
+// ========================================================= //
+
+/**
+ * FRONTEND => Database interaction API
+ */
 app.get('/api/courses', function(req, res) {
 
   // STEP 1: Parse the data from the query string
-  let year = 1997;
-  let session = 'F';
+  let year = parseInt(req.query.year);
+  let session = req.query.session;
+
+  console.log(`The parameters are: ${year}, ${session}`);
 
   // STEP 2: Send data through database class, receive queried data
-  database.getAllCourses(year, session);
- 
-  // STEP 3: Form a response for the frontend with the queried data & send
-  //res.status(200).send({
-  //  "year": year, 
-  //  "session": session
-  //});
-  // TODO: Replace this response with actual queried Data
+  database.getAllCourses(year, session, function(courses) {
+    
+    // STEP 3: Form a response for the frontend with the queried data & send
+    res.status(200).send(courses);
+    console.log(courses);
+  });
+
 });
 
 app.post('/api/courses', function(req, res) {
 
   console.log("Someone tried to POST some data");
-  database.postCourses(res);
+  database.postCourses();
 });
 
 app.put('/api/courses', function(req, res) {
 
   console.log("Someone tried to PUT some data");
-  database.putCourse(res);
+  database.putCourse();
 });
 
 app.delete('/api/courses', function(req, res) {
 
   console.log("Someone tried to DELETE some data");
-  database.deleteCourse(res);
+  database.deleteCourse();
 });
 
-//-- Serve Application Paths --//
+// ========================================================= //
+
+/**
+ * FRONTEND => course scheduler interaction API
+ */
+app.get('/api/schedule', function(req, res) {
+  scheduler();
+});
+
+// ========================================================= //
+
+//-- DEFAULT APPLICATION PATH --//
 app.all('*', function(req, res) {
   
   res.status(200).sendFile('/', {root: app_folder});

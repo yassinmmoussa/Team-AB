@@ -14,6 +14,8 @@ export class Course {
     public session: string,
     public type: string,
     public labSection?: string,
+    public capacity: number = 0,
+    public room: string = 'Not Set'
   ) {}
 
   daysOut(): string {
@@ -30,7 +32,7 @@ export class Course {
           res += 'W';
           break;
         case 3:
-          res += 'R';
+          res += 'Th';
           break;
         case 4:
           res += 'F';
@@ -38,7 +40,7 @@ export class Course {
         default:
           break;
       }
-      if (i !== this.days.length) {
+      if (i !== this.days.length - 1) {
         res += ',';
       }
     });
@@ -70,7 +72,7 @@ export class Course {
     }
 
     // ampm
-    if (blockNo > 8) {
+    if (blockNo >= 8) {
       ampm = 'pm';
     } else {
       ampm = 'am';
@@ -78,5 +80,10 @@ export class Course {
 
     const formattedEnding = (minute === '00') ? ampm : ':' + minute + ampm;
     return hour + formattedEnding;
+  }
+
+  innerContainerColour(): string {
+    const lessOpaqueHex = this.colour + '40';
+    return lessOpaqueHex;
   }
 }
