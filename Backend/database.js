@@ -108,12 +108,36 @@ function deleteDocument() {
     })
 }
 
+function PCP_curricula(year, session, next) {
+    // first give connor all curricula
+    let colRef = database.collection("curricula").where("year", "==", year).where("session","==",session);
+    colRef.get().then(function(querySnapshot) {
+        var data =  querySnapshot.docs.map(function (documentSnapshot) {
+            return documentSnapshot.data();
+                });
+        next(data);
+    }) 
+}
+
+function PCP_courses(courseId, next) {
+    // then feed him courses info per curriculum
+    let colRef = database.collection("courses").where("id","==",courseId);
+    colRef.get().then(function(querySnapshot) {
+        var data =  querySnapshot.docs.map(function (documentSnapshot) {
+            return documentSnapshot.data().duration;
+                });
+        next(data);
+    })
+}
+
 // ========================================================= //
 
 module.exports = {
-    example: exampleDatabase, 
-    getAllCourses: batchDocuments, 
-    postCourses: addDocuments,
-    putCourse: updateDocument,
-    deleteCourse: deleteDocument,
+    example:        exampleDatabase, 
+    getAllCourses:  batchDocuments, 
+    postCourses:    addDocuments,
+    putCourse:      updateDocument,
+    deleteCourse:   deleteDocument,
+    pcpCurricula:   PCP_curricula,
+    pcpCourses:     PCP_courses,
 }
