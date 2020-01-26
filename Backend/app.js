@@ -38,35 +38,36 @@ app.get('*.*', express.static(app_folder, {maxAge: '1y'}));
 app.get('/api/courses', function(req, res) {
 
   // STEP 1: Parse the data from the query string
-  let year = req.query.year;
-  let session = req.query.session;
+  let year = 1997;
+  let session = 'F';
 
   // STEP 2: Send data through database class, receive queried data
-  database.example();
-  // TODO: Change this to actual method when said method exists
-
+  database.getAllCourses(year, session);
+ 
   // STEP 3: Form a response for the frontend with the queried data & send
-  res.status(200).send({
-    "year": year, 
-    "session": session
-  });
+  //res.status(200).send({
+  //  "year": year, 
+  //  "session": session
+  //});
   // TODO: Replace this response with actual queried Data
-
 });
 
 app.post('/api/courses', function(req, res) {
 
   console.log("Someone tried to POST some data");
+  database.postCourses(res);
 });
 
 app.put('/api/courses', function(req, res) {
 
   console.log("Someone tried to PUT some data");
+  database.putCourse(res);
 });
 
 app.delete('/api/courses', function(req, res) {
 
   console.log("Someone tried to DELETE some data");
+  database.deleteCourse(res);
 });
 
 //-- Serve Application Paths --//

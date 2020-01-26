@@ -43,16 +43,17 @@ function exampleDatabase() {
     });
 }
 
-function batchDocuments(year, session, res) {
+function batchDocuments(year, session) {
     console.log("Someone tried to GET some data");
     //res.status(200).send({data: "whaddup"});
     let colRef = database.collection('courses').where("year", "==", year).where("session","==",session);
     colRef.get()
     .then(function(querySnapshot) {
-        var data = querySnapshot.docs.map(function (documentSnapshot) {
-            return documentSnapshot.data();
-        });
-        res.status(200).send(data); 
+        var data =  querySnapshot.docs.map(function (documentSnapshot) {
+                        return documentSnapshot.data();
+                    });
+        //res.status(200).send(data); 
+        return data;
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
