@@ -6,19 +6,7 @@ const logger = require('morgan');
 
 const app = express();
 
-// ========================================================= //
-
-/**
- * Google Firestore setup section
- * 
- * https://github.com/googleapis/nodejs-firestore-session#google-cloud-firestore-session
- */
-const {Firestore} = require('@google-cloud/firestore');
-const session = require('express-session');
-
-const {FirestoreStore} = require('@google-cloud/connect-firestore');
-
-const database = require('./top_secret/database');
+const database = require('./database');
 
 // ========================================================= //
 
@@ -39,7 +27,10 @@ app.get('*.*', express.static(app_folder, {maxAge: '1y'}));
 app.get('/api/courses', function(req, res) {
 
   console.log("Someone tried to GET some data");
+
   res.status(200).send({data: "whaddup"});
+  database.example();
+
 });
 
 app.post('/api/courses', function(req, res) {
@@ -71,33 +62,8 @@ app.all('*', function(req, res) {
   
   // Can only be seen when running the application locally
   console.log("Someone has requested our URL!");
-
   res.status(200).sendFile('/', {root: app_folder});
 
-});
-
-// ========================================================= //
-
-/**
- * Example database storing
- * 
- * This code shouldn't be permanent, should just
- * serve as an example for future database calls
- */
-let docRef = database.collection('users').doc('new_example');
-
-// .set() creates or overwrites data
-docRef.set({
-  first: 'Ada',
-  last: 'Lovelace',
-  born: 1815
-});
-
-// Server boot counter
-let serverBoots = database.collection('Internal Data').doc('Server');
-
-serverBoots.update({
-  Boots: Firestore.FieldValue.increment(1)
 });
 
 // ========================================================= //
