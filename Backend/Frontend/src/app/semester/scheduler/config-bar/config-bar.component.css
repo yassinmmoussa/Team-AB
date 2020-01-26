@@ -1,7 +1,7 @@
 .config-body {
     height: 200px;
     width: 100%;
-    background-color: blue;
+    background: white;
 }
 
 
@@ -9,6 +9,7 @@
 .config-btn{
   margin-left:30px;
   top: 30px;
+  background-color: #F1F1F1;
 }
 .button-row{
   display: inline;
