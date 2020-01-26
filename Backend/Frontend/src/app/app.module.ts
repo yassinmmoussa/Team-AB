@@ -9,6 +9,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SemesterComponent } from './semester/semester.component';
 import { FilterComponent } from './semester/filter/filter.component';
 import { SchedulerComponent } from './semester/scheduler/scheduler.component';
@@ -53,7 +54,8 @@ import { CourseDialogComponent } from './semester/scheduler/modals/course-dialog
     MatTreeModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent],
