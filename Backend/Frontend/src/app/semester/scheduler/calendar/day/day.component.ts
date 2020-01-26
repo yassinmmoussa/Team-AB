@@ -20,13 +20,8 @@ export class DayComponent implements OnInit {
 
     // Update data
     this.courses = courseList;
-    this.courses.forEach((course) => {
-      if (course.session === this.session) {
-        this.blocks[course.startingBlock].push(course);
-      }
-    });
+    this.courses.forEach(course => this.blocks[course.startingBlock].push(course));
   }
-  @Input() session: string;
 
   courses: Course[];
   numBlocks = dayConfig.numPeriodsPerDay;
