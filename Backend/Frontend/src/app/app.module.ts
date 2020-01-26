@@ -27,6 +27,10 @@ import { OptimizationDialogComponent } from './semester/scheduler/modals/optimiz
 import { CsvDialogComponent } from './semester/scheduler/modals/csv-dialog/csv-dialog.component';
 import { TeamDialogComponent } from './semester/scheduler/modals/team-dialog/team-dialog.component';
 import { ConfigDialogComponent } from './semester/scheduler/modals/config-dialog/config-dialog.component';
+import { CourseEntryComponent } from './semester/filter/course-list/course-entry/course-entry.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
+
 
 
 
@@ -47,7 +51,9 @@ import { ConfigDialogComponent } from './semester/scheduler/modals/config-dialog
     OptimizationDialogComponent,
     CsvDialogComponent,
     TeamDialogComponent,
-    ConfigDialogComponent
+    ConfigDialogComponent,
+    CourseEntryComponent
+
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,9 @@ import { ConfigDialogComponent } from './semester/scheduler/modals/config-dialog
     MatTreeModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],
