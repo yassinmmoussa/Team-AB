@@ -17,9 +17,12 @@ import { CourseListComponent } from './semester/filter/course-list/course-list.c
 import { ConfigBarComponent } from './semester/scheduler/config-bar/config-bar.component';
 import { CalendarComponent } from './semester/scheduler/calendar/calendar.component';
 import { DayComponent } from './semester/scheduler/calendar/day/day.component';
+import {MatDialogModule} from "@angular/material/dialog";
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { BlockComponent } from './semester/scheduler/calendar/day/block/block.component';
+import { MyDialogComponent } from './semester/scheduler/my-dialog/my-dialog.component';
+
 
 
 @NgModule({
@@ -33,7 +36,8 @@ import { BlockComponent } from './semester/scheduler/calendar/day/block/block.co
     ConfigBarComponent,
     CalendarComponent,
     DayComponent,
-    BlockComponent
+    BlockComponent,
+    MyDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +50,11 @@ import { BlockComponent } from './semester/scheduler/calendar/day/block/block.co
     MatFormFieldModule,
     MatTreeModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [MyDialogComponent]
 })
 export class AppModule { }

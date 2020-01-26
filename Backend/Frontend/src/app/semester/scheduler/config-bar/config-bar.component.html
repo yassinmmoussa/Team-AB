@@ -1,3 +1,9 @@
 <div class="config-body">
-    Button 1, button 2
-</div>
+  <div class="button-row" *ngFor =  "let btn of configBtns">
+    <!-- <button class = "config-btn" mat-flat-button (click)="openDialog()">
+      <mat-icon>timeline</mat-icon>Constraints
+    </button> -->
+    <button class = "config-btn" mat-flat-button (click)="openDialog()">
+      <mat-icon>{{btn["iconUrl"]}} </mat-icon> {{btn["iconText"]}}
+    </button>
+  </div>
