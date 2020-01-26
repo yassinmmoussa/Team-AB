@@ -27,8 +27,8 @@ import { OptimizationDialogComponent } from './semester/scheduler/modals/optimiz
 import { CsvDialogComponent } from './semester/scheduler/modals/csv-dialog/csv-dialog.component';
 import { TeamDialogComponent } from './semester/scheduler/modals/team-dialog/team-dialog.component';
 import { ConfigDialogComponent } from './semester/scheduler/modals/config-dialog/config-dialog.component';
-
-
+import {MatSelectModule} from '@angular/material/select';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,10 @@ import { ConfigDialogComponent } from './semester/scheduler/modals/config-dialog
     MatTreeModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],
