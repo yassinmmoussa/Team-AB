@@ -1,5 +1,7 @@
 .course-list-body {
     height: 650px;
     width: 100%;
-    background-color: lightskyblue;
+    background-color: white;
+    overflow-y: scroll;
+    overflow-x: scroll;
 }
