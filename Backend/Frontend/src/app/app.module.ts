@@ -24,6 +24,7 @@ import { BlockComponent } from './semester/scheduler/calendar/day/block/block.co
 import { MyDialogComponent } from './semester/scheduler/my-dialog/my-dialog.component';
 import { CourseEntryComponent } from './semester/filter/course-list/course-entry/course-entry.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -55,7 +56,8 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],

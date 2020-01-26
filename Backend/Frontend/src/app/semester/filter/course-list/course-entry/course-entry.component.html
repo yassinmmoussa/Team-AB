@@ -1,4 +1,5 @@
-<mat-card>
+<mat-card class="course-entry" >
     <mat-icon class="course-icon" [svgIcon]="this.iconType()" aria-hidden="false" aria-label=""></mat-icon>
    <span style="font-size: larger; font-weight: bold;">{{this.course.dept}} {{this.course.code}}</span> {{this.course.name}} Section {{this.course.section}} 
+   <mat-checkbox (change)="changeCourse($event)" checked="true"></mat-checkbox>
 </mat-card>

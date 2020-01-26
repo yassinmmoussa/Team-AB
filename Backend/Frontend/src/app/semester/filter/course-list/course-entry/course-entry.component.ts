@@ -42,6 +42,10 @@ export class CourseEntryComponent implements OnInit {
 
   }
 
+  changeCourse(event){
+      console.log(event)
+  }
+
   ngOnInit() {
   }
 

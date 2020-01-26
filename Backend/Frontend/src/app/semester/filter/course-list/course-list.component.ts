@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {data} from '../../scheduler/calendar/data.js'
 import {Course} from '../../../model/Course'
 import {CourseEntryComponent} from './course-entry/course-entry.component'
-
+import {MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-course-list',
