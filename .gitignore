@@ -50,7 +50,7 @@ testem.log
 Thumbs.db
 
 # Backend Top Secret Files
-.Backend/top_secret/
+/Backend/top_secret/
 
 # Frontend Dist folder
-.Backend/Frontend/dist
+/Backend/Frontend/dist
