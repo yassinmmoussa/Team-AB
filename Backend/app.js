@@ -56,11 +56,9 @@ app.get('/api/courses', function(req, res) {
     res.status(200).send(courses);
     console.log(courses);
   });
-
 });
 
 app.post('/api/courses', function(req, res) {
-
   console.log("Someone tried to POST some data");
   database.postCourses();
 });
