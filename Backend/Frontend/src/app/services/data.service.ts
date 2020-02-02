@@ -32,10 +32,10 @@ export class DataService {
   }
 
   runOptimizer(courses: Course[], curricula: Curricula[]) {
-    return this.http.post('/api/schedule/runOptimize', {
+    return this.http.get('/api/schedule/runOptimizer', {
       params: {
-        courses,
-        curricula
+        courses: JSON.stringify(courses),
+        curricula: JSON.stringify(curricula)
       }
     });
   }

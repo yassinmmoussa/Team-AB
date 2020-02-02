@@ -105,8 +105,11 @@ app.get('/api/schedule', function(req, res) {
   scheduler();
 });
 
-app.post('/api/schedule/runOptimize', function(req, res) {
-  console.log(req.params);
+app.get('/api/schedule/runOptimizer', function(req, res) {
+  let courses = req.query.courses;
+  let curricula = req.query.curricula;
+  console.log(`The courses are ${courses}`);
+  res.status(200).send(req.query); // Send back results of optimization here
 })
 
 // ========================================================= //
