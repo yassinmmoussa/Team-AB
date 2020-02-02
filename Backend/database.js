@@ -141,15 +141,27 @@ function scheduler_curricula(year, session, next) {
     }) 
 }
 
-function scheduler_courses(courseId, next) {
+/**
+ * Function returns duration of a course
+ */
+function scheduler_course(courseId, next) {
     // then feed him courses info per curriculum
-    let colRef = database.collection("courses").where("id","==",courseId);
-    colRef.get().then(function(querySnapshot) {
-        var data =  querySnapshot.docs.map(function (documentSnapshot) {
-            return documentSnapshot.data().duration;
-                });
-        next(data);
-    })
+    // let colRef = database.collection("courses").where(firestore.FieldPath.documentId(),"==",courseId);
+    // colRef.get().then(function(querySnapshot) {
+    //     var data =  querySnapshot.docs.map(function (documentSnapshot) {
+    //         return documentSnapshot.data().duration;
+    //     });
+    //     next(data);
+    // })
+    let colRef = database.collection("courses").doc(courseId).onSnapshot(documentSnapshot => {
+        if (documentSnapshot.exists) {
+          //console.log(documentSnapshot.get('duration'));
+          var data = documentSnapshot.get('duration');
+          next(data);
+        }
+      }, err => {
+        console.log(`Encountered error: ${err}`);
+      });
 }
 
 // ========================================================= //
@@ -162,5 +174,5 @@ module.exports = {
     putCourse:       updateDocument,
     deleteCourse:    deleteDocument,
     pcpCurricula:    scheduler_curricula,
-    pcpCourses:      scheduler_courses,
+    pcpCourses:      scheduler_course,
 }
