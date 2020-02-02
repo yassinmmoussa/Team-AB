@@ -11,12 +11,12 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getCourses() {
-    // return this.http.get('/api/courses', {
-    //   params: {
-    //     year: '2020',
-    //     session: 'W'
-    //   }
-    // });
-    return of(data.courses);
+    return this.http.get('/api/courses', {
+      params: {
+        year: '2020',
+        session: 'W'
+      }
+    });
+  //  return of(data.courses);
   }
 }
