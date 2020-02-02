@@ -3,7 +3,7 @@ const database = require("./database");
 // MVP Request solutions count
 const solutions = 1;
 
-function schedule(year, session) {
+function schedule(res, year, session) {
 
     // Request sent to CourseScheduler flask server in order to receive solutions
     let request = {};
@@ -11,7 +11,7 @@ function schedule(year, session) {
     // Set # of solutions we would like to receive
     request.solutions = solutions;
 
-    // Collection of curricula and courses to be scheduled in the current run
+    /* // Collection of curricula and courses to be scheduled in the current run
     let curricula = database.pcpCurricula(year, session);
     let allCourses = database.getAllCourses(year, session);
 
@@ -23,15 +23,27 @@ function schedule(year, session) {
             
         });
 
-    });
+    }); */
+
+    let curricula = database.pcpCurricula(res, year, session);
+   
+    
 
     //TODO: Build constraints JSON object, ideally partially built by frontend
 
     //TODO: Build and finalize final JSON object
+
+    
+
 }
 
 // Function that is ran when other JS files call course_scheduler()
-module.exports = function() {
+
+/* module.exports = function() {
 
     console.log("Consider your courses.... scheduled")
+
+} */
+module.exports = {
+    course_scheduler: schedule,
 }

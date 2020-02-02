@@ -130,15 +130,30 @@ function deleteDocument() {
  * Based on Scheduler input format, we retrieve list of curricula 
  * then each curriculum will contain courses with its duration.
  */
-function scheduler_curricula(year, session, next) {
+function scheduler_curricula(res, year, session, callback) {
     // first give connor all curricula
-    let colRef = database.collection("curricula").where("year", "==", year).where("session","==",session);
-    colRef.get().then(function(querySnapshot) {
+    var colRef = database.collection("curricula").where("year", "==", year).where("session","==",session);
+    /* var output = colRef.get().then(function(querySnapshot) {
         var data =  querySnapshot.docs.map(function (documentSnapshot) {
             return documentSnapshot.data();
-                });
-        next(data);
-    }) 
+        });
+        //next(data);
+    })  */
+
+    var temp = [];
+    const docRef = database.collection('curricula').where("year", "==", year).where("session","==",session);
+    docRef.get().then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                //console.log(doc.data())
+                temp.push(doc.data())
+                return doc.data();
+            }); 
+    console.log(temp);
+    return temp;
+    
+    }).catch(function(error){
+        console.log("got an error",error);        
+})
 }
 
 /**
