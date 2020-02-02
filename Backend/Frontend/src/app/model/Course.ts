@@ -16,6 +16,7 @@ export class Course {
     public type: string,
     public labSection?: string,
     public display?: boolean,
+    public isLocked: boolean = false,
     public capacity: number = 0,
     public room: string = 'Not Set'
   ) {}
