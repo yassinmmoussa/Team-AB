@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Course } from '../model/Course';
+import { Curricula } from '../model/Curricula';
 import { data } from '../semester/scheduler/calendar/data';
 import { of } from 'rxjs';
 
@@ -25,6 +27,15 @@ export class DataService {
       params: {
         year: '2020',
         session: 'W'
+      }
+    });
+  }
+
+  runOptimizer(courses: Course[], curricula: Curricula[]) {
+    return this.http.get('/api/schedule/runOptimizer', {
+      params: {
+        courses: JSON.stringify(courses),
+        curricula: JSON.stringify(curricula)
       }
     });
   }

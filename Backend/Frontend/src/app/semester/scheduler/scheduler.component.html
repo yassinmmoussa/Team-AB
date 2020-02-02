@@ -1,6 +1,10 @@
 <div class="scheduler-body">
   <div class="config-container">
-    <app-config-bar></app-config-bar>
+    <app-config-bar
+      [courses]="courses"
+      [curricula]="curricula"
+    ></app-config-bar
+      >
   </div>
   <div class="calendar-container">
     <app-calendar [courses]="courses"></app-calendar>
