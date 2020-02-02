@@ -9,7 +9,19 @@ Move to the frontend and install its dependencies:
 `cd Frontend`
 `npm install`
 
-# Running the Server
+# Running the Server (with auto reload)
+
+After setting up the repository and dependencies on your machine, you can run the server on your local machine by following these steps (starting in the backend folder). 
+
+(Note: if this is your first time running the auto reload, you most likely need to run `npm install` since a new package was added) 
+
+Run the server and frontend:
+`npm run dev`
+
+You should now be able to see the currently pushed homepage of the front end at the following link in your web browser:
+`http://localhost:4200/`
+
+# Running the Server (no auto reload)
 
 After setting up the repository and dependencies on your machine, you can run the server on your local machine by following these steps (starting in the frontend folder). 
 
