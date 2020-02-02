@@ -19,5 +19,14 @@ export class DataService {
     });
   }
 
+  getCurricula() {
+    return this.http.get('/api/curricula', {
+      params: {
+        year: '2020',
+        session: 'W'
+      }
+    });
+  }
+
 
 }

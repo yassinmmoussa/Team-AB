@@ -50,7 +50,7 @@ app.get('/api/courses', function(req, res) {
   console.log(`The parameters are: ${year}, ${session}`);
 
   // STEP 2: Send data through database class, receive queried data
-  database.getAllCourses(year, session, function(courses) {
+  database.getAllCourses('courses', year, session, function(courses) {
     
     // STEP 3: Form a response for the frontend with the queried data & send
     res.status(200).send(courses);
@@ -73,6 +73,27 @@ app.delete('/api/courses', function(req, res) {
 
   console.log("Someone tried to DELETE some data");
   database.deleteCourse();
+});
+
+/**
+ * Curricula Requests
+ */
+
+app.get('/api/curricula', function(req, res) {
+
+  // STEP 1: Parse the data from the query string
+  let year = parseInt(req.query.year);
+  let session = req.query.session;
+
+  console.log(`The parameters are: ${year}, ${session}`);
+
+  // STEP 2: Send data through database class, receive queried data
+  database.getAllCurricula('curricula', year, session, function(curricula) {
+    
+    // STEP 3: Form a response for the frontend with the queried data & send
+    res.status(200).send(curricula);
+    console.log(curricula);
+  });
 });
 
 // ========================================================= //

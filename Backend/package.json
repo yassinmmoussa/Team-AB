@@ -6,8 +6,7 @@
     "start": "node ./bin/www",
     "deploy": "cd Frontend; ng build --prod=\"true\"; cd ..; gcloud app deploy",
     "nodemon": "nodemon app.js --watch .",
-    "frontend": "cd Frontend & ng serve --proxy-config=proxy.config.json",
-    // MAC or LINUX USERS CHANGE '&' to ';'
+    "frontend": "cd Frontend; ng serve --proxy-config=proxy.config.json",
     "dev": "concurrently \"npm run nodemon\" \"npm run frontend\""
   },
   "dependencies": {
