@@ -77,11 +77,13 @@ export class ConfigBarComponent implements OnInit {
   }
 
 // Creating the dialog
+
   openConstraintsDialog(){
     let dialogRef = this.dialog.open(ConstraintsDialogComponent,{
       width: '800px',
       height: '700px',
-      data: 'this text is passed into the dialog'
+      data: 'this text is passed into the dialog',
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -93,7 +95,8 @@ export class ConfigBarComponent implements OnInit {
     let dialogRef = this.dialog.open(OptimizationDialogComponent,{
       width: '800px',
       height: '700px',
-      data: 'this text is passed into the dialog'
+      data: 'this text is passed into the dialog',
+          disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
