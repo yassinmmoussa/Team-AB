@@ -17,8 +17,9 @@ export class CourseListComponent implements OnInit {
     let localCourseList: Course[] = [];
     const courses = data.courses;
     Object.keys(courses).forEach(courseRef => {
-
+          //REORDER THIS
         localCourseList.push(new Course(
+          courseRef,
           courses[`${courseRef}`].duration,
           courses[`${courseRef}`].dept,
           courses[`${courseRef}`].instructor,
