@@ -14,7 +14,6 @@ export class BlockComponent implements OnInit {
 
   // @Input() coursesDuring: Course[]; // Add in later for better display algorithm
   @Input() coursesStarting: Course[];
-  @Input() session: string;
   @Input() blockNo: number;
   courseDialog: MatDialog;
 

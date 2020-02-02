@@ -139,18 +139,18 @@ export class ConfigBarComponent implements OnInit {
 
 }
 
-@Component({
-  selector: 'config-bar-constraints-modal',
-  templateUrl: 'config-bar-constraints-modal.html',
-})
-export class ConfigBarConstraintsModal {
+// @Component({
+//   selector: 'config-bar-constraints-modal',
+//   templateUrl: 'config-bar-constraints-modal.html',
+// })
+// export class ConfigBarConstraintsModal {
 
-  constructor(
-    public dialogRef: MatDialogRef<ConfigBarConstraintsModal>,
-    @Inject(MAT_DIALOG_DATA) public data: Program) {}
+  // constructor(
+  //   public dialogRef: MatDialogRef<ConfigBarConstraintsModal>,
+  //   @Inject(MAT_DIALOG_DATA) public data: Program) {}
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+//   onNoClick(): void {
+//     this.dialogRef.close();
+//   }
 
-}
+// }
