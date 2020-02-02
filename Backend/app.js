@@ -105,6 +105,10 @@ app.get('/api/schedule', function(req, res) {
   scheduler();
 });
 
+app.post('/api/schedule/runOptimize', function(req, res) {
+  console.log(req.params);
+})
+
 // ========================================================= //
 
 //-- DEFAULT APPLICATION PATH --//
