@@ -7,7 +7,7 @@
     "deploy": "cd Frontend; ng build --prod=\"true\"; cd ..; gcloud app deploy",
     "nodemon": "nodemon app.js --watch .",
     "frontend": "cd Frontend; ng serve --proxy-config=proxy.config.json",
-    "dev": "concurrently \"npm run nodemon\" \"npm run frontend\""
+    "dev": "DEV=true && concurrently \"npm run nodemon\" \"npm run frontend\""
   },
   "dependencies": {
     "@google-cloud/connect-firestore": "^1.0.6",
