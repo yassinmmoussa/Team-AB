@@ -43,6 +43,11 @@ function exampleDatabase() {
     });
 }
 
+/**
+ * Function get batch documents (read)
+ * currently take in year and session to return courses information
+ * potentially gets abstract in the future for code-reuse
+ */
 function batchDocuments(year, session, next) {
     console.log("Someone tried to GET some data");
     let colRef = database.collection('courses').where("year", "==", year).where("session","==",session);
@@ -59,7 +64,11 @@ function batchDocuments(year, session, next) {
     });        
 }
 
-function addDocuments() {
+/**
+ * Function to add 1 document 
+ * currently adding directly under hard-coded doc ID 
+ */
+function addOneDocument() {
     console.log("Someone tried to POST some data");
     //a testing doc data to add into firestore, in the future i will 
     //use passed data from post request
@@ -86,6 +95,10 @@ function addDocuments() {
     });
 }
 
+/**
+ * Function update a document based on field value
+ * also hard-coded for testing purpose
+ */
 function updateDocument() {
     console.log("Someone tried to PUT some data");
     let colRef = database.collection('courses').where("year","==",1997)
@@ -97,6 +110,9 @@ function updateDocument() {
     })
 }
 
+/**
+ * Delete document; should not be called at the moment
+ */
 function deleteDocument() {
     console.log("Someone tried to DELETE some data");
     let colRef = database.collection('courses').where("year","==",1)
@@ -108,7 +124,11 @@ function deleteDocument() {
     })
 }
 
-function PCP_curricula(year, session, next) {
+/**
+ * Based on Scheduler input format, we retrieve list of curricula 
+ * then each curriculum will contain courses with its duration.
+ */
+function scheduler_curricula(year, session, next) {
     // first give connor all curricula
     let colRef = database.collection("curricula").where("year", "==", year).where("session","==",session);
     colRef.get().then(function(querySnapshot) {
@@ -119,7 +139,7 @@ function PCP_curricula(year, session, next) {
     }) 
 }
 
-function PCP_courses(courseId, next) {
+function scheduler_courses(courseId, next) {
     // then feed him courses info per curriculum
     let colRef = database.collection("courses").where("id","==",courseId);
     colRef.get().then(function(querySnapshot) {
@@ -135,9 +155,9 @@ function PCP_courses(courseId, next) {
 module.exports = {
     example:        exampleDatabase, 
     getAllCourses:  batchDocuments, 
-    postCourses:    addDocuments,
+    postCourses:    addOneDocument,
     putCourse:      updateDocument,
     deleteCourse:   deleteDocument,
-    pcpCurricula:   PCP_curricula,
-    pcpCourses:     PCP_courses,
+    pcpCurricula:   scheduler_curricula,
+    pcpCourses:     scheduler_courses,
 }

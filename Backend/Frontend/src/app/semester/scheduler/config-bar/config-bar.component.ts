@@ -5,11 +5,19 @@ import {OptimizationDialogComponent} from '../modals/optimization-dialog/optimiz
 import {CsvDialogComponent} from '../modals/csv-dialog/csv-dialog.component';
 import {TeamDialogComponent} from '../modals/team-dialog/team-dialog.component';
 import {ConfigDialogComponent} from '../modals/config-dialog/config-dialog.component';
+import {FormControl} from '@angular/forms';
 
-export interface DialogData {
-  animal: string;
-  name: string;
+export interface Program {
+  value: string;
+  viewValue: string;
 }
+
+export interface ProgramGroup {
+  disabled?: boolean;
+  year: string;
+  program: Program[];
+}
+
 @Component({
   selector: 'app-config-bar',
   templateUrl: './config-bar.component.html',
@@ -19,6 +27,22 @@ export class ConfigBarComponent implements OnInit {
 
 
   configBtns = [];
+  viewControl = new FormControl();
+  programGroups: ProgramGroup[] = [
+    {
+      year:'Y1',
+      program: [
+        {value:'software-0', viewValue:'software'},
+        {value: 'computer-1', viewValue: 'Computer'}
+      ]
+    },
+    {
+      year:'Y2',
+      program: [
+        {value:'civil-2', viewValue:'Civil'}
+      ]
+    }
+  ];
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -121,9 +145,9 @@ export class ConfigBarComponent implements OnInit {
 // })
 // export class ConfigBarConstraintsModal {
 
-//   constructor(
-//     public dialogRef: MatDialogRef<ConfigBarConstraintsModal>,
-//     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+  // constructor(
+  //   public dialogRef: MatDialogRef<ConfigBarConstraintsModal>,
+  //   @Inject(MAT_DIALOG_DATA) public data: Program) {}
 
 //   onNoClick(): void {
 //     this.dialogRef.close();
