@@ -6,8 +6,13 @@
     "start": "node ./bin/www",
     "deploy": "cd Frontend & ng build --prod=\"true\"; cd ..; gcloud app deploy",
     "nodemon": "nodemon app.js --watch .",
+<<<<<<< HEAD
     "frontend": "cd Frontend & ng serve --proxy-config=proxy.config.json",
     "dev": "concurrently \"npm run nodemon\" \"npm run frontend\""
+=======
+    "frontend": "cd Frontend; ng serve --proxy-config=proxy.config.json",
+    "dev": "DEV=true && concurrently \"npm run nodemon\" \"npm run frontend\""
+>>>>>>> 94e244e25acfad84b929c1eeb53b3e79479a2c13
   },
   "dependencies": {
     "@google-cloud/connect-firestore": "^1.0.6",
