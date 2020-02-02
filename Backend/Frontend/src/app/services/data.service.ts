@@ -17,7 +17,7 @@ export class DataService {
         session: 'W'
       }
     });
-    // return of(data.courses);
+  //  return of(data.courses);
   }
 
   getCurricula() {

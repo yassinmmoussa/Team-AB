@@ -1,8 +1,28 @@
 .tag-body {
-    height: 200px;
+    height: 250px;
     width: 100%;
     background-color: white;
     overflow: auto;
+}
+
+.tags {
+  display: flex;
+  justify-content: space-between;
+}
+
+.node {
+  min-height: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.mat-tree-node {
+  min-height: 0px;
+}
+
+.mat-icon-button {
+  height: auto;
+  line-height: 30px;
 }
 
 .example-tree-invisible {

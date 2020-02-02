@@ -1,0 +1,28 @@
+.optimizeBtn {
+  position: absolute;
+  bottom: 0;
+  left: auto;
+  right: auto;
+
+}
+
+.card {
+  text-align: center;
+}
+ .filter-box{
+   height: 400px;
+   width: 200px;
+   overflow-y: hidden;
+   
+
+ }
+
+
+.optimize-modal{
+  position: absolute;
+  height: 639px;
+   width: 750px;
+
+  /* display: inline;
+ position: relative; */
+}
