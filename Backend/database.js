@@ -47,10 +47,12 @@ function exampleDatabase() {
  * Function get batch documents (read)
  * currently take in year and session to return courses information
  * potentially gets abstract in the future for code-reuse
+ * 
+ * @param `type` is either 'courses' or 'curricula'
  */
-function batchDocuments(year, session, next) {
+function batchDocuments(type, year, session, next) {
     console.log("Someone tried to GET some data");
-    let colRef = database.collection('courses').where("year", "==", year).where("session","==",session);
+    let colRef = database.collection(type).where("year", "==", year).where("session","==",session);
     colRef.get()
     .then(function(querySnapshot) {
         var data =  querySnapshot.docs.map(function (documentSnapshot) {
@@ -139,25 +141,38 @@ function scheduler_curricula(year, session, next) {
     }) 
 }
 
-function scheduler_courses(courseId, next) {
+/**
+ * Function returns duration of a course
+ */
+function scheduler_course(courseId, next) {
     // then feed him courses info per curriculum
-    let colRef = database.collection("courses").where("id","==",courseId);
-    colRef.get().then(function(querySnapshot) {
-        var data =  querySnapshot.docs.map(function (documentSnapshot) {
-            return documentSnapshot.data().duration;
-                });
-        next(data);
-    })
+    // let colRef = database.collection("courses").where(firestore.FieldPath.documentId(),"==",courseId);
+    // colRef.get().then(function(querySnapshot) {
+    //     var data =  querySnapshot.docs.map(function (documentSnapshot) {
+    //         return documentSnapshot.data().duration;
+    //     });
+    //     next(data);
+    // })
+    let colRef = database.collection("courses").doc(courseId).onSnapshot(documentSnapshot => {
+        if (documentSnapshot.exists) {
+          //console.log(documentSnapshot.get('duration'));
+          var data = documentSnapshot.get('duration');
+          next(data);
+        }
+      }, err => {
+        console.log(`Encountered error: ${err}`);
+      });
 }
 
 // ========================================================= //
 
 module.exports = {
-    example:        exampleDatabase, 
-    getAllCourses:  batchDocuments, 
-    postCourses:    addOneDocument,
-    putCourse:      updateDocument,
-    deleteCourse:   deleteDocument,
-    pcpCurricula:   scheduler_curricula,
-    pcpCourses:     scheduler_courses,
+    example:         exampleDatabase, 
+    getAllCourses:   batchDocuments,
+    getAllCurricula: batchDocuments, 
+    postCourses:     addOneDocument,
+    putCourse:       updateDocument,
+    deleteCourse:    deleteDocument,
+    pcpCurricula:    scheduler_curricula,
+    pcpCourses:      scheduler_course,
 }

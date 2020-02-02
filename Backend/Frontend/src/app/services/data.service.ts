@@ -17,7 +17,16 @@ export class DataService {
         session: 'W'
       }
     });
-    // return of(data.courses);
+  //  return of(data.courses);
+  }
+
+  getCurricula() {
+    return this.http.get('/api/curricula', {
+      params: {
+        year: '2020',
+        session: 'W'
+      }
+    });
   }
 
 
