@@ -32,7 +32,7 @@ Move back to the backend folder;
 `cd ..`
 
 Run the server:
-`npm start`
+`npm start` 
 
 You should now be able to see the currently pushed homepage of the front end at the following link in your web browser:
 `http://localhost:3000/`
@@ -48,7 +48,8 @@ The frontend of our application
 ## top_secret
 This folder is where your private database key is stored. If you don't have a database key, follow the instructions in the folder. Note:  `/top-secret` folder is now listed in .gitignore. Any change made in this dir will not be committed.
 
-In order to authenticate Firestore db, your js is required to pass over a service account credential bundle - in the format of `some-hashed-key.json`. You may review a working example in `database.js`.
+In order to authenticate Firestore db, your js is required to pass over a service account credential bundle, which should be saved as `/top-secret/keys/spare-ab-key.json`.
+For local development, `/top-secret/database.js` checks if `DEV` is true or not (under `npm run dev` the flag is enabled).
 
 It's your responsibility to store and protect this private key as it's linked to GCP billing per requesto.
 
