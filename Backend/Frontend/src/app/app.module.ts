@@ -29,10 +29,12 @@ import { OptimizationDialogComponent } from './semester/scheduler/modals/optimiz
 import { CsvDialogComponent } from './semester/scheduler/modals/csv-dialog/csv-dialog.component';
 import { TeamDialogComponent } from './semester/scheduler/modals/team-dialog/team-dialog.component';
 import { ConfigDialogComponent } from './semester/scheduler/modals/config-dialog/config-dialog.component';
-import {MatSelectModule} from '@angular/material/select';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatCardModule} from '@angular/material/card';
-import {MatListModule} from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { TagComponent } from './semester/filter/tag-list/tag/tag.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import {MatListModule} from '@angular/material/list';
     CsvDialogComponent,
     TeamDialogComponent,
     ConfigDialogComponent,
-    CourseEntryComponent
+    CourseEntryComponent,
+    TagComponent
 
   ],
   imports: [
@@ -73,7 +76,8 @@ import {MatListModule} from '@angular/material/list';
     MatSelectModule,
     MatSlideToggleModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent],
