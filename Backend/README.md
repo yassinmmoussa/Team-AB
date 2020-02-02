@@ -60,7 +60,7 @@ It's your responsibility to store and protect this private key as it's linked to
 ```
 module.exports = new Firestore({
     projectId: 'spare-ab',
-    keyFilename: './top_secret/1234.json', // UPDATE ME
+    keyFilename: './top_secret/keys/spare-ab-key.json', // UPDATE ME
   });
 ```
 
