@@ -3,8 +3,13 @@ import json
 import pandas as pd
 import os
 
-# A short script that perform query all document under 'courses' collection
-# and converts/writes to csv file
+'''
+    A short script that perform query all document under 'courses' collection
+    and converts/writes to csv file. Some online examples
+    https://github.com/GoogleCloudPlatform/python-docs-samples/blob/master/firestore/cloud-client/snippets.py 
+    Documentation: https://googleapis.dev/python/firestore/latest/document.html# 
+    
+'''
 
 credential_path = "/top_secret/keys/spare-ab-key.json" # add your
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
