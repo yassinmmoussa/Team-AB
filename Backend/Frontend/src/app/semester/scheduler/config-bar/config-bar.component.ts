@@ -92,10 +92,10 @@ export class ConfigBarComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog closed: ${result}')
-    })
+    });
   }
 
-  openOptimizationDialog(){
+  openOptimizationDialog() {
     let dialogRef = this.dialog.open(OptimizationDialogComponent,{
       width: '800px',
       height: '700px',

@@ -109,7 +109,8 @@ app.get('/api/schedule/runOptimizer', function(req, res) {
   let courses = req.query.courses;
   let curricula = req.query.curricula;
   console.log(`The courses are ${courses}`);
-  res.status(200).send(req.query); // Send back results of optimization here
+  console.log(`The curricula are ${curricula}`);
+  res.status(200).send({dope: "All is gucci"}); // Send back results of optimization here
 })
 
 // ========================================================= //

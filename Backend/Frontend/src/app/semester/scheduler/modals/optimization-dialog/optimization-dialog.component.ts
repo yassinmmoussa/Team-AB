@@ -22,11 +22,11 @@ export class OptimizationDialogComponent implements OnInit {
     this.curricula = data.cu;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   runOptimization() {
     console.log('RUNNING OPTIMIZATION...');
+    console.log(this.courses);
     this.dataService.runOptimizer(this.courses, this.curricula).subscribe(data => {
       console.log('Result of runOptimizer');
       console.log(data);

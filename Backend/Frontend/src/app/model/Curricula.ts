@@ -11,6 +11,23 @@ export class Curricula {
     public courseRefs: string[]
   ) {}
 
+  toJSON(): string {
+    const res = `
+      "${this.curriculaRef}" : {
+        "dept": ${JSON.stringify(this.dept)},
+        "name": ${JSON.stringify(this.name)},
+        "session": ${JSON.stringify(this.session)},
+        "year": ${JSON.stringify(this.year)},
+        "courses": ${JSON.stringify(this.courseRefs)}
+      }
+    `;
+    return res;
+  }
+
+  courseRefsToJSON(): string[] {
+    return this.courseRefs.map(ref => JSON.stringify(ref));
+  }
+
   hasCourse(course: Course): boolean {
     return this.courseRefs.includes(course.courseRef);
   }

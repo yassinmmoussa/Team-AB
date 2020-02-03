@@ -34,10 +34,11 @@ export class DataService {
   runOptimizer(courses: Course[], curricula: Curricula[]) {
     return this.http.get('/api/schedule/runOptimizer', {
       params: {
-        courses: JSON.stringify(courses),
-        curricula: JSON.stringify(curricula)
+        courses: `${courses.map(course => course.toJSON())}`,
+        curricula: `${curricula.map(curr => curr.toJSON())}`
       }
-    });
+    }
+    );
   }
 
 
