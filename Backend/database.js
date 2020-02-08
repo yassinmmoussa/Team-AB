@@ -130,9 +130,9 @@ function deleteDocument() {
  * Based on Scheduler input format, we retrieve list of curricula 
  * then each curriculum will contain courses with its duration.
  */
-function scheduler_curricula(res, year, session, callback) {
+function scheduler_curricula(year, session, callback) {
     // first give connor all curricula
-    var colRef = database.collection("curricula").where("year", "==", year).where("session","==",session);
+    // var colRef = database.collection("curricula").where("year", "==", year).where("session","==",session);
     /* var output = colRef.get().then(function(querySnapshot) {
         var data =  querySnapshot.docs.map(function (documentSnapshot) {
             return documentSnapshot.data();
@@ -140,20 +140,28 @@ function scheduler_curricula(res, year, session, callback) {
         //next(data);
     })  */
 
+    // Data that gets passed back to the caller
     var temp = [];
+
     const docRef = database.collection('curricula').where("year", "==", year).where("session","==",session);
-    docRef.get().then(function(querySnapshot) {
+
+    docRef.get()
+        .then(function(querySnapshot) {
+            
             querySnapshot.forEach(function(doc) {
                 //console.log(doc.data())
-                temp.push(doc.data())
+                temp.push(doc.data());
                 return doc.data();
             }); 
-    console.log(temp);
-    return temp;
-    
-    }).catch(function(error){
-        console.log("got an error",error);        
-})
+            
+            console.log("Database: " + temp);
+            callback(temp);
+            return temp;
+
+        })
+        .catch(function(error){
+            console.log("Querying curricula ran into an error",error);        
+        })
 }
 
 /**
@@ -190,4 +198,8 @@ module.exports = {
     deleteCourse:    deleteDocument,
     pcpCurricula:    scheduler_curricula,
     pcpCourses:      scheduler_course,
+
+    // Connor added these
+    scheduler_course: scheduler_course,
+    scheduler_curricula: scheduler_curricula,
 }
