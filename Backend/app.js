@@ -50,17 +50,15 @@ app.get('/api/courses', function(req, res) {
   console.log(`The parameters are: ${year}, ${session}`);
 
   // STEP 2: Send data through database class, receive queried data
-  database.getAllCourses(year, session, function(courses) {
+  database.getAllCourses('courses', year, session, function(courses) {
     
     // STEP 3: Form a response for the frontend with the queried data & send
     res.status(200).send(courses);
     console.log(courses);
   });
-
 });
 
 app.post('/api/courses', function(req, res) {
-
   console.log("Someone tried to POST some data");
   database.postCourses();
 });
@@ -77,6 +75,27 @@ app.delete('/api/courses', function(req, res) {
   database.deleteCourse();
 });
 
+/**
+ * Curricula Requests
+ */
+
+app.get('/api/curricula', function(req, res) {
+
+  // STEP 1: Parse the data from the query string
+  let year = parseInt(req.query.year);
+  let session = req.query.session;
+
+  console.log(`The parameters are: ${year}, ${session}`);
+
+  // STEP 2: Send data through database class, receive queried data
+  database.getAllCurricula('curricula', year, session, function(curricula) {
+    
+    // STEP 3: Form a response for the frontend with the queried data & send
+    res.status(200).send(curricula);
+    console.log(curricula);
+  });
+});
+
 // ========================================================= //
 
 /**
@@ -85,6 +104,14 @@ app.delete('/api/courses', function(req, res) {
 app.get('/api/schedule', function(req, res) {
   scheduler();
 });
+
+app.get('/api/schedule/runOptimizer', function(req, res) {
+  let courses = req.query.courses;
+  let curricula = req.query.curricula;
+  console.log(`The courses are ${courses}`);
+  console.log(`The curricula are ${curricula}`);
+  res.status(200).send({dope: "All is gucci"}); // Send back results of optimization here
+})
 
 // ========================================================= //
 
@@ -96,5 +123,9 @@ app.all('*', function(req, res) {
 });
 
 // ========================================================= //
+
+app.listen(3000,function(){
+  console.log("server is running on port 3000");
+});
 
 module.exports = app;

@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../../../../../model/Course';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { CourseDialogComponent } from '../../../modals/course-dialog/course-dialog.component';
 
 @Component({
@@ -13,10 +13,14 @@ import { CourseDialogComponent } from '../../../modals/course-dialog/course-dial
 export class BlockComponent implements OnInit {
 
   // @Input() coursesDuring: Course[]; // Add in later for better display algorithm
-  @Input() coursesStarting: Course[];
-  @Input() session: string;
+  @Input() set courses(cList: Course[]) {
+    this.coursesStarting = cList;
+  }
+  @Output() courseStateChanged = new EventEmitter<Course>();
+
   @Input() blockNo: number;
   courseDialog: MatDialog;
+  coursesStarting: Course[] = [];
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, dialog: MatDialog) {
     iconRegistry.addSvgIcon(
@@ -44,11 +48,22 @@ export class BlockComponent implements OnInit {
     const dialogRef = this.courseDialog.open(CourseDialogComponent, {
       width: '800px',
       height: '800px',
-      data: c
+      data: c,
+      disableClose: true,
+      autoFocus: false
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Do something with the updated course here');
+      console.log('Do something with the updated course here' + result);
+      // let cToUpdate = this.coursesStarting.find(course => course.courseRef === result.courseRef);
+      // console.log('Updating... (old -> new)');
+      // console.log(cToUpdate);
+      // console.log(result);
+      // cToUpdate = result;
+      // console.log('Block course now is: ');
+      // console.log(this.coursesStarting);
+      this.courseStateChanged.emit(result);
+      console.log(this.coursesStarting);
     });
   }
 

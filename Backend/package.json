@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "deploy": "cd Frontend; ng build; cd ..; gcloud app deploy"
+    "deploy": "cd Frontend & ng build --prod=\"true\"; cd ..; gcloud app deploy",
+    "nodemon": "nodemon app.js --watch .",
+    "frontend": "cd Frontend; ng serve --proxy-config=proxy.config.json",
+    "dev": "DEV=true && concurrently \"npm run nodemon\" \"npm run frontend\""
   },
   "dependencies": {
     "@google-cloud/connect-firestore": "^1.0.6",
@@ -16,6 +19,11 @@
     "express-session": "^1.17.0",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "nodemon": "^2.0.2",
     "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "@angular/cli": "^8.3.24",
+    "concurrently": "^5.1.0"
   }
 }

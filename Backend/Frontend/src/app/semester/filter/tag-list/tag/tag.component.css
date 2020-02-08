@@ -1,0 +1,17 @@
+.deselected {
+    opacity: 0.6;
+}
+
+.selected {
+    opacity: 1;
+}
+
+.card {
+    background-color: brown;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+    cursor: pointer;
+}
