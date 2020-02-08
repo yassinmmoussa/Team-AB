@@ -111,10 +111,13 @@ function deleteDocument() {
 function PCP_curricula(year, session, next) {
     // first give connor all curricula
     let colRef = database.collection("curricula").where("year", "==", year).where("session","==",session);
-    colRef.get().then(function(querySnapshot) {
-        var data =  querySnapshot.docs.map(function (documentSnapshot) {
-            return documentSnapshot.data();
-                });
+    colRef.get()
+        .then(function(querySnapshot) {
+            var data =  querySnapshot.docs.map(function (documentSnapshot) {
+                return documentSnapshot.data();
+        }).catch(function() {
+            console.log("Couldn't retreive curricula!");
+        });
         next(data);
     }) 
 }
@@ -122,10 +125,13 @@ function PCP_curricula(year, session, next) {
 function PCP_courses(courseId, next) {
     // then feed him courses info per curriculum
     let colRef = database.collection("courses").where("id","==",courseId);
-    colRef.get().then(function(querySnapshot) {
-        var data =  querySnapshot.docs.map(function (documentSnapshot) {
-            return documentSnapshot.data().duration;
-                });
+    colRef.get()
+        .then(function(querySnapshot) {
+            var data =  querySnapshot.docs.map(function (documentSnapshot) {
+                return documentSnapshot.data().duration;
+        }).catch(function() {
+            console.log("Couldn't retreive courses!");
+        });
         next(data);
     })
 }
