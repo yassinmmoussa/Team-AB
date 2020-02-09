@@ -3,7 +3,7 @@ const database = require("./database");
 // MVP Request solutions count
 const solutions = 1;
 
-function schedule(year, session, next) {
+async function schedule(year, session) {
 
     // Request sent to CourseScheduler flask server in order to receive solutions
     let request = {};
@@ -12,14 +12,14 @@ function schedule(year, session, next) {
     request.n_solutions = solutions;
 
     request.curricula = [];
-
+    console.log('begin of c_s await database curricula');
     database.scheduler_curricula(year, session, function(curricula) {
 
         //console.log("Scheduler: " ,curricula);
 
         curricula.forEach(curriculum => {
 
-            console.log("1 curriculum: " , curriculum.courses);
+            // console.log("1 curriculum: " , curriculum.courses);
             
             //let requestCurriculum = {}; //cponnor
 
@@ -32,11 +32,11 @@ function schedule(year, session, next) {
 
             
             //request.courses.forEach( cID => {
-            curriculum.courses.forEach( cID => {
+            curriculum.courses.forEach(cID => {
                 //let collectionName = cID._path.segments[0]; //not needed
                 let courseID = cID._path.segments[1];
-
-                database.scheduler_course(courseID, function(duration) {
+                console.log('begin of database course requests')
+                 database.scheduler_course(courseID, function(duration) {
                     let requestCourseSet = {};
                     requestCourseSet.courseID = courseID;
                     requestCourseSet.n_periods=duration;
@@ -49,7 +49,7 @@ function schedule(year, session, next) {
             });
 
         });
-
+        console.log('after all that shit' + request);
         request.constraints = [
         {
             "course_id": "hFUhTu8WIEeQEQ3i",
@@ -77,11 +77,10 @@ function schedule(year, session, next) {
         ]
         //request.constraints = [];
 
-        next(request);
-
-    });
-
-
+        // next(request);
+        
+      });
+      return request;
 }
 
 module.exports = schedule;

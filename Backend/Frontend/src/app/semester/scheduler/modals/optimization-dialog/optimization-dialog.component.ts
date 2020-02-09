@@ -26,7 +26,7 @@ export class OptimizationDialogComponent implements OnInit {
 
   runOptimization() {
     console.log('RUNNING OPTIMIZATION...');
-    console.log(this.courses);
+    console.log(this.curricula);
     this.dataService.runOptimizer(this.courses, this.curricula).subscribe(data => {
       console.log('Result of runOptimizer');
       console.log(data);
