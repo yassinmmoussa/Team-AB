@@ -13,7 +13,7 @@
    height: 400px;
    width: 200px;
    overflow-y: hidden;
-   
+
 
  }
 
@@ -25,4 +25,9 @@
 
   /* display: inline;
  position: relative; */
+}
+
+.tag-list {
+  margin-left: 520px;
+
 }
