@@ -14,7 +14,6 @@ export class SemesterComponent implements OnInit {
   coursesToDisplay: Course[];
   filters;
 
-
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -94,7 +93,9 @@ export class SemesterComponent implements OnInit {
         curriculaJSON[`${curriculaRef}`].name,
         curriculaJSON[`${curriculaRef}`].session,
         curriculaJSON[`${curriculaRef}`].year,
-        curriculaJSON[`${curriculaRef}`].courses,
+        curriculaJSON[`${curriculaRef}`].courses.map(cRef => {
+          return cRef._path.segments[1];
+        })
       ));
     });
     return res;

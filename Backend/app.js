@@ -9,6 +9,7 @@ const app = express();
 // Internal APIs and Utility classes
 const database = require('./database');
 const scheduler = require('./course_scheduler');
+let test = require('./bad_test');
 
 // ========================================================= //
 
@@ -103,6 +104,20 @@ app.get('/api/curricula', function(req, res) {
  */
 app.get('/api/schedule', function(req, res) {
   scheduler();
+});
+
+app.get('/api/schedule/runOptimizer', function(req, res) {
+  let courses = req.query.courses;
+  let curricula = req.query.curricula;
+  console.log(`The courses are ${courses}`);
+  console.log(`The curricula are ${curricula}`);
+  res.status(200).send({dope: "All is gucci"}); // Send back results of optimization here
+})
+
+app.get('/bad_test', function(req, res) {
+  
+  
+  res.status(200).send(test());
 });
 
 // ========================================================= //

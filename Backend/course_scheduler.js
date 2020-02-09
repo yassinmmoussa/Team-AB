@@ -3,35 +3,39 @@ const database = require("./database");
 // MVP Request solutions count
 const solutions = 1;
 
-function schedule(year, session) {
+function schedule(year, session, next) {
 
     // Request sent to CourseScheduler flask server in order to receive solutions
     let request = {};
 
     // Set # of solutions we would like to receive
-    request.solutions = solutions;
+    request.n_solutions = solutions;
 
-    // Collection of curricula and courses to be scheduled in the current run
-    let curricula = database.pcpCurricula(year, session);
-    let allCourses = database.getAllCourses(year, session);
+    request.curricula = [];
 
-    curricula.foreach(curriculum, function() {
+    database.scheduler_curricula(year, session, function(curricula) {
 
-        allCourses.foreach(course, function() {
+        console.log("Scheduler: " + curricula);
 
-            // If the course is a part of the curriculum, add it to some data structure
+        curricula.forEach(curriculum => {
             
+            let requestCurriculum = {};
+
+            // This needs to change to a real course ID
+            requestCurriculum.curriculum_id = "id";
+
+            request.courses = curriculum.courses;
+
         });
+
+
+        request.constraints = [];
+
+        next(request);
 
     });
 
-    //TODO: Build constraints JSON object, ideally partially built by frontend
 
-    //TODO: Build and finalize final JSON object
 }
 
-// Function that is ran when other JS files call course_scheduler()
-module.exports = function() {
-
-    console.log("Consider your courses.... scheduled")
-}
+module.exports = schedule;

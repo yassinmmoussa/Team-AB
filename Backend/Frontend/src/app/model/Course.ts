@@ -21,6 +21,31 @@ export class Course {
     public room: string = 'Not Set'
   ) {}
 
+  toJSON(): string {
+    const res = `
+      "${this.courseRef}" : {
+        "duration": ${JSON.stringify(this.duration)},
+        "dept": ${JSON.stringify(this.dept)},
+        "instructor": ${JSON.stringify(this.instructor)},
+        "code": ${JSON.stringify(this.code)},
+        "startingBlock": ${JSON.stringify(this.startingBlock)},
+        "colour": ${JSON.stringify(this.colour)},
+        "name": ${JSON.stringify(this.name)},
+        "section": ${JSON.stringify(this.section)},
+        "days": ${JSON.stringify(this.days)},
+        "year": ${JSON.stringify(this.year)},
+        "session": ${JSON.stringify(this.session)},
+        "type": ${JSON.stringify(this.type)},
+        "labSection": ${JSON.stringify(this.labSection)},
+        "display": ${JSON.stringify(this.display)},
+        "isLocked": ${JSON.stringify(this.isLocked)},
+        "capacity": ${JSON.stringify(this.capacity)},
+        "room": ${JSON.stringify(this.room)},
+      }
+    `;
+    return res;
+  }
+
   daysOut(): string {
     let res = '';
     this.days.forEach((day, i) => {
