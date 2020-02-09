@@ -3,6 +3,10 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const request = require('request-promise');
+const axios = require('axios')
+const fs = require('fs');
+const circJSON = require('circular-json');
 
 const app = express();
 
@@ -10,6 +14,7 @@ const app = express();
 const database = require('./database');
 const scheduler = require('./course_scheduler');
 let test = require('./bad_test');
+
 
 // ========================================================= //
 
@@ -114,11 +119,37 @@ app.get('/api/schedule/runOptimizer', function(req, res) {
   res.status(200).send({dope: "All is gucci"}); // Send back results of optimization here
 })
 
-app.get('/bad_test', function(req, res) {
+app.post('/api/schedulerTest', function(req, res) {
   
   
-  res.status(200).send(test());
+
 });
+
+app.get('/bad_test', async function(req, res) {
+  try {
+    console.log('IM A BAD TEST - BILLIE EILLISH');
+    console.log(fs.readFileSync('sample_sched_request.json', 'utf8'));
+    let data = circJSON.parse(fs.readFileSync('sample_sched_request.json', 'utf8'));
+    console.log(data);
+    let response = await axios.post('http://localhost:8080/sched', data)
+    .then((res) => {
+      console.log(`statusCode: ${res.statusCode}`)
+      console.log(res)
+      return res;
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+    console.log('made it to response' + response);
+    res.status(200).send(circJSON.stringify(response.data.solutions));
+  } catch (e) {
+    console.log('yo async had issue');
+    console.log(e);
+  }
+  
+
+});
+
 
 // ========================================================= //
 
@@ -128,6 +159,9 @@ app.all('*', function(req, res) {
   res.status(200).sendFile('/', {root: app_folder});
 
 });
+
+
+
 
 // ========================================================= //
 
