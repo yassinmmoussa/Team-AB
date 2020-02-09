@@ -1,10 +1,10 @@
-.optimizeBtn {
-  position: absolute;
+/* .optimizeBtn {
+  position: relative;
   bottom: 0;
   left: auto;
   right: auto;
 
-}
+} */
 
 .card {
   text-align: center;
@@ -18,16 +18,73 @@
  }
 
 
-.optimize-modal{
-  position: absolute;
+.optimize-modal-body{
+  margin: 10px;
+  padding-bottom: 20px;
+  position: relative;
+  /* position: absolute;
   height: 639px;
-   width: 750px;
+   width: 750px; */
 
   /* display: inline;
  position: relative; */
 }
 
-.tag-list {
-  margin-left: 520px;
+.tag-list-container {
+  position: absolute;
+  display: block;
+  right: 0px;
+  width: 50% !important;
+
+
+  /* margin-left: 520px; */
+
 
 }
+
+.close-button {
+  margin: 0;
+  padding: 0;
+  display: block;
+  min-width: 30px !important;
+  max-width: 30px !important;
+  height: 30px !important;
+  width: 30px !important;
+  border-radius: 100%;
+  background-color: #f1f1f1;
+  line-height: 8px;
+  position: absolute;
+  top: -18px;
+  right: -10px;
+  z-index: 10;
+}
+
+.buttons-container {
+  display: block;
+  position: absolute;
+  width: 50%;
+  right: 0px;
+  margin-top: 250px;
+}
+
+.optBtn {
+  background-color: #f1f1f1;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 168.453px;
+  height: 36px;
+}
+
+.optimizeBtn-container {
+  /* position: absolute; */
+  display: block;
+  margin: 10px auto;
+  margin-top: 500px;
+  background-color: #f1f1f1;
+
+}
+
+/* .inner-tag-list-box {
+  border:1px solid black;
+
+} */
