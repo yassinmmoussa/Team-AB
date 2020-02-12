@@ -1,5 +1,5 @@
 .deselected {
-    opacity: 0.6;
+    background-color: green
 }
 
 .selected {
