@@ -546,13 +546,13 @@ import { TagNode } from "./tag-list.component";
 
 
 // ************************************************** BY DEPT ************************
-const eecsColor = "#013A67";
+const eecsColor = "#993366";
 
-const mechColor = "#009A99";
+const mechColor = "#CC3333";
 
-const civilColor = "#E56F26";
+const civilColor = "#339999";
 
-const esseColor = "#CD5D5D";
+const esseColor = "#003366";
 
 const engColor = "#E1AA12";
 
