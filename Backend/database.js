@@ -150,11 +150,16 @@ function scheduler_curricula(year, session, callback) {
             
             querySnapshot.forEach(function(doc) {
                 //console.log(doc.data())
-                temp.push(doc.data());
+
+                let curr = {};
+                curr = doc.data();
+                curr.id = doc.id;
+                //temp.push(doc.data());
+                temp.push(curr);
                 return doc.data();
             }); 
             
-            console.log("Database: " + temp);
+            //console.log("Database: " , temp);
             callback(temp);
             return temp;
 
