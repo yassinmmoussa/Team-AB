@@ -1,3 +1,37 @@
-<div class="">
-  <h2>Hi, I'm the Optimization dialog</h2>
+<div class="optimize-modal-body">
+<button class="close-button" mat-flat-button matDialogClose>X</button>
+  <h1>Optimization</h1>
+  <!-- <div class="filter-box"> -->
+    <!-- <app-course-list class="course-list-body"></app-course-list> -->
+    <div class="tag-list-container">
+        <span>Curricula to be optimized: </span>
+      <div class="inner-tag-list-box">
+        <br>
+          <app-tag-list ></app-tag-list>
+      </div>
+
+
+    </div>
+
+<div class="buttons-container">
+    <tr>
+        <td><button class="optBtn" mat-flat-button> Minimize Breaks</button></td>
+        <td><button class="optBtn" mat-flat-button>Schedule 9am to 5pm</button></td>
+    </tr>
+    <tr>
+      <td><button class="optBtn" mat-flat-button> Minimize Days</button></td>
+      <td><button class="optBtn" mat-flat-button> Avoid 3hr Lectures</button></td>
+    </tr>
+</div>
+
+  <!-- </div> -->
+
+<!-- <div class = "optimizeBtn-container"> -->
+  <button  class = "optimizeBtn-container" mat-flat-button (click)="this.runOptimization()">
+    <mat-icon>calendar_today</mat-icon>Run Optimization
+  </button>
+<!-- </div> -->
+
+
+
 </div>

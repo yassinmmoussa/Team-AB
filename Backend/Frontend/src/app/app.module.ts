@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SemesterComponent } from './semester/semester.component';
 import { FilterComponent } from './semester/filter/filter.component';
+import { CourseEntryComponent } from './semester/filter/course-list/course-entry/course-entry.component';
 import { SchedulerComponent } from './semester/scheduler/scheduler.component';
 import { TagListComponent } from './semester/filter/tag-list/tag-list.component';
 import { CourseListComponent } from './semester/filter/course-list/course-list.component';
@@ -28,12 +29,12 @@ import { OptimizationDialogComponent } from './semester/scheduler/modals/optimiz
 import { CsvDialogComponent } from './semester/scheduler/modals/csv-dialog/csv-dialog.component';
 import { TeamDialogComponent } from './semester/scheduler/modals/team-dialog/team-dialog.component';
 import { ConfigDialogComponent } from './semester/scheduler/modals/config-dialog/config-dialog.component';
-import { CourseEntryComponent } from './semester/filter/course-list/course-entry/course-entry.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatListModule} from '@angular/material/list';
-
-
-
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { TagComponent } from './semester/filter/tag-list/tag/tag.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {MatListModule} from '@angular/material/list';
     CsvDialogComponent,
     TeamDialogComponent,
     ConfigDialogComponent,
-    CourseEntryComponent
+    CourseEntryComponent,
+    TagComponent
 
   ],
   imports: [
@@ -69,9 +71,13 @@ import {MatListModule} from '@angular/material/list';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
     MatSlideToggleModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent],

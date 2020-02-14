@@ -43,9 +43,16 @@ function exampleDatabase() {
     });
 }
 
-function batchDocuments(year, session, next) {
+/**
+ * Function get batch documents (read)
+ * currently take in year and session to return courses information
+ * potentially gets abstract in the future for code-reuse
+ * 
+ * @param `type` is either 'courses' or 'curricula'
+ */
+function batchDocuments(type, year, session, next) {
     console.log("Someone tried to GET some data");
-    let colRef = database.collection('courses').where("year", "==", year).where("session","==",session);
+    let colRef = database.collection(type).where("year", "==", year).where("session","==",session);
     colRef.get()
     .then(function(querySnapshot) {
         var data =  querySnapshot.docs.map(function (documentSnapshot) {
@@ -59,7 +66,11 @@ function batchDocuments(year, session, next) {
     });        
 }
 
-function addDocuments() {
+/**
+ * Function to add 1 document 
+ * currently adding directly under hard-coded doc ID 
+ */
+function addOneDocument() {
     console.log("Someone tried to POST some data");
     //a testing doc data to add into firestore, in the future i will 
     //use passed data from post request
@@ -86,6 +97,10 @@ function addDocuments() {
     });
 }
 
+/**
+ * Function update a document based on field value
+ * also hard-coded for testing purpose
+ */
 function updateDocument() {
     console.log("Someone tried to PUT some data");
     let colRef = database.collection('courses').where("year","==",1997)
@@ -97,6 +112,9 @@ function updateDocument() {
     })
 }
 
+/**
+ * Delete document; should not be called at the moment
+ */
 function deleteDocument() {
     console.log("Someone tried to DELETE some data");
     let colRef = database.collection('courses').where("year","==",1)
@@ -108,36 +126,85 @@ function deleteDocument() {
     })
 }
 
-function PCP_curricula(year, session, next) {
+/**
+ * Based on Scheduler input format, we retrieve list of curricula 
+ * then each curriculum will contain courses with its duration.
+ */
+function scheduler_curricula(year, session, callback) {
     // first give connor all curricula
-    let colRef = database.collection("curricula").where("year", "==", year).where("session","==",session);
-    colRef.get().then(function(querySnapshot) {
+    // var colRef = database.collection("curricula").where("year", "==", year).where("session","==",session);
+    /* var output = colRef.get().then(function(querySnapshot) {
         var data =  querySnapshot.docs.map(function (documentSnapshot) {
             return documentSnapshot.data();
-                });
-        next(data);
-    }) 
+        });
+        //next(data);
+    })  */
+
+    // Data that gets passed back to the caller
+    var temp = [];
+
+    const docRef = database.collection('curricula').where("year", "==", year).where("session","==",session);
+
+    docRef.get()
+        .then(function(querySnapshot) {
+            
+            querySnapshot.forEach(function(doc) {
+                //console.log(doc.data())
+
+                let curr = {};
+                curr = doc.data();
+                curr.id = doc.id;
+                //temp.push(doc.data());
+                temp.push(curr);
+                return doc.data();
+            }); 
+            
+            //console.log("Database: " , temp);
+            callback(temp);
+            return temp;
+
+        })
+        .catch(function(error){
+            console.log("Querying curricula ran into an error",error);        
+        })
 }
 
-function PCP_courses(courseId, next) {
+/**
+ * Function returns duration of a course
+ */
+function scheduler_course(courseId, next) {
     // then feed him courses info per curriculum
-    let colRef = database.collection("courses").where("id","==",courseId);
-    colRef.get().then(function(querySnapshot) {
-        var data =  querySnapshot.docs.map(function (documentSnapshot) {
-            return documentSnapshot.data().duration;
-                });
-        next(data);
-    })
+    // let colRef = database.collection("courses").where(firestore.FieldPath.documentId(),"==",courseId);
+    // colRef.get().then(function(querySnapshot) {
+    //     var data =  querySnapshot.docs.map(function (documentSnapshot) {
+    //         return documentSnapshot.data().duration;
+    //     });
+    //     next(data);
+    // })
+    let colRef = database.collection("courses").doc(courseId).onSnapshot(documentSnapshot => {
+        if (documentSnapshot.exists) {
+          //console.log(documentSnapshot.get('duration'));
+          var data = documentSnapshot.get('duration');
+          next(data);
+        }
+      }, err => {
+        console.log(`Encountered error: ${err}`);
+      });
 }
 
 // ========================================================= //
 
 module.exports = {
-    example:        exampleDatabase, 
-    getAllCourses:  batchDocuments, 
-    postCourses:    addDocuments,
-    putCourse:      updateDocument,
-    deleteCourse:   deleteDocument,
-    pcpCurricula:   PCP_curricula,
-    pcpCourses:     PCP_courses,
+    example:         exampleDatabase, 
+    getAllCourses:   batchDocuments,
+    getAllCurricula: batchDocuments, 
+    postCourses:     addOneDocument,
+    putCourse:       updateDocument,
+    deleteCourse:    deleteDocument,
+    pcpCurricula:    scheduler_curricula,
+    pcpCourses:      scheduler_course,
+
+    // Connor added these
+    scheduler_course: scheduler_course,
+    scheduler_curricula: scheduler_curricula,
 }

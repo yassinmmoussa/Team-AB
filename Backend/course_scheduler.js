@@ -3,35 +3,84 @@ const database = require("./database");
 // MVP Request solutions count
 const solutions = 1;
 
-function schedule(year, session) {
+async function schedule(year, session) {
 
     // Request sent to CourseScheduler flask server in order to receive solutions
     let request = {};
 
     // Set # of solutions we would like to receive
-    request.solutions = solutions;
+    request.n_solutions = solutions;
 
-    // Collection of curricula and courses to be scheduled in the current run
-    let curricula = database.pcpCurricula(year, session);
-    let allCourses = database.getAllCourses(year, session);
+    request.curricula = [];
+    console.log('begin of c_s await database curricula');
+    database.scheduler_curricula(year, session, function(curricula) {
 
-    curricula.foreach(curriculum, function() {
+        //console.log("Scheduler: " ,curricula);
 
-        allCourses.foreach(course, function() {
+        curricula.forEach(curriculum => {
 
-            // If the course is a part of the curriculum, add it to some data structure
+            // console.log("1 curriculum: " , curriculum.courses);
             
+            //let requestCurriculum = {}; //cponnor
+
+            // This needs to change to a real course ID
+            //requestCurriculum.curriculum_id = "id"; //connor
+
+            request.curricula.curriculum_id = curriculum.id;   //nhi
+            //request.courses = curriculum.courses; //Connor's
+            request.curricula.courses = [];                   // Nhi's
+
+            
+            //request.courses.forEach( cID => {
+            curriculum.courses.forEach(cID => {
+                //let collectionName = cID._path.segments[0]; //not needed
+                let courseID = cID._path.segments[1];
+                console.log('begin of database course requests')
+                 database.scheduler_course(courseID, function(duration) {
+                    let requestCourseSet = {};
+                    requestCourseSet.courseID = courseID;
+                    requestCourseSet.n_periods=duration;
+
+                    request.curricula.courses.push(requestCourseSet);
+
+                    console.log(request);
+                });
+
+            });
+
         });
+        console.log('after all that shit' + request);
+        request.constraints = [
+        {
+            "course_id": "hFUhTu8WIEeQEQ3i",
+            "day": 2,
+            "intervals": [
+              {"start": 0,"end": 4},
+              {"start": 6,"end": 9}
+            ]
+        },{
+            "course_id": "hFUhTu8WIEeQEQ3i",
+            "day": 4,
+            "intervals": [
+              {"start": 4,"end": 9
+              }
+            ]
+          },{
+            "course_id": "jWtVT6TsTjz0lFQb",
+            "day": 3,
+            "intervals": [
+              {"start": 10,"end": 14},
+              {"start": 16,"end": 19
+              }
+            ]
+          }
+        ]
+        //request.constraints = [];
 
-    });
-
-    //TODO: Build constraints JSON object, ideally partially built by frontend
-
-    //TODO: Build and finalize final JSON object
+        // next(request);
+        
+      });
+      return request;
 }
 
-// Function that is ran when other JS files call course_scheduler()
-module.exports = function() {
-
-    console.log("Consider your courses.... scheduled")
-}
+module.exports = schedule;

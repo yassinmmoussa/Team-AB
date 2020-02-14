@@ -11,17 +11,17 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
 export class CourseDialogComponent implements OnInit {
 
   course: Course;
+  oldCourse: Course;
 
   constructor(
     public dialogRef: MatDialogRef<CourseDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Course
   ) {
     this.course = data;
+    this.oldCourse = data;
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   getCourseIconName(c: Course): string {
     if (c.type === 'lecture') {

@@ -3,12 +3,18 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const request = require('request-promise');
+const axios = require('axios')
+const fs = require('fs');
+const circJSON = require('circular-json');
 
 const app = express();
 
 // Internal APIs and Utility classes
 const database = require('./database');
 const scheduler = require('./course_scheduler');
+let test = require('./bad_test');
+
 
 // ========================================================= //
 
@@ -50,17 +56,15 @@ app.get('/api/courses', function(req, res) {
   console.log(`The parameters are: ${year}, ${session}`);
 
   // STEP 2: Send data through database class, receive queried data
-  database.getAllCourses(year, session, function(courses) {
+  database.getAllCourses('courses', year, session, function(courses) {
     
     // STEP 3: Form a response for the frontend with the queried data & send
     res.status(200).send(courses);
     console.log(courses);
   });
-
 });
 
 app.post('/api/courses', function(req, res) {
-
   console.log("Someone tried to POST some data");
   database.postCourses();
 });
@@ -77,6 +81,27 @@ app.delete('/api/courses', function(req, res) {
   database.deleteCourse();
 });
 
+/**
+ * Curricula Requests
+ */
+
+app.get('/api/curricula', function(req, res) {
+
+  // STEP 1: Parse the data from the query string
+  let year = parseInt(req.query.year);
+  let session = req.query.session;
+
+  console.log(`The parameters are: ${year}, ${session}`);
+
+  // STEP 2: Send data through database class, receive queried data
+  database.getAllCurricula('curricula', year, session, function(curricula) {
+    
+    // STEP 3: Form a response for the frontend with the queried data & send
+    res.status(200).send(curricula);
+    console.log(curricula);
+  });
+});
+
 // ========================================================= //
 
 /**
@@ -85,6 +110,55 @@ app.delete('/api/courses', function(req, res) {
 app.get('/api/schedule', function(req, res) {
   scheduler();
 });
+
+app.get('/api/schedule/runOptimizer', function(req, res) {
+  let courses = req.query.courses;
+  let curricula = req.query.curricula;
+  console.log(`The courses are ${courses}`);
+  console.log(`The curricula are ${curricula}`);
+  res.status(200).send({dope: "All is gucci"}); // Send back results of optimization here
+})
+
+app.post('/api/schedulerTest', function(req, res) {
+  
+  
+
+});
+
+// Simulation bad_test for calling max.
+// Requires max to be running on localhost:8080
+
+app.get('/bad_test', async function(req, res) {
+  try {
+    console.log('IM A BAD TEST - BILLIE EILLISH');
+    
+    let data = circJSON.parse(fs.readFileSync('sample_sched_request.json', 'utf8'));
+    
+    // Try to parse data from query, not quite correct format yet -- NEEDS TO BE DONE
+    // let data = {
+    //   n_solutions: 2,
+    //   curricula: req.query.curricula,
+    //   constraints: []
+    // };
+
+    console.log(data);
+    let response = await axios.post('http://localhost:8080/sched', data) // Maximillian is running on :8080
+    .then((res) => {
+      return res; // Max returns, need to provide this as the result of await promise
+    })
+    .catch((error) => {
+      // console.error(error)
+    })
+    console.log('made it to response' + response); // response now holds the output of max
+    res.status(200).send(circJSON.stringify(response)); // Send completed response back to front
+  } catch (e) {
+    console.log('yo async had issue');
+    console.log(e);
+  }
+  
+
+});
+
 
 // ========================================================= //
 
@@ -95,6 +169,13 @@ app.all('*', function(req, res) {
 
 });
 
+
+
+
 // ========================================================= //
+
+app.listen(3000,function(){
+  console.log("server is running on port 3000");
+});
 
 module.exports = app;

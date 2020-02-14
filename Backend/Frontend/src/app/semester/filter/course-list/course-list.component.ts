@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {data} from '../../scheduler/calendar/data.js'
-import {Course} from '../../../model/Course'
+import {Course} from '../../../model/Course';
 import {CourseEntryComponent} from './course-entry/course-entry.component'
 import {MatListModule} from '@angular/material/list';
+
 
 @Component({
   selector: 'app-course-list',
@@ -11,6 +12,7 @@ import {MatListModule} from '@angular/material/list';
 })
 export class CourseListComponent implements OnInit {
 
+  @Input() course: Course;
   courseList: Course[] = [];
 
   populateCourses(): Course[]{
@@ -42,7 +44,7 @@ export class CourseListComponent implements OnInit {
     return localCourseList;
 
 
-    
+
   }
 
 

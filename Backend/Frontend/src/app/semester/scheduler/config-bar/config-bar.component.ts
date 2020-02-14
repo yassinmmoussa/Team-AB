@@ -1,15 +1,25 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {ConstraintsDialogComponent} from '../modals/constraints-dialog/constraints-dialog.component';
 import {OptimizationDialogComponent} from '../modals/optimization-dialog/optimization-dialog.component';
 import {CsvDialogComponent} from '../modals/csv-dialog/csv-dialog.component';
 import {TeamDialogComponent} from '../modals/team-dialog/team-dialog.component';
 import {ConfigDialogComponent} from '../modals/config-dialog/config-dialog.component';
+import {FormControl} from '@angular/forms';
+import { Course } from 'src/app/model/Course';
+import { Curricula } from 'src/app/model/Curricula';
 
-export interface DialogData {
-  animal: string;
-  name: string;
+export interface Program {
+  value: string;
+  viewValue: string;
 }
+
+export interface ProgramGroup {
+  disabled?: boolean;
+  year: string;
+  program: Program[];
+}
+
 @Component({
   selector: 'app-config-bar',
   templateUrl: './config-bar.component.html',
@@ -17,8 +27,26 @@ export interface DialogData {
 })
 export class ConfigBarComponent implements OnInit {
 
+  @Input() courses: Course[];
+  @Input() curricula: Curricula[];
 
   configBtns = [];
+  viewControl = new FormControl();
+  programGroups: ProgramGroup[] = [
+    {
+      year:'Y1',
+      program: [
+        {value:'software-0', viewValue:'software'},
+        {value: 'computer-1', viewValue: 'Computer'}
+      ]
+    },
+    {
+      year:'Y2',
+      program: [
+        {value:'civil-2', viewValue:'Civil'}
+      ]
+    }
+  ];
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -53,28 +81,31 @@ export class ConfigBarComponent implements OnInit {
   }
 
 // Creating the dialog
+
   openConstraintsDialog(){
     let dialogRef = this.dialog.open(ConstraintsDialogComponent,{
       width: '800px',
       height: '700px',
-      data: 'this text is passed into the dialog'
+      data: 'this text is passed into the dialog',
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog closed: ${result}')
-    })
+    });
   }
 
-  openOptimizationDialog(){
+  openOptimizationDialog() {
     let dialogRef = this.dialog.open(OptimizationDialogComponent,{
       width: '800px',
       height: '700px',
-      data: 'this text is passed into the dialog'
+      data: {co: this.courses, cu: this.curricula},
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog closed: ${result}')
-    })
+    });
   }
 
   openCsvDialog(){
@@ -121,9 +152,9 @@ export class ConfigBarComponent implements OnInit {
 // })
 // export class ConfigBarConstraintsModal {
 
-//   constructor(
-//     public dialogRef: MatDialogRef<ConfigBarConstraintsModal>,
-//     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+  // constructor(
+  //   public dialogRef: MatDialogRef<ConfigBarConstraintsModal>,
+  //   @Inject(MAT_DIALOG_DATA) public data: Program) {}
 
 //   onNoClick(): void {
 //     this.dialogRef.close();

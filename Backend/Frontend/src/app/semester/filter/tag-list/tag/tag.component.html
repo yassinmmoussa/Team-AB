@@ -1,0 +1,8 @@
+<div 
+        class="card" 
+        [ngClass]="(tag.selected) ? 'selected' : 'deselected'" 
+        [ngStyle]="{ 'background-color': tag.selected ? tag.color : '#AAAAAA', 'color': tag.selected ? 'white' : '#555555' }" 
+        (click)="test()">
+    {{tag.name}}
+</div>
+<!-- <mat-button-toggle class="card" value="bold">{{tag.name}}</mat-button-toggle> -->

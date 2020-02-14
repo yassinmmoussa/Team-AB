@@ -13,4 +13,22 @@
 }
 .button-row{
   display: inline;
+
+}
+
+.config-ctrl-arrow {
+  margin-left:30px;
+  top: 60px;
+  background-color: #F1F1F1;
+ /* width: 20px!important;
+min-width: unset!important; */
+}
+
+.config-controls {
+  /* display: inline; */
+}
+
+.dropdown {
+  top: 60px;
+  left: 30px;
 }
