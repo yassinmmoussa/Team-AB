@@ -94,9 +94,10 @@ export class SemesterComponent implements OnInit {
         curriculaJSON[`${curriculaRef}`].name,
         curriculaJSON[`${curriculaRef}`].session,
         curriculaJSON[`${curriculaRef}`].year,
-        curriculaJSON[`${curriculaRef}`].courses.map(cRef => {
-          return cRef._path.segments[1];
-        })
+        []
+        // curriculaJSON[`${curriculaRef}`].courses.map(cRef => {
+        //   return cRef._path.segments[1];
+        // })
       ));
     });
     return res;
