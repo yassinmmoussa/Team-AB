@@ -11,7 +11,6 @@ import { dayConfig } from './day/dayConfig';
 })
 export class CalendarComponent implements OnInit {
   @Input() set courses(courseList: Course[]) {
-    console.log("Courses updated");
     this.buildCourseLists(courseList);
   }
 

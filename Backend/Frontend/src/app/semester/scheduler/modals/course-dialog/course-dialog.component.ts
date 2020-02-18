@@ -13,12 +13,14 @@ export class CourseDialogComponent implements OnInit {
   course: Course;
   oldCourse: Course;
 
+  dayOptions = [0, 1, 2, 3, 4];
+
   constructor(
     public dialogRef: MatDialogRef<CourseDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Course
   ) {
     this.course = data;
-    this.oldCourse = data;
+    this.oldCourse = Object.assign({}, data); // Clone course
   }
 
   ngOnInit() {}
@@ -28,6 +30,22 @@ export class CourseDialogComponent implements OnInit {
       return 'lecture-icon';
     } else {
       return 'lab-icon';
+    }
+  }
+
+  daysChange(day: number, $event) {
+    if ($event.checked && !this.course.days.includes(day)) {
+      this.course.days.push(day);
+      this.course.days.sort();
+    } else {
+      const newArr: [number] = [null];
+      newArr.pop();
+      this.course.days.forEach(oldDay => {
+        if (oldDay !== day) {
+          newArr.push(oldDay);
+        }
+      });
+      this.course.days = newArr;
     }
   }
 

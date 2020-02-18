@@ -70,7 +70,8 @@ app.post('/api/courses', function(req, res) {
 app.put('/api/courses', function(req, res) {
 
   console.log("Someone tried to PUT some data");
-  database.putCourse();
+  console.log(req.body.course);
+  database.updateCourse(req.body.course);
 });
 
 app.delete('/api/courses', function(req, res) {
