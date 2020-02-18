@@ -107,7 +107,7 @@ function addOneDocument() {
  * 
  * Returns true if the object is found and changed, false otherwise
  */
-function updateCourse(course) {
+function updateCourse(course, callback) {
     
     let courseJSON = JSON.parse(course);
 
@@ -123,10 +123,10 @@ function updateCourse(course) {
             querySnapshot.forEach(function(doc) {
                 database.collection("courses").doc(doc.id).update(courseJSON);
             });
-            return true;
+            callback(true);
         })
         .catch(() => {
-            return false;
+            callback(false);
         });
 }
 
