@@ -104,6 +104,8 @@ function addOneDocument() {
  * This function will not remove data from the database, it only appends.
  * 
  * @param {*} course Course object with new properties that already exists in the database
+ * 
+ * Returns true if the object is found and changed, false otherwise
  */
 function updateCourse(course) {
     
@@ -119,10 +121,12 @@ function updateCourse(course) {
 
         .get().then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
-                console.log('found something to update');
                 database.collection("courses").doc(doc.id).update(courseJSON);
-                console.log("Updated database.");
             });
+            return true;
+        })
+        .catch(() => {
+            return false;
         });
 }
 
@@ -182,7 +186,7 @@ function scheduler_curricula(year, session, callback) {
         })
         .catch(function(error){
             console.log("Querying curricula ran into an error",error);        
-        })
+        });
 }
 
 /**

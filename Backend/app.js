@@ -145,6 +145,22 @@ app.post('/api/auth', (req, res) => {
 // Simulation bad_test for calling max.
 // Requires max to be running on localhost:8080
 
+app.get('/bad_test2', function(req, res) {
+
+  let course = {
+    year: 2020,
+    session: 'W',
+    dept: 'EECS',
+    code: 3421,
+    section: 'N',
+    type: 'lecture',
+  }
+
+  let success = database.updateCourse(JSON.stringify(course));
+  res.status(200).send({wow: success});
+
+});
+
 app.get('/bad_test', async function(req, res) {
   try {
     console.log('IM A BAD TEST - BILLIE EILLISH');
