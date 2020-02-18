@@ -5,7 +5,7 @@ export class Course {
     public duration: number,
     public dept: string,
     public instructor: string,
-    public code: number,
+    public x: number,
     public startingBlock: number,
     public colour: string,
     public name: string,
