@@ -118,7 +118,7 @@ app.post('/api/schedule/runOptimizer', function(req, res) {
   console.log(`The curricula are ${curricula}`);
 
   // Call scheduler
-  scheduler.frontEnd_schedule();
+  scheduler.frontEnd_schedule(courses, curricula);
 
   // Send response to frontend
   res.status(200).send({dope: "All is gucci"}); // Send back results of optimization here
