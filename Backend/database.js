@@ -1,6 +1,6 @@
 /**
  * Google Firestore setup section
- * 
+ *
  * https://github.com/googleapis/nodejs-firestore-session#google-cloud-firestore-session
  */
 const { Firestore } = require('@google-cloud/firestore');
@@ -13,16 +13,16 @@ const database = require('./top_secret/database');
 // ========================================================= //
 
 /**
- * Exported functions implementations 
+ * Exported functions implementations
  */
- 
+
 function exampleDatabase() {
 
     console.log("The database is speaking to you...")
 
     /**
         * Example database storing
-        * 
+        *
         * This code shouldn't be permanent, should just
         * serve as an example for future database calls
     */
@@ -47,7 +47,7 @@ function exampleDatabase() {
  * Function get batch documents (read)
  * currently take in year and session to return courses information
  * potentially gets abstract in the future for code-reuse
- * 
+ *
  * @param `type` is either 'courses' or 'curricula'
  */
 function batchDocuments(type, year, session, next) {
@@ -63,18 +63,18 @@ function batchDocuments(type, year, session, next) {
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
-    });        
+    });
 }
 
 /**
- * Function to add 1 document 
- * currently adding directly under hard-coded doc ID 
+ * Function to add 1 document
+ * currently adding directly under hard-coded doc ID
  */
 function addOneDocument() {
     console.log("Someone tried to POST some data");
-    //a testing doc data to add into firestore, in the future i will 
+    //a testing doc data to add into firestore, in the future i will
     //use passed data from post request
-    var newCourse= { 
+    var newCourse= {
         code: 4413,
         colour: "blue",
         days: {
@@ -112,6 +112,8 @@ function updateDocument() {
     })
 }
 
+
+
 /**
  * Delete document; should not be called at the moment
  */
@@ -127,7 +129,7 @@ function deleteDocument() {
 }
 
 /**
- * Based on Scheduler input format, we retrieve list of curricula 
+ * Based on Scheduler input format, we retrieve list of curricula
  * then each curriculum will contain courses with its duration.
  */
 function scheduler_curricula(year, session, callback) {
@@ -147,7 +149,7 @@ function scheduler_curricula(year, session, callback) {
 
     docRef.get()
         .then(function(querySnapshot) {
-            
+
             querySnapshot.forEach(function(doc) {
                 //console.log(doc.data())
 
@@ -157,15 +159,15 @@ function scheduler_curricula(year, session, callback) {
                 //temp.push(doc.data());
                 temp.push(curr);
                 return doc.data();
-            }); 
-            
+            });
+
             //console.log("Database: " , temp);
             callback(temp);
             return temp;
 
         })
         .catch(function(error){
-            console.log("Querying curricula ran into an error",error);        
+            console.log("Querying curricula ran into an error",error);
         })
 }
 
@@ -195,9 +197,9 @@ function scheduler_course(courseId, next) {
 // ========================================================= //
 
 module.exports = {
-    example:         exampleDatabase, 
+    example:         exampleDatabase,
     getAllCourses:   batchDocuments,
-    getAllCurricula: batchDocuments, 
+    getAllCurricula: batchDocuments,
     postCourses:     addOneDocument,
     putCourse:       updateDocument,
     deleteCourse:    deleteDocument,
