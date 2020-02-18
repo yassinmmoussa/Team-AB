@@ -54,7 +54,6 @@ export class BlockComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Do something with the updated course here' + result);
       // let cToUpdate = this.coursesStarting.find(course => course.courseRef === result.courseRef);
       // console.log('Updating... (old -> new)');
       // console.log(cToUpdate);
