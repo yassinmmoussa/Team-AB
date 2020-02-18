@@ -18,7 +18,7 @@ export class Course {
     public display?: boolean,
     public isLocked: boolean = false,
     public capacity: number = 0,
-    public room: string = 'Not Set'
+    public room: string = 'Not Set',
   ) {}
 
   toJSON(): string {
