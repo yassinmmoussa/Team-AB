@@ -109,7 +109,7 @@ function updateCourse(course) {
     
     let courseJSON = JSON.parse(course);
 
-    let colRef = database.collection('courses')
+    database.collection('courses')
         .where("year","==",courseJSON.year)
         .where("session","==",courseJSON.session)
         .where("dept","==",courseJSON.dept)
