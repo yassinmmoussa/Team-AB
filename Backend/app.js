@@ -13,8 +13,6 @@ const app = express();
 // Internal APIs and Utility classes
 const database = require('./database');
 const scheduler = require('./course_scheduler');
-let test = require('./bad_test');
-
 
 // ========================================================= //
 
