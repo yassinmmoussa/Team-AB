@@ -47,5 +47,12 @@ export class DataService {
     );
   }
 
-
+  authenticate(username: string, password: string) {
+    return this.http.post('/api/auth', {
+      params: {
+        username,
+        password
+      }
+    });
+  }
 }

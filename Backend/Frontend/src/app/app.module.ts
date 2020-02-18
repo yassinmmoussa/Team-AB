@@ -35,6 +35,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { TagComponent } from './semester/filter/tag-list/tag/tag.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { LoginComponent } from './login/login.component';
+import { SemesterContainerComponent } from './semester-container/semester-container.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     TeamDialogComponent,
     ConfigDialogComponent,
     CourseEntryComponent,
-    TagComponent
+    TagComponent,
+    LoginComponent,
+    SemesterContainerComponent,
+    PageNotFoundComponent
 
   ],
   imports: [

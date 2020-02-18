@@ -125,6 +125,19 @@ app.post('/api/schedulerTest', function(req, res) {
 
 });
 
+app.post('/api/auth', (req, res) => {
+  console.log(req.params);
+
+  let username = req.body.params.username;
+  let password = req.body.params.password;
+
+  console.log('User: ', username)
+  console.log('Pass: ', password)
+
+  let result = username === 'admin' && password === 'notKevin';
+  res.status(200).send({authenticated: result});
+})
+
 // Simulation bad_test for calling max.
 // Requires max to be running on localhost:8080
 
