@@ -1,0 +1,170 @@
+{
+  "id": "b2fea67d-4536-4789-baba-8129fe1c2b11",
+  "version": "2.0",
+  "name": "Spare",
+  "url": "http://localhost:4200",
+  "tests": [{
+    "id": "89029d3d-5c3e-46d3-afff-f6c8a228c2f9",
+    "name": "Run Optimization (Labs, 1 Locked)",
+    "commands": [{
+      "id": "ec783918-095c-440a-8c7a-669995eb4be9",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "337ebf67-d96e-4840-a33a-a70cfe96e905",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "550x691",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fcf75770-c178-4c03-846d-dc1994acb260",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.node:nth-child(1) .mat-icon-rtl-mirror",
+      "targets": [
+        ["css=.node:nth-child(1) .mat-icon-rtl-mirror", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/app-tag-list/div/mat-tree/mat-nested-tree-node/li/div/button/span/mat-icon", "xpath:idRelative"],
+        ["xpath=//mat-icon", "xpath:position"],
+        ["xpath=//mat-icon[contains(.,'chevron_right')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "46d32fa6-cbcb-4ea4-a7f6-3cc8d824bbbe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.node:nth-child(1) .mat-icon-rtl-mirror",
+      "targets": [
+        ["css=.node:nth-child(1) .mat-icon-rtl-mirror", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/app-tag-list/div/mat-tree/mat-nested-tree-node/li/div/button/span/mat-icon", "xpath:idRelative"],
+        ["xpath=//mat-icon", "xpath:position"],
+        ["xpath=//mat-icon[contains(.,'chevron_right')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "30611153-4ebd-4984-bb8a-0d2990541f9d",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.node:nth-child(1) .mat-icon-rtl-mirror",
+      "targets": [
+        ["css=.node:nth-child(1) .mat-icon-rtl-mirror", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/app-tag-list/div/mat-tree/mat-nested-tree-node/li/div/button/span/mat-icon", "xpath:idRelative"],
+        ["xpath=//mat-icon", "xpath:position"],
+        ["xpath=//mat-icon[contains(.,'expand_more')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "72d3ebfb-e9c3-4765-a972-2d460f6e24c2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.node:nth-child(1) .node:nth-child(4) .ng-star-inserted:nth-child(2) > .card",
+      "targets": [
+        ["css=.node:nth-child(1) .node:nth-child(4) .ng-star-inserted:nth-child(2) > .card", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/app-tag-list/div/mat-tree/mat-nested-tree-node/li/ul/mat-tree-node[4]/div/app-tag[2]/div", "xpath:idRelative"],
+        ["xpath=//mat-tree-node[4]/div/app-tag[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "36a6839a-5b2e-4166-986b-c4ae499991b5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.box:nth-child(2) .course",
+      "targets": [
+        ["css=.box:nth-child(2) .course", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-scheduler/div/div[2]/app-calendar/div/div[2]/app-day/div/div/app-block[4]/div/div", "xpath:idRelative"],
+        ["xpath=//app-block[4]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "14210a2b-5c71-4d41-81da-3911e7894109",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-slide-toggle-thumb",
+      "targets": [
+        ["css=.mat-slide-toggle-thumb", "css:finder"],
+        ["xpath=//mat-slide-toggle[@id='mat-slide-toggle-1']/label/div/div/div", "xpath:idRelative"],
+        ["xpath=//mat-slide-toggle/label/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f8a11dc7-e854-412d-8f7d-e6249dd8db3d",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-course-dialog/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-course-dialog/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef52039f-8a36-42ba-8aa5-65ca234cc0e1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-course-dialog/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-course-dialog/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "267d7bc5-ac1c-44ab-9716-21a43afb389e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-row:nth-child(2) .mat-button-wrapper",
+      "targets": [
+        ["css=.button-row:nth-child(2) .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-scheduler/div/div/app-config-bar/div/div[2]/button/span", "xpath:idRelative"],
+        ["xpath=//div[2]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5cbe185-7d23-4c50-b6f3-1ec516e4f68a",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.optimizeBtn > .mat-button-wrapper",
+      "targets": [
+        ["css=.optimizeBtn > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-1']/app-optimization-dialog/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-optimization-dialog/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'calendar_todayRun Optimization')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2060a89-bd44-4471-ae72-4ba295305c89",
+      "comment": "",
+      "command": "click",
+      "target": "css=.optimizeBtn > .mat-button-wrapper",
+      "targets": [
+        ["css=.optimizeBtn > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-1']/app-optimization-dialog/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-optimization-dialog/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'calendar_todayRun Optimization')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1f1fe06-727d-4fde-940c-fe58a5918dcd",
+      "comment": "",
+      "command": "close",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "be8b742e-0197-4b7c-917d-5e759b4351b9",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["89029d3d-5c3e-46d3-afff-f6c8a228c2f9"]
+  }],
+  "urls": ["http://localhost:4200/"],
+  "plugins": []
+}
