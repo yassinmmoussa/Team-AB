@@ -3,7 +3,7 @@ const database = require("./database");
 // MVP Request solutions count
 const solutions = 1;
 
-async function schedule(year, session) {
+async function old_schedule(year, session) {
 
     // Request sent to CourseScheduler flask server in order to receive solutions
     let request = {};
@@ -83,4 +83,11 @@ async function schedule(year, session) {
       return request;
 }
 
-module.exports = schedule;
+function frontEnd_schedule() {
+  
+}
+
+module.exports = {
+  old_schedule,
+  frontEnd_schedule
+}
