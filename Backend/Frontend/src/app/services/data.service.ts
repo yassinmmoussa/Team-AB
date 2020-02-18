@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Course } from '../model/Course';
 import { Curricula } from '../model/Curricula';
 import { data } from '../semester/scheduler/calendar/data';
@@ -38,25 +38,11 @@ export class DataService {
     const optimizerURL = '/api/schedule/runOptimizer';
     const courseData = `${courses.map(course => course.toJSON())}`;
     const curriculaData = `${curricula.map(curr => curr.toJSON())}`;
-
-    return this.http.post(optimizerURL, {
-      params: {
-        courses: courseData,
-        curricula: curriculaData
-      }
-    }).pipe(
+    const optimizerData = { courses: courseData, curricula: curriculaData };
+    const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+    return this.http.post(optimizerURL, optimizerData, config).pipe(
       catchError(this.handleError)
     );
-
-    // Old Get request... doesn't work for large payloads
-    // return this.http.get('/bad_test', {
-    //   params: {
-    //     courses: `${courses.map(course => course.toJSON())}`,
-    //     curricula: `${curricula.map(curr => curr.toJSON())}`
-    //   }
-    // }
-    // );
-
   }
 
   private handleError(error: HttpErrorResponse) {
