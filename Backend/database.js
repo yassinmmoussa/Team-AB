@@ -112,6 +112,24 @@ function updateDocument() {
     })
 }
 
+function updateCourse(course) {
+    console.log("Someone tried to PUT some data into DB");
+    let courseJSON = JSON.parse(course);
+    let colRef = database.collection('courses').where("year","==",courseJSON.year)
+                                               .where("session","==",courseJSON.session)
+                                               .where("dept","==",courseJSON.dept)
+                                               .where("code","==",courseJSON.code)
+                                               .where("section","==",courseJSON.section)
+                                               .where("type","==",courseJSON.type)
+    .get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            console.log('found something to update')
+            database.collection("courses").doc(doc.id).update(courseJSON);
+            console.log("Updated database.")
+        });
+    })
+}
+
 /**
  * Delete document; should not be called at the moment
  */
@@ -199,12 +217,10 @@ module.exports = {
     getAllCourses:   batchDocuments,
     getAllCurricula: batchDocuments, 
     postCourses:     addOneDocument,
-    putCourse:       updateDocument,
     deleteCourse:    deleteDocument,
     pcpCurricula:    scheduler_curricula,
     pcpCourses:      scheduler_course,
-
-    // Connor added these
+    updateCourse:    updateCourse,
     scheduler_course: scheduler_course,
     scheduler_curricula: scheduler_curricula,
 }

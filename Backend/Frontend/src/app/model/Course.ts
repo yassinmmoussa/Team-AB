@@ -14,21 +14,22 @@ export class Course {
     public year: number,
     public session: string,
     public type: string,
-    public labSection?: string,
     public display?: boolean,
+    public labSection: string = '',
     public isLocked: boolean = false,
     public capacity: number = 0,
-    public room: string = 'Not Set'
+    public room: string = 'Not Set',
   ) {}
 
   toJSON(): string {
     const res = `
-      "${this.courseRef}" : {
+      {
+        "course_ref": ${this.courseRef},
         "duration": ${JSON.stringify(this.duration)},
         "dept": ${JSON.stringify(this.dept)},
         "instructor": ${JSON.stringify(this.instructor)},
         "code": ${JSON.stringify(this.code)},
-        "startingBlock": ${JSON.stringify(this.startingBlock)},
+        "starting_block": ${JSON.stringify(this.startingBlock)},
         "colour": ${JSON.stringify(this.colour)},
         "name": ${JSON.stringify(this.name)},
         "section": ${JSON.stringify(this.section)},
@@ -36,11 +37,11 @@ export class Course {
         "year": ${JSON.stringify(this.year)},
         "session": ${JSON.stringify(this.session)},
         "type": ${JSON.stringify(this.type)},
-        "labSection": ${JSON.stringify(this.labSection)},
+        "lab_section": ${JSON.stringify(this.labSection)},
         "display": ${JSON.stringify(this.display)},
-        "isLocked": ${JSON.stringify(this.isLocked)},
+        "is_locked": ${JSON.stringify(this.isLocked)},
         "capacity": ${JSON.stringify(this.capacity)},
-        "room": ${JSON.stringify(this.room)},
+        "room": ${JSON.stringify(this.room)}
       }
     `;
     return res;

@@ -72,7 +72,8 @@ app.post('/api/courses', function(req, res) {
 app.put('/api/courses', function(req, res) {
 
   console.log("Someone tried to PUT some data");
-  database.putCourse();
+  console.log(req.body.course);
+  database.updateCourse(req.body.course);
 });
 
 app.delete('/api/courses', function(req, res) {
@@ -111,11 +112,16 @@ app.get('/api/schedule', function(req, res) {
   scheduler();
 });
 
-app.get('/api/schedule/runOptimizer', function(req, res) {
-  let courses = req.query.courses;
-  let curricula = req.query.curricula;
+app.post('/api/schedule/runOptimizer', function(req, res) {
+  let courses = req.body.courses;
+  let curricula = req.body.curricula;
   console.log(`The courses are ${courses}`);
   console.log(`The curricula are ${curricula}`);
+
+  // Call scheduler
+  scheduler.frontEnd_schedule(courses, curricula);
+
+  // Send response to frontend
   res.status(200).send({dope: "All is gucci"}); // Send back results of optimization here
 })
 
@@ -124,6 +130,19 @@ app.post('/api/schedulerTest', function(req, res) {
   
 
 });
+
+app.post('/api/auth', (req, res) => {
+  console.log(req.params);
+
+  let username = req.body.params.username;
+  let password = req.body.params.password;
+
+  console.log('User: ', username)
+  console.log('Pass: ', password)
+
+  let result = username === 'admin' && password === 'notKevin';
+  res.status(200).send({authenticated: result});
+})
 
 // Simulation bad_test for calling max.
 // Requires max to be running on localhost:8080

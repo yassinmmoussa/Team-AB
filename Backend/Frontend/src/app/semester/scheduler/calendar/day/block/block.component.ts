@@ -4,6 +4,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { CourseDialogComponent } from '../../../modals/course-dialog/course-dialog.component';
+import { CrudCoursesService } from '../../../../../services/crud-courses.service';
 
 @Component({
   selector: 'app-block',
@@ -22,7 +23,10 @@ export class BlockComponent implements OnInit {
   courseDialog: MatDialog;
   coursesStarting: Course[] = [];
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, dialog: MatDialog) {
+  constructor(iconRegistry: MatIconRegistry,
+              sanitizer: DomSanitizer,
+              dialog: MatDialog,
+              private crudCoursesService: CrudCoursesService) {
     iconRegistry.addSvgIcon(
         'lecture-icon',
         sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/people-outline.svg'));
@@ -54,7 +58,6 @@ export class BlockComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Do something with the updated course here' + result);
       // let cToUpdate = this.coursesStarting.find(course => course.courseRef === result.courseRef);
       // console.log('Updating... (old -> new)');
       // console.log(cToUpdate);
@@ -64,6 +67,8 @@ export class BlockComponent implements OnInit {
       // console.log(this.coursesStarting);
       this.courseStateChanged.emit(result);
       console.log(this.coursesStarting);
+      // console.log(this.crudCoursesService.getCourses());
+      this.crudCoursesService.updateCourse(result).subscribe(res => console.log(res));
     });
   }
 

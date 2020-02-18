@@ -3,7 +3,7 @@ const database = require("./database");
 // MVP Request solutions count
 const solutions = 1;
 
-async function schedule(year, session) {
+async function old_schedule(year, session) {
 
     // Request sent to CourseScheduler flask server in order to receive solutions
     let request = {};
@@ -83,4 +83,33 @@ async function schedule(year, session) {
       return request;
 }
 
-module.exports = schedule;
+function frontEnd_schedule(courses, curricula) {
+  console.log("type: " + typeof(curricula))
+  result = {
+    n_solutions: 666,
+    curricula: curricula.map(curriculum => {
+
+      filteredCourses = courses.filter(course => 
+        curriculum.courses.some(courseCode => 
+          courseCode === course.code));
+
+      return {
+        curriculum_id: curriculum.name,
+        courses: filteredCourses.map(course => {
+          return {
+            course_id: course.code,
+            n_periods: course.duration
+          }
+        })
+      }
+
+
+    })
+  }
+  console.log(`REEEEEEEEEEE: ${result}`)
+}
+
+module.exports = {
+  old_schedule,
+  frontEnd_schedule
+}
