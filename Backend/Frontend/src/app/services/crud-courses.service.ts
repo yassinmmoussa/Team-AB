@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 export class CrudCoursesService {
 
   constructor(private http: HttpClient) { }
-  courseUrl: '/api/courses';
+  courseUrl = '/api/courses';
 
   //POST to add a new course into the database
   addNewCourse(course: Course): Observable<Course>{
@@ -22,10 +22,15 @@ export class CrudCoursesService {
       );
   }
 
+
   //PUT Request to update existing courses
-  updateCourse(course: Course): Observable<Course> {
+  updateCourse(course: Course) {
+    console.log('updating course in crud service');
     const httpOptions = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
-    return this.http.put<Course>(this.courseUrl, course, httpOptions)
+    const courseData = course.toJSON();
+    const updateData = { course: courseData };
+    console.log(updateData);
+    return this.http.put(this.courseUrl, updateData, httpOptions)
       .pipe(
         catchError(this.handleError)
       );

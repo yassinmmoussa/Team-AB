@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Course } from '../model/Course';
 import { Curricula } from '../model/Curricula';
+import { ColorMap } from '../model/ColorMap';
 
 @Component({
   selector: 'app-semester',
@@ -22,18 +23,18 @@ export class SemesterComponent implements OnInit {
   }
 
   getCourses() {
-    console.log('Got courses');
+    // console.log('Got courses');
     this.dataService.getCourses().subscribe(data => {
       this.courses = this.buildCourseLists(data);
-      console.log(this.courses);
+      // console.log(this.courses);
     });
   }
 
   getCurricula() {
-    console.log('Getting curricula');
+    // console.log('Getting curricula');
     this.dataService.getCurricula().subscribe(data => {
       this.curricula = this.buildCurriculaList(data);
-      console.log(this.curricula);
+      // console.log(this.curricula);
     });
   }
 
@@ -71,7 +72,7 @@ export class SemesterComponent implements OnInit {
         courses[`${courseRef}`].instructor,
         courses[`${courseRef}`].code,
         courses[`${courseRef}`].starting_block,
-        courses[`${courseRef}`].colour,
+        ColorMap.getColor(courses[`${courseRef}`].dept), // Derive color based on dept
         courses[`${courseRef}`].name,
         courses[`${courseRef}`].section,
         courses[`${courseRef}`].days,
@@ -93,9 +94,10 @@ export class SemesterComponent implements OnInit {
         curriculaJSON[`${curriculaRef}`].name,
         curriculaJSON[`${curriculaRef}`].session,
         curriculaJSON[`${curriculaRef}`].year,
-        curriculaJSON[`${curriculaRef}`].courses.map(cRef => {
-          return cRef._path.segments[1];
-        })
+        []
+        // curriculaJSON[`${curriculaRef}`].courses.map(cRef => {
+        //   return cRef._path.segments[1];
+        // })
       ));
     });
     return res;
