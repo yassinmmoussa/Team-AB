@@ -51,7 +51,7 @@ function exampleDatabase() {
  * @param `type` is either 'courses' or 'curricula'
  */
 function batchDocuments(type, year, session, next) {
-    console.log("Someone tried to GET some data");
+    // console.log("Someone tried to GET some data");
     let colRef = database.collection(type).where("year", "==", year).where("session","==",session);
     colRef.get()
     .then(function(querySnapshot) {

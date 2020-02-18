@@ -7,11 +7,13 @@
     "deploy": "cd Frontend & ng build --prod=\"true\"; cd ..; gcloud app deploy",
     "nodemon": "nodemon app.js --watch .",
     "frontend": "cd Frontend; ng serve --proxy-config=proxy.config.json",
-    "dev": "DEV=true && concurrently \"npm run nodemon\" \"npm run frontend\""
+    "dev": "DEV=true && concurrently \"npm run nodemon\" \"npm run frontend\"",
+    "test": "mocha express-tests --recursive --timeout 100000"
   },
   "dependencies": {
     "@google-cloud/connect-firestore": "^1.0.6",
     "@google-cloud/firestore": "^3.3.3",
+    "chai": "^4.2.0",
     "axios": "^0.19.2",
     "circular-json": "^0.5.9",
     "compression": "^1.7.4",
@@ -20,9 +22,11 @@
     "express": "~4.16.1",
     "express-session": "^1.17.0",
     "http-errors": "~1.6.3",
+    "mocha": "^7.0.1",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.2",
     "pug": "^2.0.4",
+    "request": "^2.88.2",
     "request-promise": "^4.2.5"
   },
   "devDependencies": {
