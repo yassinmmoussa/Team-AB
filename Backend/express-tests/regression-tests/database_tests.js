@@ -107,20 +107,20 @@ it('t1:5 Where\'s the data! No data for years 2018 or earlier', function(done) {
 
 // ===== Update Course ===== //
 
-it('t2:0 Did it work? Updating a course that isn\'t in the database', function(done) {
+// it('t2:0 Did it work? Updating a course that isn\'t in the database', function(done) {
   
-    let course = {
-        year: 2020,
-        session: 'W',
-        dept: 'EECS',
-        code: 3421,
-        section: 'N',
-        type: 'lecture',
-      }
+//     // let course = {
+//     //     year: 2020,
+//     //     session: 'W',
+//     //     dept: 'EECS',
+//     //     code: 3421,
+//     //     section: 'N',
+//     //     type: 'lecture',
+//     //   }
 
-    database.updateCourse(JSON.stringify(course), 
-        success => res.status(200).send({wow: success}));
+//     // database.updateCourse(JSON.stringify(course), 
+//     //     success => res.status(200).send({wow: success}));
 
-    done();
+//     done();
 
-});
+// });

@@ -71,14 +71,11 @@ function batchDocuments(type, year, session, next) {
  * currently adding directly under hard-coded doc ID
  */
 function addOneCourse(course) {
-    console.log("Someone tried to POST some data");
     //a testing doc data to add into firestore, in the future i will
     //use passed data from post request
     let JSONcourse = JSON.parse(course);
     console.log(JSONcourse)
-    let colRef = database.collection('courses').doc().set(JSONcourse).then(function() {
-        console.log("Document successfully written!");
-    });
+    let colRef = database.collection('courses').doc().set(JSONcourse);
 }
 
 /**
