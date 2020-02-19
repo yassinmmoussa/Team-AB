@@ -70,32 +70,11 @@ function batchDocuments(type, year, session, next) {
  * Function to add 1 document
  * currently adding directly under hard-coded doc ID
  */
-function addOneDocument(course) {
+function addOneCourse(course) {
     console.log("Someone tried to POST some data");
     //a testing doc data to add into firestore, in the future i will
     //use passed data from post request
-    let courseJSON = JSON.parse(course);
-
-
-    // var newCourse= {
-    //     code: 4413,
-    //     colour: "blue",
-    //     days: {
-    //         0:0,
-    //     },
-    //     dept: "EECS",
-    //     duration: 4,
-    //     instructor: "Marin Litou",
-    //     lab_section: "1",
-    //     name: "Building E-Commerce Systems",
-    //     section: "E",
-    //     session: "F",
-    //     starting_block: 8,
-    //     type: "lab",
-    //     year: 1997
-    // }
-
-    let colRef = database.collection('courses').doc("TESTING").set(courseJSON).then(function() {
+    let colRef = database.collection('courses').doc().set(course).then(function() {
         console.log("Document successfully written!");
     });
 }
@@ -226,7 +205,7 @@ module.exports = {
     example:         exampleDatabase,
     getAllCourses:   batchDocuments,
     getAllCurricula: batchDocuments,
-    postCourses:     addOneDocument,
+    addOneCourse:     addOneCourse,
     deleteCourse:    deleteDocument,
     pcpCurricula:    scheduler_curricula,
     pcpCourses:      scheduler_course,

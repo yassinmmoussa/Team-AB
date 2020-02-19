@@ -89,7 +89,7 @@ export class AddNewCourseModalComponent implements OnInit {
 
   onSubmit() {
     const newCourse = new Course(
-        this.addCourseForm.value.course_code,
+        this.addCourseForm.value.year+this.addCourseForm.value.session+this.addCourseForm.value.department+this.addCourseForm.value.course_code,
         this.addCourseForm.value.duration,
         this.addCourseForm.value.department,
         this.addCourseForm.value.instructor,
@@ -101,10 +101,11 @@ export class AddNewCourseModalComponent implements OnInit {
         [],
         this.addCourseForm.value.year,
         this.addCourseForm.value.session,
-        this.addCourseForm.value.course_type
+        this.addCourseForm.value.course_type,
+        true
       );
 
-    this.crudCoursesService.addNewCourse(newCourse);
+    this.crudCoursesService.addNewCourse(newCourse).subscribe(res => console.log(res));
     // TODO: Use EventEmitter with form value
   //  console.warn(this.addCourseForm.value);
   }

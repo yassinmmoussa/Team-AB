@@ -24,11 +24,11 @@ export class Course {
   toJSON(): string {
     const res = `
       {
-        "course_ref": ${this.courseRef},
+        "course_ref": ${JSON.stringify(this.courseRef)},
         "duration": ${JSON.stringify(this.duration)},
         "dept": ${JSON.stringify(this.dept)},
         "instructor": ${JSON.stringify(this.instructor)},
-        "code": ${JSON.stringify(this.code)},
+        "code": ${this.code},
         "starting_block": ${JSON.stringify(this.startingBlock)},
         "colour": ${JSON.stringify(this.colour)},
         "name": ${JSON.stringify(this.name)},
