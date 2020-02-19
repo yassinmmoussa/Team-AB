@@ -91,7 +91,15 @@ function addOneCourse(course) {
  * Returns true if the object is found and changed, false otherwise
  */
 function updateCourse(course, callback) {
-    getCourseReference(course).then(function(querySnapshot) {
+    let courseJSON = JSON.parse(course);
+    database.collection('courses')
+        .where("year","==",courseJSON.year)
+        .where("session","==",courseJSON.session)
+        .where("dept","==",courseJSON.dept)
+        .where("code","==",courseJSON.code)
+        .where("section","==",courseJSON.section)
+        .where("type","==",courseJSON.type)
+        .get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             database.collection("courses").doc(doc.id).update(courseJSON);
         });
@@ -103,7 +111,15 @@ function updateCourse(course, callback) {
 }
 
 function deleteCourse(course, callback) {
-    getCourseReference(course).then(function(querySnapshot) {
+    let courseJSON = JSON.parse(course);
+    database.collection('courses')
+        .where("year","==",courseJSON.year)
+        .where("session","==",courseJSON.session)
+        .where("dept","==",courseJSON.dept)
+        .where("code","==",courseJSON.code)
+        .where("section","==",courseJSON.section)
+        .where("type","==",courseJSON.type)
+        .get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             database.collection("courses").doc(doc.id).delete();
         });
@@ -114,17 +130,17 @@ function deleteCourse(course, callback) {
     });
 }
 
-function getCourseReference(course) {
-    let courseJSON = JSON.parse(course);
-    return database.collection('courses')
-        .where("year","==",courseJSON.year)
-        .where("session","==",courseJSON.session)
-        .where("dept","==",courseJSON.dept)
-        .where("code","==",courseJSON.code)
-        .where("section","==",courseJSON.section)
-        .where("type","==",courseJSON.type)
-        .get()
-}
+// function getCourseReference(course) {
+//     let courseJSON = JSON.parse(course);
+//     return database.collection('courses')
+//         .where("year","==",courseJSON.year)
+//         .where("session","==",courseJSON.session)
+//         .where("dept","==",courseJSON.dept)
+//         .where("code","==",courseJSON.code)
+//         .where("section","==",courseJSON.section)
+//         .where("type","==",courseJSON.type)
+//         .get()
+// }
 
 /**
  * UNIMPLEMENTED, DO NOT USE
@@ -207,9 +223,9 @@ module.exports = {
     example:         exampleDatabase,
     getAllCourses:   batchDocuments,
     getAllCurricula: batchDocuments,
-    postCourses:     addOneDocument,
+    postCourses:     addOneCourse,
     deleteCourse,
     pcpCurricula:    scheduler_curricula,
     pcpCourses:      scheduler_course,
-    updateCourse:    updateCourse,
+    updateCourse,
 }
