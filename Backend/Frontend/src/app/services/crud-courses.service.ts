@@ -12,10 +12,10 @@ export class CrudCoursesService {
   constructor(private http: HttpClient) { }
   courseUrl = '/api/courses';
 
-  //POST to add a new course into the database
-  addNewCourse(course: Course): Observable<Course>{
-console.log('adding a course');
-    const httpOptions = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
+  // POST to add a new course into the database
+  addNewCourse(course: Course): Observable<Course> {
+    console.log('adding a course');
+    const httpOptions = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
     const courseData = course.toJSON();
     const updateData = { course: courseData };
     return this.http.post<Course>(this.courseUrl, updateData, httpOptions)
@@ -25,10 +25,10 @@ console.log('adding a course');
   }
 
 
-  //PUT Request to update existing courses
+  // PUT Request to update existing courses
   updateCourse(course: Course) {
     console.log('updating course in crud service');
-    const httpOptions = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
+    const httpOptions = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
     const courseData = course.toJSON();
     const updateData = { course: courseData };
     return this.http.put(this.courseUrl, updateData, httpOptions)
@@ -38,16 +38,26 @@ console.log('adding a course');
   }
 
 
-  //DELETE a Course
-  //ID is the strong from firestore
-  // i.e 2FGQCYQVCPH4h4JQ3QCa
-  deleteCourse(id :string): Observable<{}> {
-    const url = '${this.courseUrl}/${id}';
-    const httpOptions = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
-    return this.http.delete(url, httpOptions)
-        .pipe(
-          catchError(this.handleError)
-        );
+  // DELETE a Course
+  deleteCourse(course: Course): Observable<{}> {
+    console.log('deleting course')
+    const httpOptions = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+    const courseData = course.toJSON();
+    const deleteData = { course: courseData };
+    return this.http.delete(this.courseUrl, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      params: {
+        year: course.year + '',
+        session: course.session,
+        dept: course.dept,
+        code: course.code + '',
+        section: course.section,
+        type: course.type
+      }
+    })
+      .pipe(
+        catchError(this.handleError)
+      );
   }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
