@@ -164,7 +164,7 @@ app.get('/bad_test', async function(req, res) {
       return res; // Max returns, need to provide this as the result of await promise
     })
     .catch((error) => {
-     console.error(error)
+     //console.error(error)
     })
     console.log('made it to response' + response); // response now holds the output of max
     res.status(200).send(circJSON.stringify(response)); // Send completed response back to front

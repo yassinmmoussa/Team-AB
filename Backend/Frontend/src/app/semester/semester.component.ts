@@ -38,7 +38,9 @@ export class SemesterComponent implements OnInit {
     });
   }
 
+
   updateFilters(filters) {
+    console.log(filters);
     this.filters = filters;
 
     // Add display property to courses
@@ -49,9 +51,11 @@ export class SemesterComponent implements OnInit {
     // Apply all filters
     this.filters.forEach(filter => {
       this.courses.forEach(course => {
+        console.log(course);
+        console.log(filter);
         const sameDept = course.dept.toLowerCase() === filter.dept.toLowerCase();
         const sameType = course.type.toLowerCase() === filter.courseType.toLowerCase();
-        const sameYear = ('' + Math.floor(course.year / 1000)) === filter.courseYear;
+        const sameYear = ('' + Math.floor(course.code / 1000)) === filter.courseYear;
         if (sameDept && sameType && sameYear) {
           course.display = true;
         }
@@ -59,6 +63,7 @@ export class SemesterComponent implements OnInit {
     });
 
     this.coursesToDisplay = this.courses.filter(course => course.display);
+    console.log(this.coursesToDisplay);
   }
 
   buildCourseLists(courses): Course[] {
