@@ -4,5 +4,6 @@
     <app-scheduler
         [courses]="coursesToDisplay"
         [curricula]="curricula"
+        (courseDeleted)="this.removeCourseManually($event)"
     ></app-scheduler>
 </div>

@@ -76,9 +76,17 @@ app.put('/api/courses', function(req, res) {
 });
 
 app.delete('/api/courses', function(req, res) {
-
   console.log("Someone tried to DELETE some data");
-  database.deleteCourse();
+  let { year, session, dept, code, section, type } = req.query
+  let course = {
+    year: year - 0,
+    session,
+    dept,
+    code: code - 0,
+    section,
+    type
+  }
+  database.deleteCourse(course, () => {});
 });
 
 /**
@@ -134,13 +142,9 @@ app.post('/api/schedulerTest', function(req, res) {
 });
 
 app.post('/api/auth', (req, res) => {
-  console.log(req.params);
 
   let username = req.body.params.username;
   let password = req.body.params.password;
-
-  console.log('User: ', username)
-  console.log('Pass: ', password)
 
   let result = username === 'admin' && password === 'notKevin';
   res.status(200).send({authenticated: result});

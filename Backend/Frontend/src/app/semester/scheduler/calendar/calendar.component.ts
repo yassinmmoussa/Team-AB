@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../../../model/Course';
 import { dayConfig } from './day/dayConfig';
 
@@ -12,6 +12,8 @@ export class CalendarComponent implements OnInit {
     this.allCourses = courseList;
     this.buildCourseLists(this.allCourses);
   }
+
+  @Output() courseDeleted = new EventEmitter<Course>();
 
   dayNames: string[] = [
     'Monday',
@@ -52,6 +54,10 @@ export class CalendarComponent implements OnInit {
       }
     }
     this.buildCourseLists(this.allCourses); // Redraw the courses
+  }
+
+  propogateDelete(course) {
+    this.courseDeleted.emit(course);
   }
 
 }
