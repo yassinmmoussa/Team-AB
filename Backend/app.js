@@ -115,8 +115,7 @@ app.post('/api/schedule/runOptimizer', function(req, res) {
   let curriculaString = '{\n' + req.body.curricula + '\n}';
   let courses = JSON.parse(coursesString);
   let curricula = Object.values(JSON.parse(curriculaString));
-  console.log(`The courses are ${courses}`);
-  console.log(`The curricula are ${curricula}`);
+  console.log('A request from the front end for the scheduler has been passed.');
 
   // Call scheduler
   let a = scheduler.frontEnd_schedule(courses, curricula);
@@ -146,7 +145,6 @@ app.post('/api/auth', (req, res) => {
 
 // Simulation bad_test for calling max.
 // Requires max to be running on localhost:8080
-
 app.get('/bad_test', async function(req, res) {
   try {
     console.log('IM A BAD TEST - BILLIE EILLISH');
