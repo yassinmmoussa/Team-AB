@@ -14,9 +14,11 @@ export class CrudCoursesService {
 
   //POST to add a new course into the database
   addNewCourse(course: Course): Observable<Course>{
-
+console.log('adding a course');
     const httpOptions = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
-    return this.http.post<Course>(this.courseUrl, course, httpOptions)
+    const courseData = course.toJSON();
+    const updateData = { course: courseData };
+    return this.http.post<Course>(this.courseUrl, updateData, httpOptions)
       .pipe(
         catchError(this.handleError)
       );

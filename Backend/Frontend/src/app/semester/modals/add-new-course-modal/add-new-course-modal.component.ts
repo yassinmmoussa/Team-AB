@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {CrudCoursesService} from '../../../services/crud-courses.service';
+import {Course} from '../../../model/Course'
 
 @Component({
   selector: 'app-add-new-course-modal',
@@ -17,7 +18,7 @@ export class AddNewCourseModalComponent implements OnInit {
   InputFields = [];
 
 
-  constructor() { }
+  constructor(private crudCoursesService: CrudCoursesService) { }
 
   ngOnInit() {
     this.InputFields = [
@@ -83,10 +84,28 @@ export class AddNewCourseModalComponent implements OnInit {
   });
 
 
+  
+
 
   onSubmit() {
+    const newCourse = new Course(this.addCourseForm.value.course_code,
+          this.addCourseForm.value.duration,
+            this.addCourseForm.value.course_code,
+              this.addCourseForm.value.department,
+              this.addCourseForm.value.instructor,
+                0,
+                null,
+                this.addCourseForm.value.course_name,
+                null,
+                [],
+                this.addCourseForm.value.year,
+                this.addCourseForm.value.session,
+                this.addCourseForm.value.course_type
+          );
+
+    this.crudCoursesService.addNewCourse(newCourse);
     // TODO: Use EventEmitter with form value
-    console.warn(this.addCourseForm.value);
+  //  console.warn(this.addCourseForm.value);
   }
   // export class AddNewCourseModalComponent2 {
 

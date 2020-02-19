@@ -190,13 +190,8 @@ function scheduler_curricula(year, session, callback) {
 
         })
         .catch(function(error){
-<<<<<<< HEAD
-            console.log("Querying curricula ran into an error",error);
-        })
-=======
             console.log("Querying curricula ran into an error",error);
         });
->>>>>>> 7e400da3ac701195d9cdd7eed53aa43ad9c7c70f
 }
 
 /**
@@ -225,7 +220,6 @@ function scheduler_course(courseId, next) {
 // ========================================================= //
 
 module.exports = {
-<<<<<<< HEAD
     example:         exampleDatabase,
     getAllCourses:   batchDocuments,
     getAllCurricula: batchDocuments,
@@ -233,9 +227,5 @@ module.exports = {
     deleteCourse:    deleteDocument,
     pcpCurricula:    scheduler_curricula,
     pcpCourses:      scheduler_course,
-=======
-    getAllCourses:   batchDocuments,
-    getAllCurricula: batchDocuments,
->>>>>>> 7e400da3ac701195d9cdd7eed53aa43ad9c7c70f
     updateCourse:    updateCourse,
 }
