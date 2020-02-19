@@ -1,0 +1,35 @@
+code,colour,course_id,dept,instructor,lab,lecture,name,session,tutorial,year
+3421,#993366,2019FEECS3421,EECS,Emmanouil Papangelis,,EECS34212019FAlecture,Introduction to Database,F,,2019
+4313,#993366,2019FEECS4313,EECS,Zhen Jiang,,EECS43132019FZlecture,Software Engineering Requirements,F,,2019
+3481,#993366,2019FEECS3481,EECS,Hamzeh Roumani,,EECS34812019FAlecture,Applied Cryptography,F,,2019
+4314,#993366,2000FEECS4314,EECS,Zhen Jiang,,EECS43142000FElecture,Advanced Software Engineering,F,,2000
+4000,#E1AA12,2019FENG4000,ENG,Franz Newland,,ENG40002019FElecture,Capstone Project (Engineering),F,,2019
+3461,#993366,2019FEECS3461,EECS,Andriy Pavlovych,,EECS34612019FAlecture,User Interfaces,F,,2019
+4441,#993366,2020WEECS4441,EECS,Connor Dear,,EECS44412020WZlecture,Advanced SW ENG--,W,[{'0': '2020WEECS4441Ztutorial1'}],2020
+4214,#993366,2019FEECS4214,EECS,Hina Tabassum,,EECS42142019FElecture,Digital Communications,F,,2019
+4313,#993366,2019FEECS4313,EECS,Zhen Jiang,,EECS43132019FZlecture,Software Engineering Testing,F,,2019
+3421,#993366,2020WEECS3421,EECS,Parke Tremayne Godfrey,,EECS34212020WNlecture,Introduction to Database,W,,2020
+3421,#993366,2019FEECS3421,EECS,Nasim Razavi,,EECS34212019FBlecture,Introduction to Database,F,,2019
+4314,#993366,2019FEECS4314,EECS,Zhen Jiang,"[{'0': '2019FEECS4214Elab1', '1': ' 2019FEECS4214Elab2'}]",EECS43142019FElecture,Advanced Software Engineering,F,,2019
+4315,#993366,2020WEECS4315,EECS,Frank Van Breugel,[{'0': '2020WEECS4315Zlab1'}],EECS43152020WZlecture,Mission Critical Systems,W,,2020
+4315,#993366,2019FEECS4315,EECS,Franck van Breugal,,EECS43152019FZlecture,Mission Critical Systems,F,,2019
+4312,#993366,2019FEECS4312,EECS,Jonathan Ostroff,,EECS43122019FZlecture,Software Engineering Requirements,F,,2019
+4215,#993366,2020WEECS4215,EECS,Ping Wang,"[{'0': '2020WEECS4215Mlab1', '1': '2020WEECS4215Mlab2'}]",EECS42152020WMlecture,Mobile Communications,W,,2020
+4000,#E1AA12,2019FENG4000,ENG,Franz Newland,,ENG40002019FElecture,Capstone Project (Engineering),F,,2019
+4312,#993366,2019FEECS4312,EECS,Jonathan Ostroff,[{'0': '2019FEECS4312Zlab1'}],EECS43122019FZlecture,Software Engineering Requirements,F,,2019
+4481,#993366,2020WEECS4481,EECS,Acidic Galavenus,"[{'0': '2020WEECS4413Zlab1', '1': '2020WEECS4413Zlab2'}]",EECS44812020WYlecture,Sword cutting,W,[{'0': '2020WEECS4481Ytutorial1'}],2020
+4000,#E1AA12,2020WENG4000,ENG,Franz Newland,,ENG40002020WElecture,Capstone Project (Engineering),W,,2020
+4422,#993366,2020WEECS4422,EECS,Calden Wloka,"[{'0': '2020WEECS4422Alab1', '1': '2020WEECS4422Alab2'}]",EECS44222020WAlecture,Computer Vision,W,,2020
+4215,#993366,2020WEECS4215,EECS,Ping Wang,"[{'0': '2020WEECS4215Mlab1', '1': '2020WEECS4215Mlab2'}]",EECS42152020WMlecture,Mobile Communications,W,,2020
+3214,#993366,2020FEECS3214,EECS,Natalija Vlajic,,EECS32142020FAlecture,Computer Network Protocols and Applications,F,,2020
+4550,#E1AA12,2019FENG4550,ENG,Jinjun Shan,"[{'0': '2019FENG4550Alab1', '1': '2019FENG4550Alab2', '2': '2019FENG4550Alab3', '3': '2019FENG4550Alab4', '4': '2019FENG4550Alab5', '5': '2019FENG4550Alab6', '6': '2019FENG4550Alab7', '7': '2019FENG4550Alab8'}]",ENG45502019FAlecture,Introduction to Control System,F,,2019
+4413,#993366,1997FEECS4413,EECS,Marin Litou,[{'0': '1997FEECS4413Elab1'}],EECS44131997FElecture,Building E-Commerce Systems,F,,1997
+4411,#993366,2019FEECS4411,EECS,Parke Tremayne Godfrey,,EECS44112019FAlecture,Database Management Systems,F,,2019
+4481,#993366,2020WEECS4481,EECS,Acidic Galavenus,[{'0': '2020WEECS4481Mlab1'}],EECS44812020WYlecture,Sword Cutting,W,,2020
+4413,#993366,2019FEECS4413,EECS,Marin Litou,,EECS44132019FElecture,Building E-Commerce Systems,F,,2019
+4413,#993366,2020WEECS4413,EECS,Marin Litou,[{'0': '2019FEECS4413Alab1'}],EECS44132020WElecture,Building E-Commerce Systems,W,,2020
+4412,#993366,2020WEECS4412,EECS,Connor Ahearn,[{'0': '2020WEECS4412Zlab1'}],EECS44122020WZlecture,Advanced SW ENG++,W,,2020
+4214,#993366,2019FEECS4214,EECS,Hina Tabassum,,EECS42142019FElecture,Digital Communications,F,,2019
+4315,#993366,2020WEECS4315,EECS,Frank Van Breugel,[{'0': '2020WEECS4315Zlab1'}],EECS43152020WZlecture,Mission Critical Systems,W,,2020
+4550,#E1AA12,2019FENG4550,ENG,Jinjun Shan,,ENG45502019FAlecture,Introduction to Control Systems,F,,2019
+3421,#993366,2020WEECS3421,EECS,Nasim Razavi,,EECS34212020WMlecture,Introduction to Database,W,,2020

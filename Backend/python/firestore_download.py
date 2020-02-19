@@ -11,7 +11,7 @@ import os
     
 '''
 
-credential_path = "/top_secret/keys/spare-ab-key.json" # add your
+credential_path = "/Users/nhivuong/Downloads/spare-ab-7e92704b1fa8.json" # add your
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 data=[ ]
 
@@ -24,4 +24,6 @@ for doc in users_ref.stream():
 json_string = json.dumps(data)
 
 df = pd.read_json (json_string)
-df.to_csv ("output.csv", index=None)
+df.to_csv ("./firestore_backup/courses.csv", index=None)
+df.to_json ("./firestore_backup/courses.json")
+print('Done')
