@@ -74,7 +74,9 @@ function addOneCourse(course) {
     console.log("Someone tried to POST some data");
     //a testing doc data to add into firestore, in the future i will
     //use passed data from post request
-    let colRef = database.collection('courses').doc().set(course).then(function() {
+    let JSONcourse = JSON.parse(course);
+    console.log(JSONcourse)
+    let colRef = database.collection('courses').doc().set(JSONcourse).then(function() {
         console.log("Document successfully written!");
     });
 }
@@ -91,7 +93,15 @@ function addOneCourse(course) {
  * Returns true if the object is found and changed, false otherwise
  */
 function updateCourse(course, callback) {
-    getCourseReference(course).then(function(querySnapshot) {
+    let courseJSON = JSON.parse(course);
+    database.collection('courses')
+        .where("year","==",courseJSON.year)
+        .where("session","==",courseJSON.session)
+        .where("dept","==",courseJSON.dept)
+        .where("code","==",courseJSON.code)
+        .where("section","==",courseJSON.section)
+        .where("type","==",courseJSON.type)
+        .get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             database.collection("courses").doc(doc.id).update(courseJSON);
         });
@@ -103,7 +113,15 @@ function updateCourse(course, callback) {
 }
 
 function deleteCourse(course, callback) {
-    getCourseReference(course).then(function(querySnapshot) {
+    let courseJSON = JSON.parse(course);
+    database.collection('courses')
+        .where("year","==",courseJSON.year)
+        .where("session","==",courseJSON.session)
+        .where("dept","==",courseJSON.dept)
+        .where("code","==",courseJSON.code)
+        .where("section","==",courseJSON.section)
+        .where("type","==",courseJSON.type)
+        .get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             database.collection("courses").doc(doc.id).delete();
         });
@@ -114,17 +132,17 @@ function deleteCourse(course, callback) {
     });
 }
 
-function getCourseReference(course) {
-    let courseJSON = JSON.parse(course);
-    return database.collection('courses')
-        .where("year","==",courseJSON.year)
-        .where("session","==",courseJSON.session)
-        .where("dept","==",courseJSON.dept)
-        .where("code","==",courseJSON.code)
-        .where("section","==",courseJSON.section)
-        .where("type","==",courseJSON.type)
-        .get()
-}
+// function getCourseReference(course) {
+//     let courseJSON = JSON.parse(course);
+//     return database.collection('courses')
+//         .where("year","==",courseJSON.year)
+//         .where("session","==",courseJSON.session)
+//         .where("dept","==",courseJSON.dept)
+//         .where("code","==",courseJSON.code)
+//         .where("section","==",courseJSON.section)
+//         .where("type","==",courseJSON.type)
+//         .get()
+// }
 
 /**
  * UNIMPLEMENTED, DO NOT USE
@@ -211,5 +229,5 @@ module.exports = {
     deleteCourse,
     pcpCurricula:    scheduler_curricula,
     pcpCourses:      scheduler_course,
-    updateCourse:    updateCourse,
+    updateCourse,
 }
