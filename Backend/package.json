@@ -7,7 +7,7 @@
     "deploy": "cd Frontend & ng build --prod=\"true\"; cd ..; gcloud app deploy",
     "nodemon": "nodemon app.js --watch .",
     "frontend": "cd Frontend && ng serve --proxy-config=proxy.config.json",
-    "dev": "SET DEV=true && concurrently \"npm run nodemon\" \"npm run frontend\"",
+    "dev": "export DEV=true && concurrently \"npm run nodemon\" \"npm run frontend\"",
     "test": "mocha express-tests --recursive --timeout 100000"
   },
   "dependencies": {

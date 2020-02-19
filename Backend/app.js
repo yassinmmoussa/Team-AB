@@ -119,10 +119,12 @@ app.post('/api/schedule/runOptimizer', function(req, res) {
   console.log('A request from the front end for the scheduler has been passed.');
 
   // Call scheduler
-  let a = scheduler.frontEnd_schedule(courses, curricula);
+  scheduler.frontEnd_schedule(courses, curricula, function(response) {
 
-  // Send response to frontend
-  res.status(200).send({dope: "All is gucci", result: a}); // Send back results of optimization here
+    // Send response to frontend
+    res.status(200).send(response);
+  });
+
 })
 
 app.post('/api/schedulerTest', function(req, res) {
@@ -150,7 +152,7 @@ app.get('/bad_test', async function(req, res) {
   try {
     console.log('IM A BAD TEST - BILLIE EILLISH');
 
-    let data = circJSON.parse(fs.readFileSync('sample_sched_request.json', 'utf8'));
+    let data = circJSON.parse(fs.readFileSync('./express-logic/contacting-scheduler/sample_sched_request', 'utf8'));
 
     // Try to parse data from query, not quite correct format yet -- NEEDS TO BE DONE
     // let data = {
