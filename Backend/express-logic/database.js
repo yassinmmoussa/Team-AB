@@ -8,7 +8,7 @@ const session = require('express-session');
 
 const { Firestorestore } = require('@google-cloud/connect-firestore');
 
-const database = require('./top_secret/database');
+const database = require('../top_secret/database');
 
 // ========================================================= //
 
@@ -74,7 +74,9 @@ function addOneCourse(course) {
     console.log("Someone tried to POST some data");
     //a testing doc data to add into firestore, in the future i will
     //use passed data from post request
-    let colRef = database.collection('courses').doc().set(course).then(function() {
+    let JSONcourse = JSON.parse(course);
+    console.log(JSONcourse)
+    let colRef = database.collection('courses').doc().set(JSONcourse).then(function() {
         console.log("Document successfully written!");
     });
 }
@@ -207,7 +209,7 @@ module.exports = {
     example:         exampleDatabase,
     getAllCourses:   batchDocuments,
     getAllCurricula: batchDocuments,
-    postCourses:     addOneDocument,
+    addOneCourse:     addOneCourse,
     deleteCourse,
     pcpCurricula:    scheduler_curricula,
     pcpCourses:      scheduler_course,
