@@ -67,12 +67,8 @@ function batchDocuments(type, year, session, next) {
 }
 
 /**
-<<<<<<< HEAD
  * Function to add 1 document
  * currently adding directly under hard-coded doc ID
-=======
- * HARD CODED TO ADD JUST ONE DOCUMENT, DON'T USE THIS
->>>>>>> 7e400da3ac701195d9cdd7eed53aa43ad9c7c70f
  */
 function addOneDocument() {
     console.log("Someone tried to POST some data");
@@ -105,15 +101,15 @@ function addOneDocument() {
  * If the year, session, department, code, section and type of a course
  * match an entry in the database, the provided course object's new properties
  * will be added to the course in the database.
- * 
+ *
  * This function will not remove data from the database, it only appends.
- * 
+ *
  * @param {*} course Course object with new properties that already exists in the database
- * 
+ *
  * Returns true if the object is found and changed, false otherwise
  */
 function updateCourse(course, callback) {
-    
+
     let courseJSON = JSON.parse(course);
 
     database.collection('courses')
@@ -154,18 +150,18 @@ function deleteDocument() {
 <<<<<<< HEAD
  * Based on Scheduler input format, we retrieve list of curricula
 =======
- * 
+ *
  * DON'T USE THIS - "LEGACY" CODE, DEPRECATED
- * 
+ *
  * Originally designed for building the request object
- * 
- * Based on Scheduler input format, we retrieve list of curricula 
+ *
+ * Based on Scheduler input format, we retrieve list of curricula
 >>>>>>> 7e400da3ac701195d9cdd7eed53aa43ad9c7c70f
  * then each curriculum will contain courses with its duration.
- * 
- * @param {*} year 
- * @param {*} session 
- * @param {*} callback 
+ *
+ * @param {*} year
+ * @param {*} session
+ * @param {*} callback
  */
 function scheduler_curricula(year, session, callback) {
 
@@ -198,23 +194,23 @@ function scheduler_curricula(year, session, callback) {
             console.log("Querying curricula ran into an error",error);
         })
 =======
-            console.log("Querying curricula ran into an error",error);        
+            console.log("Querying curricula ran into an error",error);
         });
 >>>>>>> 7e400da3ac701195d9cdd7eed53aa43ad9c7c70f
 }
 
 /**
  * DON'T USE THIS - "LEGACY" CODE, DEPRECATED
- * 
+ *
  * Originally designed for building the request object
- * 
- * @param {*} courseId 
- * @param {*} next 
+ *
+ * @param {*} courseId
+ * @param {*} next
  */
 function scheduler_course(courseId, next) {
 
     let colRef = database.collection("courses").doc(courseId).onSnapshot(documentSnapshot => {
-        
+
         if (documentSnapshot.exists) {
 
           var data = documentSnapshot.get('duration');
@@ -239,7 +235,7 @@ module.exports = {
     pcpCourses:      scheduler_course,
 =======
     getAllCourses:   batchDocuments,
-    getAllCurricula: batchDocuments, 
+    getAllCurricula: batchDocuments,
 >>>>>>> 7e400da3ac701195d9cdd7eed53aa43ad9c7c70f
     updateCourse:    updateCourse,
 }
