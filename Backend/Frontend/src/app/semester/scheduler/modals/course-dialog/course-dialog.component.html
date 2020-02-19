@@ -1,6 +1,6 @@
 <div class="course-dialog-body">
   <!-- Heading -->
-  <button class="close-button" mat-flat-button [mat-dialog-close]="this.oldCourse">X</button>
+  <button class="close-button" mat-flat-button [mat-dialog-close]="{ course: this.refCourse, save: false }">X</button>
   <span class="course-title">{{this.course.dept}} {{this.course.code}} Section {{this.course.section}}</span>
   <span class="course-title" *ngIf="this.course.type === 'lab'"> Lab {{this.course.labSection}}</span>
   <div class="lock-toggle-cont"> 
@@ -19,7 +19,6 @@
         'background-color':this.course.innerContainerColour()
       }"
     >
-      
       <div class="inner-item">
         <h4 class="inner-item-data">{{this.course.daysOut()}}</h4>
         <div class="inner-item-data-dialog">
@@ -94,5 +93,5 @@
     </div>
   </div>
 
-  <button class="save-button" mat-flat-button [mat-dialog-close]="this.course">Save & Close</button>
+  <button class="save-button" mat-flat-button [mat-dialog-close]="{ course: this.course, save: true }">Save & Close</button>
 </div>

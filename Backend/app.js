@@ -13,8 +13,6 @@ const app = express();
 // Internal APIs and Utility classes
 const database = require('./database');
 const scheduler = require('./course_scheduler');
-let test = require('./bad_test');
-
 
 // ========================================================= //
 
@@ -113,16 +111,18 @@ app.get('/api/schedule', function(req, res) {
 });
 
 app.post('/api/schedule/runOptimizer', function(req, res) {
-  let courses = req.body.courses;
-  let curricula = req.body.curricula;
+  let coursesString = '[\n' + req.body.courses + '\n]';
+  let curriculaString = '{\n' + req.body.curricula + '\n}';
+  let courses = JSON.parse(coursesString);
+  let curricula = Object.values(JSON.parse(curriculaString));
   console.log(`The courses are ${courses}`);
   console.log(`The curricula are ${curricula}`);
 
   // Call scheduler
-  scheduler.frontEnd_schedule();
+  let a = scheduler.frontEnd_schedule(courses, curricula);
 
   // Send response to frontend
-  res.status(200).send({dope: "All is gucci"}); // Send back results of optimization here
+  res.status(200).send({dope: "All is gucci", result: a}); // Send back results of optimization here
 })
 
 app.post('/api/schedulerTest', function(req, res) {

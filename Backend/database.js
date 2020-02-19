@@ -67,8 +67,12 @@ function batchDocuments(type, year, session, next) {
 }
 
 /**
+<<<<<<< HEAD
  * Function to add 1 document
  * currently adding directly under hard-coded doc ID
+=======
+ * HARD CODED TO ADD JUST ONE DOCUMENT, DON'T USE THIS
+>>>>>>> 7e400da3ac701195d9cdd7eed53aa43ad9c7c70f
  */
 function addOneDocument() {
     console.log("Someone tried to POST some data");
@@ -98,40 +102,41 @@ function addOneDocument() {
 }
 
 /**
- * Function update a document based on field value
- * also hard-coded for testing purpose
+ * If the year, session, department, code, section and type of a course
+ * match an entry in the database, the provided course object's new properties
+ * will be added to the course in the database.
+ * 
+ * This function will not remove data from the database, it only appends.
+ * 
+ * @param {*} course Course object with new properties that already exists in the database
+ * 
+ * Returns true if the object is found and changed, false otherwise
  */
-function updateDocument() {
-    console.log("Someone tried to PUT some data");
-    let colRef = database.collection('courses').where("year","==",1997)
-    .get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            console.log(doc.id, " => ", doc.data());
-            database.collection("courses").doc(doc.id).update({year: 1});
-        });
-    })
-}
-
-function updateCourse(course) {
-    console.log("Someone tried to PUT some data into DB");
+function updateCourse(course, callback) {
+    
     let courseJSON = JSON.parse(course);
-    let colRef = database.collection('courses').where("year","==",courseJSON.year)
-                                               .where("session","==",courseJSON.session)
-                                               .where("dept","==",courseJSON.dept)
-                                               .where("code","==",courseJSON.code)
-                                               .where("section","==",courseJSON.section)
-                                               .where("type","==",courseJSON.type)
-    .get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            console.log('found something to update')
-            database.collection("courses").doc(doc.id).update(courseJSON);
-            console.log("Updated database.")
+
+    database.collection('courses')
+        .where("year","==",courseJSON.year)
+        .where("session","==",courseJSON.session)
+        .where("dept","==",courseJSON.dept)
+        .where("code","==",courseJSON.code)
+        .where("section","==",courseJSON.section)
+        .where("type","==",courseJSON.type)
+
+        .get().then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                database.collection("courses").doc(doc.id).update(courseJSON);
+            });
+            callback(true);
+        })
+        .catch(() => {
+            callback(false);
         });
-    })
 }
 
 /**
- * Delete document; should not be called at the moment
+ * UNIMPLEMENTED, DO NOT USE
  */
 function deleteDocument() {
     console.log("Someone tried to DELETE some data");
@@ -144,19 +149,25 @@ function deleteDocument() {
     })
 }
 
+
 /**
+<<<<<<< HEAD
  * Based on Scheduler input format, we retrieve list of curricula
+=======
+ * 
+ * DON'T USE THIS - "LEGACY" CODE, DEPRECATED
+ * 
+ * Originally designed for building the request object
+ * 
+ * Based on Scheduler input format, we retrieve list of curricula 
+>>>>>>> 7e400da3ac701195d9cdd7eed53aa43ad9c7c70f
  * then each curriculum will contain courses with its duration.
+ * 
+ * @param {*} year 
+ * @param {*} session 
+ * @param {*} callback 
  */
 function scheduler_curricula(year, session, callback) {
-    // first give connor all curricula
-    // var colRef = database.collection("curricula").where("year", "==", year).where("session","==",session);
-    /* var output = colRef.get().then(function(querySnapshot) {
-        var data =  querySnapshot.docs.map(function (documentSnapshot) {
-            return documentSnapshot.data();
-        });
-        //next(data);
-    })  */
 
     // Data that gets passed back to the caller
     var temp = [];
@@ -183,28 +194,33 @@ function scheduler_curricula(year, session, callback) {
 
         })
         .catch(function(error){
+<<<<<<< HEAD
             console.log("Querying curricula ran into an error",error);
         })
+=======
+            console.log("Querying curricula ran into an error",error);        
+        });
+>>>>>>> 7e400da3ac701195d9cdd7eed53aa43ad9c7c70f
 }
 
 /**
- * Function returns duration of a course
+ * DON'T USE THIS - "LEGACY" CODE, DEPRECATED
+ * 
+ * Originally designed for building the request object
+ * 
+ * @param {*} courseId 
+ * @param {*} next 
  */
 function scheduler_course(courseId, next) {
-    // then feed him courses info per curriculum
-    // let colRef = database.collection("courses").where(firestore.FieldPath.documentId(),"==",courseId);
-    // colRef.get().then(function(querySnapshot) {
-    //     var data =  querySnapshot.docs.map(function (documentSnapshot) {
-    //         return documentSnapshot.data().duration;
-    //     });
-    //     next(data);
-    // })
+
     let colRef = database.collection("courses").doc(courseId).onSnapshot(documentSnapshot => {
+        
         if (documentSnapshot.exists) {
-          //console.log(documentSnapshot.get('duration'));
+
           var data = documentSnapshot.get('duration');
           next(data);
         }
+
       }, err => {
         console.log(`Encountered error: ${err}`);
       });
@@ -213,6 +229,7 @@ function scheduler_course(courseId, next) {
 // ========================================================= //
 
 module.exports = {
+<<<<<<< HEAD
     example:         exampleDatabase,
     getAllCourses:   batchDocuments,
     getAllCurricula: batchDocuments,
@@ -220,7 +237,9 @@ module.exports = {
     deleteCourse:    deleteDocument,
     pcpCurricula:    scheduler_curricula,
     pcpCourses:      scheduler_course,
+=======
+    getAllCourses:   batchDocuments,
+    getAllCurricula: batchDocuments, 
+>>>>>>> 7e400da3ac701195d9cdd7eed53aa43ad9c7c70f
     updateCourse:    updateCourse,
-    scheduler_course: scheduler_course,
-    scheduler_curricula: scheduler_curricula,
 }

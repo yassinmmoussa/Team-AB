@@ -10,7 +10,7 @@ export class Course {
     public colour: string,
     public name: string,
     public section: string,
-    public days: [number],
+    public days: number[],
     public year: number,
     public session: string,
     public type: string,
@@ -114,5 +114,33 @@ export class Course {
   innerContainerColour(): string {
     const lessOpaqueHex = this.colour + '40';
     return lessOpaqueHex;
+  }
+
+  deepCopy(): Course {
+    return new Course(this.courseRef,
+                      this.duration,
+                      this.dept,
+                      this.instructor,
+                      this.code,
+                      this.startingBlock,
+                      this.colour,
+                      this.name,
+                      this.section,
+                      this.cloneDays(),
+                      this.year,
+                      this.session,
+                      this.type,
+                      this.display,
+                      this.labSection,
+                      this.isLocked,
+                      this.capacity,
+                      this.room
+                      );
+  }
+
+  cloneDays(): number[] {
+    const res = [];
+    this.days.forEach(day => res.push(day));
+    return res;
   }
 }

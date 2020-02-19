@@ -28,6 +28,7 @@
     <app-day
     [name]='name'
     [(courseList)]='this.courseLists[i]'
+    (updateCourse)='this.updateCourse($event)'
     ></app-day>
   </div>
 </div>

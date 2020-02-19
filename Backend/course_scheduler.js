@@ -83,8 +83,37 @@ async function old_schedule(year, session) {
       return request;
 }
 
-function frontEnd_schedule() {
-  
+function frontEnd_schedule(courses, curricula) {
+  console.log("type: " + typeof(curricula))
+  result = {
+    n_solutions: 666,
+    curricula: curricula.map(curriculum => {
+
+      console.log("Curr Courses: ", curriculum.courses)
+      console.log("Courses: ", courses)
+      filteredCourses = courses.filter(course => 
+        curriculum.courses.some(courseCode => {
+          console.log(courseCode, course.code, courseCode == course.code)
+
+          return courseCode == course.code;
+        }));
+
+      console.log("FILTERS: ", filteredCourses)
+      return {
+        curriculum_id: curriculum.name,
+        courses: filteredCourses.map(course => {
+          return {
+            course_id: course.code,
+            n_periods: course.duration
+          }
+        })
+      }
+
+
+    })
+  }
+  console.log("REEEEEEEEEEE: ", result);
+  return result;
 }
 
 module.exports = {
