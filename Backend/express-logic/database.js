@@ -8,7 +8,7 @@ const session = require('express-session');
 
 const { Firestorestore } = require('@google-cloud/connect-firestore');
 
-const database = require('../top_secret/database');
+const database = require('./top_secret/database');
 
 // ========================================================= //
 
@@ -91,26 +91,39 @@ function addOneCourse(course) {
  * Returns true if the object is found and changed, false otherwise
  */
 function updateCourse(course, callback) {
+    getCourseReference(course).then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            database.collection("courses").doc(doc.id).update(courseJSON);
+        });
+        callback(true);
+    })
+    .catch(() => {
+        callback(false);
+    });
+}
 
+function deleteCourse(course, callback) {
+    getCourseReference(course).then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            database.collection("courses").doc(doc.id).delete();
+        });
+        callback(true);
+    })
+    .catch(() => {
+        callback(false);
+    });
+}
+
+function getCourseReference(course) {
     let courseJSON = JSON.parse(course);
-
-    database.collection('courses')
+    return database.collection('courses')
         .where("year","==",courseJSON.year)
         .where("session","==",courseJSON.session)
         .where("dept","==",courseJSON.dept)
         .where("code","==",courseJSON.code)
         .where("section","==",courseJSON.section)
         .where("type","==",courseJSON.type)
-
-        .get().then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                database.collection("courses").doc(doc.id).update(courseJSON);
-            });
-            callback(true);
-        })
-        .catch(() => {
-            callback(false);
-        });
+        .get()
 }
 
 /**
@@ -118,13 +131,6 @@ function updateCourse(course, callback) {
  */
 function deleteDocument() {
     console.log("Someone tried to DELETE some data");
-    let colRef = database.collection('courses').where("year","==",1)
-    .get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            console.log(doc.id, " => ", doc.data());
-            database.collection("courses").doc(doc.id).delete();
-        });
-    })
 }
 
 
@@ -201,8 +207,8 @@ module.exports = {
     example:         exampleDatabase,
     getAllCourses:   batchDocuments,
     getAllCurricula: batchDocuments,
-    addOneCourse:     addOneCourse,
-    deleteCourse:    deleteDocument,
+    postCourses:     addOneDocument,
+    deleteCourse,
     pcpCurricula:    scheduler_curricula,
     pcpCourses:      scheduler_course,
     updateCourse:    updateCourse,
