@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {data} from '../../scheduler/calendar/data.js'
+import {data} from '../../scheduler/calendar/data.js';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Course} from '../../../model/Course';
 import {CourseEntryComponent} from './course-entry/course-entry.component'
 import {MatListModule} from '@angular/material/list';
+import {AddNewCourseModalComponent} from '../../modals/add-new-course-modal/add-new-course-modal.component';
 
 
 @Component({
@@ -48,12 +50,23 @@ export class CourseListComponent implements OnInit {
   }
 
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.courseList = this.populateCourses();
 
    }
 
   ngOnInit() {
+  }
+
+  openAddCourseDialog(){
+    let dialogRef = this.dialog.open(AddNewCourseModalComponent,{
+      width: '800px',
+      height: '700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog closed: ${result}')
+    })
   }
 
 }

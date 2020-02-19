@@ -11,8 +11,8 @@ const circJSON = require('circular-json');
 const app = express();
 
 // Internal APIs and Utility classes
-const database = require('./database');
-const scheduler = require('./course_scheduler');
+const database = require('./express-logic/database');
+const scheduler = require('./express-logic/course_scheduler');
 
 // ========================================================= //
 
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /**
  * 'ANGULAR' ROUTING documentation
- * 
+ *
  * https://itnext.io/express-server-for-an-angular-application-part-1-getting-started-2cd27de691bd
  */
 const compression = require("compression");
@@ -55,7 +55,7 @@ app.get('/api/courses', function(req, res) {
 
   // STEP 2: Send data through database class, receive queried data
   database.getAllCourses('courses', year, session, function(courses) {
-    
+
     // STEP 3: Form a response for the frontend with the queried data & send
     res.status(200).send(courses);
     console.log(courses);
@@ -64,14 +64,15 @@ app.get('/api/courses', function(req, res) {
 
 app.post('/api/courses', function(req, res) {
   console.log("Someone tried to POST some data");
-  database.postCourses();
+  console.log(req.body.course);
+  database.addOneCourse(req.body.course);
 });
 
 app.put('/api/courses', function(req, res) {
 
   console.log("Someone tried to PUT some data");
   console.log(req.body.course);
-  database.updateCourse(req.body.course);
+  database.updateCourse(req.body.course, () => {});
 });
 
 app.delete('/api/courses', function(req, res) {
@@ -94,7 +95,7 @@ app.get('/api/curricula', function(req, res) {
 
   // STEP 2: Send data through database class, receive queried data
   database.getAllCurricula('curricula', year, session, function(curricula) {
-    
+
     // STEP 3: Form a response for the frontend with the queried data & send
     res.status(200).send(curricula);
     console.log(curricula);
@@ -115,19 +116,20 @@ app.post('/api/schedule/runOptimizer', function(req, res) {
   let curriculaString = '{\n' + req.body.curricula + '\n}';
   let courses = JSON.parse(coursesString);
   let curricula = Object.values(JSON.parse(curriculaString));
-  console.log(`The courses are ${courses}`);
-  console.log(`The curricula are ${curricula}`);
+  console.log('A request from the front end for the scheduler has been passed.');
 
   // Call scheduler
-  let a = scheduler.frontEnd_schedule(courses, curricula);
+  scheduler.frontEnd_schedule(courses, curricula, function(response) {
 
-  // Send response to frontend
-  res.status(200).send({dope: "All is gucci", result: a}); // Send back results of optimization here
+    // Send response to frontend
+    res.status(200).send(response);
+  });
+
 })
 
 app.post('/api/schedulerTest', function(req, res) {
-  
-  
+
+
 
 });
 
@@ -146,13 +148,12 @@ app.post('/api/auth', (req, res) => {
 
 // Simulation bad_test for calling max.
 // Requires max to be running on localhost:8080
-
 app.get('/bad_test', async function(req, res) {
   try {
     console.log('IM A BAD TEST - BILLIE EILLISH');
-    
-    let data = circJSON.parse(fs.readFileSync('sample_sched_request.json', 'utf8'));
-    
+
+    let data = circJSON.parse(fs.readFileSync('./express-logic/contacting-scheduler/sample_sched_request', 'utf8'));
+
     // Try to parse data from query, not quite correct format yet -- NEEDS TO BE DONE
     // let data = {
     //   n_solutions: 2,
@@ -166,7 +167,7 @@ app.get('/bad_test', async function(req, res) {
       return res; // Max returns, need to provide this as the result of await promise
     })
     .catch((error) => {
-      // console.error(error)
+     //console.error(error)
     })
     console.log('made it to response' + response); // response now holds the output of max
     res.status(200).send(circJSON.stringify(response)); // Send completed response back to front
@@ -174,7 +175,7 @@ app.get('/bad_test', async function(req, res) {
     console.log('yo async had issue');
     console.log(e);
   }
-  
+
 
 });
 
@@ -183,7 +184,7 @@ app.get('/bad_test', async function(req, res) {
 
 //-- DEFAULT APPLICATION PATH --//
 app.all('*', function(req, res) {
-  
+
   res.status(200).sendFile('/', {root: app_folder});
 
 });

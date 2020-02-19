@@ -38,7 +38,9 @@ export class SemesterComponent implements OnInit {
     });
   }
 
+
   updateFilters(filters) {
+    console.log(filters);
     this.filters = filters;
 
     // Add display property to courses
@@ -51,7 +53,7 @@ export class SemesterComponent implements OnInit {
       this.courses.forEach(course => {
         const sameDept = course.dept.toLowerCase() === filter.dept.toLowerCase();
         const sameType = course.type.toLowerCase() === filter.courseType.toLowerCase();
-        const sameYear = (Math.floor(course.code / 1000) + '') === filter.courseYear;
+        const sameYear = ('' + Math.floor(course.code / 1000)) === filter.courseYear;
         if (sameDept && sameType && sameYear) {
           course.display = true;
         }
