@@ -1,0 +1,36 @@
+<div class="addCourseBody">
+  <button class="close-button" mat-flat-button matDialogClose>X</button>
+  <h1>Add New Course</h1>
+    <p class="subtitle">Administrative Information</p>
+  <div class="admin-field-container" *ngFor = "let f of adminInputFields">
+
+    <mat-form-field appearance="outline">
+       <mat-label>{{f["fieldText"]}}</mat-label>
+       <input matInput placeholder= "{{f['placeholder']}}">
+     </mat-form-field>
+  </div>
+
+  <p class="subtitle">Course Information</p>
+<div class="admin-field-container" *ngFor = "let f of courseInfoFields">
+
+  <mat-form-field appearance="outline">
+     <mat-label>{{f["fieldText"]}}</mat-label>
+     <input matInput placeholder= "{{f['placeholder']}}">
+   </mat-form-field>
+</div>
+
+<p class="subtitle">Additional Information</p>
+<div class="admin-field-container" *ngFor = "let f of additionalFields">
+
+  <mat-form-field appearance="outline">
+     <mat-label>{{f["fieldText"]}}</mat-label>
+     <input matInput placeholder= "{{f['placeholder']}}">
+   </mat-form-field>
+</div>
+
+<div class="button-container">
+  <button class="save-button" mat-flat-button [mat-dialog-close]="this.course">Save & Close</button>
+  <button class="add-button" mat-flat-button [mat-dialog-close]="this.course">Add Course</button>
+</div>
+
+</div>

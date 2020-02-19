@@ -38,6 +38,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { LoginComponent } from './login/login.component';
 import { SemesterContainerComponent } from './semester-container/semester-container.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddNewCourseModalComponent } from './semester/modals/add-new-course-modal/add-new-course-modal.component';
+import {MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -61,8 +63,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     TagComponent,
     LoginComponent,
     SemesterContainerComponent,
-    PageNotFoundComponent
-
+    PageNotFoundComponent,
+    AddNewCourseModalComponent
   ],
   imports: [
     BrowserModule,
@@ -83,11 +85,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatSlideToggleModule,
     MatCardModule,
     MatListModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [ConstraintsDialogComponent, CourseDialogComponent, OptimizationDialogComponent,
-    TeamDialogComponent, CsvDialogComponent, ConfigDialogComponent]
+    TeamDialogComponent, CsvDialogComponent, ConfigDialogComponent,AddNewCourseModalComponent]
 })
 export class AppModule { }

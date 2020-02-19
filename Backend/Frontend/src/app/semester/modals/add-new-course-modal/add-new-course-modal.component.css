@@ -1,0 +1,54 @@
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.addCourseBody{
+  margin: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.close-button {
+  margin: 0;
+  padding: 0;
+  display: block;
+  min-width: 30px !important;
+  max-width: 30px !important;
+  height: 30px !important;
+  width: 30px !important;
+  border-radius: 100%;
+  background-color: #f1f1f1;
+  line-height: 8px;
+  position: absolute;
+  top: -18px;
+  right: -10px;
+  z-index: 10;
+}
+
+
+.admin-field-container {
+  display: inline;
+  margin-left: 20px;
+}
+
+.subtitle{
+    margin-left: 20px;
+}
+
+.save-button {
+  display: inline;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #f1f1f1;
+}
+
+.add-button {
+  display: inline;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #f1f1f1;
+}
+
+.button-container{
+  align-content: center;
+}
