@@ -40,7 +40,7 @@ async function old_schedule(year, session) {
                  database.scheduler_course(courseID, function(duration) {
                     let requestCourseSet = {};
                     requestCourseSet.courseID = courseID;
-                    requestCourseSet.n_periods=duration;
+                    requestCourseSet.n_periods = duration;
 
                     request.curricula.courses.push(requestCourseSet);
 
@@ -87,7 +87,7 @@ async function old_schedule(year, session) {
 function frontEnd_schedule(courses, curricula, callback) {
   // console.log("type: " + typeof(curricula))
   request = {
-    n_solutions: 666,
+    n_solutions: solutions,
     curricula: curricula.map(curriculum => {
 
       // console.log("Curr Courses: ", curriculum.courses)
@@ -96,7 +96,7 @@ function frontEnd_schedule(courses, curricula, callback) {
         curriculum.courses.some(courseCode => {
           // console.log(courseCode, course.code, courseCode == course.code)
 
-          return courseCode == course.code;
+          return courseCode == course.code.toString();
         }));
 
       // console.log("FILTERS: ", filteredCourses)
@@ -104,12 +104,13 @@ function frontEnd_schedule(courses, curricula, callback) {
         curriculum_id: curriculum.name,
         courses: filteredCourses.map(course => {
           return {
-            course_id: course.code,
-            n_periods: course.duration
+            course_id: course.code.toString(),
+            n_periods: (course.duration * course.days.length).toString()
           }
         })
       }
-    })
+    }),
+    constraints: []
   }
 
   CourseScheduler(request, function(response) {

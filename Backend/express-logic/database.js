@@ -147,16 +147,12 @@ function deleteDocument() {
 
 
 /**
-<<<<<<< HEAD
- * Based on Scheduler input format, we retrieve list of curricula
-=======
  *
  * DON'T USE THIS - "LEGACY" CODE, DEPRECATED
  *
  * Originally designed for building the request object
  *
  * Based on Scheduler input format, we retrieve list of curricula
->>>>>>> 7e400da3ac701195d9cdd7eed53aa43ad9c7c70f
  * then each curriculum will contain courses with its duration.
  *
  * @param {*} year

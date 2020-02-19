@@ -15,11 +15,8 @@ function schedule(requestData, callback) {
     }
 
     request(options)
-    .then(token => console.log(token))
-    .then(response => {
-        callback(response);
-    })
-    .catch(error => console.log(error));
+    .then(response => callback(response))
+    .catch(error => console.log("error"));
 
 }
 
