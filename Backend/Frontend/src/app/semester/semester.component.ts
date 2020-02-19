@@ -12,7 +12,7 @@ import { ColorMap } from '../model/ColorMap';
 export class SemesterComponent implements OnInit {
   courses: Course[];
   curricula: Curricula[];
-  coursesToDisplay: Course[];
+  coursesToDisplay: Course[]=[];
   filters;
 
   constructor(private dataService: DataService) { }
@@ -61,6 +61,19 @@ export class SemesterComponent implements OnInit {
     });
 
     this.coursesToDisplay = this.courses.filter(course => course.display);
+  }
+
+  /**
+  * @Param course - The course that I want to add to the course list.
+  */
+  updateList(course){
+    // Add to course list
+    this.courses.push(course);
+    // Add to displayed courses so we see the course that we just added.
+        this.coursesToDisplay.push(course);
+
+    console.log(this.courses);
+
   }
 
   buildCourseLists(courses): Course[] {

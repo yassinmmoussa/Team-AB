@@ -1,6 +1,9 @@
 <!-- <button (click)="getCourses()">Get Courses</button> -->
 <div class="container">
-    <app-filter (updateGlobalFilters)="updateFilters($event)"></app-filter>
+    <app-filter
+      (updateGlobalFilters)="updateFilters($event)"
+      (courseStateChanged)="updateList($event)"
+    ></app-filter>
     <app-scheduler
         [courses]="coursesToDisplay"
         [curricula]="curricula"
