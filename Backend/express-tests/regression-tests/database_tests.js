@@ -2,7 +2,7 @@
 const expect = require('chai').expect;
 
 // File being tested
-const database = require('../database');
+const database = require('../../express-logic/database');
 
 
 
