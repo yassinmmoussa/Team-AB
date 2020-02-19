@@ -4,6 +4,10 @@ const expect = require('chai').expect;
 // File being tested
 const database = require('../database');
 
+
+
+// ===== Batch Documents / Get All Courses / Get All Curricula ===== //
+
 it('t1:0 We get some stuff! getAllCourses doesn\'t return null. (Database)', function(done) {
 
     database.getAllCourses('courses', 2020, 'W', function(data) {
@@ -61,4 +65,62 @@ it('t1:4 We get different stuff! 2019 data isn\'t 2020 data', function(done) {
 
         });
     });
+});
+
+it('t1:5 Where\'s the data! No data for years 2018 or earlier', function(done) {
+
+    let i;
+    for(i = 2000; i < 2018; i++) {
+    
+        database.getAllCurricula('curricula', i, 'F', function(data) {
+            expect(data).empty;
+        });
+
+        database.getAllCurricula('curricula', i, 'W', function(data) {
+            expect(data).empty;
+        });
+    }
+
+    done();
+
+});
+
+it('t1:5 Where\'s the data! No data for years 2018 or earlier', function(done) {
+
+    let i;
+    for(i = 2000; i < 2018; i++) {
+    
+        database.getAllCurricula('curricula', i, 'F', function(data) {
+            expect(data).empty;
+        });
+
+        database.getAllCurricula('curricula', i, 'W', function(data) {
+            expect(data).empty;
+        });
+    }
+
+    done();
+
+});
+
+
+
+// ===== Update Course ===== //
+
+it('t2:0 Did it work? Updating a course that isn\'t in the database', function(done) {
+  
+    let course = {
+        year: 2020,
+        session: 'W',
+        dept: 'EECS',
+        code: 3421,
+        section: 'N',
+        type: 'lecture',
+      }
+
+    database.updateCourse(JSON.stringify(course), 
+        success => res.status(200).send({wow: success}));
+
+    done();
+
 });
