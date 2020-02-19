@@ -41,6 +41,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AddNewCourseModalComponent } from './semester/modals/add-new-course-modal/add-new-course-modal.component';
 import {MatInputModule} from '@angular/material';
 
+
 @NgModule({
   declarations: [
     AppComponent,

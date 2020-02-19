@@ -3,6 +3,7 @@ export class Course {
   constructor(
     public courseRef: string,
     public duration: number,
+    public code: number, //added this in bc it wont compile
     public dept: string,
     public instructor: string,
     public x: number,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @Component({
   selector: 'app-add-new-course-modal',
@@ -8,71 +9,108 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   styleUrls: ['./add-new-course-modal.component.css']
 })
 export class AddNewCourseModalComponent implements OnInit {
-  adminInputFields = [];
-  courseInfoFields = [];
-  additionalInfoFields = [];
+
+
+
+
+
+  InputFields = [];
+
 
   constructor() { }
 
   ngOnInit() {
-    this.adminInputFields = [
+    this.InputFields = [
       {
         "fieldText" : "Enter Year",
-        "placeholder" : "i.e 2020"
+        "placeholder" : "i.e 2020",
+        "fControl" : "year"
       },
       {
         "fieldText" : "Enter Session",
-        "placeholder" : "i.e F"
+        "placeholder" : "i.e F",
+        "fControl" : "session"
       },
       {
         "fieldText" : "Enter Department",
-        "placeholder" : "i.e EECS"
-      }
-
-    ]
-
-    this.courseInfoFields = [
+        "placeholder" : "i.e EECS",
+        "fControl" : "department"
+      },
       {
         "fieldText" : "Enter Course Name",
-        "placeholder" : "i.e E-Commerce"
+        "placeholder" : "i.e E-Commerce",
+        "fControl" : "course_name"
       },
       {
         "fieldText" : "Enter Course Code",
-        "placeholder" : "i.e 4413"
+        "placeholder" : "i.e 4413",
+        "fControl" : "course_code"
       },
       {
         "fieldText" : "Enter Course Type",
-        "placeholder" : "i.e Lecture"
-      }
-
-    ]
-
-    this.additionalInfoFields = [
+        "placeholder" : "i.e Lecture",
+        "fControl" : "course_type"
+      },
       {
         "fieldText" : "Enter Duration",
-        "placeholder" : "i.e 3"
+        "placeholder" : "i.e 3",
+        "fControl" : "duration"
       },
       {
         "fieldText" : "Enter Instructor",
-        "placeholder" : "i.e Marin L"
+        "placeholder" : "i.e Marin L",
+        "fControl" : "instructor"
       },
       {
         "fieldText" : "Enter Location",
-        "placeholder" : "i.e LSB 105"
+        "placeholder" : "i.e LSB 105",
+        "fControl" : "location"
       }
 
     ]
   }
 
+  addCourseForm = new FormGroup({
+    year: new FormControl(''),
+    session: new FormControl(''),
+    department: new FormControl(''),
+    course_name : new FormControl(''),
+    course_code: new FormControl(''),
+    course_type : new FormControl(''),
+    duration : new FormControl(''),
+    instructor : new FormControl(''),
+    location : new FormControl('')
+  });
 
 
-  email = new FormControl('', [Validators.required, Validators.email]);
 
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
-            '';
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.addCourseForm.value);
   }
+  // export class AddNewCourseModalComponent2 {
+
+  // }
+
+  // onCreatePost(postData: { title: string; content: string }) {
+  //   // Send Http request
+  //   this.http
+  //     .post(
+  //       'https://ng-complete-guide-c56d3.firebaseio.com/posts.json',
+  //       postData
+  //     )
+  //     .subscribe(responseData => {
+  //       console.log(responseData);
+  //     });
+  // }
+
+  // email = new FormControl('', [Validators.required, Validators.email]);
+  //
+  // getErrorMessage() {
+  //   return this.email.hasError('required') ? 'You must enter a value' :
+  //       this.email.hasError('email') ? 'Not a valid email' :
+  //           '';
+  // }
 
 
 }
