@@ -9,12 +9,15 @@
     }"
     (click)="openCourseDialog(course)"
   >
-  <mat-icon class="course-icon" [svgIcon]="this.getCourseIconName(course)" aria-hidden="false" aria-label=""></mat-icon>
-  {{course.dept}} {{course.code}}
-  <br>
-  <div class="course-time">
-    {{course.startTime()}}-{{course.endTime()}}
+  <div class="course-info">
+
+    <mat-icon class="course-icon" [svgIcon]="this.getCourseIconName(course)" aria-hidden="false" aria-label=""></mat-icon>
+    {{course.dept}} {{course.code}}
+    <br>
+    <div class="course-time">
+      {{course.startTime()}}-{{course.endTime()}}
+    </div>
   </div>
-  </div>
+</div>
 </div>
 
