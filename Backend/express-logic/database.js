@@ -207,7 +207,7 @@ module.exports = {
     example:         exampleDatabase,
     getAllCourses:   batchDocuments,
     getAllCurricula: batchDocuments,
-    postCourses:     addOneDocument,
+    addOneCourse:     addOneCourse,
     deleteCourse,
     pcpCurricula:    scheduler_curricula,
     pcpCourses:      scheduler_course,
