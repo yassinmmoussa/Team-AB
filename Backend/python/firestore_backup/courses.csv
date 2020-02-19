@@ -1,0 +1,35 @@
+capacity,code,colour,course_ref,days,dept,display,duration,instructor,is_locked,lab_section,name,num_lectures_wk,room,section,session,starting_block,type,year
+0.0,4481,#993366,0.0,"[0, 2]",EECS,1.0,3.0,Acidic Galavenus,0.0,,Sword cutting,,Not Set,Y,W,11,lecture,2020
+,4413,#003366,,[0],EECS,,4.0,Marin Litou,,1,Building E-Commerce Systems,,,E,F,8,lab,2019
+,4000,#E1AA12,,[4],ENG,,6.0,Franz Newland,,,Capstone Project (Engineering),,,E,F,12,lecture,2019
+,4000,#E1AA12,,[4],ENG,,6.0,Franz Newland,,,Capstone Project (Engineering),,,E,W,12,lecture,2020
+,4441,#003366,,"[1, 3]",EECS,,3.0,Connor Dear,,,Advanced SW ENG--,,,Z,W,14,lecture,2020
+,4315,#003366,,[0],EECS,,2.0,Frank Van Breugel,,1,Mission Critical Systems,,,Z,W,3,lab,2020
+,4313,#003366,,[4],EECS,,3.0,Zhen Jiang,,1,Software Engineering Requirements,,,Z,F,6,lab,2019
+,4481,#003366,,[4],EECS,,6.0,Acidic Galavenus,,1,Sword Cutting,,,Y,W,3,lab,2020
+,3214,#003366,,"[1, 3]",EECS,,3.0,Natalija Vlajic,,,Computer Network Protocols and Applications,,,A,F,3,lecture,2020
+,4314,#003366,,"[0, 2]",EECS,,3.0,Zhen Jiang,,,Advanced Software Engineering,,,E,F,4,lecture,2000
+,4315,#003366,,"[2, 4]",EECS,,3.0,Franck van Breugal,,,Mission Critical Systems,,,Z,F,2,lecture,2019
+,3421,#003366,,"[1, 3]",EECS,,3.0,Parke Tremayne Godfrey,,,Introduction to Database,,,N,W,8,lecture,2020
+,4550,#E1AA12,,[0],ENG,,1.5,Jinjun Shan,,1,Introduction to Control System,,,A,F,18,lab,2019
+,4422,#003366,,"[1, 3]",EECS,,3.0,Calden Wloka,,,Computer Vision,,,A,W,2,lecture,2020
+,4413,#003366,,{'0': 0},EECS,,4.0,Marin Litou,,1,Building E-Commerce Systems,,,E,F,8,lab,1
+,4314,#003366,,"[0, 2]",EECS,,3.0,Zhen Jiang,,,Advanced Software Engineering,,,E,F,4,lecture,2019
+,4411,#003366,,"[1, 3]",EECS,,3.0,Parke Tremayne Godfrey,,,Database Management Systems,,,A,F,18,lecture,2019
+,4214,#003366,,[4],EECS,,3.0,Hina Tabassum,,1,Digital Communications,,,E,F,4,lab,2019
+,3421,#003366,,"[1, 4]",EECS,,3.0,Nasim Razavi,,,Introduction to Database,,,B,F,3,lecture,2019
+,3481,#003366,,"[0, 2]",EECS,,3.0,Hamzeh Roumani,,,Applied Cryptography,,,A,F,12,lecture,2019
+,3461,#003366,,"[1, 3]",EECS,,3.0,Andriy Pavlovych,,,User Interfaces,,,A,F,18,lecture,2019
+,4000,#E1AA12,,[4],ENG,,6.0,Franz Newland,,,Capstone Project (Engineering),,,E,F,12,lecture,2019
+,4312,#003366,,"[1, 3]",EECS,,3.0,Jonathan Ostroff,,,Software Engineering Requirements,,,Z,F,2,lecture,2019
+,4214,#003366,,"[1, 3]",EECS,,3.0,Hina Tabassum,,,Digital Communications,,,E,F,12,lecture,2019
+0.0,4215,#993366,7.0,[3],EECS,1.0,6.0,Ping Wang,0.0,,Mobile Communications,,Not Set,M,W,18,lecture,2020
+,4550,#E1AA12,,"[1, 3]",ENG,,3.0,Jinjun Shan,,,Introduction to Control Systems,,,A,F,3,lecture,2019
+,4412,#003366,,"[0, 2, 4]",EECS,,2.0,Connor Ahearn,,,Advanced SW ENG++,,,Z,W,12,lecture,2020
+,4312,#003366,,"[1, 3]",EECS,,3.0,Jonathan Ostroff,,1,Software Engineering Requirements,,,Z,F,5,lab,2019
+,4313,#003366,,"[0, 2]",EECS,,3.0,Zhen Jiang,,,Software Engineering Testing,,,Z,F,8,lecture,2019
+0.0,4215,#993366,7.0,[3],EECS,1.0,6.0,Ping Wang,0.0,,Mobile Communications,,Not Set,M,W,18,lecture,2020
+,3421,#003366,,[1],EECS,,3.0,Emmanouil Papangelis,,,Introduction to Database,,,A,F,21,lecture,2019
+,3421,#003366,,[2],EECS,,3.0,Nasim Razavi,,,Introduction to Database,,,M,W,21,lecture,2020
+0.0,4315,#993366,11.0,"[0, 2]",EECS,1.0,3.0,Frank Van Breugel,0.0,,Mission Critical Systems,,Not Set,Z,W,1,lecture,2020
+,4413,#003366,,[0],EECS,,4.0,Marin Litou,,,Building E-Commerce Systems,1.0,,E,F,8,lecture,2019
