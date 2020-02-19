@@ -81,11 +81,17 @@
 
 .save-button {
   display: block;
-  margin: 10px auto;
+  margin: 10px;
   margin-top: 20px;
   background-color: #f1f1f1;
 
+}
 
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+  margin: auto;
 }
 
 .close-button {

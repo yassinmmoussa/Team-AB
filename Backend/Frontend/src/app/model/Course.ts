@@ -81,7 +81,7 @@ export class Course {
   }
 
   endTime(): string {
-    return '' + this.blockToTime(this.startingBlock + this.duration + 1);
+    return '' + this.blockToTime(this.startingBlock + this.duration);
   }
 
   blockToTime(blockNo: number): string {

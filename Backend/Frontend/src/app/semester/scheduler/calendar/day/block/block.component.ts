@@ -19,6 +19,7 @@ export class BlockComponent implements OnInit {
     this.coursesStarting = cList;
   }
   @Output() courseStateChanged = new EventEmitter<Course>();
+  @Output() courseDeleted = new EventEmitter<Course>();
 
   courseDialog: MatDialog;
   coursesStarting: Course[] = [];
@@ -62,9 +63,9 @@ export class BlockComponent implements OnInit {
       if (result.save) {
         this.crudCoursesService.updateCourse(result.course).subscribe(res => console.log(res));
         this.courseStateChanged.emit(result.course);
-      } else if (result.save) {
-        this.crudCoursesService.deleteCourse(result.course).subscribe(res => console.log(res));
-        this.courseStateChanged.emit(result.course);
+      } else if (result.delete) {
+        this.crudCoursesService.deleteCourse(result.course).subscribe(() => {});
+        this.courseDeleted.emit(result.course);
       }
     });
   }

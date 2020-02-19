@@ -30,6 +30,21 @@ export class SemesterComponent implements OnInit {
     });
   }
 
+  removeCourseManually(deletedCourse) {
+    this.courses = this.courses.filter(course => {
+      const sameYear = deletedCourse.year === course.year;
+      const sameSession = deletedCourse.session === course.session;
+      const sameDept = deletedCourse.dept === course.dept;
+      const sameCode = deletedCourse.code === course.code;
+      const sameSection = deletedCourse.section === course.section;
+      const sameType = deletedCourse.type === course.type;
+
+      return !(sameYear && sameSession && sameDept && sameCode && sameSection && sameType);
+    });
+
+    this.filterCourses();
+  }
+
   getCurricula() {
     // console.log('Getting curricula');
     this.dataService.getCurricula().subscribe(data => {
@@ -42,7 +57,11 @@ export class SemesterComponent implements OnInit {
   updateFilters(filters) {
     console.log(filters);
     this.filters = filters;
+    
+    this.filterCourses();
+  }
 
+  filterCourses() {
     // Add display property to courses
     this.courses.forEach(course => {
       course.display = false;
