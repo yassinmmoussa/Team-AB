@@ -131,39 +131,6 @@ app.post('/api/auth', (req, res) => {
   res.status(200).send({authenticated: result});
 })
 
-// Simulation bad_test for calling max.
-// Requires max to be running on localhost:8080
-app.get('/bad_test', async function(req, res) {
-  try {
-    console.log('IM A BAD TEST - BILLIE EILLISH');
-
-    let data = circJSON.parse(fs.readFileSync('./express-logic/contacting-scheduler/sample_sched_request', 'utf8'));
-
-    // Try to parse data from query, not quite correct format yet -- NEEDS TO BE DONE
-    // let data = {
-    //   n_solutions: 2,
-    //   curricula: req.query.curricula,
-    //   constraints: []
-    // };
-
-    console.log(data);
-    let response = await axios.post('http://localhost:8080/sched', data) // Maximillian is running on :8080
-    .then((res) => {
-      return res; // Max returns, need to provide this as the result of await promise
-    })
-    .catch((error) => {
-     //console.error(error)
-    })
-    console.log('made it to response' + response); // response now holds the output of max
-    res.status(200).send(circJSON.stringify(response)); // Send completed response back to front
-  } catch (e) {
-    console.log('yo async had issue');
-    console.log(e);
-  }
-
-
-});
-
 
 // ========================================================= //
 
