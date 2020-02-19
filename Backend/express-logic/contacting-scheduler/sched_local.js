@@ -4,7 +4,7 @@ const request = require('request-promise');
 const receivingServiceURL = 'http://localhost:9090/sched'
 
 
-function schedule(requestData) {
+function schedule(requestData, callback) {
 
     // Fetch the token, then provide the token in the request to the receiving service
     const options = {
@@ -17,8 +17,7 @@ function schedule(requestData) {
     request(options)
     .then(token => console.log(token))
     .then(response => {
-        console.log(response);
-        return response;
+        callback(response);
     })
     .catch(error => console.log(error));
 

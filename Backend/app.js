@@ -118,10 +118,15 @@ app.post('/api/schedule/runOptimizer', function(req, res) {
   console.log('A request from the front end for the scheduler has been passed.');
 
   // Call scheduler
-  let a = scheduler.frontEnd_schedule(courses, curricula);
+  scheduler.frontEnd_schedule(courses, curricula, function(response) {
+    
+    console.log('Sending the following data to the frontend:');
+    console.log(response);
 
-  // Send response to frontend
-  res.status(200).send({dope: "All is gucci", result: a}); // Send back results of optimization here
+    // Send response to frontend
+    res.status(200).send(response);
+  });
+
 })
 
 app.post('/api/schedulerTest', function(req, res) {
