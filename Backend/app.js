@@ -11,8 +11,8 @@ const circJSON = require('circular-json');
 const app = express();
 
 // Internal APIs and Utility classes
-const database = require('./database');
-const scheduler = require('./course_scheduler');
+const database = require('./express-logic/database');
+const scheduler = require('./express-logic/course_scheduler');
 
 // ========================================================= //
 
