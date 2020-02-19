@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /**
  * 'ANGULAR' ROUTING documentation
- * 
+ *
  * https://itnext.io/express-server-for-an-angular-application-part-1-getting-started-2cd27de691bd
  */
 const compression = require("compression");
@@ -55,7 +55,7 @@ app.get('/api/courses', function(req, res) {
 
   // STEP 2: Send data through database class, receive queried data
   database.getAllCourses('courses', year, session, function(courses) {
-    
+
     // STEP 3: Form a response for the frontend with the queried data & send
     res.status(200).send(courses);
     console.log(courses);
@@ -94,7 +94,7 @@ app.get('/api/curricula', function(req, res) {
 
   // STEP 2: Send data through database class, receive queried data
   database.getAllCurricula('curricula', year, session, function(curricula) {
-    
+
     // STEP 3: Form a response for the frontend with the queried data & send
     res.status(200).send(curricula);
     console.log(curricula);
@@ -130,8 +130,8 @@ app.post('/api/schedule/runOptimizer', function(req, res) {
 })
 
 app.post('/api/schedulerTest', function(req, res) {
-  
-  
+
+
 
 });
 
@@ -153,9 +153,9 @@ app.post('/api/auth', (req, res) => {
 app.get('/bad_test', async function(req, res) {
   try {
     console.log('IM A BAD TEST - BILLIE EILLISH');
-    
+
     let data = circJSON.parse(fs.readFileSync('sample_sched_request.json', 'utf8'));
-    
+
     // Try to parse data from query, not quite correct format yet -- NEEDS TO BE DONE
     // let data = {
     //   n_solutions: 2,
@@ -169,7 +169,7 @@ app.get('/bad_test', async function(req, res) {
       return res; // Max returns, need to provide this as the result of await promise
     })
     .catch((error) => {
-      // console.error(error)
+     //console.error(error)
     })
     console.log('made it to response' + response); // response now holds the output of max
     res.status(200).send(circJSON.stringify(response)); // Send completed response back to front
@@ -177,7 +177,7 @@ app.get('/bad_test', async function(req, res) {
     console.log('yo async had issue');
     console.log(e);
   }
-  
+
 
 });
 
@@ -186,7 +186,7 @@ app.get('/bad_test', async function(req, res) {
 
 //-- DEFAULT APPLICATION PATH --//
 app.all('*', function(req, res) {
-  
+
   res.status(200).sendFile('/', {root: app_folder});
 
 });
