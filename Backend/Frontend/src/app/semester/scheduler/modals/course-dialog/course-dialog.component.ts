@@ -11,7 +11,7 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
 export class CourseDialogComponent implements OnInit {
 
   course: Course;
-  oldCourse: Course;
+  refCourse: Course;
 
   dayOptions = [0, 1, 2, 3, 4];
 
@@ -19,8 +19,8 @@ export class CourseDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<CourseDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Course
   ) {
-    this.course = data;
-    this.oldCourse = Object.assign({}, data); // Clone course
+    this.course = data.deepCopy();
+    this.refCourse = data; // Clone course
   }
 
   ngOnInit() {}

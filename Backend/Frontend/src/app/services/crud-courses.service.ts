@@ -29,7 +29,6 @@ export class CrudCoursesService {
     const httpOptions = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
     const courseData = course.toJSON();
     const updateData = { course: courseData };
-    console.log(updateData);
     return this.http.put(this.courseUrl, updateData, httpOptions)
       .pipe(
         catchError(this.handleError)

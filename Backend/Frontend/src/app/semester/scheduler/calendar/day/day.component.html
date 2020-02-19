@@ -16,8 +16,9 @@
         'border-top':( i%2 === 0 || i === 0) ? '0.25px solid #CCCCCC' : 'none',
         'border-bottom':( i === blocks.length - 1 ) ? '0.25px solid #CCCCCC' : 'none'
       }"
-      [(courses)]=this.blocks[i]
-      blockNo=i+1
+      [(courses)]="this.blocks[i]"
+      blockNo="i+1"
+      (courseStateChanged)="this.updateCourse.emit($event)"
     >
     </app-block>
 

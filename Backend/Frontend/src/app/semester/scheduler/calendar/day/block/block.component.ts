@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core';
 import { Course } from '../../../../../model/Course';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -14,12 +14,12 @@ import { CrudCoursesService } from '../../../../../services/crud-courses.service
 export class BlockComponent implements OnInit {
 
   // @Input() coursesDuring: Course[]; // Add in later for better display algorithm
+  @Input() blockNo: number;
   @Input() set courses(cList: Course[]) {
     this.coursesStarting = cList;
   }
   @Output() courseStateChanged = new EventEmitter<Course>();
 
-  @Input() blockNo: number;
   courseDialog: MatDialog;
   coursesStarting: Course[] = [];
 
@@ -58,17 +58,11 @@ export class BlockComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // let cToUpdate = this.coursesStarting.find(course => course.courseRef === result.courseRef);
-      // console.log('Updating... (old -> new)');
-      // console.log(cToUpdate);
-      // console.log(result);
-      // cToUpdate = result;
-      // console.log('Block course now is: ');
-      // console.log(this.coursesStarting);
-      this.courseStateChanged.emit(result);
-      console.log(this.coursesStarting);
-      // console.log(this.crudCoursesService.getCourses());
-      this.crudCoursesService.updateCourse(result).subscribe(res => console.log(res));
+       // If they hit the 'x', then it will be null and this will fail
+      if (result.save) {
+        this.crudCoursesService.updateCourse(result.course).subscribe(res => console.log(res));
+        this.courseStateChanged.emit(result.course);
+      }
     });
   }
 

@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Course } from '../../../model/Course';
-import { data } from './data';
-import { DayComponent } from './day/day.component';
 import { dayConfig } from './day/dayConfig';
 
 @Component({
@@ -11,7 +9,8 @@ import { dayConfig } from './day/dayConfig';
 })
 export class CalendarComponent implements OnInit {
   @Input() set courses(courseList: Course[]) {
-    this.buildCourseLists(courseList);
+    this.allCourses = courseList;
+    this.buildCourseLists(this.allCourses);
   }
 
   dayNames: string[] = [
@@ -26,11 +25,11 @@ export class CalendarComponent implements OnInit {
   numBlocks = dayConfig.numBlocks;
 
   courseLists: Course[][];
+  allCourses: Course[];
 
   buildCourseLists(courseList: Course[]) {
     if (courseList) {
       const res: Course[][] = [[], [], [], [], []];
-      const courses = data.courses;
       courseList.forEach(course => {
         for (const aDay of course.days) {
           res[aDay].push(course);
@@ -38,34 +37,21 @@ export class CalendarComponent implements OnInit {
       });
       this.courseLists = res;
     }
-
-    // Object.keys(courses).forEach(course => {
-    //   for (const aDay of courses[`${course}`].days) {
-    //     res[aDay].push(new Course(
-    //       courses[`${course}`].duration,
-    //       courses[`${course}`].dept,
-    //       courses[`${course}`].instructor,
-    //       courses[`${course}`].code,
-    //       courses[`${course}`].starting_block,
-    //       courses[`${course}`].colour,
-    //       courses[`${course}`].name,
-    //       courses[`${course}`].section,
-    //       courses[`${course}`].days,
-    //       courses[`${course}`].year,
-    //       courses[`${course}`].session,
-    //       courses[`${course}`].type,
-    //       courses[`${course}`].labSection
-    //     ));
-    //   }
-    // });
   }
 
   constructor() {
     this.courseLists = [[], [], [], [], []];
   }
 
-  ngOnInit() {
-    // console.log(this.courseLists);
+  ngOnInit() {}
+
+  updateCourse(course: Course) {
+    for (let i = 0; i < this.allCourses.length; i++) {
+      if (this.allCourses[i].courseRef === course.courseRef) {
+        this.allCourses[i] = course;
+      }
+    }
+    this.buildCourseLists(this.allCourses); // Redraw the courses
   }
 
 }
