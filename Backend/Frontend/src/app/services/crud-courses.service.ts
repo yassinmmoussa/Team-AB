@@ -14,7 +14,7 @@ export class CrudCoursesService {
 
   //POST to add a new course into the database
   addNewCourse(course: Course): Observable<Course>{
-console.log('adding a course');
+    console.log('adding a course');
     const httpOptions = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
     const courseData = course.toJSON();
     const updateData = { course: courseData };
@@ -30,7 +30,7 @@ console.log('adding a course');
     console.log('updating course in crud service');
     const httpOptions = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
     const courseData = course.toJSON();
-    const updateData = { course: courseData };
+    const updateData = { course: course };
     return this.http.put(this.courseUrl, updateData, httpOptions)
       .pipe(
         catchError(this.handleError)
