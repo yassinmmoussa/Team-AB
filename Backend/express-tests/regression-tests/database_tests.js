@@ -13,9 +13,10 @@ it('t1:0 We get some stuff! getAllCourses doesn\'t return null. (Database)', fun
     database.getAllCourses('courses', 2020, 'W', function(data) {
 
         expect(data).to.exist;
-        done();
 
     });
+
+    done();
 });
 
 it('t1:1 We get more stuff! getAllCurricula doesn\'t return null.', function(done) {
@@ -23,9 +24,10 @@ it('t1:1 We get more stuff! getAllCurricula doesn\'t return null.', function(don
     database.getAllCurricula('curricula', 2020, 'W', function(data) {
 
         expect(data).to.exist;
-        done();
 
     });
+
+    done();
 });
 
 it('t1:2 We get different stuff! Curricula data isn\'t course data', function(done) {
@@ -35,10 +37,11 @@ it('t1:2 We get different stuff! Curricula data isn\'t course data', function(do
         database.getAllCourses('courses', 2020, 'W', function(courses) {
 
             expect(curricula).not.equal(courses);
-            done();
 
         });
     });
+
+    done();
 });
 
 it('t1:3 We get different stuff! Winter data isn\'t Fall data', function(done) {
@@ -48,10 +51,11 @@ it('t1:3 We get different stuff! Winter data isn\'t Fall data', function(done) {
         database.getAllCurricula('curricula', 2020, 'F', function(fall) {
 
             expect(winter).not.equal(fall);
-            done();
 
         });
     });
+
+    done();
 });
 
 it('t1:4 We get different stuff! 2019 data isn\'t 2020 data', function(done) {
@@ -61,10 +65,11 @@ it('t1:4 We get different stuff! 2019 data isn\'t 2020 data', function(done) {
         database.getAllCurricula('curricula', 2020, 'W', function(_2020) {
 
             expect(_2020).not.equal(_2019);
-            done();
 
         });
     });
+
+    done();
 });
 
 it('t1:5 Where\'s the data! No data for years 2018 or earlier', function(done) {
