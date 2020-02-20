@@ -67,15 +67,25 @@ function batchDocuments(type, year, session, next) {
 }
 
 /**
- * Function to add 1
+ * Function to add 1 document
  * currently adding directly under hard-coded doc ID
  */
-function addOneCourse(course) {
+function addOneCourse(course, callback) {
+    console.log("Someone tried to POST some data");
     //a testing doc data to add into firestore, in the future i will
     //use passed data from post request
     let JSONcourse = JSON.parse(course);
     console.log(JSONcourse)
-    let colRef = database.collection('courses').doc().set(JSONcourse);
+    database.collection('courses').doc().set(JSONcourse)
+        .then(function() {
+        console.log("Document successfully written!");
+        callback();
+        })
+        .catch(function(error) {
+            console.log("Error adding course: ", error);
+
+        });
+    
 }
 
 /**
@@ -109,8 +119,15 @@ function updateCourse(course, callback) {
     });
 }
 
+/**
+ * This function deletes a course permanently from the database 
+ * given the information for filtering 
+ * 
+ * @param {*} course 
+ * @param {*} callback 
+ */
 function deleteCourse(course, callback) {
-    let courseJSON = course;
+    let courseJSON = JSON.parse(course);
     database.collection('courses')
         .where("year","==",courseJSON.year)
         .where("session","==",courseJSON.session)
@@ -122,11 +139,9 @@ function deleteCourse(course, callback) {
         querySnapshot.forEach(function(doc) {
             database.collection("courses").doc(doc.id).delete();
         });
-        
         callback(true);
     })
     .catch(() => {
-        console.log('failed to delete')
         callback(false);
     });
 }
@@ -217,6 +232,24 @@ function scheduler_course(courseId, next) {
         console.log(`Encountered error: ${err}`);
       });
 }
+
+/**
+ * Unofficial function for Mocha regression testing
+ * 
+ * @param {*} collection 
+ * @param {*} docId 
+ * @param {*} next 
+ */
+function lookUpDoc(collection, docId, next) {
+    let colRef = database.collection(collection).doc(docId).onSnapshot(documentSnapshot => {
+        if (documentSnapshot.exists) { 
+            next (documentSnapshot.data);
+        }
+    }, err => {
+        console.log(`Encountered error: ${err}`);
+      });
+    }
+
 
 // ========================================================= //
 
