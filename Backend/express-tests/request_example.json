@@ -1,0 +1,32 @@
+{
+    "n_solutions": 1,
+    "curricula": [
+        {
+            "curriculum_id": "Y4 Software Eng.",
+            "courses": [
+                {
+                    "course_id": "4481",
+                    "n_periods": "6"
+                },
+                {
+                    "course_id": "4441",
+                    "n_periods": "6"
+                },
+                {
+                    "course_id": "4315",
+                    "n_periods": "6"
+                }
+            ]
+        },
+        {
+            "curriculum_id": "Y4 Computer Eng.",
+            "courses": [
+                {
+                    "course_id": "4315",
+                    "n_periods": "6"
+                }
+            ]
+        }
+    ],
+    "constraints": []
+}
