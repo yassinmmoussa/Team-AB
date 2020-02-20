@@ -19,6 +19,7 @@ export class Course {
     public isLocked: boolean = false,
     public capacity: number = 0,
     public room: string = 'Not Set',
+    public blocksPerWeek: number = 6
   ) {}
 
   toJSON(): string {
@@ -41,7 +42,8 @@ export class Course {
         "display": ${JSON.stringify(this.display)},
         "is_locked": ${JSON.stringify(this.isLocked)},
         "capacity": ${JSON.stringify(this.capacity)},
-        "room": ${JSON.stringify(this.room)}
+        "room": ${JSON.stringify(this.room)},
+        "blocks_per_wk": ${JSON.stringify(this.blocksPerWeek)}
       }
     `;
     return res;
@@ -134,7 +136,8 @@ export class Course {
                       this.labSection,
                       this.isLocked,
                       this.capacity,
-                      this.room
+                      this.room,
+                      this.blocksPerWeek
                       );
   }
 

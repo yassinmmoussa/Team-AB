@@ -67,7 +67,7 @@ function batchDocuments(type, year, session, next) {
 }
 
 /**
- * Function to add 1 document
+ * Function to add 1
  * currently adding directly under hard-coded doc ID
  */
 function addOneCourse(course) {
@@ -110,7 +110,7 @@ function updateCourse(course, callback) {
 }
 
 function deleteCourse(course, callback) {
-    let courseJSON = JSON.parse(course);
+    let courseJSON = course;
     database.collection('courses')
         .where("year","==",courseJSON.year)
         .where("session","==",courseJSON.session)
@@ -122,9 +122,11 @@ function deleteCourse(course, callback) {
         querySnapshot.forEach(function(doc) {
             database.collection("courses").doc(doc.id).delete();
         });
+        
         callback(true);
     })
     .catch(() => {
+        console.log('failed to delete')
         callback(false);
     });
 }

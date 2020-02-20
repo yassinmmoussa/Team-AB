@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {data} from '../../scheduler/calendar/data.js';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Course} from '../../../model/Course';
 import {CourseEntryComponent} from './course-entry/course-entry.component'
 import {MatListModule} from '@angular/material/list';
 import {AddNewCourseModalComponent} from '../../modals/add-new-course-modal/add-new-course-modal.component';
-
+import { CrudCoursesService } from '../../../services/crud-courses.service';
 
 @Component({
   selector: 'app-course-list',
@@ -16,6 +16,8 @@ export class CourseListComponent implements OnInit {
 
   @Input() course: Course;
   courseList: Course[] = [];
+
+  @Output() courseStateChanged = new EventEmitter<Course>();
 
   populateCourses(): Course[]{
     let localCourseList: Course[] = [];
@@ -50,7 +52,7 @@ export class CourseListComponent implements OnInit {
   }
 
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private crudCoursesService : CrudCoursesService) {
     this.courseList = this.populateCourses();
 
    }
@@ -65,7 +67,9 @@ export class CourseListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog closed: ${result}')
+     console.log('Dialog closed', result);
+     this.crudCoursesService.addNewCourse(result).subscribe(result => console.log(result));
+     this.courseStateChanged.emit(result);
     })
   }
 

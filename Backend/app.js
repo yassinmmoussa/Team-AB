@@ -70,8 +70,17 @@ app.put('/api/courses', function(req, res) {
 });
 
 app.delete('/api/courses', function(req, res) {
-
-  database.deleteCourse();
+  console.log("Someone tried to DELETE some data");
+  let { year, session, dept, code, section, type } = req.query
+  let course = {
+    year: year - 0,
+    session,
+    dept,
+    code: code - 0,
+    section,
+    type
+  }
+  database.deleteCourse(course, () => {});
 });
 
 /**

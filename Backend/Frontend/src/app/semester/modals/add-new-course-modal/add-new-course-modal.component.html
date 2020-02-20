@@ -1,7 +1,7 @@
 <div class="addCourseBody">
   <button class="close-button" mat-flat-button matDialogClose>X</button>
   <h1>Add New Course</h1>
-  <form [formGroup]="addCourseForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="addCourseForm" (ngSubmit)="onAddCourse()">
     <p class="subtitle">Administrative Information</p>
   <div class="admin-field-container" *ngFor = "let f of InputFields |  slice: 0:3">
 
@@ -30,8 +30,8 @@
 </div>
 
 <div class="button-container">
-  <button class="save-button" mat-flat-button [mat-dialog-close]="this.course">Save & Close</button>
-  <button class="add-button" mat-flat-button  (ngSubmit)="onSubmit()">Add Course</button>
+
+  <button class="add-button" mat-flat-button [mat-dialog-close]="onAddCourse()">Add Course</button>
 </div>
 </form>
 </div>
