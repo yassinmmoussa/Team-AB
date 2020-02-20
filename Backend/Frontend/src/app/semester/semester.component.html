@@ -2,12 +2,13 @@
 <div class="container">
     <app-filter
       (updateGlobalFilters)="updateFilters($event)"
-      (courseStateChanged)="updateList($event)"
+      (courseStateChanged)="this.addCourse($event)"
     ></app-filter>
     <app-scheduler
         [courses]="coursesToDisplay"
         [allCourses]="courses"
         [curricula]="curricula"
         (courseDeleted)="this.removeCourseManually($event)"
+        (courseUpdated)="this.updateCourse($event)"
     ></app-scheduler>
 </div>

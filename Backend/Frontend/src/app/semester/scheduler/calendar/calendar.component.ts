@@ -12,10 +12,9 @@ export class CalendarComponent implements OnInit {
     this.allCourses = courseList;
     this.buildCourseLists(this.allCourses);
   }
-
   @Output() courseDeleted = new EventEmitter<Course>();
-
-  dayNames: string[] = [
+  @Output() courseUpdated = new EventEmitter<Course>();
+   dayNames: string[] = [
     'Monday',
     'Tuesday',
     'Wednesday',
@@ -54,6 +53,7 @@ export class CalendarComponent implements OnInit {
       }
     }
     this.buildCourseLists(this.allCourses); // Redraw the courses
+    this.courseUpdated.emit(course);
   }
 
   propogateDelete(course) {

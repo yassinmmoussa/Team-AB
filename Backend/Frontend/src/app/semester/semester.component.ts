@@ -79,16 +79,31 @@ export class SemesterComponent implements OnInit {
   }
 
   /**
+   * Finds the course with matching courseRef and updates it with
+   * the rest of the new course information. If the course does not
+   * exist, this does nothing.
+   * @param course The course you wish to update.
+   */
+  updateCourse(course) {
+    let c;
+    for (let i = 0; i < this.courses.length; i++) {
+      c = this.courses[i];
+      if (c.courseRef === course.courseRef) {
+          this.courses[i] = course;
+        }
+    }
+    this.buildCourseLists(this.courses);
+  }
+
+ /**
   * @Param course - The course that I want to add to the course list.
   */
-  updateList(course){
+  addCourse(course) {
     // Add to course list
     this.courses.push(course);
     // Add to displayed courses so we see the course that we just added.
-        this.coursesToDisplay.push(course);
-
-    console.log(this.courses);
-
+    this.coursesToDisplay.push(course);
+    this.buildCourseLists(this.courses);
   }
 
   buildCourseLists(courses): Course[] {

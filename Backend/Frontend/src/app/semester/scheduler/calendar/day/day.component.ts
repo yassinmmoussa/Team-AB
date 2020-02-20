@@ -22,7 +22,7 @@ export class DayComponent implements OnInit {
     this.courses.forEach(course => this.blocks[course.startingBlock].push(course));
   }
 
-  @Output() updateCourse = new EventEmitter<Course>();
+  @Output() courseUpdated = new EventEmitter<Course>();
   @Output() courseDeleted = new EventEmitter<Course>();
 
   courses: Course[];
