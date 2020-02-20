@@ -1,0 +1,16 @@
+[
+    {
+        "dept": "EECS",
+        "name": "Y4 Software Eng.",
+        "session": "W",
+        "year": 2020,
+        "courses": [ "4481", "4413", "4000", "4441", "4315" ]
+    },
+    {
+        "dept": "EECS",
+        "name": "Y4 Computer Eng.",
+        "session": "W",
+        "year": 2020,
+        "courses": [ "4000", "4313", "3214", "4315" ]
+    }
+]

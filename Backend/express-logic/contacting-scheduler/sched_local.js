@@ -16,7 +16,7 @@ function schedule(requestData, callback) {
 
     request(options)
     .then(response => callback(response))
-    .catch(error => console.log("error"));
+    .catch(error => console.log(error));
 
 }
 

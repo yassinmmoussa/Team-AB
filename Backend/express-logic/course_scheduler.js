@@ -139,7 +139,8 @@ function requestBuilder(curricula, courses) {
 module.exports = {
   old_schedule,
   frontEnd_schedule,
-  requestBuilder
+  requestBuilder,
+  solutions
 }
 
 
