@@ -37,4 +37,8 @@ export class OptimizationDialogComponent implements OnInit {
       console.log(data);
     });
   }
+
+  updateFilters(filters) {
+    // this.updateGlobalFilters.emit(filters);
+  }
 }

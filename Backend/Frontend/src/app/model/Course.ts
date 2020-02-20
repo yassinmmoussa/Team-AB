@@ -14,9 +14,9 @@ export class Course {
     public year: number,
     public session: string,
     public type: string,
-    public display?: boolean,
+    public display: boolean = false,
     public labSection: string = '',
-    public isLocked: boolean = false,
+    public willOptimize: boolean = false,
     public capacity: number = 0,
     public room: string = 'Not Set',
     public blocksPerWeek: number = 6
