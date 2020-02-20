@@ -1,4 +1,3 @@
-// Auto generated imports
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -43,8 +42,10 @@ app.get('*.*', express.static(app_folder, {maxAge: '1y'}));
 // ========================================================= //
 
 /**
- * FRONTEND => Database interaction API
+ * Database Interaction API
  */
+
+// GET Courses
 app.get('/api/courses', function(req, res) {
 
   // STEP 1: Parse the data from the query string
@@ -59,17 +60,20 @@ app.get('/api/courses', function(req, res) {
   });
 });
 
+// POST a course
 app.post('/api/courses', function(req, res) {
   console.log("Someone tried to POST some data");
   console.log(req.body.course);
   database.addOneCourse(req.body.course, () => {});
 });
 
+// PUT / Update a course
 app.put('/api/courses', function(req, res) {
 
   database.updateCourse(req.body.course, () => {});
 });
 
+// DELETE a course
 app.delete('/api/courses', function(req, res) {
   console.log("Someone tried to DELETE some data");
   let { year, session, dept, code, section, type } = req.query
@@ -84,10 +88,7 @@ app.delete('/api/courses', function(req, res) {
   database.deleteCourse(course, () => {});
 });
 
-/**
- * Curricula Requests
- */
-
+// GET a curricula
 app.get('/api/curricula', function(req, res) {
 
   // STEP 1: Parse the data from the query string
@@ -105,12 +106,8 @@ app.get('/api/curricula', function(req, res) {
 // ========================================================= //
 
 /**
- * FRONTEND => course scheduler interaction API
+ * Course Scheduler Interaction API
  */
-app.get('/api/schedule', function(req, res) {
-  scheduler();
-});
-
 app.post('/api/schedule/runOptimizer', function(req, res) {
   let coursesString = '[\n' + req.body.courses + '\n]';
   let curriculaString = '{\n' + req.body.curricula + '\n}';
@@ -126,12 +123,11 @@ app.post('/api/schedule/runOptimizer', function(req, res) {
 
 })
 
-app.post('/api/schedulerTest', function(req, res) {
+// ========================================================= //
 
-
-
-});
-
+/**
+ * Login Authentication Logic
+ */
 app.post('/api/auth', (req, res) => {
 
   let username = req.body.params.username;
@@ -150,8 +146,6 @@ app.all('*', function(req, res) {
   res.status(200).sendFile('/', {root: app_folder});
 
 });
-
-
 
 
 // ========================================================= //
