@@ -149,10 +149,12 @@ it('t3:0 Add a course', function(done) {
         year: "1"
     }
 
-    database.addOneCourse(JSON.stringify(course2beAdded),
-        success => res.status(200).send({wow: success}));
-
+    database.addOneCourse(JSON.stringify(course2beAdded))
+    database.lookUpDoc('courses',"1111", function(data) {
+        expect(data).empty;
+    })
     done();
+    
 
 });
 
