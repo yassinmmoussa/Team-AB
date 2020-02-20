@@ -14,7 +14,7 @@ export class Course {
     public year: number,
     public session: string,
     public type: string,
-    public display?: boolean,
+    public display: boolean = false,
     public labSection: string = '',
     public isLocked: boolean = false,
     public capacity: number = 0,

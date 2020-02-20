@@ -12,7 +12,7 @@ import { ColorMap } from '../model/ColorMap';
 export class SemesterComponent implements OnInit {
   courses: Course[];
   curricula: Curricula[];
-  coursesToDisplay: Course[]=[];
+  coursesToDisplay: Course[];
   filters;
 
   constructor(private dataService: DataService) { }
