@@ -95,30 +95,43 @@ function frontEnd_schedule(courses, curricula, callback) {
 }
 
 function requestBuilder(curricula, courses) {
+  let course_locks = [];
+  courses.forEach(course => {
+    if (course.isLocked) {
+      course_locks.push({
+        course_id: course.code,
+        locks: course.days.map(day => {
+          return {
+            day,
+            duration: course.duration,
+            start: course.startingBlock
+          }
+        })
+      })
+    }
+  });
+
   request = {
 
     n_solutions: solutions,
     curricula: curricula.map(curriculum => {
 
       filteredCourses = courses.filter(course => curriculum.courses.some(courseCode => {
-
         return courseCode == course.code.toString();
       }));
 
       return {
-
         curriculum_id: curriculum.name,
         courses: filteredCourses.map(course => {
-
           return {
-            
             course_id: course.code.toString(),
             n_periods: (course.duration * course.days.length).toString()
           };
         })
       };
     }),
-    constraints: []
+    constraints: [],
+    course_locks
   };
 
   return request;

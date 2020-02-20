@@ -6,6 +6,7 @@
     ></app-filter>
     <app-scheduler
         [courses]="coursesToDisplay"
+        [allCourses]="courses"
         [curricula]="curricula"
         (courseDeleted)="this.removeCourseManually($event)"
     ></app-scheduler>
