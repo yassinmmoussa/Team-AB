@@ -12,7 +12,7 @@ import { ColorMap } from '../model/ColorMap';
 export class SemesterComponent implements OnInit {
   courses: Course[];
   curricula: Curricula[];
-  coursesToDisplay: Course[];
+  coursesToDisplay: Course[]=[];
   filters;
 
   constructor(private dataService: DataService) { }
@@ -28,6 +28,21 @@ export class SemesterComponent implements OnInit {
     });
   }
 
+  removeCourseManually(deletedCourse) {
+    this.courses = this.courses.filter(course => {
+      const sameYear = deletedCourse.year === course.year;
+      const sameSession = deletedCourse.session === course.session;
+      const sameDept = deletedCourse.dept === course.dept;
+      const sameCode = deletedCourse.code === course.code;
+      const sameSection = deletedCourse.section === course.section;
+      const sameType = deletedCourse.type === course.type;
+
+      return !(sameYear && sameSession && sameDept && sameCode && sameSection && sameType);
+    });
+
+    this.filterCourses();
+  }
+
   getCurricula() {
     this.dataService.getCurricula().subscribe(data => {
       this.curricula = this.buildCurriculaList(data);
@@ -38,7 +53,11 @@ export class SemesterComponent implements OnInit {
   updateFilters(filters) {
     console.log(filters);
     this.filters = filters;
+    
+    this.filterCourses();
+  }
 
+  filterCourses() {
     // Add display property to courses
     this.courses.forEach(course => {
       course.display = false;
@@ -57,6 +76,19 @@ export class SemesterComponent implements OnInit {
     });
 
     this.coursesToDisplay = this.courses.filter(course => course.display);
+  }
+
+  /**
+  * @Param course - The course that I want to add to the course list.
+  */
+  updateList(course){
+    // Add to course list
+    this.courses.push(course);
+    // Add to displayed courses so we see the course that we just added.
+        this.coursesToDisplay.push(course);
+
+    console.log(this.courses);
+
   }
 
   buildCourseLists(courses): Course[] {

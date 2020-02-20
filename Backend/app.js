@@ -51,34 +51,36 @@ app.get('/api/courses', function(req, res) {
   let year = parseInt(req.query.year);
   let session = req.query.session;
 
-  console.log(`The parameters are: ${year}, ${session}`);
-
   // STEP 2: Send data through database class, receive queried data
   database.getAllCourses('courses', year, session, function(courses) {
 
     // STEP 3: Form a response for the frontend with the queried data & send
     res.status(200).send(courses);
-    console.log(courses);
   });
 });
 
 app.post('/api/courses', function(req, res) {
-  console.log("Someone tried to POST some data");
-  console.log(req.body.course);
+
   database.addOneCourse(req.body.course);
 });
 
 app.put('/api/courses', function(req, res) {
 
-  console.log("Someone tried to PUT some data");
-  console.log(req.body.course);
   database.updateCourse(req.body.course, () => {});
 });
 
 app.delete('/api/courses', function(req, res) {
-
   console.log("Someone tried to DELETE some data");
-  database.deleteCourse();
+  let { year, session, dept, code, section, type } = req.query
+  let course = {
+    year: year - 0,
+    session,
+    dept,
+    code: code - 0,
+    section,
+    type
+  }
+  database.deleteCourse(course, () => {});
 });
 
 /**
@@ -91,14 +93,11 @@ app.get('/api/curricula', function(req, res) {
   let year = parseInt(req.query.year);
   let session = req.query.session;
 
-  console.log(`The parameters are: ${year}, ${session}`);
-
   // STEP 2: Send data through database class, receive queried data
   database.getAllCurricula('curricula', year, session, function(curricula) {
 
     // STEP 3: Form a response for the frontend with the queried data & send
     res.status(200).send(curricula);
-    console.log(curricula);
   });
 });
 
@@ -116,7 +115,6 @@ app.post('/api/schedule/runOptimizer', function(req, res) {
   let curriculaString = '{\n' + req.body.curricula + '\n}';
   let courses = JSON.parse(coursesString);
   let curricula = Object.values(JSON.parse(curriculaString));
-  console.log('A request from the front end for the scheduler has been passed.');
 
   // Call scheduler
   scheduler.frontEnd_schedule(courses, curricula, function(response) {
@@ -134,13 +132,9 @@ app.post('/api/schedulerTest', function(req, res) {
 });
 
 app.post('/api/auth', (req, res) => {
-  console.log(req.params);
 
   let username = req.body.params.username;
   let password = req.body.params.password;
-
-  console.log('User: ', username)
-  console.log('Pass: ', password)
 
   let result = username === 'admin' && password === 'notKevin';
   res.status(200).send({authenticated: result});

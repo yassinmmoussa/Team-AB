@@ -87,7 +87,7 @@ export class AddNewCourseModalComponent implements OnInit {
 
 
 
-  onSubmit() {
+  onAddCourse() {
     const newCourse = new Course(
         this.addCourseForm.value.year+this.addCourseForm.value.session+this.addCourseForm.value.department+this.addCourseForm.value.course_code,
         this.addCourseForm.value.duration,
@@ -105,33 +105,12 @@ export class AddNewCourseModalComponent implements OnInit {
         true
       );
 
-    this.crudCoursesService.addNewCourse(newCourse).subscribe(res => console.log(res));
+    // this.crudCoursesService.addNewCourse(newCourse).subscribe(res => console.log(res));
     // TODO: Use EventEmitter with form value
   //  console.warn(this.addCourseForm.value);
+  return newCourse;
   }
-  // export class AddNewCourseModalComponent2 {
 
-  // }
-
-  // onCreatePost(postData: { title: string; content: string }) {
-  //   // Send Http request
-  //   this.http
-  //     .post(
-  //       'https://ng-complete-guide-c56d3.firebaseio.com/posts.json',
-  //       postData
-  //     )
-  //     .subscribe(responseData => {
-  //       console.log(responseData);
-  //     });
-  // }
-
-  // email = new FormControl('', [Validators.required, Validators.email]);
-  //
-  // getErrorMessage() {
-  //   return this.email.hasError('required') ? 'You must enter a value' :
-  //       this.email.hasError('email') ? 'Not a valid email' :
-  //           '';
-  // }
 
 
 }

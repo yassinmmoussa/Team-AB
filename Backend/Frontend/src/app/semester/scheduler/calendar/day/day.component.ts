@@ -23,6 +23,7 @@ export class DayComponent implements OnInit {
   }
 
   @Output() updateCourse = new EventEmitter<Course>();
+  @Output() courseDeleted = new EventEmitter<Course>();
 
   courses: Course[];
   numBlocks = dayConfig.numPeriodsPerDay;
@@ -34,4 +35,7 @@ export class DayComponent implements OnInit {
 
   ngOnInit() {}
 
+  propogateDelete(course) {
+    this.courseDeleted.emit(course)
+  }
 }

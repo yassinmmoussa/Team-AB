@@ -40,7 +40,7 @@ export class CrudCoursesService {
 
   // DELETE a Course
   deleteCourse(course: Course): Observable<{}> {
-    console.log('deleting course')
+    console.log('deleting course');
     const httpOptions = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
     const courseData = course.toJSON();
     const deleteData = { course: courseData };

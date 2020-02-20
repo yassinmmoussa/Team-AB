@@ -7,7 +7,7 @@
       >
   </div>
   <div class="calendar-container">
-    <app-calendar [courses]="this.courses"></app-calendar>
+    <app-calendar [courses]="this.courses" (courseDeleted)='this.courseDeleted.emit($event)'></app-calendar>
   </div>
 </div>
 
