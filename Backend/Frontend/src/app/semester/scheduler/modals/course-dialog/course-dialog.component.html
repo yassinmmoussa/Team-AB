@@ -93,6 +93,8 @@
     </div>
   </div>
 
-  <button class="save-button" mat-flat-button [mat-dialog-close]="{ course: this.course, save: true }">Save & Close</button>
-  <button class="delete-button" mat-flat-button [mat-dialog-close]="{ course: this.course, delete: true }">Delete Course</button>
+  <div class="button-container">
+    <button class="save-button" mat-flat-button [mat-dialog-close]="{ course: this.course, save: true }">Save & Close</button>
+  <button class="save-button" mat-flat-button [mat-dialog-close]="{ course: this.course, delete: true }">Delete Course</button>
+  </div>
 </div>

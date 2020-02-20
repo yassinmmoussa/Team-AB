@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../../model/Course';
 import { Curricula } from 'src/app/model/Curricula';
 
@@ -9,7 +9,10 @@ import { Curricula } from 'src/app/model/Curricula';
 })
 export class SchedulerComponent implements OnInit {
   @Input() courses: Course[];
+  @Input() allCourses: Course[];
   @Input() curricula: Curricula[];
+
+  @Output() courseDeleted = new EventEmitter<Course>();
 
   constructor() { }
 

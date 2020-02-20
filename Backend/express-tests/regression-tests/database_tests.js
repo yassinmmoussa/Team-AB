@@ -107,7 +107,6 @@ it('t1:5 Where\'s the data! No data for years 2018 or earlier', function(done) {
 // ===== Update Course ===== //
 
 // it('t2:0 Did it work? Updating a course that isn\'t in the database', function(done) {
-  
 //     let course = {
 //         year: 2020,
 //         session: 'W',
@@ -171,7 +170,4 @@ it('t4:0 Test deleting dummy data from db', function(done) {
     }
     database.deleteCourse(JSON.stringify(course2beDeleted),
         success => res.status(200).send({wow: success}));
-
-    done();
-
 });

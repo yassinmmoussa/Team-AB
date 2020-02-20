@@ -1,13 +1,13 @@
 <div class="scheduler-body">
   <div class="config-container">
     <app-config-bar
-      [courses]="this.courses"
+      [courses]="this.allCourses"
       [curricula]="this.curricula"
     ></app-config-bar
       >
   </div>
   <div class="calendar-container">
-    <app-calendar [courses]="this.courses"></app-calendar>
+    <app-calendar [courses]="this.courses" (courseDeleted)='this.courseDeleted.emit($event)'></app-calendar>
   </div>
 </div>
 
