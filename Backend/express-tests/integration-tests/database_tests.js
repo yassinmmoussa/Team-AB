@@ -111,27 +111,43 @@ it('t1:6 Where\'s the data! No data for years 2018 or earlier', function(done) {
 
 // ===== Update Course ===== //
 
-// it('t2:0 Did it work? Updating a course that isn\'t in the database', function(done) {
-//     let course = {
-//         year: 2020,
-//         session: 'W',
-//         dept: 'EECS',
-//         code: 3421,
-//         section: 'N',
-//         type: 'lecture',
-//       }
+it('t1:7 Updating a course', function(done) {
+    let course2beUpdated = {    
+        capacity: 0,
+        code: 1,
+        colour: "#993366",
+        course_ref: "1111",
+        dept: "1",
+        display: true,
+        duration: "1",
+        instructor: "Nhi Nhi",
+        is_locked: false,
+        lab_section: "",
+        name: "1",
+        room: "LSB",
+        section: null,
+        session: "1",
+        starting_block: 0,
+        type: "1",
+        year: "1"
+    }
 
-//     database.updateCourse(JSON.stringify(course), 
-//         //success => res.status(200).send({wow: success}));
+    database.updateCourse(JSON.stringify(course2beUpdated), () => {
+        database.lookUpDoc('courses',"1111", function(data) {
+             
+            let room = data[0].room;
+            expect(room).equal('LSB');
+            done();
+        });
+    });
 
-//     done();
 
-// });
+});
 
 
 // ===== Add Course  ===== //
 
-it('t1:7 Add a course', function(done) {
+it('t1:8 Add a course', function(done) {
   
     let course2beAdded = {
         capacity: 0,
@@ -166,12 +182,12 @@ it('t1:7 Add a course', function(done) {
 
 // ===== Delete Course  ===== //
 
-it('t1:8 Test deleting dummy data from db', function(done) {
+it('t1:9 Test deleting dummy data from db', function(done) {
     let course2beDeleted = {    
         capacity: 0,
         code: 1,
         colour: "#993366",
-        course_ref: "1111",
+        course_ref: "3333",
         dept: "EECS",
         display: true,
         duration: "1",
@@ -186,8 +202,9 @@ it('t1:8 Test deleting dummy data from db', function(done) {
         type: "1",
         year: "1"
     }
+
     database.deleteCourse(JSON.stringify(course2beDeleted), () => {
-        database.lookUpDoc('courses',"1111", function(data) {
+        database.lookUpDoc('courses',"3333", function(data) {
             expect(data.length).to.equal(0);
             done();
         })    
