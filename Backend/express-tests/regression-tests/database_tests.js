@@ -5,7 +5,6 @@ const expect = require('chai').expect;
 const database = require('../../express-logic/database');
 
 
-
 // ===== Batch Documents / Get All Courses / Get All Curricula ===== //
 
 it('t1:0 We get some stuff! getAllCourses doesn\'t return null. (Database)', function(done) {
@@ -107,18 +106,70 @@ it('t1:5 Where\'s the data! No data for years 2018 or earlier', function(done) {
 
 // ===== Update Course ===== //
 
-it('t2:0 Did it work? Updating a course that isn\'t in the database', function(done) {
+// it('t2:0 Did it work? Updating a course that isn\'t in the database', function(done) {
   
-    let course = {
-        year: 2020,
-        session: 'W',
-        dept: 'EECS',
-        code: 3421,
-        section: 'N',
-        type: 'lecture',
-      }
+//     let course = {
+//         year: 2020,
+//         session: 'W',
+//         dept: 'EECS',
+//         code: 3421,
+//         section: 'N',
+//         type: 'lecture',
+//       }
 
-    database.updateCourse(JSON.stringify(course), 
+//     database.updateCourse(JSON.stringify(course), 
+//         //success => res.status(200).send({wow: success}));
+
+//     done();
+
+// });
+
+
+// ===== Add Course  ===== //
+
+it('t3:0 Add a course', function(done) {
+  
+    let course2beAdded = {
+        capacity: 0,
+        code: 1,
+        colour: "#993366",
+        course_ref: "1111",
+        days: [],
+        dept: "EECS",
+        display: true,
+        duration: "1",
+        instructor: "Nhi Nhi",
+        is_locked: false,
+        lab_section: "",
+        name: "1",
+        room: "Not Set",
+        section: null,
+        session: "1",
+        starting_block: 0,
+        type: "1",
+        year: "1"
+    }
+
+    database.addOneCourse(JSON.stringify(course2beAdded),
+        success => res.status(200).send({wow: success}));
+
+    done();
+
+});
+
+
+// ===== Delete Course  ===== //
+
+it('t4:0 Test deleting dummy data from db', function(done) {
+    let course2beDeleted = {
+        year: "1",
+        session: "1",
+        dept: "EECS",
+        code: 1,
+        section: null,
+        type: "1"
+    }
+    database.deleteCourse(JSON.stringify(course2beDeleted),
         success => res.status(200).send({wow: success}));
 
     done();
