@@ -127,6 +127,8 @@ function updateCourse(course, callback) {
  * @param {*} callback 
  */
 function deleteCourse(course, callback) {
+    console.log("Someone deleted");
+
     let courseJSON = JSON.parse(course);
     database.collection('courses')
         .where("year","==",courseJSON.year)
@@ -247,6 +249,7 @@ function lookUpDoc(collection, idfield, next) {
         var data =  querySnapshot.docs.map(function (documentSnapshot) {
                         return documentSnapshot.data();
                     });
+        console.log(data)
         next(data)
         return data;
     })
