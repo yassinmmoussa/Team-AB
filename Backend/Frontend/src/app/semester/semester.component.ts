@@ -23,18 +23,14 @@ export class SemesterComponent implements OnInit {
   }
 
   getCourses() {
-    // console.log('Got courses');
     this.dataService.getCourses().subscribe(data => {
       this.courses = this.buildCourseLists(data);
-      // console.log(this.courses);
     });
   }
 
   getCurricula() {
-    // console.log('Getting curricula');
     this.dataService.getCurricula().subscribe(data => {
       this.curricula = this.buildCurriculaList(data);
-      // console.log(this.curricula);
     });
   }
 
@@ -81,7 +77,12 @@ export class SemesterComponent implements OnInit {
         courses[`${courseRef}`].year,
         courses[`${courseRef}`].session,
         courses[`${courseRef}`].type,
-        courses[`${courseRef}`].labSection
+        courses[`${courseRef}`].labSection,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        courses[`${courseRef}`].blocks_per_wk
       ));
     });
     return res;
