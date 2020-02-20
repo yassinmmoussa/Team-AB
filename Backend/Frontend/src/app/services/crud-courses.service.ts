@@ -12,7 +12,10 @@ export class CrudCoursesService {
   constructor(private http: HttpClient) { }
   courseUrl = '/api/courses';
 
-  // POST to add a new course into the database
+  /**
+   * POST new course to the database
+   * @param course The course you wish to add to the database
+   */
   addNewCourse(course: Course): Observable<Course> {
     console.log('adding a course');
     const httpOptions = { headers: new HttpHeaders().set('Content-Type', 'application/json') };

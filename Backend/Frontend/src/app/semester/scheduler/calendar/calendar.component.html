@@ -28,7 +28,7 @@
     <app-day
     [name]='name'
     [(courseList)]='this.courseLists[i]'
-    (updateCourse)='this.updateCourse($event)'
+    (courseUpdated)='this.updateCourse($event)'
     (courseDeleted)='this.propogateDelete($event)'
     ></app-day>
   </div>

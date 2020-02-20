@@ -111,12 +111,13 @@ app.get('/api/curricula', function(req, res) {
 app.post('/api/schedule/runOptimizer', function(req, res) {
   let coursesString = '[\n' + req.body.courses + '\n]';
   let curriculaString = '{\n' + req.body.curricula + '\n}';
+  console.log(coursesString);
   let courses = JSON.parse(coursesString);
   let curricula = Object.values(JSON.parse(curriculaString));
 
   // Call scheduler
   scheduler.frontEnd_schedule(courses, curricula, function(response) {
-
+    console.log('Response:', response);
     // Send response to frontend
     res.status(200).send(response);
   });

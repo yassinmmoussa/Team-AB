@@ -11,7 +11,7 @@ export class SchedulerComponent implements OnInit {
   @Input() courses: Course[];
   @Input() allCourses: Course[];
   @Input() curricula: Curricula[];
-
+  @Output() courseUpdated = new EventEmitter<Course>();
   @Output() courseDeleted = new EventEmitter<Course>();
 
   constructor() { }

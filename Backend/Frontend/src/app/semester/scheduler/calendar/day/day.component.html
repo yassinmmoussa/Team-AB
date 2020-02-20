@@ -18,7 +18,7 @@
       }"
       [(courses)]="this.blocks[i]"
       blockNo="i+1"
-      (courseStateChanged)="this.updateCourse.emit($event)"
+      (courseStateChanged)="courseUpdated.emit($event)"
       (courseDeleted)="propogateDelete($event)"
     >
     </app-block>

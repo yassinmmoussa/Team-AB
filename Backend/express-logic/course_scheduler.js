@@ -130,8 +130,7 @@ function requestBuilder(curricula, courses) {
         })
       };
     }),
-    constraints: [],
-    course_locks
+    constraints: []
   };
 
   return request;
