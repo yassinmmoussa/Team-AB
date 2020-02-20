@@ -133,31 +133,33 @@ it('t1:5 Where\'s the data! No data for years 2018 or earlier', function(done) {
 
 // it('t3:0 Add a course', function(done) {
   
-//     let course2beAdded = {
-//         capacity: 0,
-//         code: 1,
-//         colour: "#993366",
-//         course_ref: "1111",
-//         days: [],
-//         dept: "EECS",
-//         display: true,
-//         duration: "1",
-//         instructor: "Nhi Nhi",
-//         is_locked: false,
-//         lab_section: "",
-//         name: "1",
-//         room: "Not Set",
-//         section: null,
-//         session: "1",
-//         starting_block: 0,
-//         type: "1",
-//         year: "1"
-//     }
+    let course2beAdded = {
+        capacity: 0,
+        code: 1,
+        colour: "#993366",
+        course_ref: "1111",
+        days: [],
+        dept: "EECS",
+        display: true,
+        duration: "1",
+        instructor: "Nhi Nhi",
+        is_locked: false,
+        lab_section: "",
+        name: "1",
+        room: "Not Set",
+        section: null,
+        session: "1",
+        starting_block: 0,
+        type: "1",
+        year: "1"
+    }
 
-//     database.addOneCourse(JSON.stringify(course2beAdded),
-//         success => res.status(200).send({wow: success}));
-
-//     done();
+    database.addOneCourse(JSON.stringify(course2beAdded))
+    database.lookUpDoc('courses',"1111", function(data) {
+        expect(data).empty;
+    })
+    done();
+    
 
 // });
 
