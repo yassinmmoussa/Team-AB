@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { DATA } from "./tag-data";
+import { DATA } from './tag-data';
 
 export interface TagNode {
   name: string;

@@ -3,10 +3,6 @@
   <button class="close-button" mat-flat-button [mat-dialog-close]="{ course: this.refCourse, save: false }">X</button>
   <span class="course-title">{{this.course.dept}} {{this.course.code}} Section {{this.course.section}}</span>
   <span class="course-title" *ngIf="this.course.type === 'lab'"> Lab {{this.course.labSection}}</span>
-  <div class="lock-toggle-cont"> 
-    <mat-slide-toggle class="lock-toggle" [checked]="this.course.isLocked" (change)="this.course.isLocked=!this.course.isLocked"></mat-slide-toggle> <br>
-    <span class="lock-label">Lock</span>
-  </div>
   <mat-icon class="course-icon" [svgIcon]="this.getCourseIconName(course)" aria-hidden="false" aria-label=""></mat-icon> 
   <h2 class="course-name">{{this.course.name}}</h2> 
 

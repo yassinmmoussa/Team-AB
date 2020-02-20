@@ -89,7 +89,7 @@ it('t1:5 Where\'s the data! No data for years 2018 or earlier', function(done) {
 
 });
 
-it('t1:5 Where\'s the data! No data for years 2018 or earlier', function(done) {
+it('t1:6 Where\'s the data! No data for years 2018 or earlier', function(done) {
 
     let i;
     for(i = 2000; i < 2018; i++) {
@@ -131,14 +131,47 @@ it('t1:5 Where\'s the data! No data for years 2018 or earlier', function(done) {
 
 // ===== Add Course  ===== //
 
-// it('t3:0 Add a course', function(done) {
+it('t1:7 Add a course', function(done) {
   
     let course2beAdded = {
+        capacity: 0,
+        code: 2,
+        colour: "#993366",
+        course_ref: "2222",
+        days: [],
+        dept: "2",
+        display: true,
+        duration: "1",
+        instructor: "Nhi Nhi",
+        is_locked: false,
+        lab_section: "",
+        name: "1",
+        room: "Not Set",
+        section: null,
+        session: "2",
+        starting_block: 0,
+        type: "2",
+        year: "2"
+    }
+
+    database.addOneCourse(JSON.stringify(course2beAdded))
+    database.lookUpDoc('courses',"2222", function(data) {
+        expect(data).exist;
+    })
+    done();
+    
+
+});
+
+
+// ===== Delete Course  ===== //
+
+it('t1:8 Test deleting dummy data from db', function(done) {
+    let course2beDeleted = {    
         capacity: 0,
         code: 1,
         colour: "#993366",
         course_ref: "1111",
-        days: [],
         dept: "EECS",
         display: true,
         duration: "1",
@@ -153,28 +186,11 @@ it('t1:5 Where\'s the data! No data for years 2018 or earlier', function(done) {
         type: "1",
         year: "1"
     }
-
-    database.addOneCourse(JSON.stringify(course2beAdded))
-    database.lookUpDoc('courses',"1111", function(data) {
-        expect(data).empty;
-    })
-    done();
+    database.deleteCourse(JSON.stringify(course2beDeleted), () => {
+        database.lookUpDoc('courses',"1111", function(data) {
+            expect(data.length).to.equal(0);
+            done();
+        })    
+    });
     
-
-// });
-
-
-// ===== Delete Course  ===== //
-
-// it('t4:0 Test deleting dummy data from db', function(done) {
-//     let course2beDeleted = {
-//         year: "1",
-//         session: "1",
-//         dept: "EECS",
-//         code: 1,
-//         section: null,
-//         type: "1"
-//     }
-//     database.deleteCourse(JSON.stringify(course2beDeleted),
-//         success => res.status(200).send({wow: success}));
-// });
+}); 
