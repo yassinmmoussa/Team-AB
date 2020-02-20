@@ -12,7 +12,7 @@ import { ColorMap } from '../model/ColorMap';
 export class SemesterComponent implements OnInit {
   courses: Course[];
   curricula: Curricula[];
-  coursesToDisplay: Course[];
+  coursesToDisplay: Course[]=[];
   filters;
 
   constructor(private dataService: DataService) { }
@@ -23,10 +23,8 @@ export class SemesterComponent implements OnInit {
   }
 
   getCourses() {
-    // console.log('Got courses');
     this.dataService.getCourses().subscribe(data => {
       this.courses = this.buildCourseLists(data);
-      // console.log(this.courses);
     });
   }
 
@@ -46,10 +44,8 @@ export class SemesterComponent implements OnInit {
   }
 
   getCurricula() {
-    // console.log('Getting curricula');
     this.dataService.getCurricula().subscribe(data => {
       this.curricula = this.buildCurriculaList(data);
-      // console.log(this.curricula);
     });
   }
 
@@ -82,6 +78,19 @@ export class SemesterComponent implements OnInit {
     this.coursesToDisplay = this.courses.filter(course => course.display);
   }
 
+  /**
+  * @Param course - The course that I want to add to the course list.
+  */
+  updateList(course){
+    // Add to course list
+    this.courses.push(course);
+    // Add to displayed courses so we see the course that we just added.
+        this.coursesToDisplay.push(course);
+
+    console.log(this.courses);
+
+  }
+
   buildCourseLists(courses): Course[] {
     const res: Course[] = [];
 
@@ -100,7 +109,12 @@ export class SemesterComponent implements OnInit {
         courses[`${courseRef}`].year,
         courses[`${courseRef}`].session,
         courses[`${courseRef}`].type,
-        courses[`${courseRef}`].labSection
+        courses[`${courseRef}`].labSection,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        courses[`${courseRef}`].blocks_per_wk
       ));
     });
     return res;

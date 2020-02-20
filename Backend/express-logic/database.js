@@ -67,7 +67,7 @@ function batchDocuments(type, year, session, next) {
 }
 
 /**
- * Function to add 1 document
+ * Function to add 1
  * currently adding directly under hard-coded doc ID
  */
 function addOneCourse(course) {

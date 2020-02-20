@@ -1,2 +1,2 @@
 <app-tag-list (updateGlobalFilters)="updateFilters($event)"></app-tag-list>
-<app-course-list></app-course-list>
+<app-course-list (courseStateChanged)="updateCourse($event)"></app-course-list>
