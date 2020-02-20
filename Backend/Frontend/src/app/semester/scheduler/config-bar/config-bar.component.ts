@@ -34,56 +34,56 @@ export class ConfigBarComponent implements OnInit {
   viewControl = new FormControl();
   programGroups: ProgramGroup[] = [
     {
-      year:'Y1',
+      year: 'Y1',
       program: [
-        {value:'software-0', viewValue:'software'},
+        {value: 'software-0', viewValue: 'software'},
         {value: 'computer-1', viewValue: 'Computer'}
       ]
     },
     {
-      year:'Y2',
+      year: 'Y2',
       program: [
-        {value:'civil-2', viewValue:'Civil'}
+        {value: 'civil-2', viewValue: 'Civil'}
       ]
     }
   ];
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
-    //Array of items to go into buttons
+    // Array of items to go into buttons
     this.configBtns = [
       {
-        "iconUrl": "timeline",
-        "iconText":"Constraints",
-        "click": () => this.openConstraintsDialog()
+        'iconUrl': 'timeline',
+        'iconText': 'Constraints',
+        'click': () => this.openConstraintsDialog()
       },
       {
-        "iconUrl": "calendar_today",
-        "iconText":"Run Optimization",
-        "click": () => this.openOptimizationDialog()
+        'iconUrl': 'calendar_today',
+        'iconText': 'Run Optimization',
+        'click': () => this.openOptimizationDialog()
       },
       {
-        "iconUrl": "save",
-        "iconText":"Export to CSV",
-        "click": () => this.openCsvDialog()
+        'iconUrl': 'save',
+        'iconText': 'Export to CSV',
+        'click': () => this.openCsvDialog()
       },
       {
-        "iconUrl": "people_outline",
-        "iconText":"Team",
-        "click": () => this.openTeamDialog()
+        'iconUrl': 'people_outline',
+        'iconText': 'Team',
+        'click': () => this.openTeamDialog()
       },
       {
-        "iconUrl": "settings",
-        "iconText":"Configurations",
-        "click": () => this.openConfigDialog()
+        'iconUrl': 'settings',
+        'iconText': 'Configurations',
+        'click': () => this.openConfigDialog()
       }
     ]
   }
 
 // Creating the dialog
 
-  openConstraintsDialog(){
-    let dialogRef = this.dialog.open(ConstraintsDialogComponent,{
+  openConstraintsDialog() {
+    const dialogRef = this.dialog.open(ConstraintsDialogComponent, {
       width: '800px',
       height: '700px',
       data: 'this text is passed into the dialog',
@@ -91,12 +91,12 @@ export class ConfigBarComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog closed: ${result}')
+      console.log('Dialog closed: ${result}');
     });
   }
 
   openOptimizationDialog() {
-    let dialogRef = this.dialog.open(OptimizationDialogComponent,{
+    const dialogRef = this.dialog.open(OptimizationDialogComponent, {
       width: '800px',
       height: '700px',
       data: {co: this.courses, cu: this.curricula},
@@ -104,44 +104,44 @@ export class ConfigBarComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog closed: ${result}')
+      console.log('Dialog closed: ${result}');
     });
   }
 
-  openCsvDialog(){
-    let dialogRef = this.dialog.open(CsvDialogComponent,{
+  openCsvDialog() {
+    const dialogRef = this.dialog.open(CsvDialogComponent, {
       width: '800px',
       height: '700px',
       data: 'this text is passed into the dialog'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog closed: ${result}')
-    })
+      console.log('Dialog closed: ${result}');
+    });
   }
 
-  openTeamDialog(){
-    let dialogRef = this.dialog.open(TeamDialogComponent,{
+  openTeamDialog() {
+    const dialogRef = this.dialog.open(TeamDialogComponent, {
       width: '800px',
       height: '700px',
       data: 'this text is passed into the dialog'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog closed: ${result}')
-    })
+      console.log('Dialog closed: ${result}');
+    });
   }
 
-  openConfigDialog(){
-    let dialogRef = this.dialog.open(ConfigDialogComponent,{
+  openConfigDialog() {
+    const dialogRef = this.dialog.open(ConfigDialogComponent, {
       width: '800px',
       height: '700px',
       data: 'this text is passed into the dialog'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog closed: ${result}')
-    })
+      console.log('Dialog closed: ${result}');
+    });
   }
 
 }

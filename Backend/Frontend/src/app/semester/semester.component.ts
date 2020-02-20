@@ -57,7 +57,7 @@ export class SemesterComponent implements OnInit {
   updateFilters(filters) {
     console.log(filters);
     this.filters = filters;
-    
+
     this.filterCourses();
   }
 
