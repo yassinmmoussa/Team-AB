@@ -60,14 +60,9 @@ app.get('/api/courses', function(req, res) {
 });
 
 app.post('/api/courses', function(req, res) {
-<<<<<<< HEAD
   console.log("Someone tried to POST some data");
   console.log(req.body.course);
   database.addOneCourse(req.body.course, () => {});
-=======
-
-  database.addOneCourse(req.body.course);
->>>>>>> a018d5505fa76148018fe52e62e4eac9a94f1129
 });
 
 app.put('/api/courses', function(req, res) {
