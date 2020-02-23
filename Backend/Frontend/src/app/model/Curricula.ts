@@ -29,7 +29,6 @@ export class Curricula {
   }
 
   hasCourse(course: Course): boolean {
-    console.log(this.courseRefs, course.code, this.courseRefs.includes(course.code + ''));
     return this.courseRefs.includes(course.code + '');
   }
 }

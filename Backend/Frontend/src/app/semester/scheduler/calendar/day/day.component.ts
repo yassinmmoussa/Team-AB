@@ -36,6 +36,6 @@ export class DayComponent implements OnInit {
   ngOnInit() {}
 
   propogateDelete(course) {
-    this.courseDeleted.emit(course)
+    this.courseDeleted.emit(course);
   }
 }

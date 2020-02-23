@@ -5,10 +5,11 @@
       (courseStateChanged)="this.addCourse($event)"
     ></app-filter>
     <app-scheduler
-        [courses]="coursesToDisplay"
+        [coursesToDisplay]="this.coursesToDisplay"
         [allCourses]="courses"
         [curricula]="curricula"
         (courseDeleted)="this.removeCourseManually($event)"
         (courseUpdated)="this.updateCourse($event)"
+        (updateWithOptimization)="this.updateWithOptimization($event)"
     ></app-scheduler>
 </div>

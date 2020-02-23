@@ -14,6 +14,7 @@ export class OptimizationDialogComponent implements OnInit {
 
   courses: Course[];
   curricula: Curricula[];
+  optimizationResults;
 
   constructor(private dataService: DataService, public dialogRef: MatDialogRef<CourseDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: {co: Course[], cu: Curricula[]}
@@ -25,16 +26,16 @@ export class OptimizationDialogComponent implements OnInit {
   ngOnInit() {}
 
   runOptimization() {
-    console.log('RUNNING OPTIMIZATION...');
-    console.log(this.curricula);
-    console.log(this.courses);
-
+    // console.log('RUNNING OPTIMIZATION...');
+    // console.log(this.curricula);
+    // console.log(this.courses);
     const curriculaToSchedule = this.curricula.filter(curriculum => {
       return this.courses.some(course => curriculum.hasCourse(course));
     });
     this.dataService.runOptimizer(this.courses, curriculaToSchedule).subscribe(data => {
       console.log('Result of runOptimizer');
       console.log(data);
+      this.optimizationResults = data;
     });
   }
 

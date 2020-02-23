@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
+import { Component, OnInit, Inject, Input, Output, EventEmitter } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {ConstraintsDialogComponent} from '../modals/constraints-dialog/constraints-dialog.component';
 import {OptimizationDialogComponent} from '../modals/optimization-dialog/optimization-dialog.component';
@@ -29,6 +29,7 @@ export class ConfigBarComponent implements OnInit {
 
   @Input() courses: Course[];
   @Input() curricula: Curricula[];
+  @Output() updateWithOptimization = new EventEmitter();
 
   configBtns = [];
   viewControl = new FormControl();
@@ -104,7 +105,7 @@ export class ConfigBarComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog closed: ${result}');
+      this.updateWithOptimization.emit(result);
     });
   }
 

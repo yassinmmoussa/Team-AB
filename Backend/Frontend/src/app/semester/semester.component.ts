@@ -79,6 +79,18 @@ export class SemesterComponent implements OnInit {
   }
 
   /**
+   * Find the course with corresponding ref.
+   * @param ref The ref value of the course you wish to find.
+   */
+  getCourseByRef(ref: string): Course {
+    for (const c of this.courses) {
+      if (c.courseRef === ref) {
+          return c;
+        }
+    }
+  }
+
+  /**
    * Finds the course with matching courseRef and updates it with
    * the rest of the new course information. If the course does not
    * exist, this does nothing.
@@ -111,7 +123,7 @@ export class SemesterComponent implements OnInit {
 
     Object.keys(courses).forEach(courseRef => {
       res.push(new Course(
-        courseRef,
+        '' + courses[`${courseRef}`].code,
         courses[`${courseRef}`].duration,
         courses[`${courseRef}`].dept,
         courses[`${courseRef}`].instructor,
@@ -159,6 +171,40 @@ export class SemesterComponent implements OnInit {
       }
       return filterRes;
     });
+  }
+
+  /**
+   * Handler to update course information with data from scheduler
+   *
+   * @param data: Data from the PCS
+   */
+  updateWithOptimization(data) {
+    for (const soln of data.solutions) {
+      for (const sCurricula of soln.curricula) {
+        for (const sCourse of sCurricula.courses) {
+          this.updateCourseWithOptimizedData(sCourse);
+        }
+      }
+    }
+    this.filterCourses();
+  }
+
+  /**
+   * Helper method to update course information from optimizer data.
+   */
+  updateCourseWithOptimizedData(courseData) {
+    const courseToUpdate = this.getCourseByRef(courseData.course_id);
+    // Update days
+    courseToUpdate.days = [];
+    for (const dayData of courseData.schedule) {
+      courseToUpdate.days.push(dayData.day);
+    }
+    // Update startingBlock
+    courseToUpdate.startingBlock = courseData.schedule[0].start;
+    // Update duration
+    courseToUpdate.duration = courseData.schedule[0].duration;
+
+    console.log('Updated', courseToUpdate);
   }
 
 }

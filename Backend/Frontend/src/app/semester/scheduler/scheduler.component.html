@@ -3,12 +3,13 @@
     <app-config-bar
       [courses]="this.allCourses"
       [curricula]="this.curricula"
+      (updateWithOptimization)=this.updateWithOptimization.emit($event);
     ></app-config-bar
       >
   </div>
   <div class="calendar-container">
     <app-calendar
-      [courses]="this.courses"
+      [courses]="this.coursesToDisplay"
       (courseDeleted)='this.courseDeleted.emit($event)'
       (courseUpdated)='this.courseUpdated.emit($event)'
     ></app-calendar>
