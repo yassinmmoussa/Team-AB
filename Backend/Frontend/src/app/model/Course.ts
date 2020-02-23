@@ -40,7 +40,6 @@ export class Course {
         "type": ${JSON.stringify(this.type)},
         "lab_section": ${JSON.stringify(this.labSection)},
         "display": ${JSON.stringify(this.display)},
-        "is_locked": ${JSON.stringify(this.isLocked)},
         "capacity": ${JSON.stringify(this.capacity)},
         "room": ${JSON.stringify(this.room)},
         "blocks_per_wk": ${JSON.stringify(this.blocksPerWeek)}
@@ -134,7 +133,7 @@ export class Course {
                       this.type,
                       this.display,
                       this.labSection,
-                      this.isLocked,
+                      this.willOptimize,
                       this.capacity,
                       this.room,
                       this.blocksPerWeek
