@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {data} from '../../../scheduler/calendar/data.js'
-import {Course} from '../../../../model/Course'
-import {MatCardModule, MatCard} from '@angular/material/card';
+import { Course } from '../../../../model/Course';
+import { MatCardModule, MatCard } from '@angular/material/card';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -33,11 +32,10 @@ export class CourseEntryComponent implements OnInit {
 
   iconType(): String {
 
-    if (this.course.type === "lecture")
-    {
-      return 'lecture-icon'
-    }else{
-      return 'lab-icon'
+    if (this.course.type === 'lecture') {
+      return '../../../../../assets/people-outline.svg';
+    } else {
+      return '../../../../../assets/flask.svg';
     }
 
   }

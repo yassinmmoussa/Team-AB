@@ -1,5 +1,12 @@
-<mat-card class="course-entry" >
-    <mat-icon class="course-icon" [svgIcon]="this.iconType()" aria-hidden="false" aria-label=""></mat-icon>
-   <span> {{this.course.dept}} {{this.course.code}}</span> Section {{this.course.section}} <!-- Lab {{this.course.labSection}} {{this.course.name}} -->
-   <mat-checkbox (change)="changeCourse($event)" checked="true" style="float: right;"></mat-checkbox>
+<mat-card class="course-entry">
+    <mat-card-header>
+        <img mat-card-avatar class="course-icon" [src]=this.iconType() />
+        <mat-card-title class="course-label">{{this.course.dept}} {{this.course.code}} </mat-card-title>  
+        <mat-card-subtitle>
+            Section {{this.course.section}}
+        </mat-card-subtitle>
+        <div class="checkbox-cont">
+            <mat-checkbox (change)="changeCourse($event)" checked="true"></mat-checkbox>
+        </div>
+    </mat-card-header>
 </mat-card>

@@ -1,5 +1,6 @@
 .config-body {
     height: 200px;
+    min-width: 890px;
     width: 100%;
     background: white;
 }
@@ -31,4 +32,13 @@ min-width: unset!important; */
 .dropdown {
   top: 60px;
   left: 30px;
+}
+
+.icon-text {
+  margin-left: 5px;
+}
+@media(max-width:1120px) {
+  .icon-text {
+    display: none;
+  }
 }

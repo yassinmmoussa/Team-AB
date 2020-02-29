@@ -8,7 +8,7 @@
 
 .container {
     display: grid;
-    grid-template-columns: 29% 70%;
+    grid-template-columns: 300px auto;
     grid-template-rows: auto;
     grid-column-gap: 1%;
     justify-items: stretch;

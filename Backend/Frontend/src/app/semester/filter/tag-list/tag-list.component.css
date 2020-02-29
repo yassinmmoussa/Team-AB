@@ -3,6 +3,8 @@
     width: 100%;
     background-color: white;
     overflow: auto;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
 }
 
 .tags {

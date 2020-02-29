@@ -4,10 +4,20 @@
     background-color: white;
     overflow-y: scroll;
     overflow-x: scroll;
+    border: 1px solid #eee;
 }
 
 .plus-btn {
     background-color: #F1F1F1 !important;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px;
 }
+
+.plus-btn:hover {
+    background-color: #eee !important;
+}
+
+.inner-shadow {
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+ }

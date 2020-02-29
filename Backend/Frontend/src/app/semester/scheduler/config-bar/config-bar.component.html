@@ -1,7 +1,7 @@
 <div class="config-body">
   <div class="button-row" *ngFor =  "let btn of configBtns">
     <button class = "config-btn" mat-flat-button (click)="btn.click()">
-      <mat-icon>{{btn["iconUrl"]}} </mat-icon> {{btn["iconText"]}}
+      <mat-icon>{{btn["iconUrl"]}} </mat-icon> <span class="icon-text">{{btn["iconText"]}}</span>
     </button>
   </div>
   <div class="config-controls">
@@ -14,7 +14,7 @@
     </button>
 
     <button class = "config-ctrl-arrow" mat-flat-button>
-      <mat-icon>save_alt</mat-icon> Save Current View
+      <mat-icon>save_alt</mat-icon><span class="icon-text">Save Current View</span>
     </button>
 
   <mat-form-field class = "dropdown">
