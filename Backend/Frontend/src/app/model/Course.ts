@@ -1,8 +1,9 @@
 export class Course {
+  
+  blockOptions: number[] = [2, 4, 6];
 
   constructor(
     public courseRef: string,
-    public duration: number,
     public dept: string,
     public instructor: string,
     public code: number,
@@ -26,7 +27,7 @@ export class Course {
     const res = `
       {
         "course_ref": ${JSON.stringify(this.courseRef)},
-        "duration": ${JSON.stringify(this.duration)},
+        "duration": ${JSON.stringify(this.duration())},
         "dept": ${JSON.stringify(this.dept)},
         "instructor": ${JSON.stringify(this.instructor)},
         "code": ${this.code},
@@ -45,6 +46,25 @@ export class Course {
         "blocks_per_wk": ${JSON.stringify(this.blocksPerWeek)}
       }
     `;
+    return res;
+  }
+
+  dayOptions(): string[] {
+    let res = [];
+    switch (this.teachingHours()) {
+      case 1:
+        res = ['M,W,F'];
+        break;
+      case 2:
+        res = ['M,W', 'T,Th'];
+        break;
+      case 3:
+        res = ['M', 'T', 'W', 'Th', 'F'];
+        break;
+      default:
+        res = [];
+        break;
+    }
     return res;
   }
 
@@ -82,7 +102,7 @@ export class Course {
   }
 
   endTime(): string {
-    return '' + this.blockToTime(this.startingBlock + this.duration);
+    return '' + this.blockToTime(this.startingBlock + this.duration());
   }
 
   blockToTime(blockNo: number): string {
@@ -119,7 +139,6 @@ export class Course {
 
   deepCopy(): Course {
     return new Course(this.courseRef,
-                      this.duration,
                       this.dept,
                       this.instructor,
                       this.code,
@@ -145,4 +164,13 @@ export class Course {
     this.days.forEach(day => res.push(day));
     return res;
   }
+
+  teachingHours(): number {
+    return this.blocksPerWeek / 2;
+  }
+
+  duration(): number {
+    return this.blocksPerWeek / this.days.length;
+  }
+
 }

@@ -54,31 +54,32 @@ export class ConfigBarComponent implements OnInit {
     // Array of items to go into buttons
     this.configBtns = [
       {
-        'iconUrl': 'timeline',
-        'iconText': 'Constraints',
-        'click': () => this.openConstraintsDialog()
+        iconUrl: 'timeline',
+        iconText: 'Constraints',
+        click: () => this.openConstraintsDialog(),
+        disabled: true
       },
       {
-        'iconUrl': 'calendar_today',
-        'iconText': 'Run Optimization',
-        'click': () => this.openOptimizationDialog()
+        iconUrl: 'calendar_today',
+        iconText: 'Run Optimization',
+        click: () => this.openOptimizationDialog()
       },
       {
-        'iconUrl': 'save',
-        'iconText': 'Export to CSV',
-        'click': () => this.openCsvDialog()
+        iconUrl: 'save',
+        iconText: 'Export to CSV',
+        click: () => this.openCsvDialog()
       },
       {
-        'iconUrl': 'people_outline',
-        'iconText': 'Team',
-        'click': () => this.openTeamDialog()
+        iconUrl: 'people_outline',
+        iconText: 'Team',
+        click: () => this.openTeamDialog()
       },
       {
-        'iconUrl': 'settings',
-        'iconText': 'Configurations',
-        'click': () => this.openConfigDialog()
+        iconUrl: 'settings',
+        iconText: 'Configurations',
+        click: () => this.openConfigDialog()
       }
-    ]
+    ];
   }
 
 // Creating the dialog
@@ -145,6 +146,21 @@ export class ConfigBarComponent implements OnInit {
     });
   }
 
+  isDisabled(name: string) {
+    switch (name) {
+      case 'Constraints':
+        return true;
+      case 'Export to CSV':
+        return true;
+      case 'Team':
+        return true;
+      case 'Configurations':
+        return true;
+      default:
+        return false;
+        break;
+    }
+  }
 }
 
 // @Component({

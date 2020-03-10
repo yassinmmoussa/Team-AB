@@ -26,7 +26,6 @@ export class CourseListComponent implements OnInit {
           //REORDER THIS
         localCourseList.push(new Course(
           courseRef,
-          courses[`${courseRef}`].duration,
           courses[`${courseRef}`].dept,
           courses[`${courseRef}`].instructor,
           courses[`${courseRef}`].code,
@@ -38,17 +37,15 @@ export class CourseListComponent implements OnInit {
           courses[`${courseRef}`].year,
           courses[`${courseRef}`].session,
           courses[`${courseRef}`].type,
-          courses[`${courseRef}`].labSection
-        ))
-
-    })
-
-
-
+          courses[`${courseRef}`].display,
+          courses[`${courseRef}`].labSection,
+          courses[`${courseRef}`].willOptimize,
+          courses[`${courseRef}`].capacity,
+          courses[`${courseRef}`].room,
+          courses[`${courseRef}`].blocksPerWeek,
+        ));
+    });
     return localCourseList;
-
-
-
   }
 
 

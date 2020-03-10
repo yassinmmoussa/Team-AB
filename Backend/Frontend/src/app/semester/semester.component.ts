@@ -124,7 +124,6 @@ export class SemesterComponent implements OnInit {
     Object.keys(courses).forEach(courseRef => {
       res.push(new Course(
         '' + courses[`${courseRef}`].code,
-        courses[`${courseRef}`].duration,
         courses[`${courseRef}`].dept,
         courses[`${courseRef}`].instructor,
         courses[`${courseRef}`].code,
@@ -202,7 +201,7 @@ export class SemesterComponent implements OnInit {
     // Update startingBlock
     courseToUpdate.startingBlock = courseData.schedule[0].start;
     // Update duration
-    courseToUpdate.duration = courseData.schedule[0].duration;
+    // courseToUpdate.duration = courseData.schedule[0].duration;
 
     console.log('Updated', courseToUpdate);
   }

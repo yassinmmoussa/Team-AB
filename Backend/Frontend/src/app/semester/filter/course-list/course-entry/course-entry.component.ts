@@ -14,23 +14,18 @@ export class CourseEntryComponent implements OnInit {
 
   @Input() course: Course;
 
-
-
-
-
-
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
 
     iconRegistry.addSvgIcon(
       'lecture-icon',
       sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/people-outline.svg'));
-  iconRegistry.addSvgIcon(
+    iconRegistry.addSvgIcon(
     'lab-icon',
     sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/flask.svg'));
 
   }
 
-  iconType(): String {
+  iconType(): string {
 
     if (this.course.type === 'lecture') {
       return '../../../../../assets/people-outline.svg';
@@ -40,11 +35,12 @@ export class CourseEntryComponent implements OnInit {
 
   }
 
-  changeCourse(event){
-      console.log(event)
+  changeCourse(event) {
+      console.log(event);
   }
 
   ngOnInit() {
+    console.log(this.course);
   }
 
 }

@@ -71,6 +71,7 @@
 
 .inner-item {
   flex-grow: 1;
+  margin:8px;
   text-align: center;
 }
 
