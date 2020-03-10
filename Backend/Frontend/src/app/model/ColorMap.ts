@@ -5,21 +5,25 @@ export class ColorMap {
   static EECS = '#993366';
   static ENG = '#E1AA12';
 
-  static getColor(dept: string): string {
+  getColor(dept: string): string {
     const upperDept = dept.toUpperCase();
     switch (upperDept) {
       case 'ESSE':
-        return this.ESSE;
+        return ColorMap.ESSE;
       case 'MECH':
-        return this.MECH;
+        return ColorMap.MECH;
       case 'CIVL':
-        return this.CIVL;
+        return ColorMap.CIVL;
       case 'EECS':
-        return this.EECS;
+        return ColorMap.EECS;
       case 'ENG':
-        return this.ENG;
+        return ColorMap.ENG;
       default:
         return '#FFFFFF';
     }
+  }
+
+  getLighterColor(dept: string): string {
+    return this.getColor(dept) + '40';
   }
 }

@@ -1,18 +1,32 @@
 .course-icon {
-    /* position: relative; */
-    /* top: 3px; */
-    border-radius: 0 !important;
+    position: relative;
+    top: 1px;
+    /* border-radius: 0 !important; */
+    height: 20px;
+    width: 20px;
+    padding: 7px;
   }
 
 .course-label {
   /* margin-left: 5px; */
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 .course-entry{
   border-radius: 0px !important;
+  height: 30px;
+  cursor: pointer;
+  border: 0 !important;
+  border-bottom: 0.1px solid #fff !important;
+  box-shadow: none !important;
 }
 
 .checkbox-cont {
   display: inline;
   text-align: right;
 }
+
+.card-header {
+  position: relative;
+  top: -3px;
+}
+

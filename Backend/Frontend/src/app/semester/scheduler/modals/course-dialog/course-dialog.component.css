@@ -51,6 +51,7 @@
 
 .alternate-times {
   min-height: 200px;
+  background: rgba(0, 0, 0, 0);
 }
 .section-title {
   padding: 0;
@@ -67,6 +68,8 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   /* margin: 10px; */
   border-radius: 5px;
+  align-items: center;
+  justify-content: center;
 }
 
 .inner-item {

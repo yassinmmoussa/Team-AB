@@ -1,6 +1,9 @@
+import { ColorMap } from './ColorMap';
+
 export class Course {
-  
+
   blockOptions: number[] = [2, 4, 6];
+  colorMap: ColorMap = new ColorMap();
 
   constructor(
     public courseRef: string,
@@ -133,8 +136,7 @@ export class Course {
   }
 
   innerContainerColour(): string {
-    const lessOpaqueHex = this.colour + '40';
-    return lessOpaqueHex;
+    return this.colorMap.getLighterColor(this.dept);
   }
 
   deepCopy(): Course {

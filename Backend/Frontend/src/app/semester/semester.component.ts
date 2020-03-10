@@ -13,6 +13,7 @@ export class SemesterComponent implements OnInit {
   courses: Course[];
   curricula: Curricula[];
   coursesToDisplay: Course[];
+  colorMap: ColorMap = new ColorMap();
   filters;
 
   constructor(private dataService: DataService) { }
@@ -128,7 +129,7 @@ export class SemesterComponent implements OnInit {
         courses[`${courseRef}`].instructor,
         courses[`${courseRef}`].code,
         courses[`${courseRef}`].starting_block,
-        ColorMap.getColor(courses[`${courseRef}`].dept), // Derive color based on dept
+        this.colorMap.getColor(courses[`${courseRef}`].dept), // Derive color based on dept
         courses[`${courseRef}`].name,
         courses[`${courseRef}`].section,
         courses[`${courseRef}`].days,
