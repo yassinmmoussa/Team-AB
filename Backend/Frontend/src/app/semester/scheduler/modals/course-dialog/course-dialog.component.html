@@ -42,11 +42,11 @@
       <div class="inner-item">
         <h4 class="inner-item-data">{{this.course.daysOut()}}</h4>
         <div class="inner-item-data-dialog">
-          <mat-checkbox
+          <!-- <mat-checkbox
             *ngFor="let day of this.dayOptions; let i = index"
             [checked]="this.course.days.includes(i)"
             (change)="daysChange(day, $event)"
-          ></mat-checkbox>
+          ></mat-checkbox> -->
         </div>
         <span class="inner-item-label">Days</span>
       </div>
@@ -111,7 +111,7 @@
       }"
     >
 
-    <app-calendar></app-calendar>
+    <!-- <app-calendar></app-calendar> -->
     </div>
   </div>
 

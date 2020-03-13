@@ -1,13 +1,13 @@
 <div class="optimize-modal-body">
   <button class="close-button" mat-flat-button matDialogClose>X</button>
   <h1>Optimization</h1>
-  <!-- <div class="filter-box"> -->
+  <div class="filter-box">
   <!-- <app-course-list class="course-list-body"></app-course-list> -->
   <div class="selection-container">
-    <div style="width: 50%;">
+    <!-- <div style="width: 50%;">
       <app-course-list></app-course-list>
-    </div>
-    <div class='right-col' style="width: 50%;">
+    </div> -->
+    <div class='right-col'>
       <app-tag-list (updateGlobalFilters)="updateFilters($event)"></app-tag-list>
       <tr>
         <td><button class="optBtn" mat-flat-button> Minimize Breaks</button></td>

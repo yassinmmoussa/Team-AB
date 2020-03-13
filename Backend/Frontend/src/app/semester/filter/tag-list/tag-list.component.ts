@@ -46,7 +46,7 @@ export class TagListComponent implements OnInit {
             dept,
             courseYear: nodeDataArray[0].charAt(1),
             courseType: nodeDataArray[1]
-          }
+          };
           if (tag.selected) {
             this.filters.push(nodeData);
           }

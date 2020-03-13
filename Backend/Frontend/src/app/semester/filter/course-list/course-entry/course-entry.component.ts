@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Course } from '../../../../model/Course';
 import { ColorMap } from '../../../../model/ColorMap';
 import { MatCardModule, MatCard } from '@angular/material/card';
@@ -17,6 +17,8 @@ export class CourseEntryComponent implements OnInit {
 
 
   @Input() course: Course;
+  @Output() courseUpdated = new EventEmitter<Course>();
+  @Output() courseDeleted = new EventEmitter<Course>();
 
   cMap: ColorMap = new ColorMap();
   courseDialog: MatDialog;
@@ -48,7 +50,7 @@ export class CourseEntryComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.course);
+    // console.log(this.course);
   }
 
   openCourseDialog(c: Course) {
@@ -64,7 +66,7 @@ export class CourseEntryComponent implements OnInit {
        // If they hit the 'x', then it will be null and this will fail
       if (result.save) {
         this.crudCoursesService.updateCourse(result.course).subscribe(res => console.log(res));
-        this.courseStateChanged.emit(result.course);
+        this.courseUpdated.emit(result.course);
       } else if (result.delete) {
         this.crudCoursesService.deleteCourse(result.course).subscribe(() => {});
         this.courseDeleted.emit(result.course);

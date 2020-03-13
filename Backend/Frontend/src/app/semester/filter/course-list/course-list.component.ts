@@ -14,13 +14,14 @@ import { CrudCoursesService } from '../../../services/crud-courses.service';
 })
 export class CourseListComponent implements OnInit {
 
-  @Input() course: Course;
+  @Input() courses: Course[];
   courseList: Course[] = [];
 
-  @Output() courseStateChanged = new EventEmitter<Course>();
-
-  populateCourses(): Course[]{
-    let localCourseList: Course[] = [];
+  @Output() courseUpdated = new EventEmitter<Course>();
+  @Output() courseDeleted = new EventEmitter<Course>();
+  @Output() courseAdded = new EventEmitter<Course>();
+  populateCourses(): Course[] {
+    const localCourseList: Course[] = [];
     const courses = data.courses;
     Object.keys(courses).forEach(courseRef => {
           //REORDER THIS
@@ -49,25 +50,25 @@ export class CourseListComponent implements OnInit {
   }
 
 
-  constructor(public dialog: MatDialog, private crudCoursesService : CrudCoursesService) {
-    this.courseList = this.populateCourses();
-
-   }
+  constructor(public dialog: MatDialog, private crudCoursesService: CrudCoursesService) {
+    // this.courseList = this.populateCourses(); Old
+  }
 
   ngOnInit() {
+    this.courseList = this.courses;
   }
 
   openAddCourseDialog(){
-    let dialogRef = this.dialog.open(AddNewCourseModalComponent,{
+    const dialogRef = this.dialog.open(AddNewCourseModalComponent, {
       width: '800px',
       height: '700px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
      console.log('Dialog closed', result);
-     this.crudCoursesService.addNewCourse(result).subscribe(result => console.log(result));
-     this.courseStateChanged.emit(result);
-    })
+     this.crudCoursesService.addNewCourse(result).subscribe(res => console.log(res));
+     this.courseAdded.emit(result);
+    });
   }
 
 }

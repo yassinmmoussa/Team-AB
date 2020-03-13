@@ -4,31 +4,30 @@
       <mat-icon>{{btn["iconUrl"]}} </mat-icon> <span class="icon-text">{{btn["iconText"]}}</span>
     </button>
   </div>
-  <!-- <div class="config-controls">
-    <button class = "config-ctrl-arrow" mat-flat-button>
+  <div class="config-controls">
+    <button class="config-ctrl-arrow" mat-flat-button>
       <mat-icon>chevron_left</mat-icon>
     </button>
 
-    <button class = "config-ctrl-arrow" mat-flat-button>
+    <button class="config-ctrl-arrow" mat-flat-button>
       <mat-icon>chevron_right</mat-icon>
     </button>
 
-    <button class = "config-ctrl-arrow" mat-flat-button>
+    <button class="config-ctrl-arrow" mat-flat-button>
       <mat-icon>save_alt</mat-icon><span class="icon-text">Save Current View</span>
-    </button> -->
+    </button>
 
-  <!-- <mat-form-field class = "dropdown">
-  <mat-label>View</mat-label>
-  <mat-select [formControl]="viewControl">
-    <mat-option>-- None --</mat-option>
-    <mat-optgroup *ngFor="let group of programGroups" [label]="group.year"
-                  [disabled]="group.disabled">
-      <mat-option *ngFor="let program of group.program" [value]="program.value">
-        {{program.viewValue}}
-      </mat-option>
-    </mat-optgroup>
-  </mat-select>
-</mat-form-field> -->
+    <mat-form-field class="dropdown">
+      <mat-label>View</mat-label>
+      <mat-select [formControl]="viewControl">
+        <mat-option>-- None --</mat-option>
+        <mat-optgroup *ngFor="let group of programGroups" [label]="group.year" [disabled]="group.disabled">
+          <mat-option *ngFor="let program of group.program" [value]="program.value">
+            {{program.viewValue}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field>
 
-<!-- </div> -->
+  </div>
 </div>
