@@ -1,7 +1,19 @@
-<mat-card class="course-entry">
-    <mat-card-header>
-        <img mat-card-avatar class="course-icon" [src]=this.iconType() />
-        <mat-card-title class="course-label">{{this.course.dept}} {{this.course.code}} </mat-card-title>  
+<mat-card
+    class="course-entry"
+    (click)="openCourseDialog(course)"
+    [ngStyle]="{'background-color':cMap.getLighterColor(this.course.dept)}"
+    >
+    <mat-card-header class="card-header">
+        <img
+            mat-card-avatar
+            class="course-icon"
+            [src]=this.iconType()
+            [ngStyle]="{'background-color':cMap.getColor(this.course.dept)}"
+        />
+        <mat-card-title
+            class="course-label">
+            {{this.course.dept}} {{this.course.code}}
+        </mat-card-title>  
         <mat-card-subtitle>
             Section {{this.course.section}}
         </mat-card-subtitle>

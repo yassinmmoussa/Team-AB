@@ -1,4 +1,15 @@
 <div class="container">  
+<<<<<<< HEAD
   <app-tag-list (updateGlobalFilters)="updateFilters($event)"></app-tag-list>
   <app-course-list (courseStateChanged)="updateCourse($event)" showAdd="true"></app-course-list>
+=======
+  <app-tag-list (updateGlobalFilters)="this.updateGlobalFilters.emit($event)"></app-tag-list>
+  <app-course-list
+    [courses]=this.coursesToDisplay
+    (courseAdded)="this.courseAdded.emit($event)"
+    (courseUpdated)="this.courseUpdated.emit($event)"
+    (courseDeleted)="this.courseDeleted.emit($event)"
+  >
+  </app-course-list>
+>>>>>>> master
 </div>

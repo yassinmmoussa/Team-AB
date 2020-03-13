@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Course } from '../../model/Course';
 
 @Component({
@@ -7,21 +7,15 @@ import { Course } from '../../model/Course';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
+  @Input() coursesToDisplay: Course[];
   @Output() updateGlobalFilters = new EventEmitter();
-  @Output() courseStateChanged = new EventEmitter<Course>();
+  @Output() courseAdded = new EventEmitter<Course>();
+  @Output() courseUpdated = new EventEmitter<Course>();
+  @Output() courseDeleted = new EventEmitter<Course>();
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
-  updateCourse(course) {
-    this.courseStateChanged.emit(course)
-  }
-
-  updateFilters(filters) {
-    this.updateGlobalFilters.emit(filters);
-  }
+  ngOnInit() {}
 
 
 }

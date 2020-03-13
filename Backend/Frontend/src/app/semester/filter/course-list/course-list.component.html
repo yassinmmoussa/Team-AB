@@ -2,7 +2,11 @@
     <button class = "plus-btn" mat-flat-button (click)="openAddCourseDialog()"> + </button> Add New Class
 </div>
 <div class="course-list-body">
-    <div *ngFor="let course of this.courseList">
-        <app-course-entry [course]="course" (courseToggled)="onToggle(course)"></app-course-entry>
+    <div *ngFor="let course of this.courses">
+        <app-course-entry
+            [course]="course"
+            (courseUpdated)="this.courseUpdated.emit($event)"
+            (courseDeleted)="this.courseDeleted.emit($event)"
+        ></app-course-entry>
     </div>
 </div>

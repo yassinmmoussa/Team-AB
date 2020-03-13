@@ -11,65 +11,9 @@ import {Course} from '../../../model/Course'
 })
 export class AddNewCourseModalComponent implements OnInit {
 
-
-
-
-
-  InputFields = [];
-
-
   constructor(private crudCoursesService: CrudCoursesService) { }
 
-  ngOnInit() {
-    this.InputFields = [
-      {
-        "fieldText" : "Enter Year",
-        "placeholder" : "i.e 2020",
-        "fControl" : "year"
-      },
-      {
-        "fieldText" : "Enter Session",
-        "placeholder" : "i.e F",
-        "fControl" : "session"
-      },
-      {
-        "fieldText" : "Enter Department",
-        "placeholder" : "i.e EECS",
-        "fControl" : "department"
-      },
-      {
-        "fieldText" : "Enter Course Name",
-        "placeholder" : "i.e E-Commerce",
-        "fControl" : "course_name"
-      },
-      {
-        "fieldText" : "Enter Course Code",
-        "placeholder" : "i.e 4413",
-        "fControl" : "course_code"
-      },
-      {
-        "fieldText" : "Enter Course Type",
-        "placeholder" : "i.e Lecture",
-        "fControl" : "course_type"
-      },
-      {
-        "fieldText" : "Enter Duration",
-        "placeholder" : "i.e 3",
-        "fControl" : "duration"
-      },
-      {
-        "fieldText" : "Enter Instructor",
-        "placeholder" : "i.e Marin L",
-        "fControl" : "instructor"
-      },
-      {
-        "fieldText" : "Enter Location",
-        "placeholder" : "i.e LSB 105",
-        "fControl" : "location"
-      }
-
-    ]
-  }
+  InputFields = [];
 
   addCourseForm = new FormGroup({
     year: new FormControl(''),
@@ -78,19 +22,68 @@ export class AddNewCourseModalComponent implements OnInit {
     course_name : new FormControl(''),
     course_code: new FormControl(''),
     course_type : new FormControl(''),
-    duration : new FormControl(''),
+    teachingHoursPerWeek : new FormControl(''),
     instructor : new FormControl(''),
     location : new FormControl('')
   });
 
+  ngOnInit() {
+    this.InputFields = [
+      {
+        fieldText : 'Enter Year',
+        placeholder : 'i.e 2020',
+        fControl : 'year'
+      },
+      {
+        fieldText : 'Enter Session',
+        placeholder : 'i.e F',
+        fControl : 'session'
+      },
+      {
+        fieldText : 'Enter Department',
+        placeholder : 'i.e EECS',
+        fControl : 'department'
+      },
+      {
+        fieldText : 'Enter Course Name',
+        placeholder : 'i.e E-Commerce',
+        fControl : 'course_name'
+      },
+      {
+        fieldText : 'Enter Course Code',
+        placeholder : 'i.e 4413',
+        fControl : 'course_code'
+      },
+      {
+        fieldText : 'Enter Course Type',
+        placeholder : 'i.e Lecture',
+        fControl : 'course_type'
+      },
+      {
+        fieldText : 'Enter Teaching Hours Per Week',
+        placeholder : 'i.e 3',
+        fControl : 'teachingHoursPerWeek'
+      },
+      {
+        fieldText : 'Enter Instructor',
+        placeholder : 'i.e Marin L',
+        fControl : 'instructor'
+      },
+      {
+        fieldText : 'Enter Location',
+        placeholder : 'i.e LSB 105',
+        fControl : 'location'
+      }
 
-
-
+    ];
+  }
 
   onAddCourse() {
     const newCourse = new Course(
-        this.addCourseForm.value.year+this.addCourseForm.value.session+this.addCourseForm.value.department+this.addCourseForm.value.course_code,
-        this.addCourseForm.value.duration,
+        this.addCourseForm.value.year +
+          this.addCourseForm.value.session +
+          this.addCourseForm.value.department +
+          this.addCourseForm.value.course_code,
         this.addCourseForm.value.department,
         this.addCourseForm.value.instructor,
         this.addCourseForm.value.course_code,
@@ -102,15 +95,17 @@ export class AddNewCourseModalComponent implements OnInit {
         this.addCourseForm.value.year,
         this.addCourseForm.value.session,
         this.addCourseForm.value.course_type,
-        true
+        true,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        this.addCourseForm.value.teachingHoursPerWeek,
       );
 
     // this.crudCoursesService.addNewCourse(newCourse).subscribe(res => console.log(res));
     // TODO: Use EventEmitter with form value
   //  console.warn(this.addCourseForm.value);
-  return newCourse;
+    return newCourse;
   }
-
-
-
 }

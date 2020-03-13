@@ -3,7 +3,7 @@
     class="course"
     *ngFor="let course of this.coursesStarting" 
     [ngStyle]="{
-      'height':100*course.duration+'%',
+      'height':100*course.duration()-2+'%',
       'background-color':course.colour,
       'width':this.calcBlockWidth()+'%'
     }"

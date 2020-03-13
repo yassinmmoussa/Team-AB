@@ -17,7 +17,7 @@ import { TagNode } from "./tag-list.component";
 //                 selected: false
 //             }
 //         ],
-//         leaf: true
+//         leaf: false
 //     },
 //     {
 //         name: "Y2",
@@ -35,7 +35,7 @@ import { TagNode } from "./tag-list.component";
 //                 selected: false
 //             }
 //         ],
-//         leaf: true
+//         leaf: false
 //     },
 //     {
 //         name: "Y3",
@@ -53,7 +53,7 @@ import { TagNode } from "./tag-list.component";
 //                 selected: false
 //             }
 //         ],
-//         leaf: true
+//         leaf: false
 //     },
 //     {
 //         name: "Y4",
@@ -71,7 +71,7 @@ import { TagNode } from "./tag-list.component";
 //                 selected: false
 //             }
 //         ],
-//         leaf: true
+//         leaf: false
 //     }
 // ]
 
@@ -119,7 +119,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y1ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y2",
@@ -140,7 +140,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y2ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y3",
@@ -161,7 +161,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y3ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y4",
@@ -182,7 +182,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y4ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             }
 //         ]
 //     },
@@ -208,7 +208,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y1ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y2",
@@ -229,7 +229,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y2ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y3",
@@ -250,7 +250,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y3ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y4",
@@ -271,7 +271,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y4ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             }
 //         ]
 //     },
@@ -297,7 +297,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y1ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y2",
@@ -318,7 +318,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y2ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y3",
@@ -339,7 +339,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y3ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y4",
@@ -360,7 +360,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y4ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             }
 //         ]
 //     },
@@ -386,7 +386,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y1ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y2",
@@ -407,7 +407,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y2ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y3",
@@ -428,7 +428,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y3ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y4",
@@ -449,7 +449,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y4ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             }
 //         ]
 //     },
@@ -475,7 +475,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y1ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y2",
@@ -496,7 +496,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y2ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y3",
@@ -517,7 +517,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y3ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             },
 //             {
 //                 name: "Y4",
@@ -538,7 +538,7 @@ import { TagNode } from "./tag-list.component";
 //                         color: y4ColorTutorial
 //                     }
 //                 ],
-//                 leaf: true
+//                 leaf: false
 //             }
 //         ]
 //     }
@@ -579,7 +579,7 @@ export const DATA: TagNode[] = [
                         color: eecsColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y2",
@@ -600,7 +600,7 @@ export const DATA: TagNode[] = [
                         color: eecsColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y3",
@@ -621,7 +621,7 @@ export const DATA: TagNode[] = [
                         color: eecsColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y4",
@@ -642,7 +642,7 @@ export const DATA: TagNode[] = [
                         color: eecsColor
                     }
                 ],
-                leaf: true
+                leaf: false
             }
         ]
     },
@@ -668,7 +668,7 @@ export const DATA: TagNode[] = [
                         color: mechColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y2",
@@ -689,7 +689,7 @@ export const DATA: TagNode[] = [
                         color: mechColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y3",
@@ -710,7 +710,7 @@ export const DATA: TagNode[] = [
                         color: mechColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y4",
@@ -731,7 +731,7 @@ export const DATA: TagNode[] = [
                         color: mechColor
                     }
                 ],
-                leaf: true
+                leaf: false
             }
         ]
     },
@@ -757,7 +757,7 @@ export const DATA: TagNode[] = [
                         color: civilColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y2",
@@ -778,7 +778,7 @@ export const DATA: TagNode[] = [
                         color: civilColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y3",
@@ -799,7 +799,7 @@ export const DATA: TagNode[] = [
                         color: civilColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y4",
@@ -820,7 +820,7 @@ export const DATA: TagNode[] = [
                         color: civilColor
                     }
                 ],
-                leaf: true
+                leaf: false
             }
         ]
     },
@@ -846,7 +846,7 @@ export const DATA: TagNode[] = [
                         color: esseColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y2",
@@ -867,7 +867,7 @@ export const DATA: TagNode[] = [
                         color: esseColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y3",
@@ -888,7 +888,7 @@ export const DATA: TagNode[] = [
                         color: esseColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y4",
@@ -909,7 +909,7 @@ export const DATA: TagNode[] = [
                         color: esseColor
                     }
                 ],
-                leaf: true
+                leaf: false
             }
         ]
     },
@@ -935,7 +935,7 @@ export const DATA: TagNode[] = [
                         color: engColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y2",
@@ -956,7 +956,7 @@ export const DATA: TagNode[] = [
                         color: engColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y3",
@@ -977,7 +977,7 @@ export const DATA: TagNode[] = [
                         color: engColor
                     }
                 ],
-                leaf: true
+                leaf: false
             },
             {
                 name: "Y4",
@@ -998,7 +998,7 @@ export const DATA: TagNode[] = [
                         color: engColor
                     }
                 ],
-                leaf: true
+                leaf: false
             }
         ]
     }

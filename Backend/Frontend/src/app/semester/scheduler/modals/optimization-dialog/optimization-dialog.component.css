@@ -10,8 +10,8 @@
   text-align: center;
 }
  .filter-box{
-   height: 400px;
-   width: 200px;
+   /* height: 400px;
+   width: 200px; */
    overflow-y: hidden;
 
 
@@ -85,6 +85,10 @@
   margin-top: 20px;
   background-color: #f1f1f1;
 
+}
+
+.right-col {
+  margin-left: 10px;
 }
 
 /* .inner-tag-list-box {

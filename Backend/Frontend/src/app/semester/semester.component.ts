@@ -12,8 +12,9 @@ import { ColorMap } from '../model/ColorMap';
 export class SemesterComponent implements OnInit {
   courses: Course[];
   curricula: Curricula[];
-  coursesToDisplay: Course[];
-  filters;
+  coursesToDisplay: Course[] = [];
+  colorMap: ColorMap = new ColorMap();
+  filters = [];
 
   constructor(private dataService: DataService) { }
 
@@ -125,12 +126,11 @@ export class SemesterComponent implements OnInit {
     Object.keys(courses).forEach(courseRef => {
       res.push(new Course(
         '' + courses[`${courseRef}`].code,
-        courses[`${courseRef}`].duration,
         courses[`${courseRef}`].dept,
         courses[`${courseRef}`].instructor,
         courses[`${courseRef}`].code,
         courses[`${courseRef}`].starting_block,
-        ColorMap.getColor(courses[`${courseRef}`].dept), // Derive color based on dept
+        this.colorMap.getColor(courses[`${courseRef}`].dept), // Derive color based on dept
         courses[`${courseRef}`].name,
         courses[`${courseRef}`].section,
         courses[`${courseRef}`].days,
@@ -203,7 +203,7 @@ export class SemesterComponent implements OnInit {
     // Update startingBlock
     courseToUpdate.startingBlock = courseData.schedule[0].start;
     // Update duration
-    courseToUpdate.duration = courseData.schedule[0].duration;
+    // courseToUpdate.duration = courseData.schedule[0].duration;
 
     console.log('Updated', courseToUpdate);
   }
