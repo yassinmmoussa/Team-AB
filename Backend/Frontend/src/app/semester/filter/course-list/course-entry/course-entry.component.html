@@ -6,7 +6,7 @@
             Section {{this.course.section}}
         </mat-card-subtitle>
         <div class="checkbox-cont">
-            <mat-checkbox (change)="changeCourse($event)" checked="true"></mat-checkbox>
+            <mat-checkbox (change)="changeCourse()" [checked]="course.display"></mat-checkbox>
         </div>
     </mat-card-header>
 </mat-card>

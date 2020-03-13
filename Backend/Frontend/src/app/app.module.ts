@@ -39,7 +39,7 @@ import { LoginComponent } from './login/login.component';
 import { SemesterContainerComponent } from './semester-container/semester-container.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddNewCourseModalComponent } from './semester/modals/add-new-course-modal/add-new-course-modal.component';
-import {MatInputModule} from '@angular/material';
+import { MatInputModule } from '@angular/material';
 
 
 @NgModule({

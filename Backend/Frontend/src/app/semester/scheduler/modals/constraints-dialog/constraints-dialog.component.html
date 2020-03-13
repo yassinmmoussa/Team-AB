@@ -1,14 +1,15 @@
 <div class="modal-body">
   <button class="close-button" mat-flat-button matDialogClose>X</button>
   <h1>Constraints</h1>
-  <div *ngIf="!editing">
+  <div *ngIf="editing == -1">
     <div *ngFor="let curriculum of curricula">
       {{curriculum.name}}
       <button (click)="editCurriculum(curriculum)">Edit</button>
     </div>
   </div>
   
-  <div *ngIf="editing">
-    <app-course-list [courses]="courses" [showAdd]="false"></app-course-list>
+  <div *ngIf="editing > -1">
+    <app-course-list [courses]="courses" [showAdd]="false" (courseStateChanged)="courseChanged($event)"></app-course-list>
+    <button (click)="saveCurriculum()">Save</button>
   </div>
 </div>

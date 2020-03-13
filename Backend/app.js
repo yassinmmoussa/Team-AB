@@ -88,7 +88,7 @@ app.delete('/api/courses', function(req, res) {
   database.deleteCourse(course, () => {});
 });
 
-// GET a curricula
+// GET all curricula
 app.get('/api/curricula', function(req, res) {
 
   // STEP 1: Parse the data from the query string
@@ -101,6 +101,33 @@ app.get('/api/curricula', function(req, res) {
     // STEP 3: Form a response for the frontend with the queried data & send
     res.status(200).send(curricula);
   });
+});
+
+// POST a curriculum
+app.post('/api/curricula', function(req, res) {
+  console.log("Someone tried to POST a curriculum");
+  console.log(req.body.curricula);
+  database.addOneCurriculum(req.body.curricula);
+});
+
+// PUT / Update a curriculum
+app.put('/api/curricula', function(req, res) {
+  database.updateCurriculum(req.body.curricula, () => {});
+});
+
+// DELETE a curriculum
+app.delete('/api/curricula', function(req, res) {
+  console.log("Someone tried to DELETE a curriculum");
+  let { year, session, dept, name, curriculaRef, courseRefs } = req.query;
+  let curriculum = {
+    year: year - 0,
+    session,
+    dept,
+    name,
+    curriculaRef,
+    courseRefs
+  }
+  database.deleteCurriculum(curriculum, () => {});
 });
 
 // ========================================================= //

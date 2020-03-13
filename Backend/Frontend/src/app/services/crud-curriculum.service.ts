@@ -1,67 +1,69 @@
 import { Injectable } from '@angular/core';
-import { Course } from '../model/Course';
+import { Curricula } from '../model/Curricula';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { yearsPerPage } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CrudCoursesService {
+export class CrudCurriculumService {
 
   constructor(private http: HttpClient) { }
-  courseUrl = '/api/courses';
+  curriculaUrl = '/api/curricula';
 
   /**
-   * POST new course to the database
-   * @param course The course you wish to add to the database
+   * POST new curricula to the database
+   * @param curricula The curricula you wish to add to the database
    */
-  addNewCourse(course: Course): Observable<Course> {
-    console.log('adding a course');
+  addNewCurriculum(curriculum: Curricula): Observable<Curricula> {
+    console.log('adding a curricula');
     const httpOptions = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-    const courseData = course.toJSON();
-    const updateData = { course: courseData };
-    return this.http.post<Course>(this.courseUrl, updateData, httpOptions)
+    const curriculumData = curriculum.toJSON();
+    const updateData = { curriculum: curriculumData };
+    return this.http.post<Curricula>(this.curriculaUrl, updateData, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
   }
 
 
-  // PUT Request to update existing courses
-  updateCourse(course: Course) {
-    console.log('updating course in crud service');
+  // PUT Request to update existing curricula
+  updateCurriculum(curriculum: Curricula) {
+    console.log('updating curricula in crud service');
     const httpOptions = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-    const courseData = course.toJSON();
-    const updateData = { course };
-    return this.http.put(this.courseUrl, updateData, httpOptions)
+    const curriculumData = curriculum.toJSON();
+    const updateData = { curriculum: curriculumData };
+    return this.http.put(this.curriculaUrl, updateData, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
   }
 
 
-  // DELETE a Course
-  deleteCourse(course: Course): Observable<{}> {
-    console.log('deleting course');
+  // DELETE a curricula
+  deleteCurriculum(curriculum: Curricula): Observable<{}> {
+    // Destructuring (extracting) data from curriculum
+    let { year, session, dept, name, curriculaRef, courseRefs } = curriculum;
+    console.log('deleting curricula');
     const httpOptions = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-    const courseData = course.toJSON();
-    const deleteData = { course: courseData };
-    return this.http.delete(this.courseUrl, {
+    return this.http.delete(this.curriculaUrl, {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
       params: {
-        year: course.year + '',
-        session: course.session,
-        dept: course.dept,
-        code: course.code + '',
-        section: course.section,
-        type: course.type
+        year,
+        session,
+        dept,
+        name,
+        curriculaRef,
+        courseRefs
       }
     })
       .pipe(
         catchError(this.handleError)
       );
   }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

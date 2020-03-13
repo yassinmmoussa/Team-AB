@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../../../../model/Course';
 import { MatCardModule, MatCard } from '@angular/material/card';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -10,14 +10,8 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./course-entry.component.css']
 })
 export class CourseEntryComponent implements OnInit {
-
-
   @Input() course: Course;
-
-
-
-
-
+  @Output() courseToggled = new EventEmitter<Course>();
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
 
@@ -40,8 +34,8 @@ export class CourseEntryComponent implements OnInit {
 
   }
 
-  changeCourse(event){
-      console.log(event)
+  changeCourse(){
+      this.courseToggled.emit(this.course)
   }
 
   ngOnInit() {

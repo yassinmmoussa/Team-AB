@@ -18,7 +18,7 @@ const database = require('../top_secret/database');
 
 function exampleDatabase() {
 
-    console.log("The database is speaking to you...")
+    console.log('The database is speaking to you...')
 
     /**
         * Example database storing
@@ -51,8 +51,8 @@ function exampleDatabase() {
  * @param `type` is either 'courses' or 'curricula'
  */
 function batchDocuments(type, year, session, next) {
-    // console.log("Someone tried to GET some data");
-    let colRef = database.collection(type).where("year", "==", year).where("session","==",session);
+    // console.log('Someone tried to GET some data');
+    let colRef = database.collection(type).where('year', '==', year).where('session','==',session);
     colRef.get()
     .then(function(querySnapshot) {
         var data =  querySnapshot.docs.map(function (documentSnapshot) {
@@ -62,27 +62,24 @@ function batchDocuments(type, year, session, next) {
         return data;
     })
     .catch(function(error) {
-        console.log("Error getting documents: ", error);
+        console.log('Error getting documents: ', error);
     });
 }
 
 /**
  * Function to add 1 document
- * currently adding directly under hard-coded doc ID
  */
 function addOneCourse(course) {
-    console.log("Someone tried to POST some data");
-    //a testing doc data to add into firestore, in the future i will
-    //use passed data from post request
+    console.log('Someone tried to POST some data');
     let JSONcourse = JSON.parse(course);
     //console.log(JSONcourse)
     database.collection('courses').doc().set(JSONcourse)
         .then(function() {
-        console.log("Document successfully written!");
+        console.log('Document successfully written!');
        
         })
         .catch(function(error) {
-            console.log("Error adding course: ", error);
+            console.log('Error adding course: ', error);
 
         });
     
@@ -102,15 +99,15 @@ function addOneCourse(course) {
 function updateCourse(course, callback) {
     let courseJSON = JSON.parse(course);
     database.collection('courses')
-        .where("year","==",courseJSON.year)
-        .where("session","==",courseJSON.session)
-        .where("dept","==",courseJSON.dept)
-        .where("code","==",courseJSON.code)
-        .where("section","==",courseJSON.section)
-        .where("type","==",courseJSON.type)
+        .where('year','==',courseJSON.year)
+        .where('session','==',courseJSON.session)
+        .where('dept','==',courseJSON.dept)
+        .where('code','==',courseJSON.code)
+        .where('section','==',courseJSON.section)
+        .where('type','==',courseJSON.type)
         .get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-            database.collection("courses").doc(doc.id).update(courseJSON);
+            database.collection('courses').doc(doc.id).update(courseJSON);
         });
         callback(true);
     })
@@ -127,19 +124,94 @@ function updateCourse(course, callback) {
  * @param {*} callback 
  */
 function deleteCourse(course, callback) {
-    console.log("Someone deleted");
+    console.log('Someone deleted');
 
     let courseJSON = JSON.parse(course);
     database.collection('courses')
-        .where("year","==",courseJSON.year)
-        .where("session","==",courseJSON.session)
-        .where("dept","==",courseJSON.dept)
-        .where("code","==",courseJSON.code)
-        .where("section","==",courseJSON.section)
-        .where("type","==",courseJSON.type)
+        .where('year','==',courseJSON.year)
+        .where('session','==',courseJSON.session)
+        .where('dept','==',courseJSON.dept)
+        .where('code','==',courseJSON.code)
+        .where('section','==',courseJSON.section)
+        .where('type','==',courseJSON.type)
         .get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-            database.collection("courses").doc(doc.id).delete();
+            database.collection('courses').doc(doc.id).delete();
+        });
+        callback(true);
+    })
+    .catch(() => {
+        callback(false);
+    });
+}
+
+/**
+ * Function to add 1 document
+ */
+function addOneCurriculum(curriculum) {
+    console.log('Someone tried to POST a curriculum');
+    let JSONcurriculum = JSON.parse(curriculum);
+    //console.log(JSONcourse)
+    database.collection('curricula').doc().set(JSONcurriculum)
+        .then(function() {
+        console.log('Document successfully written!');
+       
+        })
+        .catch(function(error) {
+            console.log('Error adding curriculum: ', error);
+
+        });
+    
+}
+
+/**
+ * If the year, session, department, and name of a curriculum
+ * match an entry in the database, the provided curriculum object's new properties
+ * will be added to the course in the database.
+ *
+ * This function will not remove data from the database, it only appends.
+ *
+ * @param {*} curriculum Course object with new properties that already exists in the database
+ *
+ * Returns true if the object is found and changed, false otherwise
+ */
+function updateCurriculum(curriculum, callback) {
+    let courseJSON = JSON.parse(curriculum);
+    database.collection('curricula')
+        .where('year','==',courseJSON.year)
+        .where('session','==',courseJSON.session)
+        .where('dept','==',courseJSON.dept)
+        .where('name','==',courseJSON.name)
+        .get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            database.collection('curricula').doc(doc.id).update(courseJSON);
+        });
+        callback(true);
+    })
+    .catch(() => {
+        callback(false);
+    });
+}
+
+/**
+ * This function deletes a curriculum permanently from the database 
+ * given the information for filtering 
+ * 
+ * @param {*} curriculum 
+ * @param {*} callback 
+ */
+function deleteCurriculum(curriculum, callback) {
+    console.log('Someone deleted a curriculum');
+
+    let courseJSON = JSON.parse(curriculum);
+    database.collection('curricula')
+        .where('year','==',courseJSON.year)
+        .where('session','==',courseJSON.session)
+        .where('dept','==',courseJSON.dept)
+        .where('name','==',courseJSON.name)
+        .get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            database.collection('curricula').doc(doc.id).delete();
         });
         callback(true);
     })
@@ -151,12 +223,12 @@ function deleteCourse(course, callback) {
 // function getCourseReference(course) {
 //     let courseJSON = JSON.parse(course);
 //     return database.collection('courses')
-//         .where("year","==",courseJSON.year)
-//         .where("session","==",courseJSON.session)
-//         .where("dept","==",courseJSON.dept)
-//         .where("code","==",courseJSON.code)
-//         .where("section","==",courseJSON.section)
-//         .where("type","==",courseJSON.type)
+//         .where('year','==',courseJSON.year)
+//         .where('session','==',courseJSON.session)
+//         .where('dept','==',courseJSON.dept)
+//         .where('code','==',courseJSON.code)
+//         .where('section','==',courseJSON.section)
+//         .where('type','==',courseJSON.type)
 //         .get()
 // }
 
@@ -164,13 +236,13 @@ function deleteCourse(course, callback) {
  * UNIMPLEMENTED, DO NOT USE
  */
 function deleteDocument() {
-    console.log("Someone tried to DELETE some data");
+    console.log('Someone tried to DELETE some data');
 }
 
 
 /**
  *
- * DON'T USE THIS - "LEGACY" CODE, DEPRECATED
+ * DON'T USE THIS - 'LEGACY' CODE, DEPRECATED
  *
  * Originally designed for building the request object
  *
@@ -186,7 +258,7 @@ function scheduler_curricula(year, session, callback) {
     // Data that gets passed back to the caller
     var temp = [];
 
-    const docRef = database.collection('curricula').where("year", "==", year).where("session","==",session);
+    const docRef = database.collection('curricula').where('year', '==', year).where('session','==',session);
 
     docRef.get()
         .then(function(querySnapshot) {
@@ -202,18 +274,18 @@ function scheduler_curricula(year, session, callback) {
                 return doc.data();
             });
 
-            //console.log("Database: " , temp);
+            //console.log('Database: ' , temp);
             callback(temp);
             return temp;
 
         })
         .catch(function(error){
-            console.log("Querying curricula ran into an error",error);
+            console.log('Querying curricula ran into an error',error);
         });
 }
 
 /**
- * DON'T USE THIS - "LEGACY" CODE, DEPRECATED
+ * DON'T USE THIS - 'LEGACY' CODE, DEPRECATED
  *
  * Originally designed for building the request object
  *
@@ -222,7 +294,7 @@ function scheduler_curricula(year, session, callback) {
  */
 function scheduler_course(courseId, next) {
 
-    let colRef = database.collection("courses").doc(courseId).onSnapshot(documentSnapshot => {
+    let colRef = database.collection('courses').doc(courseId).onSnapshot(documentSnapshot => {
 
         if (documentSnapshot.exists) {
 
@@ -243,7 +315,7 @@ function scheduler_course(courseId, next) {
  * @param {*} next 
  */
 function lookUpDoc(collection, idfield, next) {
-    let colRef = database.collection(collection).where("course_ref", "==", idfield);
+    let colRef = database.collection(collection).where('course_ref', '==', idfield);
     colRef.get() 
     .then(function(querySnapshot) {
         var data =  querySnapshot.docs.map(function (documentSnapshot) {
@@ -254,7 +326,7 @@ function lookUpDoc(collection, idfield, next) {
         return data;
     })
     .catch(function(error) {
-        console.log("Error getting documents: ", error);
+        console.log('Error getting documents: ', error);
     });
     }
 
@@ -264,10 +336,13 @@ function lookUpDoc(collection, idfield, next) {
 module.exports = {
     example:            exampleDatabase,
     getAll:             batchDocuments,
-    addOneCourse:       addOneCourse,
+    addOneCourse,
     deleteCourse,
+    updateCourse,
+    addOneCurriculum,
+    deleteCurriculum,
+    updateCurriculum,
     pcpCurricula:       scheduler_curricula,
     pcpCourses:         scheduler_course,
-    updateCourse,
     lookUpDoc,
 }

@@ -15,10 +15,7 @@ import { CrudCoursesService } from '../../../services/crud-courses.service';
 export class CourseListComponent implements OnInit {
 
   @Input() set courses(courses: Course[]) {
-    console.log("a")
-    console.log(this.courseList)
     this.courseList = courses;
-    console.log(this.courseList)
   }
   
   @Input() showAdd: boolean;
@@ -47,28 +44,20 @@ export class CourseListComponent implements OnInit {
           courses[`${courseRef}`].session,
           courses[`${courseRef}`].type,
           courses[`${courseRef}`].labSection
-        ))
-
-    })
-
-
+        ));
+    });
 
     return localCourseList;
-
-
-
   }
 
 
   constructor(public dialog: MatDialog, private crudCoursesService : CrudCoursesService) {
     this.courseList = this.populateCourses();
-
    }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  openAddCourseDialog(){
+  openAddCourseDialog() {
     let dialogRef = this.dialog.open(AddNewCourseModalComponent,{
       width: '800px',
       height: '700px'
@@ -81,4 +70,10 @@ export class CourseListComponent implements OnInit {
     })
   }
 
+  onToggle(course) {
+    console.log(this.courseList)
+    console.log(course.display)
+    course.display = !course.display;
+    console.log(this.courseList)
+  }
 }
