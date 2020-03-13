@@ -13,7 +13,7 @@ export class Curricula {
 
   toJSON(): string {
     const res = `
-      "${this.curriculaRef}" : {
+      {
         "dept": ${JSON.stringify(this.dept)},
         "name": ${JSON.stringify(this.name)},
         "session": ${JSON.stringify(this.session)},

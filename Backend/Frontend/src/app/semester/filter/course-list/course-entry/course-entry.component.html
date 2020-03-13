@@ -1,13 +1,12 @@
 <mat-card
     class="course-entry"
-    (click)="openCourseDialog(course)"
     [ngStyle]="{'background-color':cMap.getLighterColor(this.course.dept)}"
     >
     <mat-card-header class="card-header">
         <img
             mat-card-avatar
             class="course-icon"
-            [src]=this.iconType()
+            [src]="this.iconType()"
             [ngStyle]="{'background-color':cMap.getColor(this.course.dept)}"
         />
         <mat-card-title
@@ -20,5 +19,11 @@
         <div class="checkbox-cont">
             <mat-checkbox (change)="changeCourse()" [checked]="course.display"></mat-checkbox>
         </div>
+        <img
+            *ngIf="showEdit"
+            class="edit-icon"
+            (click)="openCourseDialog(course)"
+            [src]="'../../../../../assets/edit-24px.svg'"
+        />
     </mat-card-header>
 </mat-card>

@@ -148,8 +148,6 @@ export class ConfigBarComponent implements OnInit {
 
   isDisabled(name: string) {
     switch (name) {
-      case 'Constraints':
-        return true;
       case 'Export to CSV':
         return true;
       case 'Team':

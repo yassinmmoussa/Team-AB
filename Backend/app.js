@@ -106,13 +106,13 @@ app.get('/api/curricula', function(req, res) {
 // POST a curriculum
 app.post('/api/curricula', function(req, res) {
   console.log("Someone tried to POST a curriculum");
-  console.log(req.body.curricula);
-  database.addOneCurriculum(req.body.curricula);
+  console.log(req.body.curriculum);
+  database.addOneCurriculum(req.body.curriculum);
 });
 
 // PUT / Update a curriculum
 app.put('/api/curricula', function(req, res) {
-  database.updateCurriculum(req.body.curricula, () => {});
+  database.updateCurriculum(req.body.curriculum, () => {});
 });
 
 // DELETE a curriculum

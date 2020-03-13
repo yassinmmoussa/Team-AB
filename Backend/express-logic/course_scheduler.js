@@ -1,10 +1,10 @@
 const database = require("./database");
 var CourseScheduler; 
 
-if (process.env.DEV === "true") 
+// if (process.env.DEV === "true") 
   CourseScheduler = require("./contacting-scheduler/sched_local");
-else 
-  CourseScheduler = require("./contacting-scheduler/sched_deployment");
+// else 
+//   CourseScheduler = require("./contacting-scheduler/sched_deployment");
 
 
 // MVP Request solutions count

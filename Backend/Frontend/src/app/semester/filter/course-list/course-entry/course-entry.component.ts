@@ -14,6 +14,7 @@ import { CourseDialogComponent } from 'src/app/semester/scheduler/modals/course-
 })
 export class CourseEntryComponent implements OnInit {
   @Input() course: Course;
+  @Input() showEdit: boolean;
   @Output() courseUpdated = new EventEmitter<Course>();
   @Output() courseDeleted = new EventEmitter<Course>();
 
@@ -29,8 +30,11 @@ export class CourseEntryComponent implements OnInit {
       'lecture-icon-white',
       sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/people-outline-white.svg'));
     iconRegistry.addSvgIcon(
-    'lab-icon-white',
-    sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/flask-white.svg'));
+      'lab-icon-white',
+      sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/flask-white.svg'));
+    iconRegistry.addSvgIcon(
+      'edit-icon',
+      sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/edit-24px.svg'));
     this.courseDialog = dialog;
   }
 

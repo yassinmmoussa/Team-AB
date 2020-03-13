@@ -1,7 +1,7 @@
 <!-- <button (click)="getCourses()">Get Courses</button> -->
 <div class="container">
     <app-filter
-      [coursesToDisplay]="this.coursesToDisplay"
+      [coursesToDisplay]="this.courses"
       (updateGlobalFilters)="updateFilters($event)"
       (courseAdded)="this.addCourse($event)"
       (courseUpdated)="this.updateCourse($event)"

@@ -2,14 +2,41 @@
   <button class="close-button" mat-flat-button matDialogClose>X</button>
   <h1>Constraints</h1>
   <div *ngIf="editing == -1">
+    <button mat-button (click)="editing = -2">Add Curricula</button>
     <div *ngFor="let curriculum of curricula">
       {{curriculum.name}}
-      <button (click)="editCurriculum(curriculum)">Edit</button>
+      <button mat-button (click)="editCurriculum(curriculum)">Edit</button>
     </div>
+  </div>
+
+  <div *ngIf="editing == -2">
+    <form class="new-curricula">
+      <mat-form-field class="full-width">
+        <mat-label>Name</mat-label>
+        <input #name matInput placeholder="Ex. Y4 Software Eng.">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Department</mat-label>
+        <input #dept matInput placeholder="Ex. EECS">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Session</mat-label>
+        <input #session matInput placeholder="W or F">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Year</mat-label>
+        <input #year matInput>
+      </mat-form-field>
+
+      <button mat-button (click)="addCurriculum(name.value, dept.value, session.value, year.value)">Add</button>
+    </form>
   </div>
   
   <div *ngIf="editing > -1">
     <app-course-list [courses]="courses" [showAdd]="false" (courseStateChanged)="courseChanged($event)"></app-course-list>
-    <button (click)="saveCurriculum()">Save</button>
+    <button mat-button (click)="saveCurriculum()">Save</button>
   </div>
 </div>

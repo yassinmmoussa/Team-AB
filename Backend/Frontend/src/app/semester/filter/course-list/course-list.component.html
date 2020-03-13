@@ -5,6 +5,7 @@
     <div *ngFor="let course of this.courses">
         <app-course-entry
             [course]="course"
+            [showEdit]="showAdd"
             (courseUpdated)="this.courseUpdated.emit($event)"
             (courseDeleted)="this.courseDeleted.emit($event)"
         ></app-course-entry>
