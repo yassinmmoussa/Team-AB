@@ -17,6 +17,7 @@ export class CourseListComponent implements OnInit {
   @Output() courseUpdated = new EventEmitter<Course>();
   @Output() courseDeleted = new EventEmitter<Course>();
   @Output() courseAdded = new EventEmitter<Course>();
+  @Output() filterCourses = new EventEmitter();
 
   constructor(public dialog: MatDialog, private crudCoursesService: CrudCoursesService) {}
 

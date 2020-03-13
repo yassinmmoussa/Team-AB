@@ -3,6 +3,7 @@
     <app-filter
       [coursesToDisplay]="this.courses"
       (updateGlobalFilters)="updateFilters($event)"
+      (filterCourses)="setCoursesToDisplay()"
       (courseAdded)="this.addCourse($event)"
       (courseUpdated)="this.updateCourse($event)"
       (courseDeleted)="this.removeCourseManually($event)"

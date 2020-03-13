@@ -12,6 +12,7 @@ export class FilterComponent implements OnInit {
   @Output() courseAdded = new EventEmitter<Course>();
   @Output() courseUpdated = new EventEmitter<Course>();
   @Output() courseDeleted = new EventEmitter<Course>();
+  @Output() filterCourses = new EventEmitter();
 
   constructor() { }
 

@@ -17,7 +17,7 @@
             Section {{this.course.section}}
         </mat-card-subtitle>
         <div class="checkbox-cont">
-            <mat-checkbox (change)="changeCourse()" [checked]="course.display"></mat-checkbox>
+            <mat-checkbox (change)="toggleCourse()" [checked]="course.display"></mat-checkbox>
         </div>
         <img
             *ngIf="showEdit"

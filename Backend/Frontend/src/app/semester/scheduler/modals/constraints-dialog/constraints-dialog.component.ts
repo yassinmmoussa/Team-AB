@@ -74,7 +74,7 @@ export class ConstraintsDialogComponent implements OnInit {
     //   public courseRefs: string[]
     // ) {}
     const newCurriculum = new Curricula("-1", dept, name, session, year, [])
-    this.crudCurriculumService.addNewCurriculum().subscribe(() => {});
+    this.crudCurriculumService.addNewCurriculum(newCurriculum).subscribe(() => {});
   }
 
 }

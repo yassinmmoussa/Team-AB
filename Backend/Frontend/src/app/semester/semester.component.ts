@@ -77,6 +77,10 @@ export class SemesterComponent implements OnInit {
       });
     });
 
+    this.setCoursesToDisplay();
+  }
+
+  setCoursesToDisplay() {
     this.coursesToDisplay = this.courses.filter(course => course.display);
   }
 

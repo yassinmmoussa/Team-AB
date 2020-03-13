@@ -17,6 +17,7 @@ export class CourseEntryComponent implements OnInit {
   @Input() showEdit: boolean;
   @Output() courseUpdated = new EventEmitter<Course>();
   @Output() courseDeleted = new EventEmitter<Course>();
+  @Output() filterCourses = new EventEmitter();
 
   cMap: ColorMap = new ColorMap();
   courseDialog: MatDialog;
@@ -46,8 +47,9 @@ export class CourseEntryComponent implements OnInit {
     }
   }
 
-  changeCourse() {
+  toggleCourse() {
       this.course.display = !this.course.display;
+      this.filterCourses.emit();
   }
 
   ngOnInit() {}

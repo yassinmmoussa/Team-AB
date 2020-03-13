@@ -8,6 +8,7 @@
             [showEdit]="showAdd"
             (courseUpdated)="this.courseUpdated.emit($event)"
             (courseDeleted)="this.courseDeleted.emit($event)"
+            (filterCourses)="this.filterCourses.emit()"
         ></app-course-entry>
     </div>
 </div>
