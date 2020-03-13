@@ -46,6 +46,7 @@ export class SemesterComponent implements OnInit {
   getCurricula() {
     this.dataService.getCurricula().subscribe(data => {
       this.curricula = this.buildCurriculaList(data);
+      console.log(this.curricula)
     });
   }
 

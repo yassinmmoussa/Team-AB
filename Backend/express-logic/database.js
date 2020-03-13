@@ -262,13 +262,12 @@ function lookUpDoc(collection, idfield, next) {
 // ========================================================= //
 
 module.exports = {
-    example:         exampleDatabase,
-    getAllCourses:   batchDocuments,
-    getAllCurricula: batchDocuments,
-    addOneCourse:     addOneCourse,
+    example:            exampleDatabase,
+    getAll:             batchDocuments,
+    addOneCourse:       addOneCourse,
     deleteCourse,
-    pcpCurricula:    scheduler_curricula,
-    pcpCourses:      scheduler_course,
+    pcpCurricula:       scheduler_curricula,
+    pcpCourses:         scheduler_course,
     updateCourse,
     lookUpDoc,
 }

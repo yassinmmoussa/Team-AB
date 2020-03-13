@@ -87,7 +87,7 @@ export class ConfigBarComponent implements OnInit {
     const dialogRef = this.dialog.open(ConstraintsDialogComponent, {
       width: '800px',
       height: '700px',
-      data: 'this text is passed into the dialog',
+      data: {courses: this.courses, curricula: this.curricula},
       disableClose: true
     });
 
@@ -100,7 +100,7 @@ export class ConfigBarComponent implements OnInit {
     const dialogRef = this.dialog.open(OptimizationDialogComponent, {
       width: '800px',
       height: '700px',
-      data: {co: this.courses, cu: this.curricula},
+      data: {courses: this.courses, curricula: this.curricula},
       disableClose: true
     });
 

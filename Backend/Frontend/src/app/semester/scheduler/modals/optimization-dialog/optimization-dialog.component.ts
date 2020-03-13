@@ -17,10 +17,10 @@ export class OptimizationDialogComponent implements OnInit {
   optimizationResults;
 
   constructor(private dataService: DataService, public dialogRef: MatDialogRef<CourseDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: {co: Course[], cu: Curricula[]}
+              @Inject(MAT_DIALOG_DATA) public data: {courses: Course[], curricula: Curricula[]}
   ) {
-    this.courses = data.co;
-    this.curricula = data.cu;
+    this.courses = data.courses;
+    this.curricula = data.curricula;
   }
 
   ngOnInit() {}

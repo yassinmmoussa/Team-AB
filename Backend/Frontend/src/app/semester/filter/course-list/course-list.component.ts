@@ -14,10 +14,18 @@ import { CrudCoursesService } from '../../../services/crud-courses.service';
 })
 export class CourseListComponent implements OnInit {
 
-  @Input() course: Course;
-  courseList: Course[] = [];
+  @Input() set courses(courses: Course[]) {
+    console.log("a")
+    console.log(this.courseList)
+    this.courseList = courses;
+    console.log(this.courseList)
+  }
+  
+  @Input() showAdd: boolean;
 
   @Output() courseStateChanged = new EventEmitter<Course>();
+
+  courseList: Course[] = [];
 
   populateCourses(): Course[]{
     let localCourseList: Course[] = [];

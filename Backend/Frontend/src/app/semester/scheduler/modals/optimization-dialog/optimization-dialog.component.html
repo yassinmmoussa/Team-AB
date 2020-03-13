@@ -5,7 +5,7 @@
   <!-- <app-course-list class="course-list-body"></app-course-list> -->
   <div class="selection-container">
     <div style="width: 50%;">
-      <app-course-list></app-course-list>
+      <app-course-list [showAdd]="false"></app-course-list>
     </div>
     <div style="width: 50%;">
       <app-tag-list (updateGlobalFilters)="updateFilters($event)"></app-tag-list>

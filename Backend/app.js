@@ -53,7 +53,7 @@ app.get('/api/courses', function(req, res) {
   let session = req.query.session;
 
   // STEP 2: Send data through database class, receive queried data
-  database.getAllCourses('courses', year, session, function(courses) {
+  database.getAll('courses', year, session, function(courses) {
 
     // STEP 3: Form a response for the frontend with the queried data & send
     res.status(200).send(courses);
@@ -96,7 +96,7 @@ app.get('/api/curricula', function(req, res) {
   let session = req.query.session;
 
   // STEP 2: Send data through database class, receive queried data
-  database.getAllCurricula('curricula', year, session, function(curricula) {
+  database.getAll('curricula', year, session, function(curricula) {
 
     // STEP 3: Form a response for the frontend with the queried data & send
     res.status(200).send(curricula);
