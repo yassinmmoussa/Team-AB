@@ -17,7 +17,7 @@
       "id": "337ebf67-d96e-4840-a33a-a70cfe96e905",
       "comment": "",
       "command": "setWindowSize",
-      "target": "550x691",
+      "target": "1900x1000",
       "targets": [],
       "value": ""
     }, {
@@ -71,7 +71,7 @@
       "id": "36a6839a-5b2e-4166-986b-c4ae499991b5",
       "comment": "",
       "command": "click",
-      "target": "css=.box:nth-child(2) .course",
+      "target": "xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-scheduler/div/div[2]/app-calendar/div/div[2]/app-day/div/div/app-block[4]/div/div",
       "targets": [
         ["css=.box:nth-child(2) .course", "css:finder"],
         ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-scheduler/div/div[2]/app-calendar/div/div[2]/app-day/div/div/app-block[4]/div/div", "xpath:idRelative"],
@@ -154,6 +154,742 @@
       "command": "close",
       "target": "/",
       "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "6c3521d2-0c96-4ea1-abb5-bce7bd0dbfc4",
+    "name": "Selecting Tags",
+    "commands": [{
+      "id": "a8662db3-58b8-4a80-afcc-f63b79c95d70",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "79acc51d-c863-485d-90ca-c16704718611",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0a6d7e57-953a-4647-ba9d-59e505adf69c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-tag-list/div/mat-tree/mat-nested-tree-node/li/div/button/span/mat-icon",
+      "targets": [
+        ["css=.cdk-focused .mat-icon-rtl-mirror", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-tag-list/div/mat-tree/mat-nested-tree-node/li/div/button/span/mat-icon", "xpath:idRelative"],
+        ["xpath=//mat-icon", "xpath:position"],
+        ["xpath=//mat-icon[contains(.,'chevron_right')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "86b45287-6abf-44ba-8de8-5206b93d7fb2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.node:nth-child(1) .node:nth-child(4) .ng-star-inserted:nth-child(1) > .card",
+      "targets": [
+        ["css=.node:nth-child(1) .node:nth-child(4) .ng-star-inserted:nth-child(1) > .card", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-tag-list/div/mat-tree/mat-nested-tree-node/li/ul/mat-tree-node[4]/div/app-tag/div", "xpath:idRelative"],
+        ["xpath=//mat-tree-node[4]/div/app-tag/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38b30e12-5c54-407f-81b4-b4d372618e7d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.node:nth-child(1) .node:nth-child(4) .ng-star-inserted:nth-child(2) > .card",
+      "targets": [
+        ["css=.node:nth-child(1) .node:nth-child(4) .ng-star-inserted:nth-child(2) > .card", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-tag-list/div/mat-tree/mat-nested-tree-node/li/ul/mat-tree-node[4]/div/app-tag[2]/div", "xpath:idRelative"],
+        ["xpath=//mat-tree-node[4]/div/app-tag[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb32353f-62dc-4316-bafd-ef0d7136a1ac",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "32858a89-8ea2-4356-b2a0-431c510d93a0",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-tag-list/div/mat-tree/mat-nested-tree-node[5]/li/div/button/span/mat-icon",
+      "targets": [
+        ["css=.cdk-focused .mat-icon-rtl-mirror", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-tag-list/div/mat-tree/mat-nested-tree-node[5]/li/div/button/span/mat-icon", "xpath:idRelative"],
+        ["xpath=//mat-nested-tree-node[5]/li/div/button/span/mat-icon", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9a64fde3-5c87-4ef9-8046-4a46fa61b1bf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.node:nth-child(5) .node:nth-child(4) .ng-star-inserted:nth-child(1) > .card",
+      "targets": [
+        ["css=.node:nth-child(5) .node:nth-child(4) .ng-star-inserted:nth-child(1) > .card", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-tag-list/div/mat-tree/mat-nested-tree-node[5]/li/ul/mat-tree-node[4]/div/app-tag/div", "xpath:idRelative"],
+        ["xpath=//mat-nested-tree-node[5]/li/ul/mat-tree-node[4]/div/app-tag/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9457f11-1cc8-43cd-80b8-7bc843933e0a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.box:nth-child(6) .block:nth-child(13) .course:nth-child(1)",
+      "targets": [
+        ["css=.box:nth-child(6) .block:nth-child(13) .course:nth-child(1)", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-scheduler/div/div[2]/app-calendar/div/div[6]/app-day/div/div/app-block[13]/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/app-day/div/div/app-block[13]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "da8fffa9-f6fd-4080-bade-260881be88d2",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.close-button",
+      "targets": [
+        ["css=.close-button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-course-dialog/div/button", "xpath:idRelative"],
+        ["xpath=//app-course-dialog/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cbf2eec6-a0b7-4587-a06f-154bd1007be3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.close-button",
+      "targets": [
+        ["css=.close-button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-course-dialog/div/button", "xpath:idRelative"],
+        ["xpath=//app-course-dialog/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2ef1c84-08ca-4568-9a2a-943c2150a0c0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.box:nth-child(5) .block:nth-child(15) .course-time",
+      "targets": [
+        ["css=.box:nth-child(5) .block:nth-child(15) .course-time", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-scheduler/div/div[2]/app-calendar/div/div[5]/app-day/div/div/app-block[15]/div/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[5]/app-day/div/div/app-block[15]/div/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eae93cfa-2d55-4dc9-b3c0-b266f06eb1d2",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-1']/app-course-dialog/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-course-dialog/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cfe1afad-0e71-4cfc-9bd3-6f0f7b537299",
+      "comment": "",
+      "command": "click",
+      "target": "css=.close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-1']/app-course-dialog/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-course-dialog/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "da4972be-f7c8-4f3c-a0d3-f95baa057983",
+      "comment": "",
+      "command": "click",
+      "target": "css=.node:nth-child(5) .node:nth-child(4) .ng-star-inserted:nth-child(1) > .card",
+      "targets": [
+        ["css=.node:nth-child(5) .node:nth-child(4) .ng-star-inserted:nth-child(1) > .card", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-tag-list/div/mat-tree/mat-nested-tree-node[5]/li/ul/mat-tree-node[4]/div/app-tag/div", "xpath:idRelative"],
+        ["xpath=//mat-nested-tree-node[5]/li/ul/mat-tree-node[4]/div/app-tag/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ebe52b96-99cf-41e1-a7f1-a48f5be905f3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ng-star-inserted:nth-child(2) > .selected",
+      "targets": [
+        ["css=.ng-star-inserted:nth-child(2) > .selected", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-tag-list/div/mat-tree/mat-nested-tree-node/li/ul/mat-tree-node[4]/div/app-tag[2]/div", "xpath:idRelative"],
+        ["xpath=//mat-tree-node[4]/div/app-tag[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7856172e-6e52-4f6b-9182-5d9ec252f149",
+      "comment": "",
+      "command": "click",
+      "target": "css=.selected",
+      "targets": [
+        ["css=.selected", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-tag-list/div/mat-tree/mat-nested-tree-node/li/ul/mat-tree-node[4]/div/app-tag/div", "xpath:idRelative"],
+        ["xpath=//mat-tree-node[4]/div/app-tag/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b84ab4cd-15bb-4437-bd18-5f705179ee97",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e2d8c799-cd6c-45ef-9666-420898845cc7",
+    "name": "Selecting Courses",
+    "commands": [{
+      "id": "f2d99524-332e-467b-a78c-076793f21482",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "62594e94-55f0-4444-a9fb-f8526fc991c8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fbd9388b-5d99-42f0-876e-324a61dd6750",
+      "comment": "",
+      "command": "click",
+      "target": "css=#mat-checkbox-1 .mat-checkbox-inner-container",
+      "targets": [
+        ["css=#mat-checkbox-1 .mat-checkbox-inner-container", "css:finder"],
+        ["xpath=//mat-checkbox[@id='mat-checkbox-1']/label/div", "xpath:idRelative"],
+        ["xpath=//label/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7e9e606-0e7b-4029-8f3d-5ba38b8df802",
+      "comment": "",
+      "command": "click",
+      "target": "css=.box:nth-child(2) .course-time",
+      "targets": [
+        ["css=.box:nth-child(2) .course-time", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-scheduler/div/div[2]/app-calendar/div/div[2]/app-day/div/div/app-block[12]/div/div/div/div", "xpath:idRelative"],
+        ["xpath=//app-block[12]/div/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a75932f-a834-4aa1-9c35-f25a762bbf69",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-course-dialog/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-course-dialog/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a757ac63-3774-43d4-a16b-f1cdfc714eb7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-course-dialog/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-course-dialog/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eba92cd4-a20f-4402-b2fa-3597673be522",
+      "comment": "",
+      "command": "click",
+      "target": "css=#mat-checkbox-1 .mat-checkbox-inner-container",
+      "targets": [
+        ["css=#mat-checkbox-1 .mat-checkbox-inner-container", "css:finder"],
+        ["xpath=//mat-checkbox[@id='mat-checkbox-1']/label/div", "xpath:idRelative"],
+        ["xpath=//label/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "81039948-76ac-4bed-92f9-f572389798fa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ng-star-inserted:nth-child(3) .checkbox-cont",
+      "targets": [
+        ["css=.ng-star-inserted:nth-child(3) .checkbox-cont", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-course-list/div[2]/div[3]/app-course-entry/mat-card/mat-card-header/div[2]", "xpath:idRelative"],
+        ["xpath=//div[3]/app-course-entry/mat-card/mat-card-header/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc21e979-5062-4910-9d58-d6ca486e067a",
+      "comment": "",
+      "command": "click",
+      "target": "css=#mat-checkbox-3 .mat-checkbox-inner-container",
+      "targets": [
+        ["css=#mat-checkbox-3 .mat-checkbox-inner-container", "css:finder"],
+        ["xpath=//mat-checkbox[@id='mat-checkbox-3']/label/div", "xpath:idRelative"],
+        ["xpath=//div[3]/app-course-entry/mat-card/mat-card-header/div[2]/mat-checkbox/label/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d3126bfc-64e4-4969-bea2-1550706a3074",
+      "comment": "",
+      "command": "click",
+      "target": "css=#mat-checkbox-2 .mat-checkbox-inner-container",
+      "targets": [
+        ["css=#mat-checkbox-2 .mat-checkbox-inner-container", "css:finder"],
+        ["xpath=//mat-checkbox[@id='mat-checkbox-2']/label/div", "xpath:idRelative"],
+        ["xpath=//div[2]/app-course-entry/mat-card/mat-card-header/div[2]/mat-checkbox/label/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "91671d97-ad1d-410f-b9c5-2b0ef2825473",
+      "comment": "",
+      "command": "click",
+      "target": "css=.box:nth-child(5) .course-time",
+      "targets": [
+        ["css=.box:nth-child(5) .course-time", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-scheduler/div/div[2]/app-calendar/div/div[5]/app-day/div/div/app-block[15]/div/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[5]/app-day/div/div/app-block[15]/div/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ba8da18-2a3b-4c49-93c1-c190ce396b2b",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-1']/app-course-dialog/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-course-dialog/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b8ff9c56-4f3d-42de-8951-eed8ac60625f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-1']/app-course-dialog/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-course-dialog/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c02041f-87b0-4699-a7bf-59e92ce2ecd6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.block:nth-child(13) .course",
+      "targets": [
+        ["css=.block:nth-child(13) .course", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-scheduler/div/div[2]/app-calendar/div/div[6]/app-day/div/div/app-block[13]/div/div", "xpath:idRelative"],
+        ["xpath=//app-block[13]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e226b32-60be-4be1-b13f-5e269e93380a",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-2']/app-course-dialog/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-course-dialog/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "284a84aa-8fd3-4248-9f43-88d460ee42a3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-2']/app-course-dialog/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-course-dialog/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "80d486d6-6860-4b2d-aaea-5275f7fe0032",
+    "name": "Add and delete course",
+    "commands": [{
+      "id": "abeecf81-776e-420f-8317-14ab6e0fd6ed",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d8f70c41-1616-4732-9ed7-bb06256efc05",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "38cd614b-f67a-412f-9336-2829ca25d53e",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.plus-btn",
+      "targets": [
+        ["css=.plus-btn", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-course-list/div/button", "xpath:idRelative"],
+        ["xpath=//app-course-list/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e16af39f-9eb6-4159-b2d5-c7c360d25754",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus-btn",
+      "targets": [
+        ["css=.plus-btn", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-course-list/div/button", "xpath:idRelative"],
+        ["xpath=//app-course-list/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e4841f58-1f34-41b2-ba3d-3b224173f6ec",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.plus-btn",
+      "targets": [
+        ["css=.plus-btn", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-course-list/div/button", "xpath:idRelative"],
+        ["xpath=//app-course-list/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "48bcbc91-b7f4-404c-98f7-2bbdad92acb7",
+      "comment": "",
+      "command": "click",
+      "target": "id=mat-input-0",
+      "targets": [
+        ["id=mat-input-0", "id"],
+        ["css=#mat-input-0", "css:finder"],
+        ["xpath=//input[@id='mat-input-0']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-add-new-course-modal/div/form/div/mat-form-field/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "51593fc1-effd-49f1-b9c1-31a93f790814",
+      "comment": "",
+      "command": "type",
+      "target": "id=mat-input-0",
+      "targets": [
+        ["id=mat-input-0", "id"],
+        ["css=#mat-input-0", "css:finder"],
+        ["xpath=//input[@id='mat-input-0']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-add-new-course-modal/div/form/div/mat-form-field/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "2020"
+    }, {
+      "id": "29a69f8f-d279-4184-a6f9-82bf80010ec0",
+      "comment": "",
+      "command": "type",
+      "target": "id=mat-input-1",
+      "targets": [
+        ["id=mat-input-1", "id"],
+        ["css=#mat-input-1", "css:finder"],
+        ["xpath=//input[@id='mat-input-1']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-add-new-course-modal/div/form/div[2]/mat-form-field/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/mat-form-field/div/div/div[3]/input", "xpath:position"]
+      ],
+      "value": "W"
+    }, {
+      "id": "0d570e59-c765-4718-9748-4dd31e1bb00d",
+      "comment": "",
+      "command": "type",
+      "target": "id=mat-input-2",
+      "targets": [
+        ["id=mat-input-2", "id"],
+        ["css=#mat-input-2", "css:finder"],
+        ["xpath=//input[@id='mat-input-2']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-add-new-course-modal/div/form/div[3]/mat-form-field/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/mat-form-field/div/div/div[3]/input", "xpath:position"]
+      ],
+      "value": "EECS"
+    }, {
+      "id": "061ba1f9-aca6-43b1-b2fa-9fe1ff011183",
+      "comment": "",
+      "command": "type",
+      "target": "id=mat-input-3",
+      "targets": [
+        ["id=mat-input-3", "id"],
+        ["css=#mat-input-3", "css:finder"],
+        ["xpath=//input[@id='mat-input-3']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-add-new-course-modal/div/form/div[4]/mat-form-field/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/mat-form-field/div/div/div[3]/input", "xpath:position"]
+      ],
+      "value": "Something"
+    }, {
+      "id": "271fe3aa-0800-45f2-b8f7-24b8b2f523d2",
+      "comment": "",
+      "command": "type",
+      "target": "id=mat-input-4",
+      "targets": [
+        ["id=mat-input-4", "id"],
+        ["css=#mat-input-4", "css:finder"],
+        ["xpath=//input[@id='mat-input-4']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-add-new-course-modal/div/form/div[5]/mat-form-field/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/mat-form-field/div/div/div[3]/input", "xpath:position"]
+      ],
+      "value": "1234"
+    }, {
+      "id": "33dfca57-044a-48a1-8ac1-4e2fe792e990",
+      "comment": "",
+      "command": "type",
+      "target": "id=mat-input-5",
+      "targets": [
+        ["id=mat-input-5", "id"],
+        ["css=#mat-input-5", "css:finder"],
+        ["xpath=//input[@id='mat-input-5']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-add-new-course-modal/div/form/div[6]/mat-form-field/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/mat-form-field/div/div/div[3]/input", "xpath:position"]
+      ],
+      "value": "lecture"
+    }, {
+      "id": "2dd4bf81-d303-4b8f-b38d-dabcd314585c",
+      "comment": "",
+      "command": "type",
+      "target": "id=mat-input-6",
+      "targets": [
+        ["id=mat-input-6", "id"],
+        ["css=#mat-input-6", "css:finder"],
+        ["xpath=//input[@id='mat-input-6']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-add-new-course-modal/div/form/div[7]/mat-form-field/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/mat-form-field/div/div/div[3]/input", "xpath:position"]
+      ],
+      "value": "3"
+    }, {
+      "id": "94d85abe-1a0b-4438-ac2e-f228054f4f3c",
+      "comment": "",
+      "command": "type",
+      "target": "id=mat-input-7",
+      "targets": [
+        ["id=mat-input-7", "id"],
+        ["css=#mat-input-7", "css:finder"],
+        ["xpath=//input[@id='mat-input-7']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-add-new-course-modal/div/form/div[8]/mat-form-field/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/mat-form-field/div/div/div[3]/input", "xpath:position"]
+      ],
+      "value": "Someone"
+    }, {
+      "id": "f4c8b1db-195c-4ac6-b12e-19c542348d2b",
+      "comment": "",
+      "command": "type",
+      "target": "id=mat-input-8",
+      "targets": [
+        ["id=mat-input-8", "id"],
+        ["css=#mat-input-8", "css:finder"],
+        ["xpath=//input[@id='mat-input-8']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-add-new-course-modal/div/form/div[9]/mat-form-field/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/mat-form-field/div/div/div[3]/input", "xpath:position"]
+      ],
+      "value": "Somewhere?"
+    }, {
+      "id": "dc1cea77-6227-4a31-93dd-0ef96d4469f9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.add-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.add-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-add-new-course-modal/div/form/div[10]/button/span", "xpath:idRelative"],
+        ["xpath=//div[10]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Add Course')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf72a981-9185-43cf-be34-2e8530068ce1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ng-star-inserted:nth-child(10) .edit-icon",
+      "targets": [
+        ["css=.ng-star-inserted:nth-child(10) .edit-icon", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-filter/div/app-course-list/div[2]/div[10]/app-course-entry/mat-card/mat-card-header/img[2]", "xpath:idRelative"],
+        ["xpath=//div[10]/app-course-entry/mat-card/mat-card-header/img[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20016759-95ed-4683-a3fa-bd3b948c4c44",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//mat-dialog-container[@id='mat-dialog-1']/app-course-dialog/div/div[4]/button[2]/span",
+      "targets": [
+        ["css=.cdk-focused > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-1']/app-course-dialog/div/div[4]/button[2]/span", "xpath:idRelative"],
+        ["xpath=//div[4]/button[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Delete Course')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "a1aed473-8fb4-4def-bafd-b1b38185bfbb",
+    "name": "Edit Curricula",
+    "commands": [{
+      "id": "40a7ffdb-1dac-4a75-ae8a-fa5504d69411",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "694c186c-deb8-48a5-8cd2-53e6b4d29c29",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3b001381-9864-4e4d-af65-c2f1463550e1",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-scheduler/div/div/app-config-bar/div/div/button",
+      "targets": [
+        ["css=.cdk-focused", "css:finder"],
+        ["xpath=//mat-tab-body[@id='mat-tab-content-0-0']/div/app-semester/div/app-scheduler/div/div/app-config-bar/div/div/button", "xpath:idRelative"],
+        ["xpath=//div/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7eb597f8-8a0c-4979-98ef-1003e95f6dad",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//mat-dialog-container[@id='mat-dialog-0']/app-constraints-dialog/div/div/div/button",
+      "targets": [
+        ["css=.cdk-focused", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-constraints-dialog/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//div/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc480c63-150f-4aec-a0aa-4dc39917655d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#mat-checkbox-18 .mat-checkbox-inner-container",
+      "targets": [
+        ["css=#mat-checkbox-18 .mat-checkbox-inner-container", "css:finder"],
+        ["xpath=//mat-checkbox[@id='mat-checkbox-18']/label/div", "xpath:idRelative"],
+        ["xpath=//div/div/app-course-list/div/div[9]/app-course-entry/mat-card/mat-card-header/div[2]/mat-checkbox/label/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "114e5fbf-eea7-46db-89b0-81b05b13471b",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//mat-dialog-container[@id='mat-dialog-0']/app-constraints-dialog/div/div/button",
+      "targets": [
+        ["css=.mat-button", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-constraints-dialog/div/div/button", "xpath:idRelative"],
+        ["xpath=//app-constraints-dialog/div/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c107de92-6354-4a50-9a39-472057ac0c09",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.ng-star-inserted:nth-child(2) > .mat-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.ng-star-inserted:nth-child(2) > .mat-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-constraints-dialog/div/div/div/button/span", "xpath:idRelative"],
+        ["xpath=//div/div/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Edit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f355b66e-68a7-4761-8c6a-63788885359a",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//mat-dialog-container[@id='mat-dialog-0']/app-constraints-dialog/div/div/div/button/span",
+      "targets": [
+        ["css=.cdk-focused > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-constraints-dialog/div/div/div/button/span", "xpath:idRelative"],
+        ["xpath=//div/div/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Edit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a329e1b4-d90d-484f-adbb-c9eb461b4649",
+      "comment": "",
+      "command": "click",
+      "target": "css=#mat-checkbox-19 .mat-checkbox-inner-container",
+      "targets": [
+        ["css=#mat-checkbox-19 .mat-checkbox-inner-container", "css:finder"],
+        ["xpath=//mat-checkbox[@id='mat-checkbox-19']/label/div", "xpath:idRelative"],
+        ["xpath=//div/div/app-course-list/div/div/app-course-entry/mat-card/mat-card-header/div[2]/mat-checkbox/label/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc46d0c1-b93b-4a40-a271-9ef9c8d3ac87",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.mat-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.mat-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-constraints-dialog/div/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-constraints-dialog/div/div/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab81a768-d2f1-4317-bec0-d2dfb5d9a925",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.mat-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-constraints-dialog/div/div/button/span", "xpath:idRelative"],
+        ["xpath=//app-constraints-dialog/div/div/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "056e62e5-7196-4ede-a758-eef0fc16fdd3",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.close-button",
+      "targets": [
+        ["css=.close-button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-constraints-dialog/div/button", "xpath:idRelative"],
+        ["xpath=//app-constraints-dialog/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'X')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "717ea9c9-c77b-42fd-9194-47b7652ab5b7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.close-button",
+      "targets": [
+        ["css=.close-button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-constraints-dialog/div/button", "xpath:idRelative"],
+        ["xpath=//app-constraints-dialog/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'X')]", "xpath:innerText"]
+      ],
       "value": ""
     }]
   }],

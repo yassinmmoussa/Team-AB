@@ -17,7 +17,6 @@ const {FirestoreStore} = require('@google-cloud/connect-firestore');
  * New Ver for auto-authenticate
  * Ref: https://cloud.google.com/docs/authentication/production#finding_credentials_automatically
  */
-console.log('*************************************', process.env.DEV)
 if (process.env.DEV || process.env.DEV === "true") {
   module.exports = new Firestore({
       projectId: 'spare-ab',
