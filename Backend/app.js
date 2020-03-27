@@ -137,8 +137,7 @@ app.delete('/api/curricula', function(req, res) {
  */
 app.post('/api/schedule/runOptimizer', function(req, res) {
   let coursesString = '[\n' + req.body.courses + '\n]';
-  let curriculaString = '{\n' + req.body.curricula + '\n}';
-  console.log(coursesString);
+  let curriculaString = '[\n' + req.body.curricula + '\n]';
   let courses = JSON.parse(coursesString);
   let curricula = Object.values(JSON.parse(curriculaString));
 
