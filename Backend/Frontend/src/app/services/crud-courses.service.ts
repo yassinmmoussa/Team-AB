@@ -76,4 +76,35 @@ export class CrudCoursesService {
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
   }
+
+
+
+  // NEW API
+
+  /**
+   * GET all course information for a given semester.
+   * /api_goodV2/courses
+   *
+   * @returns JSON with Course information, ideally including expanded lecture/lab/tutorial info
+   *
+   * e.g. res = {
+   *              course_1: {
+   *                name: c_1_name,
+   *                code: c_1_code,
+   *                dept: c_1_dept,
+   *                ...
+   *                lectures: [ { lecture_1_info }, { lecture_2_info }, ... ],
+   *                labs: [ { lecture_1_info }, { lecture_2_info }, ... ],
+   *                tutorials: [ { lecture_1_info }, { lecture_2_info }, ... ]
+   *               },
+   *              course_2: {
+   *                ...
+   *              }
+   *            }
+   *
+   */
+
+   /**
+    * 
+    */
 }

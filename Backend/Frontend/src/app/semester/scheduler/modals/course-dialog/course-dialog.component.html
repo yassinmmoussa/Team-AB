@@ -4,27 +4,26 @@
   <span class="course-title">{{this.course.dept}} {{this.course.code}} Section {{this.course.section}}</span>
   <span class="course-title" *ngIf="this.course.type === 'lab'"> Lab {{this.course.labSection}}</span>
   <mat-icon class="course-icon" [svgIcon]="this.getCourseIconName(course)" aria-hidden="false" aria-label=""></mat-icon> 
-  <h2 class="course-name">{{this.course.name}}</h2> 
+  <h4 class="course-name">{{this.course.name}}</h4> 
 
-  <!-- Meeting Patterns -->
-  <!-- <mat-card>
-    <mat-form-field>
-      <mat-label>Hours per Week</mat-label>
-      <mat-select [(value)]="this.course.blocksPerWeek">
-        <mat-option *ngFor="let numBlocks of this.course.blockOptions" [(value)]="numBlocks">
-          {{numBlocks / 2}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Days</mat-label>
-      <mat-select [(value)]="this.course.days">
-        <mat-option *ngFor="let opts of this.course.dayOptions()" [(value)]="opts">
-          {{opts}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-card> -->
+  <!-- Lecture Meeting Patterns -->
+  <div class="label-grid">
+    <div class="label lecture-label">
+      <img src="../../../../../assets/people-outline.svg" />
+      <h4>Lecture Meeting Patterns</h4>
+      <button>+</button>
+    </div>
+    <div class="label">
+      <img src="../../../../../assets/flask.svg" />
+      <h4>Labs</h4>
+      <button>+</button>
+    </div>
+    <div class="label">
+      <img src="../../../../../assets/people-outline.svg" />
+      <h4>Tutorials</h4>
+      <button>+</button>
+    </div>
+  </div>
 
   <div class="section-container">
     <h3 class="section-title">Meeting, Patterns</h3>
