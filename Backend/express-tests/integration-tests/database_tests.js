@@ -7,9 +7,9 @@ const database = require('../../express-logic/database');
 
 // ===== Batch Documents / Get All Courses / Get All Curricula ===== //
 
-it('t1:0 We get some stuff! getAllCourses doesn\'t return null. (Database)', function(done) {
+it('t1:0 We get some stuff! course data doesn\'t return null.', function(done) {
 
-    database.getAllCourses('courses', 2020, 'W', function(data) {
+    database.getAll('courses', 2020, 'W', function(data) {
 
         expect(data).to.exist;
 
@@ -18,9 +18,9 @@ it('t1:0 We get some stuff! getAllCourses doesn\'t return null. (Database)', fun
     done();
 });
 
-it('t1:1 We get more stuff! getAllCurricula doesn\'t return null.', function(done) {
+it('t1:1 We get more stuff! curricula doesn\'t return null.', function(done) {
 
-    database.getAllCurricula('curricula', 2020, 'W', function(data) {
+    database.getAll('curricula', 2020, 'W', function(data) {
 
         expect(data).to.exist;
 
@@ -31,9 +31,9 @@ it('t1:1 We get more stuff! getAllCurricula doesn\'t return null.', function(don
 
 it('t1:2 We get different stuff! Curricula data isn\'t course data', function(done) {
 
-    database.getAllCurricula('curricula', 2020, 'W', function(curricula) {
+    database.getAll('curricula', 2020, 'W', function(curricula) {
 
-        database.getAllCourses('courses', 2020, 'W', function(courses) {
+        database.getAll('courses', 2020, 'W', function(courses) {
 
             expect(curricula).not.equal(courses);
 
@@ -45,9 +45,9 @@ it('t1:2 We get different stuff! Curricula data isn\'t course data', function(do
 
 it('t1:3 We get different stuff! Winter data isn\'t Fall data', function(done) {
 
-    database.getAllCurricula('curricula', 2020, 'W', function(winter) {
+    database.getAll('curricula', 2020, 'W', function(winter) {
 
-        database.getAllCurricula('curricula', 2020, 'F', function(fall) {
+        database.getAll('curricula', 2020, 'F', function(fall) {
 
             expect(winter).not.equal(fall);
 
@@ -59,9 +59,9 @@ it('t1:3 We get different stuff! Winter data isn\'t Fall data', function(done) {
 
 it('t1:4 We get different stuff! 2019 data isn\'t 2020 data', function(done) {
 
-    database.getAllCurricula('curricula', 2019, 'W', function(_2019) {
+    database.getAll('curricula', 2019, 'W', function(_2019) {
 
-        database.getAllCurricula('curricula', 2020, 'W', function(_2020) {
+        database.getAll('curricula', 2020, 'W', function(_2020) {
 
             expect(_2020).not.equal(_2019);
 
@@ -76,29 +76,11 @@ it('t1:5 Where\'s the data! No data for years 2018 or earlier', function(done) {
     let i;
     for(i = 2000; i < 2018; i++) {
     
-        database.getAllCurricula('curricula', i, 'F', function(data) {
+        database.getAll('curricula', i, 'F', function(data) {
             expect(data).empty;
         });
 
-        database.getAllCurricula('curricula', i, 'W', function(data) {
-            expect(data).empty;
-        });
-    }
-
-    done();
-
-});
-
-it('t1:6 Where\'s the data! No data for years 2018 or earlier', function(done) {
-
-    let i;
-    for(i = 2000; i < 2018; i++) {
-    
-        database.getAllCurricula('curricula', i, 'F', function(data) {
-            expect(data).empty;
-        });
-
-        database.getAllCurricula('curricula', i, 'W', function(data) {
+        database.getAll('curricula', i, 'W', function(data) {
             expect(data).empty;
         });
     }
@@ -106,12 +88,13 @@ it('t1:6 Where\'s the data! No data for years 2018 or earlier', function(done) {
     done();
 
 });
+
 
 
 
 // ===== Update Course ===== //
 
-it('t1:7 Updating a course', function(done) {
+it('t1:6 Updating a course', function(done) {
     let course2beUpdated = {    
         capacity: 0,
         code: 1,
@@ -147,7 +130,7 @@ it('t1:7 Updating a course', function(done) {
 
 // ===== Add Course  ===== //
 
-it('t1:8 Add a course', function(done) {
+it('t1:7 Add a course', function(done) {
   
     let course2beAdded = {
         capacity: 0,
@@ -169,26 +152,23 @@ it('t1:8 Add a course', function(done) {
         type: "2",
         year: "2"
     }
-
     database.addOneCourse(JSON.stringify(course2beAdded))
     database.lookUpDoc('courses',"2222", function(data) {
         expect(data).exist;
     })
     done();
-    
-
-});
+}); 
 
 
 // ===== Delete Course  ===== //
 
-it('t1:9 Test deleting dummy data from db', function(done) {
+it('t1:8 Test deleting dummy data from db', function(done) {
     let course2beDeleted = {    
         capacity: 0,
         code: 1,
         colour: "#993366",
-        course_ref: "3333",
-        dept: "EECS",
+        course_ref: "1111",
+        dept: "1",
         display: true,
         duration: "1",
         instructor: "Nhi Nhi",
@@ -211,3 +191,4 @@ it('t1:9 Test deleting dummy data from db', function(done) {
     });
     
 }); 
+ 
